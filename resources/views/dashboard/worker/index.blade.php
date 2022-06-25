@@ -54,7 +54,9 @@
                                 <td>{{ $worker->name }}</td>
                                 <td>{{ $worker->visitor }}</td>
                                 <td>
-                                    <div class="btn-group">
+                                    <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label>
+
+                                    {{-- <div class="btn-group">
                                         <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                           Action
                                         </button>
@@ -65,7 +67,7 @@
                                           <div class="dropdown-divider"></div>
                                           <a class="dropdown-item" href="#">Separated link</a>
                                         </div>
-                                      </div>
+                                      </div> --}}
                                       
                                 </td>
                                 <td>
