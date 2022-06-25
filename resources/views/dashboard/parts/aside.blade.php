@@ -53,7 +53,7 @@
         </ul>
       </li>
       <li class="nav-item has-sub "><a href="#">
-        <i class="la la-globe"></i>
+        <i class="la la-adjust"></i>
         <span class="menu-title" >Countries</span></a>
         <ul class="menu-content" style="">
           <li class="is-shown"><a class="menu-item" href="{{ route('country.index') }}" >Show All</a>
