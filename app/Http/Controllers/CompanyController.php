@@ -53,6 +53,7 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name'=>'required',
+            'image'=>'required',
             'email'=>'required|email|unique:users,email|email|unique:companies,email',
             'phone'=>'required|unique:users',
             'commercial_register'=>'required'
@@ -80,8 +81,8 @@ class CompanyController extends Controller
         $company->twitter = $request->twitter;
         $company->snapchat = $request->snapchat;
         $company->instagram = $request->instagram;
-        $company->longitude = $request->longitude;
-        $company->latitude = $request->latitude;
+        $company->longitude = $request->longitude == null ?  '46.716667' : $request->longitude  ;
+        $company->latitude = $request->latitude == null ?  '24.633333' : $request->latitude  ;
         $company->image = $request->image->store('company');
         $company->user_id = $user->id;
         $company->save();

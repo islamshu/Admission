@@ -1,4 +1,11 @@
 @extends('layouts.backend')
+@section('css')
+    <style>
+        span{
+            margin: 5px
+        }
+    </style>
+@endsection
 @section('content')
     <div class="content-body">
         <section id="configuration">
@@ -30,8 +37,8 @@
 
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label>Image </label>
-                                                <input type="file" name="image" class="form-control image">
+                                                <label>Image </label> <span style="color: red">*</span>
+                                                <input type="file" name="image" required class="form-control image">
                                             </div>
                     
                                             <div class="form-group">
@@ -41,11 +48,11 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Name</label>
+                                                <label>Name</label><span style="color: red">*</span>
                                                 <input type="text" id="form3" value="{{ old('name') }}" required name="name"  class="form-control validate">
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Email</label>
+                                                <label>Email</label><span style="color: red">*</span>
                                                 <input type="email" id="form3" value="{{ old('email') }}" required name="email"  class="form-control validate">
                                             </div>
 
@@ -54,11 +61,11 @@
                                         <br>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Phone</label>
+                                                <label>Phone</label><span style="color: red">*</span>
                                                 <input type="text" id="form3"  value="{{ old('phone') }}" required name="phone"  class="form-control validate">
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Commical Register</label>
+                                                <label>Commical Register</label><span style="color: red">*</span>
                                                 <input type="number" id="form3" value="{{ old('commercial_register') }}" required name="commercial_register"  class="form-control validate">
                                             </div>
 

@@ -58,6 +58,7 @@
 }
 
     </style>
+    @yield('css')
    
 </head>
 
