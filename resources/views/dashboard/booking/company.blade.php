@@ -31,7 +31,7 @@
                                             <th>#</th>
                                             <th>Customer name</th>
                                             <th>Customer numer id</th>
-                                            <th>worker</th>
+                                            <th>worker's name</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
@@ -58,7 +58,7 @@
                                             <th>#</th>
                                             <th>Customer name</th>
                                             <th>Customer numer id</th>
-                                            <th>worker</th>
+                                            <th>worker's name</th>
                                             <th>action</th>
                                         </tr>
                                     </tfoot>

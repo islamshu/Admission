@@ -29,7 +29,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
+                                            <th>Company Name</th>
                                             <th>Number Of order</th>
                                             <th>Action</th>
                                         </tr>
@@ -50,7 +50,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
+                                            <th>Company Name</th>
                                             <th>Number Of order</th>
                                             <th>Action</th>
                                         </tr>
