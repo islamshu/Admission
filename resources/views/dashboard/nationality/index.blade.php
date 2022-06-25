@@ -20,9 +20,10 @@
                         <div class="card-content collapse show">
 
                             <div class="card-body card-dashboard">
-                                <a href="{{ route('nationalities.create') }}" class="btn btn-info mb-2 ">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                     Create nationalitiy
-                                </a>
+                                  </button>
+                                
                                 <br>
                                 @include('dashboard.parts._error')
                                 @include('dashboard.parts._success')
@@ -30,6 +31,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Flag</th>
                                             <th>Name</th>
                                             <th>Action</th>
                                         </tr>
@@ -39,6 +41,7 @@
                                         @foreach ($natis as $key => $na)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
+                                                <td><img src="{{ asset('uploads/'.$na->flag) }}" width="80" height="50" alt=""></td>
                                                 <td>{{ $na->name }}</td>
                                                 <td>
                                                     <button class="btn btn-info" data-toggle="modal" data-target="#myModal"
@@ -54,6 +57,8 @@
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
+                                            <th>Flag</th>
+
                                             <th>Name</th>
                                             <th>Action</th>
                                         </tr>
@@ -108,6 +113,56 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">{{ __('Create Nationalitiy') }}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="natonality">
+                        <form action="{{ route('nationalities.store') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                          
+                            <div class="modal-body mx-3">
+                              <div class="md-form mb-2">
+                               <label data-error="wrong" data-success="right" for="form3">Flag</label>
+                               <input type="file" id="form3" name="flag"  class="form-control image">
+                              </div>
+                              <div class="form-group">
+                                <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
+                            </div>
+                        
+                              
+                        
+                            </div>
+                            <div class="modal-body mx-3">
+                                <div class="md-form mb-2">
+                                 <label data-error="wrong" data-success="right" for="form3">Arabic Name</label>
+                                 <input type="text" id="form3" name="name_ar"  class="form-control validate">
+                                </div>
+                        
+                                <div class="md-form mb-2">
+                                 <label data-error="wrong" data-success="right" for="form2">English Name</label>
+                                 <input type="text" id="form2" name="name_en"  class="form-control validate">
+                                </div>
+                        
+                              </div>
+                              <div class="modal-footer d-flex justify-content-center">
+                                <button class="btn btn-info" type="submit">Send </i></button>
+                              </div>
+                        </form>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
         </section>
 
     </div>
@@ -137,5 +192,22 @@
             });
 
         }
+        
     </script>
+    <script>
+                        
+        $(".image").change(function () {
+                
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+            
+                    reader.onload = function (e) {
+                        $('.image-preview').attr('src', e.target.result);
+                    }
+            
+                    reader.readAsDataURL(this.files[0]);
+                }
+            
+            });
+        </script>
 @endsection

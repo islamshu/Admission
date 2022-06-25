@@ -36,14 +36,17 @@ class NationalityController extends Controller
     public function store(Request $request)
     {
         $nationality = Nationality::create([
-            'name'=>['ar'=>$request->name_ar,'en'=>$request->name_en]
+            'name'=>['ar'=>$request->name_ar,'en'=>$request->name_en],
+            'flag'=>$request->flag->store('nationality')
         ]);
         return redirect()->route('nationalities.index')->with(['success'=>'added successfully']);
     }
     public function store_ajax(Request $request)
     {
+        // dd($request);
         $nationality = Nationality::create([
-            'name'=>['ar'=>$request->name_ar,'en'=>$request->name_en]
+            'name'=>['ar'=>$request->name_ar,'en'=>$request->name_en],
+            // 'flag'=>$request->flag->store('nationality')
         ]);
         if(get_lang()=='ar'){
             $name = $request->name_ar;
@@ -91,9 +94,18 @@ class NationalityController extends Controller
     public function update(Request $request,$id)
     {
         $nationality = Nationality::find($id);
-        $nationality->update([
-            'name'=>['ar'=>$request->name_ar,'en'=>$request->name_en]
-        ]);
+        if($request->flag != null){
+            $nationality->update([
+                'name'=>['ar'=>$request->name_ar,'en'=>$request->name_en],
+                'flag'=>$request->flag->store('nationality')
+            ]);
+        }else{
+            $nationality->update([
+                'name'=>['ar'=>$request->name_ar,'en'=>$request->name_en],
+            ]); 
+        }
+        
+        
         return redirect()->route('nationalities.index')->with(['success'=>'Edit successfully']);
     }
 
@@ -103,8 +115,11 @@ class NationalityController extends Controller
      * @param  \App\Nationality  $nationality
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Nationality $nationality)
+    public function destroy($id)
     {
-        //
+        $nat = Nationality::find($id);
+        $nat->delete();
+        return redirect()->route('nationalities.index')->with(['success'=>'Deleted successfully']);
+
     }
 }

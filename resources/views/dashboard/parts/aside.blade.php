@@ -28,6 +28,8 @@
         <ul class="menu-content" style="">
           <li class="is-shown"><a class="menu-item" href="{{ route('companies.index') }}" >Show All</a>
           </li>
+          <li class="is-shown"><a class="menu-item" href="{{ route('companies.create') }}" >Create Company</a>
+          </li>
           
         </ul>
       </li>

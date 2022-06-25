@@ -202,7 +202,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header text-center">
-                            <h4 class="modal-title w-100 font-weight-bold">{{ __('Edit Nationalitiy') }}</h4>
+                            <h4 class="modal-title w-100 font-weight-bold">{{ __('Add Nationalitiy') }}</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -210,8 +210,20 @@
                         <div id="form-errors" class="text-center" ></div>
 
                         <div id="natonality">
-                            <form  method="post" id="form_model">
+                            <form  method="post" id="form_model" enctype="multipart/form-data">
                                 @csrf
+                                {{-- <div class="modal-body mx-3">
+                                    <div class="md-form mb-2">
+                                     <label data-error="wrong" data-success="right" for="form3">Flag</label>
+                                     <input type="file" id="form3" name="flag"  class="form-control image">
+                                    </div>
+                                    <div class="form-group">
+                                      <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
+                                  </div>
+                              
+                                    
+                              
+                                  </div> --}}
                                 <div class="modal-body mx-3">
                                     <div class="md-form mb-2">
                                      <label data-error="wrong" data-success="right" for="form3">Arabic Name</label>

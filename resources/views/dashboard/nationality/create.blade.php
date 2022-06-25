@@ -28,6 +28,17 @@
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-6">
+                                                <label>Flag</label>
+                                                <input type="file" name="flag"  class="form-control image" id="flag"
+                                                placeholder="type Arbic Name">                                           
+                                             </div>
+                                             <div class="form-group">
+                                                <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
+                                            </div>
+                                                                             
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
                                                 <label>Arbic Name</label>
                                                 <input type="text" name="name_ar"  class="form-control" id="name_ar"
                                                 placeholder="type Arbic Name">                                           
@@ -36,10 +47,7 @@
                                                 <label>English Name</label>
                                                 <input type="text" name="name_en"  class="form-control" id="name_en"
                                                 placeholder="type English Name">                                           
-                                             </div>
-                                       
-
-                                            
+                                             </div>                                   
                                         </div>
                                         <br>
 

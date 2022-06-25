@@ -36,7 +36,8 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.company.create');
+
     }
 
   
@@ -47,6 +48,50 @@ class CompanyController extends Controller
     public function get_compnay_edit(Request $request){
         $company = Company::find($request->id);
         return view('dashboard.company.edit')->with('company',$company);
+    }
+    public function store_admin(Request $request)
+    {
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email|unique:users,email|email|unique:companies,email',
+            'phone'=>'required|unique:users',
+            'commercial_register'=>'required'
+        ]);
+        try {
+        DB::beginTransaction();
+        $user = new User();
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->name = $request->name;
+        // $user->show_password = generate_password();
+        // $user->password = encrypt(generate_password()) ;
+        $user->show_password = '123456789';
+        $user->password = Hash::make('123456789') ;
+        // $user->otp = generateNumber();
+        $user->otp = 1991;
+        $user->save();
+        $user->assignRole('Company');
+        $company = new Company();
+        $company->name = $request->name;
+        $company->email = $request->email;
+        $company->phone = $request->phone;
+        $company->co_register = $request->commercial_register;
+        $company->facebook = $request->facebook;
+        $company->twitter = $request->twitter;
+        $company->snapchat = $request->snapchat;
+        $company->instagram = $request->instagram;
+        $company->longitude = $request->longitude;
+        $company->latitude = $request->latitude;
+        $company->image = $request->image->store('company');
+        $company->user_id = $user->id;
+        $company->save();
+        DB::commit();
+        return redirect()->route('companies.index')->with(['success'=>'Addedd successfully ']);
+
+    } catch(\Exception $exp) {
+        DB::rollBack(); // Tell Laravel, "It's not you, it's me. Please don't persist to DB"
+        return redirect()->back()->with(['error'=>'error occer']);
+    }
     }
     public function store(Request $request)
     {   

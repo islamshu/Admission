@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title" id="basic-layout-colored-form-control">Create Country  </h4>
+                            <h4 class="card-title" id="basic-layout-colored-form-control">Create Company  </h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -23,22 +23,94 @@
                                 @include('dashboard.parts._success')
     
                                 <form class="form" method="post"
-                                    action="{{ route('country.store') }}" enctype="multipart/form-data">
+                                    action="{{ route('companies.store_admin') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-body">
+                                        <h4 class="form-section"><i class="la la-add"></i>Company Info</h4>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label>Image </label>
+                                                <input type="file" name="image" class="form-control image">
+                                            </div>
+                    
+                                            <div class="form-group">
+                                                <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
+                                            </div>
+                                        
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Name</label>
-                                                <input type="text" name="name" autocomplete="off" data-country-id="0" class="form-control" id="country"
-                                                placeholder="type country name">                                            </div>
-                                             <div id="full_data"></div>
+                                                <input type="text" id="form3" value="{{ old('name') }}" required name="name"  class="form-control validate">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                                <input type="email" id="form3" value="{{ old('email') }}" required name="email"  class="form-control validate">
+                                            </div>
 
                                             
                                         </div>
                                         <br>
-                                        <div class="col-md-3" id="country_info"></div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                                <input type="text" id="form3"  value="{{ old('phone') }}" required name="phone"  class="form-control validate">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Commical Register</label>
+                                                <input type="number" id="form3" value="{{ old('commercial_register') }}" required name="commercial_register"  class="form-control validate">
+                                            </div>
 
+                                            
+                                        </div>
                                         <br>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Longitude</label>
+                                                <input type="text" id="form3" value="{{ old('longitude') }}" placeholder="Longitude" name="longitude"  class="form-control validate">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Latitude</label>
+                                                <input type="text" id="form3" value="{{ old('latitude') }}" placeholder="Latitude"  name="latitude"  class="form-control validate">
+                                            </div>
+
+                                            
+                                        </div>
+                                        <br>
+                                        
+                    <h4 class="form-section"><i class="la la-add"></i>Social media</h4>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="userinput2">Facebook</label>
+                                <input type="url" name="facebook" value="{{ old('faceook') }}" placeholder="Facebook"  id="userinput2" class="form-control border-primary"  >
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="userinput2">Twitter</label>
+                                <input type="url" name="twitter" value="{{ old('twitter') }}" placeholder="Twitter"  id="userinput2" class="form-control border-primary"  >
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="facebook">Snapchat</label>
+                                <input type="url" name="snapchat" value="{{ old('snapchat') }}" placeholder="Snapchat"  id="userinput2" class="form-control border-primary"  >
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="facebook">Instagram</label>
+                                <input type="url" name="instagram" value="{{ old('instagram') }}" placeholder="Instagram"  id="userinput25" class="form-control border-primary"  >
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                                      
+                                       
                      
                                         
                                     </div>

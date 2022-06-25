@@ -20,9 +20,9 @@
                         <div class="card-content collapse show">
 
                             <div class="card-body card-dashboard">
-                                {{-- <a href="{{ route('companies.create') }}" class="btn btn-info mb-2 ">
+                                <a href="{{ route('companies.create') }}" class="btn btn-info mb-2 ">
                                     Create Company
-                                </a> --}}
+                                </a>
                                 <br>
                                 @include('dashboard.parts._error')
                                 @include('dashboard.parts._success')

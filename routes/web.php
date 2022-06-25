@@ -44,6 +44,7 @@ Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
     Route::resource('nationalities','NationalityController');
     Route::post('get_natonlity_edit','NationalityController@get_natonlity_edit')->name('get_natonlity_edit');
     Route::resource('companies','CompanyController');
+    Route::post('companies','CompanyController@store_admin')->name('companies.store_admin');
     Route::post('get_compnay_edit','CompanyController@get_compnay_edit')->name('get_compnay_edit');
     Route::get('comapny/status/update', 'CompanyController@updateStatus')->name('comapny.update.status');
 
