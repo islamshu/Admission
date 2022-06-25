@@ -66,7 +66,7 @@
 
     </div>
 @endsection
-@section('scripts')
+@section('script')
 <script>
     function autocomplete(inp, arr, fullarr) {
         /*the autocomplete function takes two arguments,

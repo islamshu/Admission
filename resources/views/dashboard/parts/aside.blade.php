@@ -54,6 +54,17 @@
       </li>
       <li class="nav-item has-sub "><a href="#">
         <i class="la la-globe"></i>
+        <span class="menu-title" >Countries</span></a>
+        <ul class="menu-content" style="">
+          <li class="is-shown"><a class="menu-item" href="{{ route('country.index') }}" >Show All</a>
+          </li>
+          <li class="is-shown"><a class="menu-item" href="{{ route('country.create') }}" >Create country</a>
+          </li>
+          
+        </ul>
+      </li>
+      <li class="nav-item has-sub "><a href="#">
+        <i class="la la-globe"></i>
         <span class="menu-title" >Nationalities</span></a>
         <ul class="menu-content" style="">
           <li class="is-shown"><a class="menu-item" href="{{ route('nationalities.index') }}" >Show All</a>
