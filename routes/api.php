@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::get('natonality','Api\HomeController@natonality');
+Route::get('copmanies','Api\HomeController@compnaines');
+Route::get('company/{id}','Api\HomeController@company');
+Route::get('workers','Api\HomeController@workers');
+Route::get('worker/{id}','Api\HomeController@worker');
+Route::get('workers_filter','Api\HomeController@workers_filter');
+Route::get('contact', 'Api\HomeController@contact');
+Route::get('privacy-policy', 'Api\HomeController@privacy');
+Route::get('about-us', 'Api\HomeController@abouts');
+Route::get('FAQs','Api\HomeController@faqs');

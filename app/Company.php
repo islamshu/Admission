@@ -22,4 +22,8 @@ class Company extends Model
     {
         return $this->hasMany(Booking::class, 'company_id')->withTrashed();
     }
+    public function workers()
+    {
+        return $this->hasMany(Worker::class, 'company_id');
+    }
 }

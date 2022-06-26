@@ -1,8 +1,22 @@
 <?php
 
 use App\Company;
+use App\Social;
 use App\User;
 
+if ( ! function_exists('get_social'))
+{
+    function get_social($key)
+    {
+       $general = Social::where('type', $key)->first();
+       if($general){
+           return $general->value;
+       }
+
+       return '';
+    }
+
+}
 if (!function_exists('generateBarcodeNumber')) {
     function generateNumber()
     {

@@ -1,0 +1,74 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\About;
+use App\Company;
+use App\Faqs;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\CopmainsResource;
+use App\Http\Resources\FaqsResoures;
+use App\Http\Resources\NatonalityResource;
+use App\Http\Resources\PageResoures;
+use App\Http\Resources\SocialCollection;
+use App\Http\Resources\WorkerResource;
+use App\Nationality;
+use App\Privacy;
+use App\Social;
+use App\Worker;
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function natonality(){
+       $nats = Nationality::get();
+       return NatonalityResource::collection($nats);
+    }
+    public function compnaines(){
+        $camp = Company::where('status',1)->get();
+        return CopmainsResource::collection($camp);
+    }
+    public function company($id){
+        $camp = Company::find($id);
+        return new CopmainsResource($camp);
+    }
+    public function workers(){
+        $camp = Worker::get();
+        return WorkerResource::collection($camp);
+    }
+    public function worker($id){
+        $camp = Worker::find($id);
+        return new WorkerResource($camp);
+    }
+    public function workers_filter(Request $request){
+        $camp = Worker::query();
+        $camp->when($request->natonality, function ($q) use ($request) { 
+            return $q->where('nationality_id', $request->natonality);
+        });
+        $camp->when($request->religion, function ($q) use ($request) { 
+            return $q->where('religion', $request->religion);
+        });
+        $camp=$camp->get();
+        return WorkerResource::collection($camp);
+    }
+    public function contact(){
+        $socials = Social::get();
+        $res['data'] = new SocialCollection($socials);
+        return $res;
+    }
+    public function privacy(){
+        return PageResoures::collection(Privacy::orderBy('sort','asc')->get());
+      
+    }
+    public function abouts(){
+        return PageResoures::collection(About::orderBy('sort','asc')->get());
+
+    }
+    public function faqs(){
+        
+        return FaqsResoures::collection(Faqs::orderBy('sort','asc')->get());
+
+    }
+
+    
+}
