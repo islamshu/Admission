@@ -42,7 +42,7 @@ Route::get('about','AboutController@index')->name('about.index');
 Route::post('about','AboutController@store')->name('about.store');
 Route::delete('about/{id}','AboutController@destroy')->name('about.delete');
 Route::post('update_sort_about','AboutController@update_sort')->name('update_sort_about');
-Route::get('social_info','SocialController@index'); 
+Route::get('social_info','SocialController@index')->name('social_info'); 
 Route::post('social_info_post','SocialController@store')->name('social_info_post'); 
 
 
