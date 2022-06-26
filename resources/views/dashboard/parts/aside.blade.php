@@ -76,6 +76,21 @@
           
         </ul>
       </li>
+      <li class="nav-item has-sub "><a href="#">
+        <i class="fa fa-bookmark"></i>
+        <span class="menu-title" >Pages</span></a>
+        <ul class="menu-content" style="">
+          <li class="is-shown"><a class="menu-item" href="{{ route('social_info') }}" >Social Media</a>
+          </li>
+          <li class="is-shown"><a class="menu-item" href="{{ route('privacy.index') }}" >Privacy</a>
+          </li>
+          <li class="is-shown"><a class="menu-item" href="{{ route('faqs.index') }}" >FAQs</a>
+          </li>
+          <li class="is-shown"><a class="menu-item" href="{{ route('about.index') }}" >About</a>
+          </li>
+          
+        </ul>
+      </li>
       @endif
       @if(auth()->user()->hasRole('Company'))
       <li class="nav-item has-sub "><a href="#">
