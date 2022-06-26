@@ -53,10 +53,10 @@ class HomeController extends Controller
         $camp->when($request->company_id, function ($q) use ($request) { 
             return $q->where('company_id', $request->company_id);
         });
-        $camp->when($request->is_coocked, function ($q) use ($request) { 
+        $camp->when($request->is_coocked != null, function ($q) use ($request) { 
             return $q->where('is_coocked', $request->is_coocked);
         });
-        $camp->when($request->is_love_childe, function ($q) use ($request) { 
+        $camp->when($request->is_love_childe != null, function ($q) use ($request) { 
             return $q->where('approve_chiled', $request->is_love_childe);
         });
         $camp=$camp->get();
