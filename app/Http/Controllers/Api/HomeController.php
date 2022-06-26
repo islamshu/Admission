@@ -41,12 +41,23 @@ class HomeController extends Controller
         return new WorkerResource($camp);
     }
     public function workers_filter(Request $request){
-        $camp = Worker::query();
-        $camp->when($request->natonality, function ($q) use ($request) { 
-            return $q->where('nationality_id', $request->natonality);
+        $camp = Worker::query()->has('company')->whereHas('company',function ($q){
+            $q->where('status',1);
+        });
+        $camp->when($request->nationality_id, function ($q) use ($request) { 
+            return $q->where('nationality_id', $request->nationality_id);
         });
         $camp->when($request->religion, function ($q) use ($request) { 
             return $q->where('religion', $request->religion);
+        });
+        $camp->when($request->company_id, function ($q) use ($request) { 
+            return $q->where('company_id', $request->company_id);
+        });
+        $camp->when($request->is_coocked, function ($q) use ($request) { 
+            return $q->where('is_coocked', $request->is_coocked);
+        });
+        $camp->when($request->is_love_childe, function ($q) use ($request) { 
+            return $q->where('approve_chiled', $request->is_love_childe);
         });
         $camp=$camp->get();
         return WorkerResource::collection($camp);
