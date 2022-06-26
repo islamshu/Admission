@@ -56,8 +56,8 @@ class HomeController extends Controller
         $camp->when($request->is_coocked != null, function ($q) use ($request) { 
             return $q->where('is_coocked', $request->is_coocked);
         });
-        $camp->when($request->is_love_childe != null, function ($q) use ($request) { 
-            return $q->where('approve_chiled', $request->is_love_childe);
+        $camp->when($request->approve_chiled != null, function ($q) use ($request) { 
+            return $q->where('approve_chiled', $request->approve_chiled);
         });
         $camp=$camp->get();
         return WorkerResource::collection($camp);
