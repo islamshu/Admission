@@ -46,6 +46,7 @@
                                   </button>
                                 
                                 <br>
+                                <br>
                                 @include('dashboard.parts._error')
                                 @include('dashboard.parts._success')
                                 <table class="table table-striped table-bordered zero-configuration">
