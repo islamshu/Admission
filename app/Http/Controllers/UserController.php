@@ -118,7 +118,7 @@ class UserController extends Controller
         }
       
 
-        return redirect()->back()->with(['success'=>'تمت التعديل بنجاح']);
+        return redirect()->back()->with(['success'=>trans('Updated successfully')]);
     }
     public function dashboard()
     {

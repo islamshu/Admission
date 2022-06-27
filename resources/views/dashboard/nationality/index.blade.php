@@ -3,15 +3,15 @@
 <div class="content-wrapper">
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Workers</h3>
+            <h3 class="content-header-title">@lang('Nationalities')</h3>
             <div class="row breadcrumbs-top">
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
                         </li>
                         {{-- <li class="breadcrumb-item"><a href="{{ route('worker.index') }}">Workers</a>
                         </li> --}}
-                        <li class="breadcrumb-item active">Nationalities
+                        <li class="breadcrumb-item active">@lang('Nationalities')
                         </li>
                     </ol>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">nationalities</h4>
+                            <h4 class="card-title">@lang('nationalities')</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -42,7 +42,7 @@
 
                             <div class="card-body card-dashboard">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                    Create nationalitiy
+                                    @lang('Create nationalitiy')
                                   </button>
                                 
                                 <br>
@@ -53,9 +53,9 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Flag</th>
-                                            <th>Name</th>
-                                            <th>Action</th>
+                                            <th>@lang('flag')</th>
+                                            <th>@lang('Name')</th>
+                                            <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -140,7 +140,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h4 class="modal-title w-100 font-weight-bold">{{ __('Create Nationalitiy') }}</h4>
+                        <h4 class="modal-title w-100 font-weight-bold">{{ __('Create nationalitiy') }}</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -151,7 +151,7 @@
                           
                             <div class="modal-body mx-3">
                               <div class="md-form mb-2">
-                               <label data-error="wrong" data-success="right" for="form3">Flag</label>
+                               <label data-error="wrong" data-success="right" for="form3">@lang('Flag')</label>
                                <input type="file" id="form3" name="flag"  class="form-control image">
                               </div>
                               <div class="form-group">
@@ -163,18 +163,18 @@
                             </div>
                             <div class="modal-body mx-3">
                                 <div class="md-form mb-2">
-                                 <label data-error="wrong" data-success="right" for="form3">Arabic Name</label>
+                                 <label data-error="wrong" data-success="right" for="form3">@lang('Arabic Name')</label>
                                  <input type="text" id="form3" name="name_ar"  class="form-control validate">
                                 </div>
                         
                                 <div class="md-form mb-2">
-                                 <label data-error="wrong" data-success="right" for="form2">English Name</label>
+                                 <label data-error="wrong" data-success="right" for="form2">@lang('English Name')</label>
                                  <input type="text" id="form2" name="name_en"  class="form-control validate">
                                 </div>
                         
                               </div>
                               <div class="modal-footer d-flex justify-content-center">
-                                <button class="btn btn-info" type="submit">Send </i></button>
+                                <button class="btn btn-info" type="submit">@lang('save') </i></button>
                               </div>
                         </form>
                         

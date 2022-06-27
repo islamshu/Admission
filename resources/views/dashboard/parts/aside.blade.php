@@ -24,11 +24,11 @@
       </li> --}}
       <li class="nav-item has-sub "><a href="#">
         <i class="fa fa-building"></i>
-        <span class="menu-title" >Companies</span></a>
+        <span class="menu-title" >@lang('Companies')</span></a>
         <ul class="menu-content" style="">
-          <li class="is-shown"><a class="menu-item" href="{{ route('companies.index') }}" >Show All</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('companies.index') }}" >@lang('Show All')</a>
           </li>
-          <li class="is-shown"><a class="menu-item" href="{{ route('companies.create') }}" >Create Company</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('companies.create') }}" >@lang('Create Company')</a>
           </li>
           
         </ul>
@@ -36,62 +36,75 @@
      
       <li class="nav-item has-sub "><a href="#">
         <i class="fa fa-user-circle"></i>
-        <span class="menu-title" >Worker</span></a>
+        <span class="menu-title" >@lang('workers')</span></a>
         <ul class="menu-content" style="">
-          <li class="is-shown"><a class="menu-item" href="{{ route('worker.index') }}" >Show All</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('worker.index') }}" >@lang('Show All')</a>
           </li>
-          <li class="is-shown"><a class="menu-item" href="{{ route('worker.create') }}" >Create Worker</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('worker.create') }}" >@lang('Create Worker')</a>
           </li>
           
         </ul>
       </li>
       <li class="nav-item has-sub "><a href="#">
         <i class="fa fa-bookmark"></i>
-        <span class="menu-title" >Booking</span></a>
+        <span class="menu-title" >@lang('Booking')</span></a>
         <ul class="menu-content" style="">
-          <li class="is-shown"><a class="menu-item" href="{{ route('booking.get') }}" >Show All</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('booking.get') }}" >@lang('Show All')</a>
           </li>
           
         </ul>
       </li>
       <li class="nav-item has-sub "><a href="#">
         <i class="la la-adjust"></i>
-        <span class="menu-title" >Countries</span></a>
+        <span class="menu-title" >@lang('Countries')</span></a>
         <ul class="menu-content" style="">
-          <li class="is-shown"><a class="menu-item" href="{{ route('country.index') }}" >Show All</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('country.index') }}" >@lang('Show All')</a>
           </li>
-          <li class="is-shown"><a class="menu-item" href="{{ route('country.create') }}" >Create country</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('country.create') }}" >@lang('Create country')</a>
           </li>
           
         </ul>
       </li>
       <li class="nav-item has-sub "><a href="#">
         <i class="la la-globe"></i>
-        <span class="menu-title" >Nationalities</span></a>
+        <span class="menu-title" >@lang('Nationalities')</span></a>
         <ul class="menu-content" style="">
-          <li class="is-shown"><a class="menu-item" href="{{ route('nationalities.index') }}" >Show All</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('nationalities.index') }}" >@lang('Show All')</a>
           </li>
           {{-- <li class="is-shown"><a class="menu-item" href="{{ route('nationalities.create') }}" >Create Nationality</a>
           </li> --}}
           
         </ul>
       </li>
-      <li class="nav-item  "><a href="{{ route('social_info') }}">Social Media
+      <li class="nav-item  "><a href="{{ route('social_info') }}">@lang('Social media')
         <i class="fa fa-bookmark"></i>
         </a>
       </li>
-      <li class="nav-item  "><a href="{{ route('privacy.index') }}">Privacy
+      <li class="nav-item  "><a href="{{ route('privacy.index') }}">@lang('Privacy policy Page')
         <i class="fa fa-bookmark"></i>
         </a>
       </li>
-      <li class="nav-item  "><a href="{{ route('faqs.index') }}">FAQs
+      <li class="nav-item  "><a href="{{ route('faqs.index') }}">@lang('FAQs page')
         <i class="fa fa-bookmark"></i>
         </a>
       </li>
-      <li class="nav-item  "><a href="{{ route('about.index') }}">About
+      <li class="nav-item  "><a href="{{ route('about.index') }}">@lang('About us page')
         <i class="fa fa-bookmark"></i>
         </a>
       </li>
+      <li class="nav-item ">
+        <a class="menu-item" href="#" data-i18n="nav.menu_levels.second_level_child.main">
+            <i class="la la-thumb-tack"></i>
+            <span class="menu-title" data-i18n="nav.page_layouts.main">@lang('translation')</span>
+        </a>
+
+    <ul class="menu-content" style="">
+        <li class="is-shown"><a class="menu-item" href="{{ route('show_translate','ar') }}" data-i18n="nav.menu_levels.second_level_child.third_level">@lang('Arabic translation') </a>
+        </li>
+        <li class="is-shown"><a class="menu-item" href="{{ route('show_translate','en') }}" data-i18n="nav.menu_levels.second_level_child.third_level">@lang('English translation') </a>
+        </li>
+      </ul>
+    </li>
         {{-- <span class="menu-title" >Pages</span></a> --}}
         {{-- <ul class="menu-content" style="">
           <li class="is-shown"><a class="menu-item" href="{{ route('social_info') }}" >Social Media</a>
@@ -109,20 +122,20 @@
       @if(auth()->user()->hasRole('Company'))
       <li class="nav-item has-sub "><a href="#">
         <i class="fa fa-user-circle"></i>
-        <span class="menu-title" >Worker</span></a>
+        <span class="menu-title" >@lang('workers')</span></a>
         <ul class="menu-content" style="">
-          <li class="is-shown"><a class="menu-item" href="{{ route('worker.index') }}" >Show All</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('worker.index') }}" >@lang('Show All')</a>
           </li>
-          <li class="is-shown"><a class="menu-item" href="{{ route('worker.create') }}" >Create Worker</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('worker.create') }}" >@lang('Create Worker')</a>
           </li>
           
         </ul>
       </li>
       <li class="nav-item has-sub "><a href="#">
         <i class="fa fa-bookmark"></i>
-        <span class="menu-title" >Booking</span></a>
+        <span class="menu-title" >@lang('Booking')</span></a>
         <ul class="menu-content" style="">
-          <li class="is-shown"><a class="menu-item" href="{{ route('booking.get') }}" >Show All</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('booking.get') }}" >@lang('Show All')</a>
           </li>
           
         </ul>

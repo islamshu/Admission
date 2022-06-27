@@ -31,7 +31,6 @@ class SocialController extends Controller
             Social::setValue($name, $value);
         }
 
-        session()->flash('success', 'تم تحديث البيانات بنجاح');
-        return redirect()->back();
+        return redirect()->back()->with(['success'=>trans('Updated successfully')]);
     }
 }

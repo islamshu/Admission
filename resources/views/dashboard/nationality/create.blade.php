@@ -61,7 +61,8 @@
                                     <div class="form-actions left">
 
                                         <button type="submit" class="btn btn-primary">
-                                            <i class="la la-check-square-o"></i> {{ __('حفظ') }}
+                                            <i class="la la-check-square-o"></i> @lang('save')
+                                    </button>
                                         </button>
                                     </div>
     

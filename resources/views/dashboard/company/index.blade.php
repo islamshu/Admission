@@ -3,13 +3,13 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title">Companies</h3>
+                <h3 class="content-header-title">@lang('Companies')</h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
                             </li>
-                            <li class="breadcrumb-item active">Companies
+                            <li class="breadcrumb-item active">@lang('Companies')
                             </li>
                         </ol>
                     </div>
@@ -25,7 +25,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Companies</h4>
+                            <h4 class="card-title">@lang('Companies')</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -40,7 +40,7 @@
 
                             <div class="card-body card-dashboard">
                                 <a href="{{ route('companies.create') }}" class="btn btn-info mb-2 ">
-                                    Create Company
+                                    @lang('Create Company')
                                 </a>
                                 {{-- <button class="btn btn-info" data-toggle="modal" data-target="#myModalcreate"
                                             
@@ -54,12 +54,12 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>is verify</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
+                                            <th>@lang('Company Name')</th>
+                                            <th>@lang('Email')</th>
+                                            <th>@lang('Phone')</th>
+                                            <th>@lang('Is verify')</th>
+                                            <th>@lang('Status')</th>
+                                            <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -72,9 +72,9 @@
                                                 <td>{{ $company->phone }}</td>
                                                 <td>
                                                     @if (@$company->user->verify == 1)
-                                                        <label class="badge badge-success">Verify</label>
+                                                        <label class="badge badge-success">@lang('Verify')</label>
                                                     @else
-                                                        <label class="badge badge-danger">Not Verify </label>
+                                                        <label class="badge badge-danger">@lang('Not Verify') </label>
                                                     @endif
 
                                                 </td>
@@ -97,17 +97,7 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>is verify</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
+                                  
                                 </table>
                             </div>
                         </div>
@@ -269,7 +259,8 @@
                         <div class="form-actions left">
 
                             <button type="submit" class="btn btn-primary">
-                                <i class="la la-check-square-o"></i> {{ __('حفظ') }}
+                                <i class="la la-check-square-o"></i> @lang('save')
+                                    </button>
                             </button>
                         </div>
 
@@ -302,7 +293,10 @@
                         'company_id': CompanyId
                     },
                     success: function(data) {
-                        console.log(data.message);
+                    toastr.options.closeButton = true;
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeDuration = 100;
+                    toastr.success('{{ __('Status updated Successfully') }}');
                     }
                 });
             });

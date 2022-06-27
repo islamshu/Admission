@@ -10,15 +10,15 @@
 <div class="content-wrapper">
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Companies</h3>
+            <h3 class="content-header-title">@lang('Companies')</h3>
             <div class="row breadcrumbs-top">
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('companies.index') }}">Companies</a>
+                        <li class="breadcrumb-item"><a href="{{ route('companies.index') }}">@lang('Companies')</a>
                         </li>
-                        <li class="breadcrumb-item active">Create
+                        <li class="breadcrumb-item active">@lang('Create Company')
                         </li>
                     </ol>
                 </div>
@@ -34,7 +34,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title" id="basic-layout-colored-form-control">Create Company </h4>
+                            <h4 class="card-title" id="basic-layout-colored-form-control">@lang('Create Company') </h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -55,11 +55,11 @@
 
                                     @csrf
                                     <div class="form-body">
-                                        <h4 class="form-section"><i class="la la-add"></i>Company Info</h4>
+                                        <h4 class="form-section"><i class="la la-add"></i>@lang('Company Info')</h4>
 
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label>Image </label> <span style="color: red">*</span>
+                                                <label>@lang('Image') </label> <span style="color: red">*</span>
                                                 <input type="file" name="image" required class="form-control image">
                                             </div>
 
@@ -71,12 +71,12 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Name</label><span style="color: red">*</span>
+                                                <label>@lang('Company Name')</label><span style="color: red">*</span>
                                                 <input type="text" id="form3" value="{{ old('name') }}" required
                                                     name="name" class="form-control validate">
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Email</label><span style="color: red">*</span>
+                                                <label>@lang('Email')</label><span style="color: red">*</span>
                                                 <input type="email" id="form3" value="{{ old('email') }}" required
                                                     name="email" class="form-control validate">
                                             </div>
@@ -86,12 +86,12 @@
                                         <br>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Phone</label><span style="color: red">*</span>
+                                                <label>@lang('Phone')</label><span style="color: red">*</span>
                                                 <input type="text" id="form3" value="{{ old('phone') }}" required
                                                     name="phone" class="form-control validate">
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Commical Register</label><span style="color: red">*</span>
+                                                <label>@lang('Commical Register')</label><span style="color: red">*</span>
                                                 <input type="number" id="form3"
                                                     value="{{ old('commercial_register') }}" required
                                                     name="commercial_register" class="form-control validate">
@@ -102,12 +102,12 @@
                                         <br>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Longitude</label>
+                                                <label>@lang('Longitude')</label>
                                                 <input type="text" id="form3" value="{{ old('longitude') }}"
                                                     placeholder="Longitude" name="longitude" class="form-control validate">
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Latitude</label>
+                                                <label>@lang('Latitude')</label>
                                                 <input type="text" id="form3" value="{{ old('latitude') }}"
                                                     placeholder="Latitude" name="latitude" class="form-control validate">
                                             </div>
@@ -116,38 +116,38 @@
                                         </div>
                                         <br>
 
-                                        <h4 class="form-section"><i class="la la-add"></i>Social media</h4>
+                                        <h4 class="form-section"><i class="la la-add"></i>@lang('Social media')</h4>
 
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="userinput2">Facebook</label>
+                                                    <label for="userinput2">@lang('Facebook')</label>
                                                     <input type="url" name="facebook" value="{{ old('faceook') }}"
-                                                        placeholder="Facebook" id="userinput2"
+                                                        placeholder="@lang('Facebook')" id="userinput2"
                                                         class="form-control border-primary">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="userinput2">Twitter</label>
+                                                    <label for="userinput2">@lang('Twitter')</label>
                                                     <input type="url" name="twitter" value="{{ old('twitter') }}"
-                                                        placeholder="Twitter" id="userinput2"
+                                                        placeholder="@lang('Twitter')" id="userinput2"
                                                         class="form-control border-primary">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="facebook">Snapchat</label>
+                                                    <label for="facebook">@lang('Snapchat')</label>
                                                     <input type="url" name="snapchat"
-                                                        value="{{ old('snapchat') }}" placeholder="Snapchat"
+                                                        value="{{ old('snapchat') }}" placeholder="@lang('Snapchat')"
                                                         id="userinput2" class="form-control border-primary">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="facebook">Instagram</label>
+                                                    <label for="facebook">@lang('Instagram')</label>
                                                     <input type="url" name="instagram"
-                                                        value="{{ old('instagram') }}" placeholder="Instagram"
+                                                        value="{{ old('instagram') }}" placeholder="@lang('Instagram')"
                                                         id="userinput25" class="form-control border-primary">
                                                 </div>
                                             </div>
@@ -165,7 +165,7 @@
                                 <div class="form-actions left">
 
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="la la-check-square-o"></i> {{ __('حفظ') }}
+                                        <i class="la la-check-square-o"></i> @lang('save')
                                     </button>
                                 </div>
 

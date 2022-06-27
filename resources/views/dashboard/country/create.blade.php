@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title" id="basic-layout-colored-form-control">Create Country  </h4>
+                            <h4 class="card-title" id="basic-layout-colored-form-control">@lang('Create Country')  </h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -28,7 +28,7 @@
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Name</label>
+                                                <label>@lang('Name')</label>
                                                 <input type="text" name="name" autocomplete="off" data-country-id="0" class="form-control" id="country"
                                                 placeholder="type country name">                                            </div>
                                              <div id="full_data"></div>
@@ -48,7 +48,8 @@
                                     <div class="form-actions left">
 
                                         <button type="submit" class="btn btn-primary">
-                                            <i class="la la-check-square-o"></i> {{ __('حفظ') }}
+                                            <i class="la la-check-square-o"></i> @lang('save')
+                                    </button>
                                         </button>
                                     </div>
     

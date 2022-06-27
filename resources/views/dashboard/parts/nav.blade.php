@@ -32,9 +32,9 @@
                   <img src="http://website.foryougo.net/backend/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="{{ route('edit_profile') }}"><i class="ft-user"></i>تعديل الملف الشخصي</a>
+                <a class="dropdown-item" href="{{ route('edit_profile') }}"><i class="ft-user"></i>@lang('Edit Profile')</a>
                 
-                <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('logout') }}"><i class="ft-power"></i> تسجيل خروج</a>
+                <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('logout') }}"><i class="ft-power"></i> @lang('Logout')</a>
               </div>
             </li>
             

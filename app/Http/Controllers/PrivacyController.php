@@ -52,7 +52,7 @@ class PrivacyController extends Controller
         $page->body_en = $request->body_en;
         $page->sort = Privacy::count() +1;
         $page->save();
-        return redirect()->back()->with(['success'=>trans('Added Succeefully')]);
+        return redirect()->back()->with(['success'=>trans('Addedd successfully ')]);
     }
 
     /**
@@ -99,7 +99,7 @@ class PrivacyController extends Controller
     {
        $about= Privacy::find($id);
        $about->delete();
-       return redirect()->back()->with(['success'=>trans('Deleted Succeefully')]);
+       return redirect()->back()->with(['success'=>trans('Deleted successfully')]);
 
     }
 }

@@ -5,15 +5,15 @@
 <div class="content-wrapper">
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Booking for {{ $company->name }}</h3>
+            <h3 class="content-header-title">@lang('Booking for') {{ $company->name }}</h3>
             <div class="row breadcrumbs-top">
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('booking.get') }}">Booking</a>
+                        <li class="breadcrumb-item"><a href="{{ route('booking.get') }}">@lang('Booking')</a>
                         </li>
-                        <li class="breadcrumb-item active">{{ $company->name }} Booking
+                        <li class="breadcrumb-item active">{{ $company->name }} @lang('Booking')
                         </li>
                     </ol>
                 </div>
@@ -27,13 +27,13 @@
 <div class="content-wrapper">
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Booking </h3>
+            <h3 class="content-header-title">@lang('Booking') </h3>
             <div class="row breadcrumbs-top">
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
                         </li>
-                        <li class="breadcrumb-item active">Booking
+                        <li class="breadcrumb-item active">@lang('Booking')
                         </li>
                        
                     </ol>
@@ -51,7 +51,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Booking</h4>
+                            <h4 class="card-title">@lang('Booking')</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -74,10 +74,10 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Customer name</th>
-                                            <th>Customer numer id</th>
-                                            <th>worker's name</th>
-                                            <th>action</th>
+                                            <th>@lang('Customer name')</th>
+                                            <th>@lang('Customer number id')</th>
+                                            <th>@lang('worker name')</th>
+                                            <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
                                     <tbody>

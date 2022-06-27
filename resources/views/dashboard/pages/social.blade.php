@@ -3,13 +3,13 @@
 <div class="content-wrapper">
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Social media</h3>
+            <h3 class="content-header-title">@lang('Social media')</h3>
             <div class="row breadcrumbs-top">
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
                         </li>
-                        <li class="breadcrumb-item active">Social media
+                        <li class="breadcrumb-item active">@lang('Social media')
                         </li>
                        
                     </ol>
@@ -27,7 +27,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title" id="basic-layout-colored-form-control">Social media  </h4>
+                            <h4 class="card-title" id="basic-layout-colored-form-control">@lang('Social media')  </h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -78,11 +78,11 @@
                                                  
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="exampleSelectd">{{ __('facebook') }}</label>
+                                                    <label for="exampleSelectd">{{ __('Facebook') }}</label>
                                                     <input  name="general[facebook]" value="{{ get_social('facebook') }}" class="form-control" id="order">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="exampleSelectd">{{ __('twitter') }}</label>
+                                                    <label for="exampleSelectd">{{ __('Twitter') }}</label>
                                                     <input  name="general[twitter]" value="{{ get_social('twitter') }}" class="form-control" id="order">
                                                 </div>
                                                 <div class="form-group">

@@ -3,15 +3,15 @@
 <div class="content-wrapper">
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Workers</h3>
+            <h3 class="content-header-title">@lang('Workers')</h3>
             <div class="row breadcrumbs-top">
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('worker.index') }}">Workers</a>
+                        <li class="breadcrumb-item"><a href="{{ route('worker.index') }}">@lang('Workers')</a>
                         </li>
-                        <li class="breadcrumb-item active">Edit {{ $worker->name }}
+                        <li class="breadcrumb-item active">@lang('Edit') {{ $worker->name }}
                         </li>
                     </ol>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title" id="basic-layout-colored-form-control">Edit Worker </h4>
+                            <h4 class="card-title" id="basic-layout-colored-form-control">@lang('Edit Worker') </h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -50,7 +50,7 @@
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label>Image </label><span> (200 * 150)</span>
+                                                <label>@lang('Image') </label><span> (200 * 150)</span>
                                                 <input type="file" name="image" class="form-control image">
                                             </div>
 
@@ -62,15 +62,15 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Name</label>
+                                                <label>@lang('Name')</label>
                                                 <input type="text" name="name" value="{{ $worker->name }}"
                                                     class="form-control" required placeholder="type name">
                                             </div>
                                             @if (auth()->user()->hasRole('Admin'))
                                                 <div class="col-md-6">
-                                                    <label>Company</label>
+                                                    <label>@lang('Company')</label>
                                                     <select name="company_id" required class="form-control">
-                                                        <option value=""> Choose Compnay </option>
+                                                        <option value=""> @lang('Choose Compnay')</option>
                                                         @foreach ($comapnys as $item)
                                                             <option value="{{ $item->id }}"
                                                                 @if ($worker->company_id == $item->id) selected @endif>
@@ -84,9 +84,9 @@
                                         <br>
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <label>Natonality</label>
+                                                <label>@lang('Natonality')</label>
                                                 <select name="nationality_id" id="select_new" required class="form-control">
-                                                    <option value=""> Choose Natonality </option>
+                                                    <option value=""> @lang('Choose Natonality') </option>
                                                     @foreach ($natonality as $item)
                                                         <option value="{{ $item->id }}"
                                                             @if ($worker->nationality_id == $item->id) selected @endif>
@@ -97,11 +97,11 @@
                                             </div>
                                             <div class="col-md-2 mt-2 ">
                                                 <button type="button" class="btn btn-info" data-toggle="modal"
-                                                    data-target="#myModal"> add new</button>
+                                                    data-target="#myModal"> @lang('add new')</button>
 
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Age</label>
+                                                <label>@lang('Age')</label>
                                                 <input type="number" name="age" value="{{ $worker->age }}"
                                                     class="form-control" placeholder="type age">
                                             </div>
@@ -109,18 +109,18 @@
                                         <br>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Experince</label>
+                                                <label>@lang('Experince')</label>
                                                 <input type="number" name="experience" value="{{ $worker->experience }}"
                                                     class="form-control" placeholder="type experience">
 
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Is the experience inside Saudi Arabia or not?</label>
+                                                <label>@lang('Is the experience inside Saudi Arabia or not')?</label>
                                                 <select name="in_sa" required class="form-control">
                                                     <option value="1"
-                                                        @if ($worker->in_sa == 1) selected @endif> Yes </option>
+                                                        @if ($worker->in_sa == 1) selected @endif> @lang('yes') </option>
                                                     <option value="0"
-                                                        @if ($worker->in_sa == 0) selected @endif> No </option>
+                                                        @if ($worker->in_sa == 0) selected @endif> @lang('no') </option>
 
                                                 </select>
                                             </div>
@@ -128,9 +128,9 @@
                                         <br>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Language</label>
+                                                <label>@lang('Language')</label>
                                                 <select name="language" required class="form-control">
-                                                    <option value=""> Choose Language </option>
+                                                    <option value=""> @lang('Choose Language') </option>
                                                     @foreach (get_language() as $item)
                                                         <option value="{{ $item }}"
                                                             @if ($worker->language == $item) selected @endif>
@@ -140,13 +140,13 @@
 
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Religion</label>
+                                                <label>@lang('Religion')</label>
                                                 <select class="form-control" required name="religion">
-                                                    <option value="" selected disabled>choose Religion </option>
+                                                    <option value="" selected disabled>@lang('choose Religion') </option>
                                                     <option value="islam"
-                                                        @if ($worker->religion == 'islam') selected @endif>Islam</option>
+                                                        @if ($worker->religion == 'islam') selected @endif>@lang('Islam')</option>
                                                     <option value="christian"
-                                                        @if ($worker->religion == 'christian') selected @endif>Christian</option>
+                                                        @if ($worker->religion == 'christian') selected @endif>@lang('Christian')</option>
                                                     {{-- <option value="jewish" @if ($worker->religion == 'jewish') selected @endif >Jewish</option>
                                                     <option value="buddhism" @if ($worker->religion == 'buddhism')) selected @endif >Buddhism</option>
                                                     <option value="hindu" @if ($worker->religion == 'hindu')) selected @endif >Hindu</option> --}}
@@ -157,23 +157,23 @@
                                         <div class="row">
 
                                             <div class="col-md-6">
-                                                <label>Do you accept children?</label>
+                                                <label>@lang('Do you accept children')?</label>
                                                 <select name="approve_chiled" required class="form-control">
                                                     <option value="1"
-                                                        @if ($worker->approve_chiled == 1) selected @endif> Yes </option>
+                                                        @if ($worker->approve_chiled == 1) selected @endif> @lang('yes') </option>
                                                     <option value="0"
-                                                        @if ($worker->approve_chiled == 0) selected @endif> No </option>
+                                                        @if ($worker->approve_chiled == 0) selected @endif> @lang('no') </option>
 
                                                 </select>
                                             </div>
 
                                             <div class="col-md-6">
-                                                <label>Do she know cook ?</label>
+                                                <label>@lang('Do she know cook') ?</label>
                                                 <select name="is_coocked" required class="form-control">
                                                     <option value="1"
-                                                        @if ($worker->approve_chiled == 1) selected @endif> Yes </option>
+                                                        @if ($worker->approve_chiled == 1) selected @endif> @lang('yes') </option>
                                                     <option value="0"
-                                                        @if ($worker->approve_chiled == 0) selected @endif> No </option>
+                                                        @if ($worker->approve_chiled == 0) selected @endif> @lang('no') </option>
 
                                                 </select>
                                             </div>
@@ -183,14 +183,14 @@
                                         <div class="row">
 
                                             <div class="col-md-6">
-                                                <label>Recruitment period</label>
+                                                <label>@lang('Recruitment period')</label>
                                                 <select name="is_quick" required class="form-control" id="time_q">
-                                                    <option value=""> Choose</option>
+                                                    <option value=""> @lang('Choose')</option>
                                                     <option value="1"
-                                                        @if ($worker->is_quick == 1) selected @endif> immediately
+                                                        @if ($worker->is_quick == 1) selected @endif> @lang('immediately')
                                                     </option>
                                                     <option value="0"
-                                                        @if ($worker->is_quick == 0) selected @endif> needs time
+                                                        @if ($worker->is_quick == 0) selected @endif> @lang('needs time')
                                                     </option>
 
                                                 </select>
@@ -198,7 +198,7 @@
 
                                             <div class="col-md-6"
                                                 id="duration"@if ($worker->is_quick == 1) style="display: none" @else  style="display: inline" @endif>
-                                                <label>Duration</label>
+                                                <label>@lang('Duration')</label>
                                                 <input type="number" name="time" value="{{ $worker->time }}"
                                                     class="form-control" placeholder="type Duration">
                                             </div>
@@ -207,7 +207,7 @@
                                         <div class="row">
 
                                             <div class="col-md-6">
-                                                <label>Saned Url</label>
+                                                <label>@lang('Saned Url')</label>
                                                 <input type="url" name="url_sand" value="{{ $worker->url_sand }}"
                                                     class="form-control" required placeholder="type Saned Url">
                                             </div>
@@ -254,7 +254,7 @@
                                 @csrf
                                 <div class="modal-body mx-3">
                                     <div class="md-form mb-2">
-                                        <label data-error="wrong" data-success="right" for="form3">Flag</label>
+                                        <label data-error="wrong" data-success="right" for="form3">@lang('Flag')</label>
                                         <input type="file" id="form3" name="flag" class="form-control image">
                                     </div>
                                     <div class="form-group">
@@ -267,21 +267,21 @@
                                 </div>
                                 <div class="modal-body mx-3">
                                     <div class="md-form mb-2">
-                                        <label data-error="wrong" data-success="right" for="form3">Arabic Name</label>
+                                        <label data-error="wrong" data-success="right" for="form3">@lang('Arabic Name')</label>
                                         <input type="text" id="form3" name="name_ar"
                                             class="form-control validate">
                                     </div>
 
                                     <div class="md-form mb-2">
-                                        <label data-error="wrong" data-success="right" for="form2">English
-                                            Name</label>
+                                        <label data-error="wrong" data-success="right" for="form2">@lang('English Name')
+                                            </label>
                                         <input type="text" id="form2" name="name_en"
                                             class="form-control validate">
                                     </div>
 
                                 </div>
                                 <div class="modal-footer d-flex justify-content-center">
-                                    <button class="btn btn-info" type="submit">Send </i></button>
+                                    <button class="btn btn-info" type="submit">@lang('save') </i></button>
                                 </div>
                             </form>
                         </div>
@@ -334,7 +334,7 @@
                     toastr.options.closeButton = true;
                     toastr.options.closeMethod = 'fadeOut';
                     toastr.options.closeDuration = 100;
-                    toastr.success('Added Successfully');
+                    toastr.success('{{ __('Added Successfully') }}');
 
                 },
                 error: function(data) {

@@ -3,13 +3,13 @@
 <div class="content-wrapper">
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">About  Us</h3>
+            <h3 class="content-header-title">@lang('About Us')</h3>
             <div class="row breadcrumbs-top">
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
                         </li>
-                        <li class="breadcrumb-item active">About us page
+                        <li class="breadcrumb-item active">@lang('About us page')
                         </li>
                        
                     </ol>
@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">About page</h4>
+                            <h4 class="card-title">@lang('About us page')</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -48,7 +48,7 @@
                                 <th>{{ __('title') }}</th>
                                 <th>{{ __('content') }}</th>
                               
-                                <th>{{ __('Actions') }}</th>
+                                <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody class="sort_menu">
@@ -97,26 +97,26 @@
                                     </select>
                                 </div> --}}
                                 <div class="form-group col-md-6">
-                                    <label> {{ __('title ar') }} :</label>
+                                    <label> {{ __('Arabic Title') }} :</label>
                                     <input type="text" name="title_ar" id="name_ar" class="form-control form-control-solid"
-                                        placeholder="Enter Title" required />
+                                        placeholder="{{ __('Arabic Title') }}" required />
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>{{ __('title en') }} :</label>
+                                    <label>{{ __('English Title') }} :</label>
                                     <input type="text" name="title_en" id="name_en" class="form-control form-control-solid"
                                         placeholder="Enter Title" required />
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>{{ __('Content ar') }} :</label>
+                                    <label>{{ __('Arabic Content') }} :</label>
                                     <textarea name="body_ar" class="form-control" required id="" cols="30" rows="5"></textarea>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>{{ __('Content en') }} :</label>
+                                    <label>{{ __('English Content') }} :</label>
                                     <textarea name="body_en" class="form-control" required id="" cols="30" rows="5"></textarea>
                                 </div>
                            
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary mr-2">{{ __('Submit') }}</button>
+                                <button type="submit" class="btn btn-primary mr-2">{{ __('save') }}</button>
                             </div>
                     </form>
                     </div>

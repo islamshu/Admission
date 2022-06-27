@@ -2,14 +2,14 @@
 @section('content')
 <div class="content-header row">
     <div class="content-header-left col-md-6 col-12 mb-2">
-      <h3 class="content-header-title">Booking Info</h3>
+      <h3 class="content-header-title">@lang('Booking Info')</h3>
       <div class="row breadcrumbs-top">
         <div class="breadcrumb-wrapper col-12">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="">Home</a>
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
             </li>
            
-            <li class="breadcrumb-item active">Booking Info
+            <li class="breadcrumb-item active">@lang('Booking Info')
             </li>
           </ol>
         </div>
@@ -23,7 +23,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title" id="basic-layout-colored-form-control">Booking Info</h4>
+            <h4 class="card-title" id="basic-layout-colored-form-control">@lang('Booking Info')</h4>
             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
             <div class="heading-elements">
               <ul class="list-inline mb-0">
@@ -41,36 +41,36 @@
                 @csrf
 
                 <div class="form-body">
-                    <h4 class="form-section"><i class="la la-add"></i>Customer Info </h4>
+                    <h4 class="form-section"><i class="la la-add"></i>@lang('Customer Info') </h4>
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="userinput1">Name</label>
+                                <label for="userinput1">@lang('Name')</label>
                                 <input type="text" value="{{ $booking->name}}" readonly id="userinput1" class="form-control border-primary" >
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="userinput1">Date Of Birth</label>
+                                <label for="userinput1">@lang('Date Of Birth')</label>
                                 <input type="text" value="{{ $booking->DOB}}" readonly id="userinput1" class="form-control border-primary" >
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="userinput1">ID Number</label>
+                                <label for="userinput1">@lang('ID Number')</label>
                                 <input type="text" value="{{ $booking->id_number}}" readonly id="userinput1" class="form-control border-primary" >
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="userinput1">Phone Nuber</label>
+                                <label for="userinput1">@lang('Phone Number')</label>
                                 <input type="text" value="{{ $booking->phone}}" readonly id="userinput1" class="form-control border-primary" >
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="userinput1">Visa Image</label>
+                                <label for="userinput1">@lang('Visa Image')</label>
 
                                 <img src="{{ asset('uploads/'.$booking->visa_image) }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
                             </div>
@@ -78,17 +78,17 @@
                         
                      
                     </div>
-                    <h4 class="form-section"><i class="la la-add"></i>Worker Info </h4>
+                    <h4 class="form-section"><i class="la la-add"></i>@lang('Worker Info') </h4>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="bio">name</label>
+                                <label for="bio">@lang('Name')</label>
                                 <input type="text" value="{{ $booking->worker->name}}" readonly id="userinput1" class="form-control border-primary" >
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="bio">Company</label>
+                                <label for="bio">@lang('Company Name')</label>
                                 <input type="text" value="{{ $booking->comapny->name}}" readonly id="userinput1" class="form-control border-primary" >
                             </div>
                         </div>

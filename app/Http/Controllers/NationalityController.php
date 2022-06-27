@@ -39,7 +39,7 @@ class NationalityController extends Controller
             'name'=>['ar'=>$request->name_ar,'en'=>$request->name_en],
             'flag'=>$request->flag->store('nationality')
         ]);
-        return redirect()->route('nationalities.index')->with(['success'=>'added successfully']);
+        return redirect()->route('nationalities.index')->with(['success'=>trans('Addedd successfully ')]);
     }
     public function store_ajax(Request $request)
     {
@@ -105,7 +105,7 @@ class NationalityController extends Controller
         }
         
         
-        return redirect()->route('nationalities.index')->with(['success'=>'Edit successfully']);
+        return redirect()->route('nationalities.index')->with(['success'=>trans('Updated successfully')]);
     }
 
     /**
@@ -118,7 +118,7 @@ class NationalityController extends Controller
     {
         $nat = Nationality::find($id);
         $nat->delete();
-        return redirect()->route('nationalities.index')->with(['success'=>'Deleted successfully']);
+        return redirect()->route('nationalities.index')->with(['success'=>trans('Deleted successfully')]);
 
     }
 }

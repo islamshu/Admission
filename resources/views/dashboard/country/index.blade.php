@@ -6,7 +6,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Countries</h4>
+                            <h4 class="card-title">@lang('Countries')</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -21,7 +21,7 @@
 
                             <div class="card-body card-dashboard">
                                 <a href="{{ route('country.create') }}" class="btn btn-info mb-2 ">
-                                    Create Country
+                                    @lang('Create Country')
                                 </a>
                                 <br>
                                 @include('dashboard.parts._error')
@@ -31,8 +31,8 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Action</th>
+                                            <th>@lang('Name')</th>
+                                            <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
                                     <tbody>

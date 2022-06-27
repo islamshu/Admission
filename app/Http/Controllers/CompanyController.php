@@ -87,11 +87,11 @@ class CompanyController extends Controller
         $company->user_id = $user->id;
         $company->save();
         DB::commit();
-        return redirect()->route('companies.index')->with(['success'=>'Addedd successfully ']);
+        return redirect()->route('companies.index')->with(['success'=>trans('Addedd successfully')]);
 
     } catch(\Exception $exp) {
         DB::rollBack(); // Tell Laravel, "It's not you, it's me. Please don't persist to DB"
-        return redirect()->back()->with(['error'=>'error occer']);
+        return redirect()->back()->with(['error'=>trans('Something went wrong')]);
     }
     }
     public function store(Request $request)
@@ -125,11 +125,11 @@ class CompanyController extends Controller
         $company->user_id = $user->id;
         $company->save();
         DB::commit();
-        return response()->json(['success'=>'the otp send to your phone']);
+        return response()->json(['success'=>trans('the otp send to your phone')]);
 
     } catch(\Exception $exp) {
         DB::rollBack(); // Tell Laravel, "It's not you, it's me. Please don't persist to DB"
-        return redirect()->back->with(['error'=>'error occer']);
+        return redirect()->back->with(['error'=>trans('Something went wrong')]);
     }
     }
     public function check_otp(Request $request){
@@ -142,7 +142,7 @@ class CompanyController extends Controller
             $user->otp = null;
             $user->save();
         }
-        return response()->json(['success'=>'The data will be verified by the administration and we will contact you']);
+        return response()->json(['success'=>trans('The data will be verified by the administration and we will contact you')]);
 
     }
 
@@ -197,7 +197,7 @@ class CompanyController extends Controller
             $user->password =  Hash::make($request->password);  
         }
         $user->save();
-        return response()->json(['success'=>'Updated successfully']);
+        return response()->json(['success'=>trans('Updated successfully')]);
 
 
 
@@ -213,6 +213,6 @@ class CompanyController extends Controller
     {
         $company = Company::find($id);
         $company->delete();
-        return redirect()->route('companies.index')->with(['success'=>'Deleted successfully']);
+        return redirect()->route('companies.index')->with(['success'=>trans('Deleted successfully')]);
     }
 }

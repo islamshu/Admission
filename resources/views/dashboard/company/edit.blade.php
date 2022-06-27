@@ -11,13 +11,13 @@
     <div class="modal-body mx-3">
         <div class="row">
             <div class="col-md-6">
-                <label data-error="wrong" data-success="right" for="form3">Name</label>
+                <label data-error="wrong" data-success="right" for="form3">@lang('Company Name')</label>
                 <input type="text" id="form3" name="name" required value="{{ $company->name }}"
                     class="form-control validate">
             </div>
 
             <div class="col-md-6">
-                <label data-error="wrong" data-success="right" for="form2">Email</label>
+                <label data-error="wrong" data-success="right" for="form2">@lang('Email')</label>
                 <input type="email" id="form2" name="email" required value="{{ $company->email }}"
                     class="form-control validate">
             </div>
@@ -25,13 +25,13 @@
         <br>
         <div class="row">
             <div class="col-md-6">
-                <label data-error="wrong" data-success="right" for="form3">Phone</label>
+                <label data-error="wrong" data-success="right" for="form3">@lang('Phone')</label>
                 <input type="text" id="form3" name="phone" required value="{{ $company->phone }}"
                     class="form-control validate">
             </div>
 
             <div class="col-md-6">
-                <label data-error="wrong" data-success="right" for="form2">Commical Register</label>
+                <label data-error="wrong" data-success="right" for="form2">@lang('Commical Register')</label>
                 <input type="text" id="form2" name="commercial_register" required value="{{ $company->co_register }}"
                     class="form-control validate">
             </div>
@@ -40,7 +40,7 @@
         <br>
         <div class="row">
             <div class="col-md-6">
-                <label data-error="wrong" data-success="right" for="form2">Password</label>
+                <label data-error="wrong" data-success="right" for="form2">@lang('Password')</label>
                 <input type="password" id="form2" name="password"  value=""
                     class="form-control validate">
             </div>
@@ -50,7 +50,7 @@
 
     </div>
     <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-info" type="submit">Send </i></button>
+        <button class="btn btn-info" type="submit">@lang('save') </i></button>
       </div>
 </form>
 <script>

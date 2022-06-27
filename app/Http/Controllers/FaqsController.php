@@ -38,7 +38,7 @@ class FaqsController extends Controller
         $page->qus_en = $request->body_en;
         $page->sort =  Faqs::count() +1;
         $page->save();
-        return redirect()->back()->with(['succss'=>trans('add succeefully')]);
+        return redirect()->back()->with(['succss'=>trans('Addedd successfully ')]);
     }
     public function update_sort(Request $request)
     {
@@ -97,7 +97,7 @@ class FaqsController extends Controller
     {
        $about= Faqs::find($id);
        $about->delete();
-       return redirect()->back()->with(['success'=>trans('Deleted Succeefully')]);
+       return redirect()->back()->with(['success'=>trans('Deleted successfully')]);
 
     }
 }

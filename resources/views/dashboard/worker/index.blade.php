@@ -60,11 +60,11 @@
 
                                             <tbody>
                                                 <tr>
-                                                    <th>image</th>
-                                                    <th>name</th>
-                                                    <th>number of visits</th>
-                                                    <th>status</th>
-                                                    <th>action</th>
+                                                    <th>@lang('Image')</th>
+                                                    <th>@lang('worker name')</th>
+                                                    <th>@lang('number of visits')</th>
+                                                    <th>@lang('status')</th>
+                                                    <th>@lang('Action')</th>
 
                                                 </tr>
                                                 @foreach ($item->worker as $worker)
@@ -81,13 +81,12 @@
                                                                 data-id="{{ $worker->id }}">
                                                                 <option value="1" class="btn  btn-success"
                                                                     @if ($worker->status == 1) selected @endif>
-                                                                    Available</option>
+                                                                    @lang('Available')</option>
                                                                 <option value="0" class="btn btn-danger"
-                                                                    @if ($worker->status == 0) selected @endif>Busy
+                                                                    @if ($worker->status == 0) selected @endif>@lang('Busy')
                                                                 </option>
                                                                 <option value="2" class="btn btn-warning "
-                                                                    @if ($worker->status == 2) selected @endif>In
-                                                                    progress</option>
+                                                                    @if ($worker->status == 2) selected @endif>@lang('In Progress')</option>
                                                             </select>
 
 
@@ -115,7 +114,7 @@
                                         @endforeach
                                     @else
                                         <th>
-                                            <h3>no data here</h3>
+                                            <h3>@lang('no data here')</h3>
                                         </th>
                                     @endif
                                 </table>
@@ -199,7 +198,7 @@
                         toastr.options.closeButton = true;
                         toastr.options.closeMethod = 'fadeOut';
                         toastr.options.closeDuration = 100;
-                        toastr.success('Updated Successfully');
+                        toastr.success('{{ __('Updated successfully') }}');
 
                     } else {
                         alert('Whoops Something went wrong!!');

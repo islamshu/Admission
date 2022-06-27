@@ -26,4 +26,20 @@ class HomeController extends Controller
         return redirect()->route('dashboard');
         // return view('home');
     }
+    public function show_translate($lang)
+    {
+        $language = $lang;
+
+        return view('dashboard.language_view_en', compact('language'));
+    }
+ 
+    public function key_value_store(Request $request)
+    {
+        $data = openJSONFile($request->id);
+        foreach ($request->key as $key => $key) {
+            $data[$key] = $request->key[$key];
+        }
+        saveJSONFile($request->id, $data);
+        return back();
+    }
 }

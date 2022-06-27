@@ -40,13 +40,13 @@ class CountryController extends Controller
             $new_country->alph2code = $request->alpha2Code;
             $new_country->alph3code = $request->alpha3Code;
             $new_country->save();
-            return redirect()->route('country.index')->with(['success'=>'add successfully']);
+            return redirect()->route('country.index')->with(['success'=>trans('Addedd successfully ')]);
     }
     public function destroy($id)
     {
         $country = Country::find($id);
         $country->delete();
-        return redirect()->route('country.index')->with(['success'=>'deleted successfully']);
+        return redirect()->route('country.index')->with(['success'=>trans('Deleted successfully')]);
 
     }
 }

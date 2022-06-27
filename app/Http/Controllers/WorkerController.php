@@ -73,7 +73,7 @@ class WorkerController extends Controller
         $worker->time = $request->time;
         $worker->url_sand = $request->url_sand;
         $worker->save();
-        return redirect()->route('worker.index')->with(['success'=>'Added successfully']);
+        return redirect()->route('worker.index')->with(['success'=>trans('Addedd successfully ')]);
 
 
     }
@@ -137,7 +137,7 @@ class WorkerController extends Controller
         $worker->time = $request->time;
         $worker->url_sand = $request->url_sand;
         $worker->save();
-        return redirect()->route('worker.index')->with(['success'=>'Edited successfully']);
+        return redirect()->route('worker.index')->with(['success'=>trans('Updated successfully')]);
     }
 
     /**
@@ -150,7 +150,7 @@ class WorkerController extends Controller
     {
        $worker= Worker::find($id);
        $worker->delete();
-       return redirect()->route('worker.index')->with(['success'=>'Deleted successfully']);
+       return redirect()->route('worker.index')->with(['success'=>trans('Deleted successfully')]);
 
     }
 }
