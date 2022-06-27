@@ -91,7 +91,7 @@
                                                             class="fa fa-edit"></i></button>
 
                                                     {!! Form::open(['method' => 'DELETE', 'route' => ['companies.destroy', $company->id], 'style' => 'display:inline']) !!}
-                                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                                    {!! Form::submit(trans('delete'), ['class' => 'btn btn-danger']) !!}
                                                     {!! Form::close() !!}
                                                 </td>
                                             </tr>

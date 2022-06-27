@@ -70,7 +70,7 @@
                                                         onclick="make('{{ $na->id }}')"><i
                                                             class="fa fa-edit"></i></button>
                                                     {!! Form::open(['method' => 'DELETE', 'route' => ['nationalities.destroy', $na->id], 'style' => 'display:inline']) !!}
-                                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                                    {!! Form::submit(trans('delete'), ['class' => 'btn btn-danger']) !!}
                                                     {!! Form::close() !!}
                                                 </td>
                                             </tr>

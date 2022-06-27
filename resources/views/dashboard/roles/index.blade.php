@@ -45,7 +45,7 @@
                                         @endcan
                                         @can('role-delete')
                                         {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::submit(trans('delete'), ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}
                                         @endcan
                                         </td>

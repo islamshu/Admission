@@ -44,7 +44,7 @@
                                         <td>
                                        
                                         {!! Form::open(['method' => 'DELETE','route' => ['country.destroy', $country->id],'style'=>'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::submit(trans('delete'), ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}
                                         </td>
                                         </tr>

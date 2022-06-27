@@ -59,6 +59,43 @@
     background: #cec3c3;
     
 }
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #cdcdcd;
+  border-radius: 3px;
+  padding: 8px 12px;
+  height: 39px!important;
+  width:calc(100% - 26px);
+}
+
+.upload-btn-wrapper .btnr {
+  border: 1px solid gray;
+  color: gray;
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 1px;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+}
+.upload-btn-wrapper .btnr + span {
+  padding: 5px;
+  font-weight: normal;
+  }
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 42px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+.custom-file-input{
+    content: "Your custom text ...";
+}
 
 
     </style>
@@ -96,6 +133,7 @@
     <script src="{{ asset('backend/js/scripts/tables/datatables/datatable-basic.js') }}"></script>
     <script src="{{ asset('backend/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/tables/datatables/datatable-advanced.js') }}" type="text/javascript"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
@@ -160,7 +198,66 @@ integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="ano
         
         });
     </script>
+   <script type="text/javascript">
+    $(function(){
+      // Wrap your File input in a wrapper <div>
+      var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
+      var fileInput = $(':file').wrap(wrapper);
+   
+      // When your file input changes, update the text for your button
+      fileInput.change(function(){
+          $this = $(this);
+          // If the selection is empty, reset it
+          if ($this.val().length == 0) {
+              var text = "@Localizer["Your Text to Choose a File Here!"]";
+              $('#file').text(text);
+          } else {
+              $('#file').text($this.val());
+          }
+          
+          //get the file.
+          var file = $this[0].files[0];
+          //transfer the file to the MVC/API controller via FormData.
+      })
+          
+      //get the file.
+      var file = $this[0].files[0];
+      //transfer the file to the MVC/API controller via FormData.
+  })
+   
+      // When your fake button is clicked, simulate a click of the file button
+      $('#file').click(function(){
+        fileInput.click();
+      }).show();
+    });
+    </script>
+
     @yield('script')
+    @if(get_lang() == 'ar')
+    <script>
+        
+        $('table').DataTable({
+            "language": 
+                        {
+                            "sProcessing": "جارٍ التحميل...",
+                            "sLengthMenu": "أظهر _MENU_ مدخلات",
+                            "sZeroRecords": "لم يعثر على أية سجلات",
+                            "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+                            "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+                            "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+                            "sInfoPostFix": "",
+                            "sSearch": "ابحث:",
+                            "sUrl": "",
+                            "oPaginate": {
+                                "sFirst": "الأول",
+                                "sPrevious": "السابق",
+                                "sNext": "التالي",
+                                "sLast": "الأخير"
+                            }
+  }
+});
+    </script>
+    @endif
 </body>
 
 </html>
