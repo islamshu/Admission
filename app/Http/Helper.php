@@ -74,6 +74,16 @@ if (!function_exists('generateBarcodeNumber')) {
             return 'warning';
         }
     }
+     function get_color_new($status)
+    {
+        if ($status == 1) {
+            return '#5fc69e';
+        } elseif ($status == 0) {
+            return '#FF4961';
+        } elseif ($status == 2) {
+            return '#FF9149';
+        }
+    }
     function get_language()
 {
     $languages_list = array(

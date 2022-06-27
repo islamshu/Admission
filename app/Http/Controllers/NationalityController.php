@@ -43,10 +43,9 @@ class NationalityController extends Controller
     }
     public function store_ajax(Request $request)
     {
-        // dd($request);
         $nationality = Nationality::create([
             'name'=>['ar'=>$request->name_ar,'en'=>$request->name_en],
-            // 'flag'=>$request->flag->store('nationality')
+            'flag'=>$request->flag->store('nationality')
         ]);
         if(get_lang()=='ar'){
             $name = $request->name_ar;

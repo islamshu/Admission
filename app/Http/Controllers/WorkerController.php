@@ -26,12 +26,14 @@ class WorkerController extends Controller
  
         }
     }
+    public function update_status_worker(Request $request){
+        $worker = Worker::find($request->worker_id);
+        $worker->status = $request->status ;
+        $worker->save();
+        return response()->json(['status'=>true]);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    }
+ 
     public function create()
     {
         if(auth()->user()->hasRole('Admin')){

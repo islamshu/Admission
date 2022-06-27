@@ -54,21 +54,16 @@
                                 <td>{{ $worker->name }}</td>
                                 <td>{{ $worker->visitor }}</td>
                                 <td>
-                                    <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label>
-
-                                    {{-- <div class="btn-group">
-                                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Action
-                                        </button>
-                                        <div class="dropdown-menu">
-                                          <a class="dropdown-item" href="#">Action</a>
-                                          <a class="dropdown-item" href="#">Another action</a>
-                                          <a class="dropdown-item" href="#">Something else here</a>
-                                          <div class="dropdown-divider"></div>
-                                          <a class="dropdown-item" href="#">Separated link</a>
-                                        </div>
-                                      </div> --}}
+                                    {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
+                                    {{-- <label for="" class="btn btn-success"> --}}
+                                    <select class="target btn" id="worker_status" style="background:{{ get_color_new($worker->status) }} "  data-id="{{ $worker->id }}">
+                                        <option value="1" class="btn  btn-success" @if($worker->status == 1) selected @endif >Available</option>
+                                        <option value="0" class="btn btn-danger" @if($worker->status == 0) selected @endif >Busy</option>
+                                        <option value="2" class="btn btn-warning "  @if($worker->status == 2) selected @endif>In progress</option>
+                                      </select>
                                       
+                                      
+                                    {{-- </label> --}}
                                 </td>
                                 <td>
                                     <a href="{{ $worker->url_sand }}" target="_blank" class=""><i class="btn btn-info fa fa-eye"></i></a>
@@ -150,6 +145,40 @@
 
 @section('script')
     <script>
+        $( "#worker_status" ).change(function() {
+            let status = $( "#worker_status option:selected" ).val();
+            let worker_id = $(this).data('id');
+            $.ajax({
+                type: 'post',
+                url: "{{ route('update_status_worker') }}",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    'status': status,
+                    'worker_id': worker_id,
+                },
+                beforeSend: function() {},
+                success: function(data) {
+                    if (data['status']==true) {
+                        if(status == 1){
+                                    $('#worker_status').css("backgroundColor","#5fc69e")                         
+                                }else if(status == 0){
+                                    $('#worker_status').css("backgroundColor","#FF4961")                         
+                                }
+                                else if(status == 2){
+                                    $('#worker_status').css("backgroundColor","#FF9149")                         
+                                }
+                                toastr.options.closeButton = true;
+                                toastr.options.closeMethod = 'fadeOut';
+                                toastr.options.closeDuration = 100;
+                                toastr.success('Updated Successfully');
+                             
+                            } else {
+                                alert('Whoops Something went wrong!!');
+                            }
+                }
+            });
+        });
+
         function make(id) {
             $("#myModal").show();
 

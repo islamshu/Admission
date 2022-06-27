@@ -2,7 +2,7 @@
   <div class="main-menu-content ps-container ps-theme-dark" data-ps-id="5732bf2c-0291-dc37-113e-7d95b914e882" style="height: 676px;">
     <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
       @if(auth()->user()->hasRole('Admin'))
-      <li class="nav-item has-sub "><a href="#">
+      {{-- <li class="nav-item has-sub "><a href="#">
         <i class="la la-user"></i>
         <span class="menu-title" >Users</span></a>
         <ul class="menu-content" style="">
@@ -11,8 +11,8 @@
           <li class="is-shown"><a class="menu-item" href="{{ route('users.create') }}" >Create User</a>
           </li>
         </ul>
-      </li>
-      <li class="nav-item has-sub "><a href="#">
+      </li> --}}
+      {{-- <li class="nav-item has-sub "><a href="#">
         <i class="fa fa-user-secret"></i>
         <span class="menu-title" >Roles</span></a>
         <ul class="menu-content" style="">
@@ -21,7 +21,7 @@
           <li class="is-shown"><a class="menu-item" href="{{ route('roles.create') }}" >Create Role</a>
           </li>
         </ul>
-      </li>
+      </li> --}}
       <li class="nav-item has-sub "><a href="#">
         <i class="fa fa-building"></i>
         <span class="menu-title" >Companies</span></a>
@@ -76,10 +76,24 @@
           
         </ul>
       </li>
-      <li class="nav-item has-sub "><a href="#">
+      <li class="nav-item  "><a href="{{ route('social_info') }}">Social Media
         <i class="fa fa-bookmark"></i>
-        <span class="menu-title" >Pages</span></a>
-        <ul class="menu-content" style="">
+        </a>
+      </li>
+      <li class="nav-item  "><a href="{{ route('privacy.index') }}">Privacy
+        <i class="fa fa-bookmark"></i>
+        </a>
+      </li>
+      <li class="nav-item  "><a href="{{ route('faqs.index') }}">FAQs
+        <i class="fa fa-bookmark"></i>
+        </a>
+      </li>
+      <li class="nav-item  "><a href="{{ route('about.index') }}">About
+        <i class="fa fa-bookmark"></i>
+        </a>
+      </li>
+        {{-- <span class="menu-title" >Pages</span></a> --}}
+        {{-- <ul class="menu-content" style="">
           <li class="is-shown"><a class="menu-item" href="{{ route('social_info') }}" >Social Media</a>
           </li>
           <li class="is-shown"><a class="menu-item" href="{{ route('privacy.index') }}" >Privacy</a>
@@ -90,7 +104,7 @@
           </li>
           
         </ul>
-      </li>
+      </li> --}}
       @endif
       @if(auth()->user()->hasRole('Company'))
       <li class="nav-item has-sub "><a href="#">
