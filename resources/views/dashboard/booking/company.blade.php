@@ -98,7 +98,7 @@
                                         </tr>
                                         @endforeach
                                     </tbody>
-                                    <tfoot>
+                                    {{-- <tfoot>
                                         <tr>
                                             <th>#</th>
                                             <th>Customer name</th>
@@ -106,7 +106,7 @@
                                             <th>worker's name</th>
                                             <th>action</th>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot> --}}
                                 </table>
                             </div>
                         </div>

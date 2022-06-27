@@ -75,7 +75,7 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                    <tfoot>
+                                    {{-- <tfoot>
                                         <tr>
                                             <th>#</th>
                                             <th>Flag</th>
@@ -83,7 +83,7 @@
                                             <th>Name</th>
                                             <th>Action</th>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot> --}}
                                 </table>
                             </div>
                         </div>
