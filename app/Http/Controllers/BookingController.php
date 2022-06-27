@@ -22,6 +22,7 @@ class BookingController extends Controller
     }
     public function get_booking_company($id)
     {
-        return view('dashboard.booking.company')->with('booking',Booking::withTrashed()->where('company_id',$id)->orderBy('id', 'DESC')->get());
+        $company = Company::find($id);
+        return view('dashboard.booking.company')->with('company',$company)->with('booking',Booking::withTrashed()->where('company_id',$id)->orderBy('id', 'DESC')->get());
     }
 }

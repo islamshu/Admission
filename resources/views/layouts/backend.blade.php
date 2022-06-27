@@ -40,6 +40,9 @@
 	<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"type="text/javascript"></script>
 	<link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/css/tables/datatable/datatables.min.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/chat.css') }}"> --}}
+    
+
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
     <style>
         .bootstrap-select.btn-group .dropdown-menu li {
@@ -57,7 +60,9 @@
     
 }
 
+
     </style>
+
     @yield('css')
    
 </head>
@@ -101,6 +106,7 @@ integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="ano
     <script src="https://cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    {{-- <script src="{{ asset('backend/css/chat.js') }}"></script> --}}
 
    
 <script>
