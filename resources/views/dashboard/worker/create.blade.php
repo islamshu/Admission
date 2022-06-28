@@ -96,7 +96,7 @@
                                             </div>
                                             <div class="col-md-2 mt-2 ">
                                                 <button type="button" class="btn btn-info" data-toggle="modal"
-                                                    data-target="#myModal"> @lang('add new')</button>
+                                                    data-target="#myModal"> @lang('Create nationalitiy')</button>
 
                                             </div>
                                             <div class="col-md-6">
