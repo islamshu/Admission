@@ -132,10 +132,18 @@
                                                 <select name="language[]" multiple required class="form-control">
                                                     <option value=""> @lang('Choose Language') </option>
                                                     @foreach (get_language() as $item)
+                                                    @if($worker->language != null)
                                                         <option value="{{ $item }}"
                                                         @if (in_array( $item, json_decode($worker->language)))
                                                           selected @endif>
                                                             {{ $item }}</option>
+                                                            @else
+                                                            <option value="{{ $item }}"
+                                                       
+                                                          >
+                                                            {{ $item }}</option>
+                                                            @endif
+
                                                     @endforeach
                                                 </select>
 
