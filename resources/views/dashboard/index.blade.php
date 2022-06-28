@@ -73,7 +73,7 @@
               <div class="media d-flex">
                 <div class="media-body text-left">
                   <h3 class="warning">{{ App\Booking::count() }}</h3>
-                  <h6>{{ __('Order Count') }}</h6>
+                  <h6>{{ __('Number Of order') }}</h6>
                 </div>
                 <div>
                   <i class="icon-user-following warning font-large-2 float-right"></i>
@@ -104,7 +104,7 @@
           <div class="media d-flex">
             <div class="media-body text-left">
               <h3 class="info">{{ App\Worker::where('company_id',auth()->user()->company->id)->count() }}</h3>
-              <h6>{{ __('All Worker Count') }}</h6>
+              <h6>{{ __('Worker Count') }}</h6>
             </div>
             <div>
               <i class="icon-loop  info font-large-2 float-right"></i>

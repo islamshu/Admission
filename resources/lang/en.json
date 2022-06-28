@@ -112,5 +112,13 @@
     "Arabic translation": "Arabic translation",
     "English translation": "English translation",
     "translation": "translation",
-    "no file chosen": "no file chosen"
+    "no file chosen": "no file chosen",
+    "Company Count": "Company Count",
+    "Worker Count": "Worker Count",
+    "available Worker Count": "available Worker Count",
+    "Busy Worker Count": "Busy Worker Count",
+    "In Progress Worker Count": "In Progress Worker Count",
+    "delete": "delete",
+    "Age": "Age"
+
 }

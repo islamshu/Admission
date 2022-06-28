@@ -65,7 +65,7 @@ class WorkerController extends Controller
         $worker->age = $request->age;
         $worker->experience = $request->experience;
         $worker->in_sa = $request->in_sa;
-        $worker->language = $request->language;
+        $worker->language = ($request->language);
         $worker->religion = $request->religion;
         $worker->approve_chiled = $request->approve_chiled;
         $worker->is_coocked = $request->is_coocked;
@@ -98,6 +98,7 @@ class WorkerController extends Controller
     public function edit($id)
     {
         $worker = Worker::find($id);
+
         if(auth()->user()->hasRole('Admin')){
             return view('dashboard.worker.edit')->with('worker',$worker)->with('natonality',Nationality::get())->with('comapnys',Company::where('status',1)->get());
         }else{

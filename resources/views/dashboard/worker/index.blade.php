@@ -49,7 +49,7 @@
                                         @foreach ($natonality as $item)
                                             <thead class="thead-light">
                                                 <tr>
-                                                    <th scope="col"> {{ $item->name }} : nationality </th>
+                                                    <th scope="col"> {{ $item->name }} : {{ __('Nationalitiy') }} </th>
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>

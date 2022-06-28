@@ -129,7 +129,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>@lang('Language')</label>
-                                                <select name="language" required class="form-control">
+                                                <select name="language[]" multiple required class="form-control">
                                                     <option value=""> @lang('Choose Language') </option>
                                                     @foreach (get_language() as $item)
                                                         <option value="{{ $item }}"

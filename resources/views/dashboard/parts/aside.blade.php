@@ -54,7 +54,7 @@
           
         </ul>
       </li>
-      <li class="nav-item has-sub "><a href="#">
+      {{-- <li class="nav-item has-sub "><a href="#">
         <i class="la la-adjust"></i>
         <span class="menu-title" >@lang('Countries')</span></a>
         <ul class="menu-content" style="">
@@ -64,7 +64,7 @@
           </li>
           
         </ul>
-      </li>
+      </li> --}}
       <li class="nav-item has-sub "><a href="#">
         <i class="la la-globe"></i>
         <span class="menu-title" >@lang('Nationalities')</span></a>
