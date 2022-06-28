@@ -161,39 +161,7 @@ integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="ano
         
         });
     </script>
-   <script type="text/javascript">
-    $(function(){
-      // Wrap your File input in a wrapper <div>
-      var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
-      var fileInput = $(':file').wrap(wrapper);
-   
-      // When your file input changes, update the text for your button
-      fileInput.change(function(){
-          $this = $(this);
-          // If the selection is empty, reset it
-          if ($this.val().length == 0) {
-              var text = "@Localizer["Your Text to Choose a File Here!"]";
-              $('#file').text(text);
-          } else {
-              $('#file').text($this.val());
-          }
-          
-          //get the file.
-          var file = $this[0].files[0];
-          //transfer the file to the MVC/API controller via FormData.
-      })
-          
-      //get the file.
-      var file = $this[0].files[0];
-      //transfer the file to the MVC/API controller via FormData.
-  })
-   
-      // When your fake button is clicked, simulate a click of the file button
-      $('#file').click(function(){
-        fileInput.click();
-      }).show();
-    });
-    </script>
+  
 
     @yield('script')
     @if(get_lang() == 'ar')
