@@ -1,4 +1,7 @@
 @extends('layouts.backend')
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/css/forms/selects/select2.min.css') }}">
+@endsection
 @section('content')
 <div class="content-wrapper">
     <div class="content-header row">
@@ -129,7 +132,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>@lang('Language')</label>
-                                                <select name="language[]" multiple required class="form-control">
+                                                {{-- <select name="language[]" multiple required class="form-control">
                                                     <option value=""> @lang('Choose Language') </option>
                                                     @foreach (get_language() as $item)
                                                     @if($worker->language != null)
@@ -145,7 +148,24 @@
                                                             @endif
 
                                                     @endforeach
-                                                </select>
+                                                </select> --}}
+                                                <select required class="select2-rtl form-control" name="language[]" id="select2-rtl-multi" multiple="multiple">
+                                                    <option value=""> @lang('Choose Language') </option>
+
+                                                    @foreach (get_language() as $item)
+                                                    @if($worker->language != null)
+                                                    <option value="{{ $item }}"
+                                                    @if (in_array( $item, json_decode($worker->language)))
+                                                      selected @endif>
+                                                        {{ $item }}</option>
+                                                        @else
+                                                        <option value="{{ $item }}"
+                                                   
+                                                      >
+                                                        {{ $item }}</option>
+                                                        @endif
+                                                @endforeach
+                                                  </select>
 
                                             </div>
                                             <div class="col-md-6">
@@ -307,7 +327,8 @@
 @endsection
 @section('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+    <script src="{{ asset('backend/vendors/js/forms/select/select2.full.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backend/js/scripts/forms/select/form-select2.js') }}" type="text/javascript"></script>
     <script>
         $(document).ready(function() {
             $("#time_q").change(function() {
