@@ -133,7 +133,8 @@
                                                     <option value=""> @lang('Choose Language') </option>
                                                     @foreach (get_language() as $item)
                                                         <option value="{{ $item }}"
-                                                            @if ($worker->language == $item) selected @endif>
+                                                        @if (in_array( $item, json_decode($worker->language)))
+                                                          selected @endif>
                                                             {{ $item }}</option>
                                                     @endforeach
                                                 </select>

@@ -44,6 +44,15 @@
                 <input type="password" id="form2" name="password"  value=""
                     class="form-control validate">
             </div>
+            <div class="col-md-6">
+                <label data-error="wrong" data-success="right" for="form22">@lang('Confirm Password')</label>
+                <input type="password" id="form22" name="confirm-password"  value=""
+                    class="form-control validate">
+            </div>
+            
+        </div>
+        <div class="row">
+            
             
         </div>
         

@@ -183,6 +183,12 @@ class CompanyController extends Controller
             'phone' => 'required|unique:companies,phone,' . $id,
             'commercial_register'=>'required'
         ]);
+        if($request->password != null){
+            $request->validate([
+                'password'=>'required',
+                'confirm-password'=>'same:password'
+            ]);   
+        }
         $company = Company::find($id);
         $company->name = $request->name;
         $company->email = $request->email;
