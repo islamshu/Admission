@@ -39,6 +39,7 @@ class CompanyController extends Controller
         $ip = $request->ip();
         $data = \Location::get($ip);
         dd($data);
+        
 
         return view('dashboard.company.create');
 
