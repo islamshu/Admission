@@ -53,7 +53,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label>@lang('Image') </label><span> (200 * 150)</span>
-                                                <input type="file" name="image" class="form-control image">
+                                                <input type="file" name="image" required class="form-control image">
                                             </div>
 
                                             <div class="form-group">
@@ -61,6 +61,12 @@
                                                     style="width: 100px" class="img-thumbnail image-preview" alt="">
                                             </div>
 
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label>@lang('Video') </label>
+                                                <input type="file" name="video" class="form-control video">
+                                            </div>                                  
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">

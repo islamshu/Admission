@@ -49,7 +49,12 @@
                                         @foreach ($natonality as $item)
                                             <thead class="thead-light">
                                                 <tr>
+                                                    @if(get_lang() == 'en')
                                                     <th scope="col"> {{ $item->name }} : {{ __('Nationalitiy') }} </th>
+                                                    @else
+                                                    <th scope="col">  {{ __('Nationalitiy') }} : {{ $item->name }}  </th>
+
+                                                    @endif
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>
@@ -63,7 +68,7 @@
                                                     <th>@lang('Image')</th>
                                                     <th>@lang('worker name')</th>
                                                     <th>@lang('number of visits')</th>
-                                                    <th>@lang('status')</th>
+                                                    <th>@lang('Status')</th>
                                                     <th>@lang('Action')</th>
 
                                                 </tr>

@@ -64,6 +64,12 @@
 
                                         </div>
                                         <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label>@lang('Video') </label>
+                                                <input type="file" name="video" class="form-control video">
+                                            </div>                                  
+                                        </div>
+                                        <div class="row">
                                             <div class="col-md-6">
                                                 <label>@lang('Name')</label>
                                                 <input type="text" name="name" value="{{ $worker->name }}"

@@ -55,6 +55,9 @@ class WorkerController extends Controller
         $worker = new Worker();
         $worker->name = $request->name;
         $worker->image = $request->image->store('worker');
+        if($request->video != null){
+            $worker->video = $request->video->store('worker-video');
+        }
         $worker->nationality_id = $request->nationality_id;
         if(auth()->user()->HasRole('Admin')){
             $worker->company_id = $request->company_id;
@@ -119,6 +122,9 @@ class WorkerController extends Controller
         $worker->name = $request->name;
         if($request->image != null){
             $worker->image = $request->image->store('worker');
+        }
+        if($request->video != null){
+            $worker->video = $request->video->store('worker-video');
         }
         $worker->nationality_id = $request->nationality_id;
         if(auth()->user()->HasRole('Admin')){
