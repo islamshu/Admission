@@ -118,7 +118,7 @@
                                             <div class="col-md-6">
                                                 <label for="address_address">@lang('Address')</label>
                                                 <input type="text" id="address-input" name="address_address"
-                                                    value="{{ old('address_address') }}" required
+                                                    value="{{ $region }}" required
                                                     class="form-control map-input">
                                                 <input type="hidden" name="address_latitude" id="address-latitude"
                                                     value="{{ old('address_latitude') }}" />
