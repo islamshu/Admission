@@ -210,11 +210,7 @@
     $('#geogg').click();
     setTimeout(function()
     {
-        $.getJSON('https://ipapi.co/json/', function(data) {
-    var dataa = JSON.stringify(data, null, 2);
-
-    });
-    alert(dataa);
+      
         const latitudeField = document.getElementById("address-latitude");
         const longitudeField = document.getElementById("address-longitude");
         const address = document.getElementById("address-address");
