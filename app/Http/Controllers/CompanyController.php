@@ -38,10 +38,10 @@ class CompanyController extends Controller
     {
         $ip = $request->ip();
         $data = \Location::get($ip);
-        dd($data->regionName);
+        
 
 
-        return view('dashboard.company.create');
+        return view('dashboard.company.create')->with('region',$data->regionName);
 
     }
 

@@ -7,6 +7,11 @@
     </style>
 @endsection
 @section('content')
+  
+        <button id="geogg" onclick="initGeolocation()" style="display: none">Try It</button>
+        
+
+        
 <div class="content-wrapper">
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-12 mb-2">
@@ -113,7 +118,7 @@
                                             </div> --}}
                                             <div class="col-md-6">
                                                 <label for="address_address">@lang('Address')</label>
-                                                <input type="text" id="address-input" name="address_address" value="{{ old('address_address') }}" required class="form-control map-input">
+                                                <input type="text" id="address-input" name="address_address" value="{{ $region }}" required class="form-control map-input">
                                                 <input type="hidden" name="address_latitude" id="address-latitude" value="{{ old('address_latitude') }}" />
                                                 <input type="hidden" name="address_longitude" id="address-longitude" value="{{ old('address_longitude') }}" />
                                             </div>
@@ -192,14 +197,43 @@
     </div>
     </section>
 
+
+
     </div>
 @endsection
 @section('script')
 <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize" async defer></script>
-<script>
-    function initialize() {
 
-$('form').on('keyup keypress', function(e) {
+<script>
+   $( document ).ready(function() {
+  
+    $('#geogg').click();
+    setTimeout(function()
+    {
+        $.getJSON('https://ipapi.co/json/', function(data) {
+    var dataa = JSON.stringify(data, null, 2);
+
+    });
+    alert(dataa);
+        const latitudeField = document.getElementById("address-latitude");
+        const longitudeField = document.getElementById("address-longitude");
+        const address = document.getElementById("address-address");
+        address.value = document.getElementById("lat");
+
+        latitudeField.value = document.getElementById("lat");
+        longitudeField.value = document.getElementById("long");
+    }, 
+    100);
+ 
+});
+
+
+</script>
+<script>
+
+setTimeout(function()
+    {
+        $('form').on('keyup keypress', function(e) {
     var keyCode = e.keyCode || e.which;
     if (keyCode === 13) {
         e.preventDefault();
@@ -216,8 +250,8 @@ for (let i = 0; i < locationInputs.length; i++) {
     const fieldKey = input.id.replace("-input", "");
     const isEdit = document.getElementById(fieldKey + "-latitude").value != '' && document.getElementById(fieldKey + "-longitude").value != '';
 
-    const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value) || -33.8688;
-    const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) || 151.2195;
+    const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value) || parseFloat(document.getElementById("lat").value)       ;
+    const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) || parseFloat(document.getElementById("long").value)
 
     const map = new google.maps.Map(document.getElementById(fieldKey + '-map'), {
         center: {lat: latitude, lng: longitude},
@@ -270,7 +304,10 @@ for (let i = 0; i < autocompletes.length; i++) {
 
     });
 }
-}
+    }, 
+    5000);
+
+
 
 function setLocationCoordinates(key, lat, lng) {
 const latitudeField = document.getElementById(key + "-" + "latitude");
@@ -279,5 +316,33 @@ latitudeField.value = lat;
 longitudeField.value = lng;
 }
 </script>
+<script type="text/javascript">
+    function initGeolocation()
+    {
+       if( navigator.geolocation )
+       {
+          // Call getCurrentPosition with success and failure callbacks
+          navigator.geolocation.getCurrentPosition( success, fail );
+       }
+       else
+       {
+          alert("Sorry, your browser does not support geolocation services.");
+       }
+    }
+
+    function success(position)
+    {
+        document.getElementById('address-longitude').value = position.coords.longitude;
+        document.getElementById('address-latitude').value = position.coords.latitude
+    }
+
+    function fail()
+    {
+       // Could not obtain location
+    }
+
+  </script>    
+
+
 @endsection
 
