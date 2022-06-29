@@ -118,7 +118,7 @@
                                             </div> --}}
                                             <div class="col-md-6">
                                                 <label for="address_address">@lang('Address')</label>
-                                                <input type="text" id="address-input" name="address_address" value="{{ $region }}" required class="form-control map-input">
+                                                <input type="text" id="address-input" name="address_address" value="{{ old('address_address') }}" required class="form-control map-input">
                                                 <input type="hidden" name="address_latitude" id="address-latitude" value="{{ old('address_latitude') }}" />
                                                 <input type="hidden" name="address_longitude" id="address-longitude" value="{{ old('address_longitude') }}" />
                                             </div>
@@ -214,6 +214,7 @@
         const latitudeField = document.getElementById("address-latitude");
         const longitudeField = document.getElementById("address-longitude");
         const address = document.getElementById("address-address");
+        address.value = document.getElementById("lat");
 
         latitudeField.value = document.getElementById("lat");
         longitudeField.value = document.getElementById("long");
@@ -245,8 +246,8 @@ for (let i = 0; i < locationInputs.length; i++) {
     const fieldKey = input.id.replace("-input", "");
     const isEdit = document.getElementById(fieldKey + "-latitude").value != '' && document.getElementById(fieldKey + "-longitude").value != '';
 
-    const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value)        ;
-    const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) 
+    const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value) || parseFloat(document.getElementById("lat").value)       ;
+    const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) || parseFloat(document.getElementById("long").value)
 
     const map = new google.maps.Map(document.getElementById(fieldKey + '-map'), {
         center: {lat: latitude, lng: longitude},

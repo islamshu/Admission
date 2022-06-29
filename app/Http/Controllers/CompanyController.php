@@ -41,7 +41,7 @@ class CompanyController extends Controller
         
 
 
-        return view('dashboard.company.create')->with('region',$data->regionName);
+        return view('dashboard.company.create');
 
     }
 
