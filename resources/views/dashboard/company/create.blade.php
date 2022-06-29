@@ -322,6 +322,7 @@ longitudeField.value = lng;
 
     function success(position)
     {
+        alert( position.coords.longitude);
         document.getElementById('address-longitude').value = position.coords.longitude;
         document.getElementById('address-latitude').value = position.coords.latitude
     }
