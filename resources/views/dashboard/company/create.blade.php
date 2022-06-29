@@ -214,7 +214,6 @@
         const latitudeField = document.getElementById("address-latitude");
         const longitudeField = document.getElementById("address-longitude");
         const address = document.getElementById("address-address");
-        address.value = document.getElementById("lat");
 
         latitudeField.value = document.getElementById("lat");
         longitudeField.value = document.getElementById("long");
