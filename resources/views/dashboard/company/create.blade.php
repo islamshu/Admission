@@ -101,7 +101,7 @@
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            {{-- <div class="col-md-6">
                                                 <label>@lang('Longitude')</label>
                                                 <input type="text" id="form3" value="{{ old('longitude') }}"
                                                     placeholder="Longitude" name="longitude" class="form-control validate">
@@ -110,18 +110,18 @@
                                                 <label>@lang('Latitude')</label>
                                                 <input type="text" id="form3" value="{{ old('latitude') }}"
                                                     placeholder="Latitude" name="latitude" class="form-control validate">
-                                            </div>
-                                            {{-- <div class="col-md-6">
-                                                <label for="address_address">Address</label>
-                                                <input type="text" id="address-input" name="address_address" class="form-control map-input">
-                                                <input type="hidden" name="address_latitude" id="address-latitude" value="0" />
-                                                <input type="hidden" name="address_longitude" id="address-longitude" value="0" />
+                                            </div> --}}
+                                            <div class="col-md-6">
+                                                <label for="address_address">@lang('Address')</label>
+                                                <input type="text" id="address-input" name="address_address" value="{{ old('address_address') }}" required class="form-control map-input">
+                                                <input type="hidden" name="address_latitude" id="address-latitude" value="{{ old('address_latitude') }}" />
+                                                <input type="hidden" name="address_longitude" id="address-longitude" value="{{ old('address_longitude') }}" />
                                             </div>
                                             <br>
                                             <div id="address-map-container" style="width:100%;height:400px; ">
                                                 <br>
                                                 <div style="width: 100%; height: 100%" id="address-map"></div>
-                                            </div> --}}
+                                            </div>
 
 
                                         </div>

@@ -51,6 +51,7 @@ class CompanyController extends Controller
     }
     public function store_admin(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name'=>'required',
             'image'=>'required',
@@ -81,8 +82,8 @@ class CompanyController extends Controller
         $company->twitter = $request->twitter;
         $company->snapchat = $request->snapchat;
         $company->instagram = $request->instagram;
-        $company->longitude = $request->longitude == null ?  '46.716667' : $request->longitude  ;
-        $company->latitude = $request->latitude == null ?  '24.633333' : $request->latitude  ;
+        $company->longitude = $request->address_longitude  ;
+        $company->latitude = $request->address_latitude   ;
         $company->image = $request->image->store('company');
         $company->user_id = $user->id;
         $company->save();
