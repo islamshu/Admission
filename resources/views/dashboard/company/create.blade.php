@@ -243,6 +243,7 @@
         }
 
         function fail() {
+            alert('fd')
             // Could not obtain location
         }
     </script>
