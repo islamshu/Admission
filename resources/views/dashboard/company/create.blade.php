@@ -213,15 +213,15 @@
         $(document).ready(function() {
 
             $('#geogg').click();
-            setTimeout(function() {
+            // setTimeout(function() {
              
-                    const latitudeField = document.getElementById("address-latitude");
-                    const longitudeField = document.getElementById("address-longitude");
-                    const address = document.getElementById("address-address");
+            //         const latitudeField = document.getElementById("address-latitude");
+            //         const longitudeField = document.getElementById("address-longitude");
+            //         const address = document.getElementById("address-address");
 
 
-                },
-                100);
+            //     },
+            //     100);
 
         });
     </script>
