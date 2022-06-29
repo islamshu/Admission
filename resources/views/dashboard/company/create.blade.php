@@ -245,8 +245,8 @@ for (let i = 0; i < locationInputs.length; i++) {
     const fieldKey = input.id.replace("-input", "");
     const isEdit = document.getElementById(fieldKey + "-latitude").value != '' && document.getElementById(fieldKey + "-longitude").value != '';
 
-    const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value) || parseFloat(document.getElementById("lat").value)       ;
-    const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) || parseFloat(document.getElementById("long").value)
+    const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value)        ;
+    const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) 
 
     const map = new google.maps.Map(document.getElementById(fieldKey + '-map'), {
         center: {lat: latitude, lng: longitude},
