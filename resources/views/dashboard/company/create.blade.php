@@ -210,8 +210,15 @@
     $('#geogg').click();
     setTimeout(function()
     {
-    
-       
+        $.getJSON('https://ipapi.co/json/', function(data) {
+    var dataa = JSON.stringify(data, null, 2);
+
+    });
+        const latitudeField = document.getElementById("address-latitude");
+        const longitudeField = document.getElementById("address-longitude");
+        const address = document.getElementById("address-address");
+
+      
     }, 
     100);
  
@@ -240,8 +247,8 @@ for (let i = 0; i < locationInputs.length; i++) {
     const fieldKey = input.id.replace("-input", "");
     const isEdit = document.getElementById(fieldKey + "-latitude").value != '' && document.getElementById(fieldKey + "-longitude").value != '';
 
-    const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value)     ;
-    const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) 
+    const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value) || parseFloat(document.getElementById(fieldKey + "-latitude").value)      ;
+    const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) ||  parseFloat(document.getElementById(fieldKey + "-longitude").value)
 
     const map = new google.maps.Map(document.getElementById(fieldKey + '-map'), {
         center: {lat: latitude, lng: longitude},
@@ -322,7 +329,6 @@ longitudeField.value = lng;
 
     function success(position)
     {
-        alert( position.coords.longitude);
         document.getElementById('address-longitude').value = position.coords.longitude;
         document.getElementById('address-latitude').value = position.coords.latitude
     }
