@@ -237,13 +237,14 @@
         }
 
         function success(position) {
-            alert(position.coords.longitude);
+            
             document.getElementById('address-longitude').value = position.coords.longitude;
             document.getElementById('address-latitude').value = position.coords.latitude
         }
 
-        function fail() {
-            alert('fd')
+        function fail(position) {
+            alert('f');
+          alert(position.coords.longitude);
             // Could not obtain location
         }
     </script>
