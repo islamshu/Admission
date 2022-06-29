@@ -34,8 +34,12 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $ip = $request->ip();
+        $data = \Location::get($ip);
+        dd($data);
+
         return view('dashboard.company.create');
 
     }
