@@ -36,12 +36,20 @@ class CompanyController extends Controller
      */
     public function create(Request $request)
     {
-        $ip = $request->ip();
-        $data = \Location::get($ip);
+        // $ip = $request->ip();
+        // $data = \Location::get($ip);
         
 
+        // ->with('region',$data->regionName);
+        if (config('app.env') === 'production') {
+                  $ip = $request->ip();
+             $data = \Location::get($ip)->regionName;
+        }else{
+            $data ='Gaza';
+ 
+        }
 
-        return view('dashboard.company.create')->with('region',$data->regionName);
+        return view('dashboard.company.create')->with('region',$data);
 
     }
 

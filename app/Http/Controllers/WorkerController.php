@@ -68,13 +68,16 @@ class WorkerController extends Controller
         $worker->age = $request->age;
         $worker->experience = $request->experience;
         $worker->in_sa = $request->in_sa;
-        $worker->language = ($request->language);
+        $worker->language = json_encode($request->language);
         $worker->religion = $request->religion;
         $worker->approve_chiled = $request->approve_chiled;
         $worker->is_coocked = $request->is_coocked;
         $worker->is_quick = $request->is_quick;
         $worker->time = $request->time;
         $worker->url_sand = $request->url_sand;
+        $worker->city = $request->city;
+        $worker->description_ar = $request->description_ar; 
+        $worker->description_en = $request->description_en;
         $worker->save();
         return redirect()->route('worker.index')->with(['success'=>trans('Addedd successfully ')]);
 
@@ -143,6 +146,9 @@ class WorkerController extends Controller
         $worker->is_quick = $request->is_quick;
         $worker->time = $request->time;
         $worker->url_sand = $request->url_sand;
+        $worker->city = $request->city;
+        $worker->description_ar = $request->description_ar; 
+        $worker->description_en = $request->description_en;
         $worker->save();
         return redirect()->route('worker.index')->with(['success'=>trans('Updated successfully')]);
     }

@@ -92,6 +92,74 @@ if (!function_exists('generateBarcodeNumber')) {
     );
     return $languages_list;
 }
+    function get_city_en()
+    {
+      $city = array(
+                    'Abhā' => 'Abhā',
+                    'Abqaiq' => 'Abqaiq',
+                    'Al-Baḥah' => 'Al-Baḥah',
+                    'Al-Dammām' => 'Al-Dammām',
+                    'Al-Hufūf' => 'Al-Hufūf',
+                    'Al-Jawf' => 'Al-Jawf',
+                    'Al-Kharj' => 'Al-Kharj',
+                    'Al-Khubar' => 'Al-Khubar',
+                    'Al-Qaṭīf' => 'Al-Qaṭīf',
+                    'Al-Ṭaʾif' => 'Al-Ṭaʾif',
+                    'ʿArʿar' => 'ʿArʿar',
+                    'Buraydah' => 'Buraydah',
+                    'Dhahran' => 'Dhahran',
+                    'Ḥāʾil' => 'Ḥāʾil',
+                    'Jiddah' => 'Jiddah',
+                    'Jīzān' => 'Jīzān',
+                    'Khamīs Mushayt' => 'Khamīs Mushayt',
+                    'King Khalīd Military City' => 'King Khalīd Military City',
+                    'Mecca' => 'Mecca',
+                    'Medina' => 'Medina',
+                    'Najrān' => 'Najrān',
+                    'Ras Tanura' => 'Ras Tanura',
+                    'Riyadh' => 'Riyadh',
+                    'Sakākā' => 'Sakākā',
+                    'Tabūk' => 'Tabūk',
+                    'Yanbuʿ' => 'Yanbuʿ',
+                    'Other' => 'Other',
+      );
+      return $city;
+
+    }
+    function get_city_ar()
+    {
+      $city = array(
+                    'Abhā' => 'أبها',
+                    'Abqaiq' => 'بقيق',
+                    'Al-Baḥah' => 'الباحة',
+                    'Al-Dammām' => 'الدمام',
+                    'Al-Hufūf' => 'الحفوف',
+                    'Al-Jawf' => 'الجوف',
+                    'Al-Kharj' => 'الخرج',
+                    'Al-Khubar' => 'الخبر',
+                    'Al-Qaṭīf' => 'القطيف',
+                    'Al-Ṭaʾif' => 'الطائف',
+                    'ʿArʿar' => 'عرعر',
+                    'Buraydah' => 'بريدة',
+                    'Dhahran' => 'الظهران',
+                    'Ḥāʾil' => 'حائل',
+                    'Jiddah' => 'جدة',
+                    'Jīzān' => 'جازان',
+                    'Khamīs Mushayt' => 'خميس مشيط',
+                    'King Khalīd Military City' => 'مدينة الملك خالد العسكرية',
+                    'Mecca' => 'مكة',
+                    'Medina' => 'المدينة',
+                    'Najrān' => 'نجران',
+                    'Ras Tanura' => 'رأس تنورة',
+                    'Riyadh' => 'الرياض',
+                    'Sakākā' => 'سكاكة',
+                    'Tabūk' => 'تبوك',
+                    'Yanbuʿ' => 'ينبع',
+                    'Other' => 'اخرى',
+      );
+      return $city;
+
+    }
 function openJSONFile($code){
     $jsonString = [];
     if(File::exists(base_path('resources/lang/'.$code.'.json'))){

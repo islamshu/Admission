@@ -237,6 +237,27 @@
                                                 <input type="number" name="time" value="{{ $worker->time }}"
                                                     class="form-control" placeholder="type Duration">
                                             </div>
+                                            <div class="col-md-6" id="cityd" @if ($worker->is_quick == 1) style="display: block" @else  style="display: none" @endif>
+                                                <label>@lang('city')</label>
+                                                <select  class="select2 form-control" name="city"
+                                                    id="select2">
+                                                    <option value=""> @lang('choose city') </option>
+                                                    @php
+                                                        if (get_lang() == 'ar') {
+                                                            $city = get_city_ar();
+                                                        } else {
+                                                            $city = get_city_en();
+                                                        }
+                                                        
+                                                    @endphp
+                                                    @foreach ($city as $item)
+                                                        <option value="{{ $item }}"
+                                                            @if ( $worker->city== $item) selected @endif>
+                                                            {{ $item }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
                                         </div>
                                         <br>
                                         <div class="row">
@@ -245,6 +266,22 @@
                                                 <label>@lang('Saned Url')</label>
                                                 <input type="url" name="url_sand" value="{{ $worker->url_sand }}"
                                                     class="form-control" required placeholder="type Saned Url">
+                                            </div>
+
+
+                                        </div>
+                                        <br>
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <label>@lang('additional description in arabic')</label>
+
+                                                <textarea name="description_ar" class="form-control" id="" cols="30" rows="10">{{ $worker->description_ar }}</textarea>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>@lang('additional description in english')</label>
+
+                                                <textarea name="description_en" class="form-control" id="" cols="30" rows="10">{{ $worker->description_en }}</textarea>
                                             </div>
 
 
@@ -336,12 +373,14 @@
     <script src="{{ asset('backend/vendors/js/forms/select/select2.full.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/forms/select/form-select2.js') }}" type="text/javascript"></script>
     <script>
-        $(document).ready(function() {
+         $(document).ready(function() {
             $("#time_q").change(function() {
                 if ($(this).val() == 0) {
                     $("#duration").show();
+                    $('#cityd').hide();
                 } else {
                     $("#duration").hide();
+                    $('#cityd').show();
 
                 }
             });

@@ -1,29 +1,32 @@
 @extends('layouts.backend')
 @section('css')
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/css/forms/selects/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/css/forms/selects/select2.min.css') }}">
+    <style>
+
+    </style>
 @endsection
 @section('content')
-<div class="content-wrapper">
-    <div class="content-header row">
-        <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">@lang('Workers')</h3>
-            <div class="row breadcrumbs-top">
-                <div class="breadcrumb-wrapper col-12">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
-                        </li>
-                        <li class="breadcrumb-item"><a href="{{ route('worker.index') }}">@lang('Workers')</a>
-                        </li>
-                        <li class="breadcrumb-item active">@lang('Create Worker')
-                        </li>
-                    </ol>
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-md-6 col-12 mb-2">
+                <h3 class="content-header-title">@lang('Workers')</h3>
+                <div class="row breadcrumbs-top">
+                    <div class="breadcrumb-wrapper col-12">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="{{ route('worker.index') }}">@lang('Workers')</a>
+                            </li>
+                            <li class="breadcrumb-item active">@lang('Create Worker')
+                            </li>
+                        </ol>
+                    </div>
                 </div>
             </div>
+
         </div>
 
     </div>
-
-</div>
     <div class="content-body">
         <section id="configuration">
             <div class="row">
@@ -66,7 +69,7 @@
                                             <div class="form-group col-md-6">
                                                 <label>@lang('Video') </label>
                                                 <input type="file" name="video" class="form-control video">
-                                            </div>                                  
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -93,7 +96,8 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <label>@lang('Nationalitiy')</label>
-                                                <select name="nationality_id" id="select_new" required class="form-control">
+                                                <select name="nationality_id" id="select_new" required
+                                                    class="form-control select2">
                                                     <option value=""> @lang('Choose Natonality') </option>
                                                     @foreach ($natonality as $item)
                                                         <option value="{{ $item->id }}"
@@ -126,9 +130,11 @@
                                                 <label>@lang('Is the experience inside Saudi Arabia or not')?</label>
                                                 <select name="in_sa" required class="form-control">
                                                     <option value="1"
-                                                        @if (old('in_sa') == 1) selected @endif> @lang('yes') </option>
+                                                        @if (old('in_sa') == 1) selected @endif>
+                                                        @lang('yes') </option>
                                                     <option value="0"
-                                                        @if (old('in_sa') == 0) selected @endif> @lang('no') </option>
+                                                        @if (old('in_sa') == 0) selected @endif>
+                                                        @lang('no') </option>
 
                                                 </select>
                                             </div>
@@ -145,15 +151,16 @@
                                                             {{ $item }}</option>
                                                     @endforeach
                                                 </select> --}}
-                                                <select required class="select2-rtl form-control" name="language[]" id="select2-rtl-multi" multiple="multiple">
+                                                <select required class="select2-rtl form-control" name="language[]"
+                                                    id="select2-rtl-multi" multiple="multiple">
                                                     <option value=""> @lang('Choose Language') </option>
 
                                                     @foreach (get_language() as $item)
-                                                    <option value="{{ $item }}"
-                                                        @if (old('language') == $item) selected @endif>
-                                                        {{ $item }}</option>
-                                                @endforeach
-                                                  </select>
+                                                        <option value="{{ $item }}"
+                                                            @if (old('language') == $item) selected @endif>
+                                                            {{ $item }}</option>
+                                                    @endforeach
+                                                </select>
 
                                             </div>
                                             <div class="col-md-6">
@@ -161,9 +168,11 @@
                                                 <select class="form-control" required name="religion">
                                                     <option value="" selected disabled>@lang('choose Religion') </option>
                                                     <option value="islam"
-                                                        @if (old('religion') == 'islam') selected @endif>@lang('Islam')</option>
+                                                        @if (old('religion') == 'islam') selected @endif>@lang('Islam')
+                                                    </option>
                                                     <option value="christian"
-                                                        @if (old('religion') == 'christian') selected @endif>@lang('Christian')</option>
+                                                        @if (old('religion') == 'christian') selected @endif>@lang('Christian')
+                                                    </option>
                                                     {{-- <option value="jewish" @if (old('religion') == 'jewish') selected @endif >Jewish</option>
                                                     <option value="buddhism" @if (old('religion') == 'buddhism')) selected @endif >Buddhism</option>
                                                     <option value="hindu" @if (old('religion') == 'hindu')) selected @endif >Hindu</option> --}}
@@ -177,9 +186,11 @@
                                                 <label>@lang('Do you accept children')?</label>
                                                 <select name="approve_chiled" required class="form-control">
                                                     <option value="1"
-                                                        @if (old('approve_chiled') == 1) selected @endif> @lang('yes') </option>
+                                                        @if (old('approve_chiled') == 1) selected @endif>
+                                                        @lang('yes') </option>
                                                     <option value="0"
-                                                        @if (old('approve_chiled') == 0) selected @endif> @lang('no') </option>
+                                                        @if (old('approve_chiled') == 0) selected @endif>
+                                                        @lang('no') </option>
 
                                                 </select>
                                             </div>
@@ -188,9 +199,11 @@
                                                 <label>@lang('Do she know cook') ?</label>
                                                 <select name="is_coocked" required class="form-control">
                                                     <option value="1"
-                                                        @if (old('is_coocked') == 1) selected @endif>  @lang('yes') </option>
+                                                        @if (old('is_coocked') == 1) selected @endif>
+                                                        @lang('yes') </option>
                                                     <option value="0"
-                                                        @if (old('is_coocked') == 0) selected @endif>  @lang('no') </option>
+                                                        @if (old('is_coocked') == 0) selected @endif>
+                                                        @lang('no') </option>
 
                                                 </select>
                                             </div>
@@ -201,13 +214,15 @@
 
                                             <div class="col-md-6">
                                                 <label>@lang('Recruitment period')</label>
-                                                <select name="is_quick" required class="form-control" id="time_q">
+                                                <select name="is_quick" required class=" form-control" id="time_q">
                                                     <option value="" selected> @lang('Choose')</option>
                                                     <option value="1"
-                                                        @if (old('is_quick') == 1) selected @endif> @lang('immediately')
+                                                        @if (old('is_quick') == 1) selected @endif>
+                                                        @lang('immediately')
                                                     </option>
                                                     <option value="0"
-                                                        @if (old('is_quick') == 0 && old('is_quick') != null) selected @endif> @lang('needs time')
+                                                        @if (old('is_quick') == 0 && old('is_quick') != null) selected @endif>
+                                                        @lang('needs time')
                                                     </option>
 
                                                 </select>
@@ -218,6 +233,26 @@
                                                 <input type="number" name="time" value="{{ old('time') }}"
                                                     class="form-control" placeholder="@lang('Duration')">
                                             </div>
+                                            <div class="col-md-6" id="cityd" style="display: block">
+                                                <label>@lang('city')</label>
+                                                <select  class="select2 form-control" name="city"
+                                                    id="select2">
+                                                    <option value=""> @lang('choose city') </option>
+                                                    @php
+                                                        if (get_lang() == 'ar') {
+                                                            $city = get_city_ar();
+                                                        } else {
+                                                            $city = get_city_en();
+                                                        }
+                                                        
+                                                    @endphp
+                                                    @foreach ($city as $item)
+                                                        <option value="{{ $item }}"
+                                                            @if (old('city') == $item) selected @endif>
+                                                            {{ $item }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
                                         <br>
                                         <div class="row">
@@ -226,6 +261,23 @@
                                                 <label>@lang('Saned Url')</label>
                                                 <input type="url" name="url_sand" value="{{ old('url_sand') }}"
                                                     class="form-control" required placeholder="@lang('Saned Url')">
+                                            </div>
+
+
+
+                                        </div>
+                                        <br>
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <label>@lang('additional description in arabic')</label>
+
+                                                <textarea name="description_ar" class="form-control" id="" cols="30" rows="10"></textarea>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>@lang('additional description in english')</label>
+
+                                                <textarea name="description_en" class="form-control" id="" cols="30" rows="10"></textarea>
                                             </div>
 
 
@@ -298,7 +350,8 @@
 
                                                     </div>
                                                     <div class="modal-footer d-flex justify-content-center">
-                                                        <button class="btn btn-info" type="submit">@lang('save') </i></button>
+                                                        <button class="btn btn-info" type="submit">@lang('save')
+                                                            </i></button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -319,9 +372,8 @@
     </div>
 @endsection
 @section('script')
-
-<script src="{{ asset('backend/vendors/js/forms/select/select2.full.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('backend/js/scripts/forms/select/form-select2.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backend/vendors/js/forms/select/select2.full.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backend/js/scripts/forms/select/form-select2.js') }}" type="text/javascript"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -330,8 +382,10 @@
             $("#time_q").change(function() {
                 if ($(this).val() == 0) {
                     $("#duration").show();
+                    $('#cityd').hide();
                 } else {
                     $("#duration").hide();
+                    $('#cityd').show();
 
                 }
             });

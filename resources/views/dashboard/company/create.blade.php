@@ -105,20 +105,12 @@
                                         </div>
                                         <br>
                                         <div class="row">
-                                            {{-- <div class="col-md-6">
-                                                <label>@lang('Longitude')</label>
-                                                <input type="text" id="form3" value="{{ old('longitude') }}"
-                                                    placeholder="Longitude" name="longitude" class="form-control validate">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>@lang('Latitude')</label>
-                                                <input type="text" id="form3" value="{{ old('latitude') }}"
-                                                    placeholder="Latitude" name="latitude" class="form-control validate">
-                                            </div> --}}
+                                    
                                             <div class="col-md-6">
                                                 <label for="address_address">@lang('Address')</label>
                                                 <input type="text" id="address-input" name="address_address"
                                                     value="{{ $region }}" required
+
                                                     class="form-control map-input">
                                                 <input type="hidden" name="address_latitude" id="address-latitude"
                                                     value="{{ old('address_latitude') }}" />
@@ -214,10 +206,7 @@
 
             $('#geogg').click();
             setTimeout(function() {
-                    $.getJSON('https://ipapi.co/json/', function(data) {
-                        var dataa = JSON.stringify(data, null, 2);
-
-                    });
+               
                     const latitudeField = document.getElementById("address-latitude");
                     const longitudeField = document.getElementById("address-longitude");
                     const address = document.getElementById("address-address");
@@ -266,8 +255,13 @@
                             lat: latitude,
                             lng: longitude
                         },
+                        draggable: true
                     });
+                    google.maps.event.addListener(marker, 'dragend', function(evt){
+                        setLocationCoordinates(autocomplete.key, this.getPosition().lat(), this.getPosition().lng());
 
+                        console.log(this.getPosition().lat());
+                    });
                     marker.setVisible(isEdit);
 
                     const autocomplete = new google.maps.places.Autocomplete(input);

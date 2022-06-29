@@ -122,6 +122,10 @@
     "Age": "Age",
     "Confirm Password": "Confirm Password",
     "Video": "Video",
-    "Address": "Address"
+    "Address": "Address",
+    "additional description in arabic": "additional description in arabic",
+    "additional description in english": "additional description in english",
+    "city": "city",
+    "choose city": "choose city"
 
 }
