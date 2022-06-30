@@ -65,7 +65,7 @@ class HomeController extends Controller
       $not =Notification::find($id);
       $not->read_at = Carbon::now();
       $not->save();
-      dd($not->data['url']);
+      dd($not->data);
       return redirect($not->data['url']);
         
     }
