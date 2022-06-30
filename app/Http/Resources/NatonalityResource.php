@@ -19,7 +19,7 @@ class NatonalityResource extends JsonResource
           'id'=>$this->id,
           'name'=>$this->name,
           'flag'=>asset('uploads/'.$this->flag),  
-          'wrokers'=>new WorkerResource(
+          'wrokers'=> WorkerResource::collection(
             Worker::has('company')->whereHas('company',function ($q){
               $q->where('deleted_at',null);
           })->get()),
