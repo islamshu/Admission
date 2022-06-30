@@ -120,31 +120,31 @@ integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="ano
  
 </script>
 <script>
-  var notificationsWrapper = $('.dropdown-notifications');
-var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
-var notificationsCountElem = notificationsToggle.find('span[data-count]');
-var notificationsCount = parseInt(notificationsCountElem.data('count'));
-var notifications = notificationsWrapper.find('li.scrollable-container');
+//   var notificationsWrapper = $('.dropdown-notifications');
+// var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
+// var notificationsCountElem = notificationsToggle.find('span[data-count]');
+// var notificationsCount = parseInt(notificationsCountElem.data('count'));
+// var notifications = notificationsWrapper.find('li.scrollable-container');
 
 // Subscribe to the channel we specified in our Laravel Event
 var channel = pusher.subscribe('new-user');
 // Bind a function to a Event (the full Laravel class)
-channel.bind('App\\Events\\NewUser', function (data) {
-    var existingNotifications = notifications.html();
+channel.bind('App\\Events\\NewBooking', function (data) {
+    // var existingNotifications = notifications.html();
    
-    var newNotificationHtml = `<a href="`+data.url+`"><span class="table-img msg-user">
-                                            <img src="`+ `{{asset('uploads/user/deflut.png')  }}` + `" alt="">
-                                        </span><span class="menu-info"><span class="menu-title">` + data.name +`</span><span class="menu-desc">
-                                                <i class="material-icons"></i> 
-                                            </span>
-                                        </span>
-                                    </a>` ;
-    notifications.html(newNotificationHtml + existingNotifications);
-    notificationsCount += 1;
-    notificationsCountElem.attr('data-count', notificationsCount);
-    notificationsWrapper.find('.notif-count').text(notificationsCount);
-    notificationsWrapper.show();
-    $('.delll').empty();
+    // var newNotificationHtml = `<a href="`+data.url+`"><span class="table-img msg-user">
+    //                                         <img src="`+ `{{asset('uploads/user/deflut.png')  }}` + `" alt="">
+    //                                     </span><span class="menu-info"><span class="menu-title">` + data.name +`</span><span class="menu-desc">
+    //                                             <i class="material-icons"></i> 
+    //                                         </span>
+    //                                     </span>
+    //                                 </a>` ;
+    // notifications.html(newNotificationHtml + existingNotifications);
+    // notificationsCount += 1;
+    // notificationsCountElem.attr('data-count', notificationsCount);
+    // notificationsWrapper.find('.notif-count').text(notificationsCount);
+    // notificationsWrapper.show();
+    // $('.delll').empty();
 
 });
 </script>
