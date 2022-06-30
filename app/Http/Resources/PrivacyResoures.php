@@ -21,15 +21,24 @@ class PrivacyResoures extends JsonResource
         ];
     }
     public function get_data(){
-        $lang = request()->header('Lang');
+        $lang = request()->header('Lang') == null ? 'ar' : request()->header('Lang')  ;
         $about = Privacy::orderBy('sort', 'asc')->get();
         $array = array();
-        foreach($about as $a){
+        if($lang == 'en'){
+            foreach($about as $a){
             
+                $data['title']= $a->title_en;
+                $data['contnet']= $a->body_en;
+                array_push($array,$data);
+            }
+        }else{
+            foreach($about as $a){
             $data['title']= $a->title_ar;
-            $data['contnet']= $a->title_en;
+            $data['contnet']= $a->body_ar;
             array_push($array,$data);
         }
+        }
+        
         return $array;
      
     }

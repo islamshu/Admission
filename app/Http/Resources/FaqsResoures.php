@@ -26,14 +26,23 @@ class FaqsResoures extends JsonResource
     
 
     public function get_data(){
-        $lang = request()->header('Lang');
+        $lang = request()->header('Lang') == null ? 'ar' : request()->header('Lang')  ;
         $about = Faqs::orderBy('sort', 'asc')->get();
         $array = array();
+        if($lang == 'en'){
         foreach($about as $a){
             
             $data['title']= $a->answer_en;
             $data['contnet']= $a->qus_en;
             array_push($array,$data);
+        }
+        }else{
+            foreach($about as $a){
+            
+                $data['title']= $a->answer_ar;
+                $data['contnet']= $a->qus_ar;
+                array_push($array,$data);
+            }
         }
         return $array;
      
