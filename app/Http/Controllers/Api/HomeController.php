@@ -25,6 +25,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\AboutResoures;
 use App\Http\Resources\PrivacyResoures;
+use App\Http\Resources\SocialResource;
 use App\Notifications\NewBookingNotofication;
 use App\User;
 
@@ -80,9 +81,8 @@ class HomeController extends BaseController
     }
     public function contact()
     {
-        $socials = Social::get();
-        $res['data'] = new SocialCollection($socials);
-        return $res;
+        $a= new SocialResource(Social::first());
+        return $a;
     }
     public function privacy()
     {
