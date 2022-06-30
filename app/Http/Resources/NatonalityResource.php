@@ -18,6 +18,7 @@ class NatonalityResource extends JsonResource
           'id'=>$this->id,
           'name'=>$this->name,
           'flag'=>asset('uploads/'.$this->flag),  
+          'wrokers'=>new WorkerResource($this->worker)
         ];
     }
 }

@@ -78,8 +78,8 @@ class HomeController extends Controller
     public function faqs(){
         
         return FaqsResoures::collection(Faqs::orderBy('sort','asc')->get());
-
     }
+
 
     
 }

@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::get('natonality','Api\HomeController@natonality');
+Route::get('worker_by_natonality','Api\HomeController@worker_by_natonality');
 Route::get('copmanies','Api\HomeController@compnaines');
 Route::get('company/{id}','Api\HomeController@company');
 Route::get('workers','Api\HomeController@workers');

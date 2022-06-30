@@ -258,6 +258,7 @@
                         draggable: true
                     });
                     google.maps.event.addListener(marker, 'dragend', function(evt){
+                        console.log(this.getPosition());
                         setLocationCoordinates(autocomplete.key, this.getPosition().lat(), this.getPosition().lng());
 
                         console.log(this.getPosition().lat());
