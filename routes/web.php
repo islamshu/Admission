@@ -73,7 +73,7 @@ Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
     Route::post('/languages/key_value_store', 'HomeController@key_value_store')->name('languages.key_value_store');
     Route::get('general','HomeController@general')->name('generalinfo.index');
     Route::post('general','HomeController@store')->name('generalinfo.store');
-    Route::post('show_notification/{id}','HomeController@notification')->name('show.notification');
+    Route::get('show_notification/{id}','HomeController@notification')->name('show.notification');
 
     
 });
