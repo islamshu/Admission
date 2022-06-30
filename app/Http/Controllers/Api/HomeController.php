@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\About;
 use App\Booking;
+use App\BusyWorker;
 use App\Company;
 use App\Events\NewBooking;
 use App\Faqs;
@@ -110,7 +111,7 @@ class HomeController extends BaseController
     public function request_worker(Request $request)
     {
         $worker = Worker::find($request->worker_id);
-        if ($worker->status == 2) {
+        if ($worker->status == 1) {
             $booking = new Booking();
             $booking->worker_id = $worker->id;
             $booking->company_id = Company::find($worker->company_id)->id;
@@ -137,6 +138,13 @@ class HomeController extends BaseController
             $user->notify(new NewBookingNotofication($data));
 
             return $this->sendResponse(new WorkerResource($worker), trans('Booked successfully'));
+
+        }else{
+            $bo = new BusyWorker();
+            $bo->worker_id = $request->worker_id;
+            $bo->phone = $request->phone;
+            $bo->save();
+            return $this->sendResponse(new WorkerResource($worker), trans('Booked not avaliable now'));
 
         }
     }
