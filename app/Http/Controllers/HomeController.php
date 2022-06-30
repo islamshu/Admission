@@ -65,8 +65,7 @@ class HomeController extends Controller
       $not =Notification::find($id);
       $not->read_at = Carbon::now();
       $not->save();
-      dd($not->data);
-      return redirect($not->data['url']);
+      return redirect(json_decode($not->data)->url);
         
     }
     public function key_value_store(Request $request)
