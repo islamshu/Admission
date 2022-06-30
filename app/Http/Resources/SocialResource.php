@@ -25,8 +25,8 @@ class SocialResource extends ResourceCollection
         $array = array();
         foreach($about as $a){
             
-            $data['title']= $a->type;
-            $data['contnet']= $a->value;
+            $data['type']= $a->type;
+            $data['link']= $a->value;
             array_push($array,$data);
         }
         
