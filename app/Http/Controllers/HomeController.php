@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\General;
+use App\Notification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -61,9 +62,9 @@ class HomeController extends Controller
         return redirect()->back();
     }
     public function notification($id){
-      $not = DB::table('notifications')->where('id',$id)->first();
-      $not->update(['read_at'=>Carbon::now()]);
-    
+      $not =Notification::find($id);
+      $not->read_at = Carbon::now();
+      $not->save();
       return redirect($not->data['url']);
         
     }
