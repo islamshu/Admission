@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Worker;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class NatonalityResource extends JsonResource
+class NatonalityResourceWithoutWorker extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,7 +19,7 @@ class NatonalityResource extends JsonResource
           'id'=>$this->id,
           'name'=>$this->name,
           'flag'=>asset('uploads/'.$this->flag),  
-          'workers'=>WorkerResource::collection($this->worker)
+        //   'workers'=>WorkerResource::collection($this->worker)
           // 'wrokers'=> WorkerResource::collection(
             // Worker::has('company')->get()),
         ];
