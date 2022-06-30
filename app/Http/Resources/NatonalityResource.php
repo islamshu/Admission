@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Worker;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class NatonalityResource extends JsonResource
@@ -18,7 +19,7 @@ class NatonalityResource extends JsonResource
           'id'=>$this->id,
           'name'=>$this->name,
           'flag'=>asset('uploads/'.$this->flag),  
-          'wrokers'=>new WorkerResource($this->worker)
+          'wrokers'=>new WorkerResource(Worker::where('nationality_id',$this->id)->get())
         ];
     }
 }
