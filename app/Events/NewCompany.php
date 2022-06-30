@@ -17,8 +17,8 @@ class NewCompany implements ShouldBroadcast
      *
      * @return void
      */
-    public $user_id;
-    public $title;
+    public $id;
+    public $name;
     public $url;
     public function __construct($data)
     {
