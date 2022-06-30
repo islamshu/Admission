@@ -15,12 +15,14 @@ class NatonalityResource extends JsonResource
      */
     public function toArray($request)
     {
-      dd(Worker::where('nationality_id',$this->id)->get());
         return [
           'id'=>$this->id,
           'name'=>$this->name,
           'flag'=>asset('uploads/'.$this->flag),  
-          'wrokers'=>new WorkerResource(Worker::where('nationality_id',$this->id)->get())
+          'wrokers'=>new WorkerResource(
+            Worker::has('company')->whereHas('company',function ($q){
+              $q->where('deleted_at',null);
+          })->get()),
         ];
     }
 }
