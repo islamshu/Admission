@@ -15,6 +15,7 @@ class NatonalityResource extends JsonResource
      */
     public function toArray($request)
     {
+      dd(Worker::where('nationality_id',$this->id)->get());
         return [
           'id'=>$this->id,
           'name'=>$this->name,

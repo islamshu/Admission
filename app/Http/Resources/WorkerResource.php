@@ -20,7 +20,7 @@ class WorkerResource extends JsonResource
             'name'=>$this->name,
             'image'=>asset('uploads/'.$this->image),
             'video'=>$this->video != null ? asset('uploads/'.$this->video) : null,
-            'natonality'=>new NatonalityResource($this->natonality),
+            'natonality'=>new NatonalityResource(@$this->natonality),
             'age'=>$this->age,
             'experience'=>$this->experience,
             'experience_in_Sa'=>$this->in_sa == 1 ? 'yes' : 'no',
@@ -33,7 +33,7 @@ class WorkerResource extends JsonResource
             'url_sand'=>$this->url_sand,
             'status'=>worker_status($this->status),
             'visitor'=>$this->visitor,
-            'compnay'=> new CopmainsResource($this->company)
+            'compnay'=> new CopmainsResource(@$this->company)
 
         ];
     }
