@@ -22,7 +22,7 @@ class NewBooking implements ShouldBroadcast
     public $url;
     public function __construct($data)
     {
-        // dd($data);
+        dd($data['id']);
         $this->id = $data['id'];
         $this->name = $data['name'];
         $this->url = $data['url'];
