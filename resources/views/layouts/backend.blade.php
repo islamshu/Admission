@@ -129,7 +129,7 @@ integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="ano
 var channel = pusher.subscribe('new-user');
 // Bind a function to a Event (the full Laravel class)
 channel.bind('App\\Events\\NewBooking', function (data) {
-    alert(data)
+    // alert(data)
     // var existingNotifications = notifications.html();
    
     // var newNotificationHtml = `<a href="`+data.url+`"><span class="table-img msg-user">
