@@ -68,7 +68,7 @@
                 <li class="scrollable-container media-list w-100 ps-container ps-theme-dark" data-ps-id="0aa33947-2a90-7244-da0a-58037619abb6">
                   @forelse  ($notifications as $item)
 
-                  <a href="javascript:void(0)">
+                  <a href="{{ route('nationalities.show',$item->id) }}">
                     <div class="media">
                       <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
                       <div class="media-body">

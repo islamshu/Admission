@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\General;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -57,6 +58,11 @@ class HomeController extends Controller
 
         session()->flash('success', 'تم تحديث البيانات بنجاح');
         return redirect()->back();
+    }
+    public function notification($id){
+      $not = DB::table('notifications')->where('id',$id)->first();
+      dd($not);
+        
     }
     public function key_value_store(Request $request)
     {
