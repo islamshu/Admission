@@ -15,7 +15,10 @@ class SocialCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
+            'main_title'=>trans('contact us'),
+
             'contacts' => $this->collection->map(function($data) {
+                
                 return [
                 'media'=> $data->type,
                 'contact'=> $data->value,

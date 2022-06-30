@@ -16,8 +16,8 @@ class FaqsResoures extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'question'=>$this->qus($this),
-            'answer'=>$this->answer($this),
+            'title'=>$this->qus($this),
+            'content'=>$this->answer($this),
         ];
     }
     public function qus($data)

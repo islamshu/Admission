@@ -23,6 +23,8 @@ use Doctrine\Inflector\Rules\Word;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Resources\AboutResoures;
+use App\Http\Resources\PrivacyResoures;
 use App\Notifications\NewBookingNotofication;
 use App\User;
 
@@ -84,15 +86,24 @@ class HomeController extends BaseController
     }
     public function privacy()
     {
-        return PageResoures::collection(Privacy::orderBy('sort', 'asc')->get());
+        $data['main_title'] = trans('privacy');
+        $a= PrivacyResoures::collection(Privacy::orderBy('sort', 'asc')->get());
+        $data['data']= $a;
+        return $data;
     }
     public function abouts()
     {
-        return PageResoures::collection(About::orderBy('sort', 'asc')->get());
+        $data['main_title'] = trans('about Us');
+        $a= AboutResoures::collection(About::orderBy('sort', 'asc')->get());
+        $data['data']= $a;
+        return $data;
     }
     public function faqs()
     {
-        return FaqsResoures::collection(Faqs::orderBy('sort', 'asc')->get());
+        $data['main_title'] = trans('faqs');
+        $a= FaqsResoures::collection(Faqs::orderBy('sort', 'asc')->get());
+        $data['data']= $a;
+        return $data;
     }
     public function general()
     {
