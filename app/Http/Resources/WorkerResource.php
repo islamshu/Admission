@@ -24,7 +24,7 @@ class WorkerResource extends JsonResource
             'age'=>$this->age,
             'experience'=>$this->experience,
             'experience_in_Sa'=>$this->in_sa == 1 ? 'yes' : 'no',
-            'language'=>$this->language,
+            'language'=>json_decode($this->language),
             'religion'=>$this->religion,
             'approve_chiled'=>$this->approve_chiled,
             'is_coocked'=>$this->is_coocked,
