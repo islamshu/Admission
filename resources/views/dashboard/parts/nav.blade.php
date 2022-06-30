@@ -48,51 +48,57 @@
                     <i class="fas fa-expand"></i>
                 </a>
             </li>
-            <li class="dropdown dropdown-notifications">
-              @php
-                  $notifications = auth()->user()->unreadNotifications;
-                  $count = auth()->user()->unreadNotifications->count();
+            @php
+            $notifications = auth()->user()->unreadNotifications;
+            $count = auth()->user()->unreadNotifications->count();
 
-              @endphp
-              <a  style="color: white" href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown"data-toggle="dropdown"
-                  role="button">
-                  <i class="far fa-bell fa-2x"></i>
-                  <span class="notif-count"  data-count="{{ $count }}">{{ $count }}</span>
+        @endphp
+            <li class="dropdown dropdown-notification nav-item">
+              <a class="nav-link nav-link-label" href="#" data-toggle="dropdown" aria-expanded="false"><i class="ficon ft-bell"></i>
+                <span class="badge badge-pill badge-default badge-danger badge-default badge-up badge-glow">{{ $count }}</span>
               </a>
-              <ul class="dropdown-menu pullDown" style="height: auto;" >
-                  <li class="header">الاشعارات</li>
-                  <li class="body" style="width: 100%">
+              <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                <li class="dropdown-menu-header">
+                  <h6 class="dropdown-header m-0">
+                    <span class="grey darken-2">@lang('Notifications')</span>
+                  </h6>
+                  <span class="notification-tag badge badge-default badge-danger float-right m-0">{{ $count }} @lang('')</span>
+                </li>
+                
+                <li class="scrollable-container media-list w-100 ps-container ps-theme-dark" data-ps-id="0aa33947-2a90-7244-da0a-58037619abb6">
+                  @forelse  ($notifications as $item)
 
-                      <ul class="menu" >
-                            
-                   
-                          <li class="scrollable-container">
-                              @forelse  ($notifications as $item)
-                              {{-- {{ route('show_notify',$item->id) }} --}}
-                              <a href="" >
-                                  <span class="table-img msg-user">
-                                      <img src="{{ asset('uploads/user/deflut.png') }}" alt="">
-                                  </span>
-                                  <span class="menu-info">
-                                      <span class="menu-title">{{$item->data['name'] }}</span>
-                                      <span class="menu-desc">
-                                          <i class="material-icons"></i> 
-                                      </span>
-                                  </span>
-                              </a>
-                              @empty
-                              <a class="delll" style="color: rgb(163, 74, 74);text-align: center" href="#" onClick="return false;">لا يوجد اشعارات</a>
-                              @endforelse
-                          </li>
-                    
-
-                        
-                      </ul>
-
-                  </li>
-                 
+                  <a href="javascript:void(0)">
+                    <div class="media">
+                      <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading">@if(get_lang() == 'ar') {{$item->data['title_ar'] }} @else {{$item->data['title_en'] }} @endif</h6>
+                        <small>
+                          
+                          <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">{{ \Carbon\Carbon::parse($item->data['time'])->diffForhumans() }}</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  @endforeach
+               
+                <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: -8px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></li>
+                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">@lang('Read all notifications')</a></li>
               </ul>
-          </li>
+            </li>
+
+
+
+
+
+
+
+
+
+
+            
+
+           
           </ul>
         </div>
       </div>

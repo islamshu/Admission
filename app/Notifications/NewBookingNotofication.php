@@ -52,6 +52,8 @@ class NewBookingNotofication extends Notification
     {
         return [
             'id' => $this->details['id'],
+            'title_ar'=>'هناك حجز جديد',
+            'title_en'=>'new booking',
             'name' => $this->details['name'],
             'url' => $this->details['url'],
             'time' => $this->details['time'],
