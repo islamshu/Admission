@@ -62,8 +62,8 @@ class HomeController extends Controller
     }
     public function notification($id){
       $not = DB::table('notifications')->where('id',$id)->first();
-      $not->read_at = Carbon::now();
-      $not->save();
+      $not->update(['read_at'=>Carbon::now()]);
+    
       return redirect($not->data['url']);
         
     }
