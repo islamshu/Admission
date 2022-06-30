@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\General;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -61,7 +62,9 @@ class HomeController extends Controller
     }
     public function notification($id){
       $not = DB::table('notifications')->where('id',$id)->first();
-      dd($not);
+      $not->read_at = Carbon::now();
+      $not->save();
+      return redirect($not->data['url']);
         
     }
     public function key_value_store(Request $request)
