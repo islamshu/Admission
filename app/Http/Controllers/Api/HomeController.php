@@ -131,11 +131,11 @@ class HomeController extends BaseController
             // event(new NewBooking($data));
             $admin = User::role('Admin')->first();
             $admin->notify(new NewBookingNotofication($data));
-            $users = User::wherehas('company',function($q) use($booking){
+            $user = User::wherehas('company',function($q) use($booking){
                 $q->where('id',$booking->company_id);
             })->first();
-            dd($users);
-            
+            $user->notify(new NewBookingNotofication($data));
+
             return $this->sendResponse(new WorkerResource($worker), trans('Booked successfully'));
 
         }
