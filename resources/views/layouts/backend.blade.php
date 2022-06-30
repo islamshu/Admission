@@ -93,7 +93,6 @@
     <script src="{{ asset('backend/js/core/app-menu.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/core/app.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/customizer.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('backend/js/scripts/pages/dashboard-crypto.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/tables/datatables/datatable-basic.js') }}"></script>
     <script src="{{ asset('backend/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/tables/datatables/datatable-advanced.js') }}" type="text/javascript"></script>
