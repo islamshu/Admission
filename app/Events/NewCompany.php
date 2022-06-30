@@ -37,4 +37,9 @@ class NewCompany implements ShouldBroadcast
       return new Channel('new-user');
         // return['new-user'];
     }
+    
+    public function broadcastAs()
+  {
+      return 'new-user';
+  }
 }
