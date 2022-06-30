@@ -70,7 +70,7 @@
                                
                                 <td>
                     
-                                    <form method="post"  style="display: inline" action="{{ route('privacy.delete',$item->id) }}">
+                                    <form method="post"  style="display: inline" action="{{ route('about.delete',$item->id) }}">
                                         @csrf @method('delete')
                                         <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                     </form>
