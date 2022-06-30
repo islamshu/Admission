@@ -130,6 +130,7 @@ class HomeController extends BaseController
             ];
             event(new NewBooking($data));
             $admin = User::role('Admin')->first();
+            dd($admin);
             $admin->notify(new NewBookingNotofication($data));
             return $this->sendResponse(new WorkerResource($worker), trans('Booked successfully'));
 
