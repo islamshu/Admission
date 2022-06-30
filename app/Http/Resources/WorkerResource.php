@@ -29,6 +29,8 @@ class WorkerResource extends JsonResource
             'approve_chiled'=>$this->approve_chiled,
             'is_coocked'=>$this->is_coocked,
             'is_quick'=>$this->is_quick,
+            'city'=>$this->city,
+            'descrription'=> $this->get_des($this),
             'time'=>$this->time,
             'url_sand'=>$this->url_sand,
             'status'=>worker_status($this->status),
@@ -36,5 +38,19 @@ class WorkerResource extends JsonResource
             'compnay'=> new CopmainsResource(@$this->company)
 
         ];
+    }
+    function get_des($data){
+        $lang = request()->header('Lang');
+        if($lang != null){
+            if($lang  =='ar'){
+                return $data->descrription_ar;
+            }else{
+                return $data->descrription_en;
+  
+            }
+        }else{
+            return $data->descrription_ar;
+
+        }
     }
 }
