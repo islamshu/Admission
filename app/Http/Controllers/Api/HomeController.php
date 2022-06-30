@@ -128,9 +128,14 @@ class HomeController extends BaseController
                 'url' => route('booking.show', $booking->id),
                 'time'=>$booking->created_at
             ];
-            event(new NewBooking($data));
+            // event(new NewBooking($data));
             $admin = User::role('Admin')->first();
             $admin->notify(new NewBookingNotofication($data));
+            $users = User::wherehas('company',function($q) use($booking){
+                $q->where('id',$booking->company_id);
+            })->first();
+            dd($users);
+            
             return $this->sendResponse(new WorkerResource($worker), trans('Booked successfully'));
 
         }
