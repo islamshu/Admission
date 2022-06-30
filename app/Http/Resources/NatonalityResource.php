@@ -18,10 +18,7 @@ class NatonalityResource extends JsonResource
         return [
           'id'=>$this->id,
           'name'=>$this->name,
-          'flag'=>asset('uploads/'.$this->flag),  
-          // 'workers'=>WorkerResource::collection($this->worker)
-          // 'wrokers'=> WorkerResource::collection(
-            // Worker::has('company')->get()),
+          
         ];
     }
 }
