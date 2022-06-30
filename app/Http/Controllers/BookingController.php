@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\BusyWorker;
 use App\Company;
+use App\Worker;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -14,6 +16,17 @@ class BookingController extends Controller
         }else{
             return view('dashboard.booking.company')->with('booking',Booking::withTrashed()->where('company_id',auth()->user()->company->id)->orderBy('id', 'DESC')->get());
         }
+    }
+    public function unavliable()
+    {
+       $workers = Worker::has('busy')->get();
+       return view('dashboard.booking.unaviable')->with('workers',$workers);
+    }
+    public function show_unavliable($id)
+    {
+     $user = BusyWorker::where('worker_id',$id)->get();
+     return view('dashboard.booking.show_unav')->with('users',$user)->with('worker_id',$id);
+
     }
     public function show($id)
     {

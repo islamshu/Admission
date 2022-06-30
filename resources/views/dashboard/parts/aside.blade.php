@@ -56,6 +56,15 @@
           
         </ul>
       </li>
+      <li class="nav-item has-sub "><a href="#">
+        <i class="fa fa-bookmark"></i>
+        <span class="menu-title" >@lang('Unavailable Booking')</span></a>
+        <ul class="menu-content" style="">
+          <li class="is-shown"><a class="menu-item" href="{{ route('booking.unavilable') }}" >@lang('Show All')</a>
+          </li>
+          
+        </ul>
+      </li>
       {{-- <li class="nav-item has-sub "><a href="#">
         <i class="la la-adjust"></i>
         <span class="menu-title" >@lang('Countries')</span></a>

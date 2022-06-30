@@ -22,5 +22,9 @@ class Worker extends Model
     {
         return $this->belongsTo(Company::class, 'company_id');
     }
+    public function busy()
+    {
+        return $this->hasMany(BusyWorker::class);
+    }
 
 }
