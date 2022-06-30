@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\About;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AboutResoures extends JsonResource
@@ -16,37 +17,25 @@ class AboutResoures extends JsonResource
     {
         return[
             
-            'id'=>$this->id,
-            'title'=> $this->lang_name($this),
-            'content'=> $this->lang_body($this),
+            
+            'title'=> trans('about Us'),
+            'content'=> $this->get_data(),
         ];
     }
     
 
-    public function lang_name($data){
+    public function get_data(){
         $lang = request()->header('Lang');
-        if($lang != null){
-            if($lang  =='ar'){
-                return $data->title_ar;
-            }else{
-                return $data->title_en;
-  
-            }
-        }else{
-            return $data->title_en;
+        $about = About::orderBy('sort', 'asc')->get();
+        $array = array();
+        foreach($about as $a){
+            
+            $data['title']= $a->title_ar;
+            $data['contnet']= $a->title_en;
+            array_push($array,$data);
         }
+        return $array;
+     
     }
-    public function lang_body($data){
-        $lang = request()->header('Lang');
-        if($lang != null){
-            if($lang  =='ar'){
-                return $data->body_ar;
-            }else{
-                return $data->body_en;
-  
-            }
-        }else{
-            return $data->body_ar;
-        }
-    }
+   
 }

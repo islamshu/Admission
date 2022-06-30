@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources;
 
+use App\About;
+use App\Faqs;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class FaqsResoures extends JsonResource
@@ -14,36 +16,27 @@ class FaqsResoures extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'id'=>$this->id,
-            'title'=>$this->qus($this),
-            'content'=>$this->answer($this),
+        return[
+            
+            
+            'title'=> trans('faqs'),
+            'content'=> $this->get_data(),
         ];
     }
-    public function qus($data)
-    {
+    
+
+    public function get_data(){
         $lang = request()->header('Lang');
-        if ($lang != null) {
-            if ($lang  == 'ar') {
-                return $data->qus_ar;
-            } else {
-                return $data->qus_en;
-            }
-        } else {
-            return $data->qus_en;
+        $about = Faqs::orderBy('sort', 'asc')->get();
+        $array = array();
+        foreach($about as $a){
+            
+            $data['title']= $a->answer_en;
+            $data['contnet']= $a->qus_en;
+            array_push($array,$data);
         }
+        return $array;
+     
     }
-    public function answer($data)
-    {
-        $lang = request()->header('Lang');
-        if ($lang != null) {
-            if ($lang  == 'ar') {
-                return $data->answer_ar;
-            } else {
-                return $data->answer_en;
-            }
-        } else {
-            return $data->answer_en;
-        }
-    }
+   
 }

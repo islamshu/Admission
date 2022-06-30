@@ -86,24 +86,26 @@ class HomeController extends BaseController
     }
     public function privacy()
     {
-        $data['main_title'] = trans('privacy');
-        $a= PrivacyResoures::collection(Privacy::orderBy('sort', 'asc')->get());
-        $data['data']= $a;
-        return $data;
+        $a= new PrivacyResoures(Privacy::orderBy('sort', 'asc')->first());
+       
+        return $a;
     }
     public function abouts()
     {
-        $data['main_title'] = trans('about Us');
-        $a= AboutResoures::collection(About::orderBy('sort', 'asc')->get());
-        $data['data']= $a;
-        return $data;
+        // $data['main_title'] = trans('about Us');
+        $a=new  AboutResoures(About::orderBy('sort', 'asc')->first());
+        // $data['data']= $a;
+        return $a;
     }
     public function faqs()
     {
-        $data['main_title'] = trans('faqs');
-        $a= FaqsResoures::collection(Faqs::orderBy('sort', 'asc')->get());
-        $data['data']= $a;
-        return $data;
+        // $data['main_title'] = trans('faqs');
+        // $a= FaqsResoures::collection(Faqs::orderBy('sort', 'asc')->get());
+        // $data['data']= $a;
+        // return $data;
+        $a=new  FaqsResoures(Faqs::orderBy('sort', 'asc')->first());
+        // $data['data']= $a;
+        return $a;
     }
     public function general()
     {
