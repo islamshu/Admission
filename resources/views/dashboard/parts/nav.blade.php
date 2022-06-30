@@ -39,6 +39,60 @@
             </li>
             
             
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <!-- Full Screen Button -->
+            <li class="fullscreen">
+                <a href="javascript:;" class="fullscreen-btn">
+                    <i class="fas fa-expand"></i>
+                </a>
+            </li>
+            <li class="dropdown dropdown-notifications">
+              @php
+                  $notifications = auth()->user()->unreadNotifications;
+                  $count = auth()->user()->unreadNotifications->count();
+
+              @endphp
+              <a  style="color: white" href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown"data-toggle="dropdown"
+                  role="button">
+                  <i class="far fa-bell fa-2x"></i>
+                  <span class="notif-count"  data-count="{{ $count }}">{{ $count }}</span>
+              </a>
+              <ul class="dropdown-menu pullDown" style="height: auto;" >
+                  <li class="header">الاشعارات</li>
+                  <li class="body" style="width: 100%">
+
+                      <ul class="menu" >
+                            
+                   
+                          <li class="scrollable-container">
+                              @forelse  ($notifications as $item)
+                              {{-- {{ route('show_notify',$item->id) }} --}}
+                              <a href="" >
+                                  <span class="table-img msg-user">
+                                      <img src="{{ asset('uploads/user/deflut.png') }}" alt="">
+                                  </span>
+                                  <span class="menu-info">
+                                      <span class="menu-title">{{$item->data['name'] }}</span>
+                                      <span class="menu-desc">
+                                          <i class="material-icons"></i> 
+                                      </span>
+                                  </span>
+                              </a>
+                              @empty
+                              <a class="delll" style="color: rgb(163, 74, 74);text-align: center" href="#" onClick="return false;">لا يوجد اشعارات</a>
+                              @endforelse
+                          </li>
+                    
+
+                        
+                      </ul>
+
+                  </li>
+                 
+              </ul>
+          </li>
           </ul>
         </div>
       </div>

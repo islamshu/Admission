@@ -22,6 +22,8 @@
           </li>
         </ul>
       </li> --}}
+      <li class="nav-item"><a href="{{ route('generalinfo.index') }}"><i class="la la-cog"></i><span class="menu-title" data-i18n="nav.dash.main">@lang('general info') </span></a>  
+      </li>
       <li class="nav-item has-sub "><a href="#">
         <i class="fa fa-building"></i>
         <span class="menu-title" >@lang('Companies')</span></a>

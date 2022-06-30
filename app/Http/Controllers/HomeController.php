@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\General;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -32,7 +33,31 @@ class HomeController extends Controller
 
         return view('dashboard.language_view_en', compact('language'));
     }
+    public function general(){
+        return view('dashboard.general');
+    }
  
+    public function store(Request $request)
+    {
+        if($request->hasFile('general_file')){
+            foreach ($request->file('general_file') as $name => $value) {
+                if($value == null){
+                    continue;
+                }
+                General::setValue($name, $value->store('general'));
+            }
+        }
+
+        foreach ($request->input('general') as $name => $value){
+            if($value == null){
+                continue;
+            }
+            General::setValue($name, $value);
+        }
+
+        session()->flash('success', 'تم تحديث البيانات بنجاح');
+        return redirect()->back();
+    }
     public function key_value_store(Request $request)
     {
         $data = openJSONFile($request->id);

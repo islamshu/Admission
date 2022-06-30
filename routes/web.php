@@ -68,6 +68,10 @@ Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
     Route::post('update_sort_about','AboutController@update_sort')->name('update_sort_about');
     Route::get('language_translate/{local}','HomeController@show_translate')->name('show_translate');
     Route::post('/languages/key_value_store', 'HomeController@key_value_store')->name('languages.key_value_store');
+    Route::get('general','HomeController@general')->name('generalinfo.index');
+    Route::post('general','HomeController@store')->name('generalinfo.store');
+
+    
 });
 Route::get('login','UserController@show_login_form')->name('get_login');
 Route::post('regiser_company','CompanyController@store')->name('post_register');

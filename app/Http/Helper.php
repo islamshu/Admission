@@ -1,9 +1,19 @@
 <?php
 
 use App\Company;
+use App\General;
 use App\Social;
 use App\User;
 
+function get_general_value($key)
+{
+    $general = General::where('key', $key)->first();
+    if ($general) {
+        return $general->value;
+    }
+
+    return '';
+}
 if ( ! function_exists('get_social'))
 {
     function get_social($key)

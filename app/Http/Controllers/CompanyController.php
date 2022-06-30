@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Events\NewCompany;
+use App\Notifications\NewCompanyNotification;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -138,7 +140,19 @@ class CompanyController extends Controller
         $company->image = 'default.png';
         $company->user_id = $user->id;
         $company->save();
+        
         DB::commit();
+        $data = [
+            'id' => $company->id,
+            'name' => $company->name,
+            'url' => route('companies.edit', $company->id),
+            'time'=>$company->created_at
+
+        ];
+        event(new NewCompany($data));
+        $admin = User::role('Admin')->first();
+        $admin->notify(new NewCompanyNotification($data));
+
         return response()->json(['success'=>trans('the otp send to your phone')]);
 
     } catch(\Exception $exp) {

@@ -28,3 +28,7 @@ Route::get('contact', 'Api\HomeController@contact');
 Route::get('privacy-policy', 'Api\HomeController@privacy');
 Route::get('about-us', 'Api\HomeController@abouts');
 Route::get('FAQs','Api\HomeController@faqs');
+Route::get('general','Api\HomeController@general');
+Route::post('request_worker','Api\HomeController@request_worker');
+
+

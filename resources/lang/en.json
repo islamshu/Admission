@@ -126,6 +126,12 @@
     "additional description in arabic": "additional description in arabic",
     "additional description in english": "additional description in english",
     "city": "city",
-    "choose city": "choose city"
+    "choose city": "choose city",
+    "general info": "general info",
+    "system name in arabic": "system name in arabic",
+    "system name in english": "system name in english",
+    "system image": "system image",
+    "logo": "logo",
+    "icon": "icon"
 
 }
