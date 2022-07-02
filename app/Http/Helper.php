@@ -67,11 +67,11 @@ if (!function_exists('generateBarcodeNumber')) {
     function worker_status($status)
     {
         if ($status == 1) {
-            return 'available';
+            return trans('available');
         } elseif ($status == 0) {
-            return 'Busy';
+            return trans('Busy');
         } elseif ($status == 2) {
-            return 'in progress';
+            return trans('in progress');
         }
     }
     function color($status)

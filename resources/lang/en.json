@@ -102,9 +102,9 @@
     "Edit Worker": "Edit Worker",
     "no data here": "no data here",
     "number of visits": "number of visits",
-    "Available": "Available",
+    "available": "Available",
     "Busy": "Busy",
-    "In Progress": "In Progress",
+    "in Progress": "In Progress",
     "Show All": "Show All",
     "Create country": "Create country",
     "FAQs page": "FAQs page",
@@ -141,7 +141,8 @@
     "faqs": "faqs",
     "Notifications": "Notifications",
     "new": "new",
-    "Read all notifications": "Read all notifications"
+    "Read all notifications": "Read all notifications",
+
 
 
 }
