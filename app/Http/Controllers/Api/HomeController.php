@@ -8,6 +8,7 @@ use App\BusyWorker;
 use App\Company;
 use App\Events\NewBooking;
 use App\Faqs;
+use App\General;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CopmainsResource;
 use App\Http\Resources\FaqsResoures;
@@ -110,13 +111,20 @@ class HomeController extends BaseController
     public function general()
     {
         $array = array();
+// dd(Social::get());
         return [
             'data' => [
                 [
                     'title_ar' => get_general_value('title_ar'),
                     'title_en' => get_general_value('title_en'),
                     'logo' => asset('uploads/' . get_general_value('header_logo')),
-                    'icon' => asset('uploads/' . get_general_value('icon'))
+                    'icon' => asset('uploads/' . get_general_value('icon')),
+                    'contacts'=>[
+                        'whatsapp'=>@Social::where('type','whatsapp')->first()->value,
+                        'email'=>@Social::where('type','email')->first()->value,
+
+                    ]
+                    
                 ]
             ]
         ];
