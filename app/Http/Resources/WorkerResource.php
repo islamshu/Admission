@@ -33,12 +33,19 @@ class WorkerResource extends JsonResource
             'descrription'=> $this->get_des($this),
             'time'=>$this->time,
             'url_sand'=>$this->url_sand,
-            'status'=>worker_status($this->status),
+            'status'=>$this->get_status($this),
+            
             'worker_status'=>$this->status,
             'visitor'=>$this->visitor,
             'compnay'=> new CopmainsResource(@$this->company)
 
         ];
+    }
+    function get_status($data){
+        return [
+            'id'=>$data->status,
+            'title'=>worker_status($this->status)
+        ]
     }
     function get_des($data){
         $lang = request()->header('Lang');
