@@ -129,6 +129,8 @@ class HomeController extends BaseController
                         'twitter'=>@Social::where('type','twitter')->first()->value,
                         'Instagram'=>@Social::where('type','Instagram')->first()->value,
                         'YouTube'=>@Social::where('type','YouTube')->first()->value,
+                        'website'=>@Social::where('type','Website')->first()->value,
+                        'Telegram'=>@Social::where('type','Telegram')->first()->value,
                     ]
                     
                 ]
