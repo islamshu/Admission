@@ -74,6 +74,11 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleSelectd">{{ __('Phone') }}</label>
+                                                    <input type="text" name="general[phone]" value="{{ get_social('phone') }}" class="form-control" id="phone">
+                                                 
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleSelectd">{{ __('Phone') }}</label>
                                                     <input type="text" name="general[phone]" value="{{ get_social('phone') }}" class="form-control" id="name_en">
                                                  
                                                 </div>

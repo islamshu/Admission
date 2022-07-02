@@ -121,8 +121,14 @@ class HomeController extends BaseController
                     'icon' => asset('uploads/' . get_general_value('icon')),
                     'contacts'=>[
                         'whatsapp'=>@Social::where('type','whatsapp')->first()->value,
+                        'phone'=>@Social::where('type','phone')->first()->value,
                         'email'=>@Social::where('type','email')->first()->value,
-
+                    ],
+                    'social'=>[
+                        'facebook'=>@Social::where('type','facebook')->first()->value,
+                        'twitter'=>@Social::where('type','twitter')->first()->value,
+                        'Instagram'=>@Social::where('type','Instagram')->first()->value,
+                        'YouTube'=>@Social::where('type','YouTube')->first()->value,
                     ]
                     
                 ]
