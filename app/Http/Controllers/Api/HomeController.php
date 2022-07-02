@@ -6,6 +6,7 @@ use App\About;
 use App\Booking;
 use App\BusyWorker;
 use App\Company;
+use App\Contact;
 use App\Events\NewBooking;
 use App\Faqs;
 use App\General;
@@ -190,5 +191,16 @@ class HomeController extends BaseController
             return $this->sendResponse(new WorkerResource($worker), trans('Booked not avaliable now'));
 
         }
+    }
+    public function contact_form(Request $request){
+        $con = new Contact();
+        $con->name = $request->name;
+        $con->title = $request->title;
+        $con->email = $request->email;
+        $con->phone = $request->phone;
+        $con->message = $request->message;
+        $con->save();
+        return $this->sendResponse($con, trans('Message Send'));
+
     }
 }
