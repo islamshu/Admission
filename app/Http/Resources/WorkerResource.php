@@ -44,8 +44,8 @@ class WorkerResource extends JsonResource
     function get_status($data){
         return [
             'id'=>$data->status,
-            'title'=>worker_status($this->status)
-        ]
+            'title'=>worker_status($this->status),
+        ];
     }
     function get_des($data){
         $lang = request()->header('Lang');
