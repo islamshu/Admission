@@ -79,7 +79,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="main_image">@lang('icon')  </label>
+                                <label for="main_image">@lang('banner')  </label>
                                 <input type="file" id="main_image" class="form-control border-primary" name="general_file[icon]">
                             </div>
                         </div>
