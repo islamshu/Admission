@@ -462,7 +462,7 @@
               <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>
               <td>{{ $book->created_at->format('Y M d') }}</td>
               <td>
-                  <label style="width: 60px" class="badge badge-{{ color($book->status) }}">{{ booking_status($book->status) }}</label>
+                  <label style="width: 68px" class="badge badge-{{ color($book->status) }}">{{ booking_status($book->status) }}</label>
                   {{-- <label for="" class="btn btn-success"> --}}
                  
               </td>
