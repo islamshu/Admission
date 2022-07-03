@@ -5,8 +5,8 @@
           <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
           <li class="nav-item">
             <a class="navbar-brand" href="{{ route('home') }}">
-              <img class="brand-logo" alt="modern admin logo" src="http://website.foryougo.net/uploads/general/qfQgKusSFarXpZr8ZbMQ25ZSKFohI6qyNAEO63Ih.png">
-              <h3 class="brand-text">Foryou</h3>
+              <img class="brand-logo" alt="modern admin logo" src="{{ asset('uploads/'.get_general_value('header_logo')) }}">
+              {{ get_general_value('title_'.get_lang()) }}
             </a>
           </li>
           <li class="nav-item d-md-none">
