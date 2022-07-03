@@ -145,10 +145,9 @@
     <script>
         function myFunction(id){
             // alert('worker_status_'+id);
-            alert($('#worker_status_'+id).val());
+            // alert($('#worker_status_'+id).val());
             
-            let status = $(this).value;
-            alert(status);
+            let status = $('#worker_status_'+id).val();
             
             let booked_id =id;
             $.ajax({
