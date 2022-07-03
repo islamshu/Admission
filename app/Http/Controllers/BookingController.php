@@ -26,7 +26,6 @@ class BookingController extends Controller
         $worker = Booking::find($request->booked_id);
         $worker->status = $request->status ;
         $worker->save();
-        dd($worker);
 
         return response()->json(['status'=>true]);
 
