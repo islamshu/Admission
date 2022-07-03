@@ -93,7 +93,7 @@ var chartOptions = {
 // Chart Data
 
 var chartData = {
-    labels: {{ json_encode($dates_array) }},
+    labels: {!! json_encode($dates_array) !!},
     datasets: [{
         label: "My First dataset",
         data: {{ json_encode($count_array) }},
