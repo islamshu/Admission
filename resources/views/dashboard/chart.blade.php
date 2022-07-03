@@ -5,7 +5,7 @@
 
         <!-- Column Chart -->
         <div class="row">
-            <div class="col-7">
+            <div class="col-6">
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">@lang('Bookings within the last 7 days')</h4>
