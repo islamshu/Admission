@@ -217,9 +217,9 @@ class HomeController extends BaseController
     }
     public function search(Request $request){
         $camp = Nationality::query()->has('worker')->whereHas('worker', function ($camp) use ($request)  {
-            $camp->has('company')->whereHas('company', function ($q) {
-                $q->where('status', 1);
-            });
+            // $camp->has('company')->whereHas('company', function ($q) {
+            //     $q->where('status', 1);
+            // });
             $camp->when($request->key, function ($q) use ($request) {
                 return $q->where('name','like', '%'.$request->key.'%');
             });
