@@ -34,8 +34,7 @@
                             DB::raw('COUNT(*) as "count"')
                         ));
                     }else{
-                        $one_week_ago = \Carbon\Carbon::now()->subDays(6)->format('Y-m-d');
-                    if(auth()->user()->hasRole('Admin')){
+                     
 
                     
                         $dates = App\Booking::where('company_id',auth()->user()->company->id)->where('created_at', '>=', $one_week_ago)
