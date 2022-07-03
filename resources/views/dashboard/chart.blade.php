@@ -112,6 +112,13 @@ var chartData = {
     datasets: [{
         label: "@lang('Booking')",
         data: {{ json_encode($count_array) }},
+        options: {
+        layout: {
+            padding: {
+                bottom: 50
+            }
+        }
+    }
         backgroundColor: "#28D094",
         hoverBackgroundColor: "rgba(22,211,154,.9)",
         borderColor: "transparent"
