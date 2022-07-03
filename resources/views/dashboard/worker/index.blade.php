@@ -58,6 +58,9 @@
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>
+                                                    @if(auth()->user()->hasRole('Admin'))
+                                                    <th></th>
+                                                    @endif
                                                     <th></th>
                                                 </tr>
 
@@ -68,6 +71,9 @@
                                                     <th>@lang('Image')</th>
                                                     <th>@lang('worker name')</th>
                                                     <th>@lang('number of visits')</th>
+                                                    @if(auth()->user()->hasRole('Admin'))
+                                                    <th>@lang('Company Name')</th>
+                                                    @endif
                                                     <th>@lang('Status')</th>
                                                     <th>@lang('Action')</th>
 
@@ -78,6 +84,9 @@
                                                                 width="70" height="50" alt=""></td>
                                                         <td>{{ $worker->name }}</td>
                                                         <td>{{ $worker->visitor }}</td>
+                                                        @if(auth()->user()->hasRole('Admin'))
+                                                        <td><a href="{{ route('companies.edit',@$worker->company->id) }}">{{ @$worker->company->name }}</a></td>
+                                                        @endif
                                                         <td>
                                                             {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
                                                             {{-- <label for="" class="btn btn-success"> --}}
