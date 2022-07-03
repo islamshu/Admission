@@ -34,7 +34,7 @@
                         $dates_array = array();
                         $count_array = array();
                         foreach ($dates as $date) {
-                            array_push($count_array,$date->count)
+                            array_push($count_array,$date->count);
                         }
                 @endphp 
                 {{ dd($dates_array,$count_array) }}
