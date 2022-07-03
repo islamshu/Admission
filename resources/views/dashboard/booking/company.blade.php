@@ -144,8 +144,8 @@
 @section('script')
     <script>
         function myFunction(id){
-            alert(document.getElementById("worker_status_id").value);
-            let status = document.getElementById("worker_status_id").value;
+            alert($(this).value);
+            let status = $(this).value;
             
             let booked_id =id;
             $.ajax({
