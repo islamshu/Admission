@@ -20,7 +20,7 @@ function booking_status($status){
     } elseif ($status == 0) {
         return trans('Reject');
     } elseif ($status == 2) {
-        return trans('in progress orde');
+        return trans('in progress order');
     }
 }
 if ( ! function_exists('get_social'))
