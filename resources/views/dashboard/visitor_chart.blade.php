@@ -90,7 +90,7 @@
                     xAxes: [{
                         display: true,
                         gridLines: {
-                            color: "#f3f3f3",
+                            color: "#000",
                             drawTicks: false,
                         },
                         scaleLabel: {
@@ -100,7 +100,7 @@
                     yAxes: [{
                         display: true,
                         gridLines: {
-                            color: "#f3f3f3",
+                            color: "#000",
                             drawTicks: false,
                         },
                         scaleLabel: {
