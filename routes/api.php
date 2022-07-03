@@ -25,6 +25,7 @@ Route::get('company/{id}','Api\HomeController@company');
 Route::get('workers','Api\HomeController@workers');
 Route::get('worker/{id}','Api\HomeController@worker');
 Route::get('workers_filter','Api\HomeController@workers_filter');
+Route::get('search','Api\HomeController@search');
 Route::get('contact', 'Api\HomeController@contact');
 Route::get('privacy-policy', 'Api\HomeController@privacy');
 Route::get('about-us', 'Api\HomeController@abouts');

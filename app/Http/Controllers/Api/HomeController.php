@@ -203,4 +203,14 @@ class HomeController extends BaseController
         return $this->sendResponse($con, trans('Message Send'));
 
     }
+    public function search(Request $request){
+        $camp = Worker::query()->has('company')->whereHas('company', function ($q) {
+            $q->where('status', 1);
+        });
+        $camp->when($request->key, function ($q) use ($request) {
+            return $q->where('name','like', '%'.$request->key.'%');
+        });
+        $camp = $camp->get();
+        return WorkerResource::collection($camp);
+    }
 }
