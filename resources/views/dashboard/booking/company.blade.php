@@ -144,7 +144,7 @@
 @section('script')
     <script>
         function myFunction(id){
-            alert(document.getElementById("worker_status_id"));
+            alert(document.getElementById("worker_status_id").value);
             let status = document.getElementById("worker_status_id").value;
             
             let booked_id =id;
