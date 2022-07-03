@@ -62,9 +62,9 @@ class HomeController extends BaseController
     }
     public function workers_filter(Request $request)
     {
-        $camp = Worker::query()->has('company')->whereHas('company', function ($q) {
+        $camp = Nationality::query()->has('company')->whereHas('company', function ($q) {
             $q->where('status', 1)->where('deleted_at',null);
-        });
+        })->has('worker')->whereHas('company', function ($camp) use ($request)  {
         $camp->when($request->nationality_id, function ($q) use ($request) {
             return $q->where('nationality_id', $request->nationality_id);
         });
@@ -80,7 +80,9 @@ class HomeController extends BaseController
         $camp->when($request->approve_chiled != null, function ($q) use ($request) {
             return $q->where('approve_chiled', $request->approve_chiled);
         });
+    });
         $camp = $camp->get();
+        dd($camp);
         return WorkerResource::collection($camp);
     }
     public function contact()
@@ -144,6 +146,7 @@ class HomeController extends BaseController
     public function request_worker(Request $request)
     {
         $worker = Worker::find($request->worker_id);
+        return $worker;
         if ($worker->status == 1) {
             $booking = new Booking();
             $booking->worker_id = $worker->id;
