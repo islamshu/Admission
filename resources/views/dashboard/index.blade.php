@@ -199,7 +199,7 @@
               <div class="media d-flex">
                 <div class="media-body text-left">
                   <h3 class="warning">{{ App\Booking::where('status',2)->count() }}</h3>
-                  <h6>{{ __('in progress order Order') }} @lang('Order')</h6>
+                  <h6>{{ __('in progress order Order') }} </h6>
                 </div>
                 <div>
                   <i class="icon-user-following warning font-large-2 float-right"></i>
