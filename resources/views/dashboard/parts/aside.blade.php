@@ -92,17 +92,17 @@
           
         </ul>
       </li> --}}
-      <li class="nav-item has-sub "><a href="#">
+      {{-- <li class="nav-item has-sub "><a href="#">
         <i class="la la-globe"></i>
         <span class="menu-title" >@lang('Nationalities')</span></a>
         <ul class="menu-content" style="">
           <li class="is-shown"><a class="menu-item" href="{{ route('nationalities.index') }}" >@lang('Show All')</a>
           </li>
-          {{-- <li class="is-shown"><a class="menu-item" href="{{ route('nationalities.create') }}" >Create Nationality</a>
-          </li> --}}
+          <li class="is-shown"><a class="menu-item" href="{{ route('nationalities.create') }}" >Create Nationality</a>
+          </li>
           
         </ul>
-      </li>
+      </li> --}}
       {{-- <li class="nav-item  "><a href="{{ route('social_info') }}">@lang('Social media')
         <i class="fa fa-bookmark"></i>
         </a>
@@ -149,21 +149,18 @@
       </li>
       <li class="is-shown"><a class="menu-item" href="{{ route('about.index') }}" data-i18n="nav.menu_levels.second_level_child.third_level">@lang('About us page') </a>
       </li>
+      <li class=" nav-item"><a href="#"><span class="menu-title" data-i18n="nav.menu_levels.main">@lang('translation')</span></a>
+        <ul class="menu-content">
+         
+          <li><a class="menu-item" href="{{ route('show_translate','ar') }}" data-i18n="nav.menu_levels.second_level_child.main">@lang('Arabic translation') </a>
+            <li><a class="menu-item" href="{{ route('show_translate','en') }}" data-i18n="nav.menu_levels.second_level_child.third_level">@lang('English translation') </a>
+            </li>
+          </li>
+        </ul>
+      </li>
     </ul>
     </li>
-    <li class="nav-item ">
-      <a class="menu-item" href="#" data-i18n="nav.menu_levels.second_level_child.main">
-          <i class="la la-thumb-tack"></i>
-          <span class="menu-title" data-i18n="nav.page_layouts.main">@lang('translation')</span>
-      </a>
 
-  <ul class="menu-content" style="">
-      <li class="is-shown"><a class="menu-item" href="{{ route('show_translate','ar') }}" data-i18n="nav.menu_levels.second_level_child.third_level">@lang('Arabic translation') </a>
-      </li>
-      <li class="is-shown"><a class="menu-item" href="{{ route('show_translate','en') }}" data-i18n="nav.menu_levels.second_level_child.third_level">@lang('English translation') </a>
-      </li>
-    </ul>
-  </li>
         {{-- <span class="menu-title" >Pages</span></a> --}}
         {{-- <ul class="menu-content" style="">
           <li class="is-shown"><a class="menu-item" href="{{ route('social_info') }}" >Social Media</a>
