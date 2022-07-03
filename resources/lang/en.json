@@ -148,7 +148,10 @@
     "in progress order": "in progress order",
     "Done": "Done",
     "Reject": "Reject",
-    "Order": "Order"
+    "Order": "Order",
+    "Done Order": "Done Order",
+    "Reject Order": "Reject Order",
+    "in progress order Order": "in progress order Order"
 
 
 
