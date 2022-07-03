@@ -101,9 +101,9 @@
                                                 data-id="{{ $book->id }}">
                                                 <option value="1" class="btn  btn-success"
                                                     @if ($book->status == 1) selected @endif>
-                                                    @lang('Available')</option>
+                                                    @lang('Done')</option>
                                                 <option value="0" class="btn btn-danger"
-                                                    @if ($book->status == 0) selected @endif>@lang('Busy')
+                                                    @if ($book->status == 0) selected @endif>@lang('Reject')
                                                 </option>
                                                 <option value="2" class="btn btn-warning "
                                                     @if ($book->status == 2) selected @endif>@lang('In Progress')</option>
@@ -140,4 +140,42 @@
         </section>
 
     </div>
+@endsection
+@section('script')
+    <script>
+        $("#worker_status").change(function() {
+            let status = $("#worker_status option:selected").val();
+            let booked_id = $(this).data('id');
+            $.ajax({
+                type: 'post',
+                url: "{{ route('update_status_booked') }}",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    'status': status,
+                    'booked_id': booked_id,
+                },
+                beforeSend: function() {},
+                success: function(data) {
+                    if (data['status'] == true) {
+                        if (status == 1) {
+                            $('#worker_status').css("backgroundColor", "#5fc69e")
+                        } else if (status == 0) {
+                            $('#worker_status').css("backgroundColor", "#FF4961")
+                        } else if (status == 2) {
+                            $('#worker_status').css("backgroundColor", "#FF9149")
+                        }
+                        toastr.options.closeButton = true;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success('{{ __('Updated successfully') }}');
+
+                    } else {
+                        alert('Whoops Something went wrong!!');
+                    }
+                }
+            });
+        });
+
+     
+    </script>
 @endsection

@@ -22,6 +22,14 @@ class BookingController extends Controller
        $workers = Worker::has('busy')->get();
        return view('dashboard.booking.unaviable')->with('workers',$workers);
     }
+    public function update_status_booked(Request $request){
+        $worker = Booking::find($request->booked_id);
+        $worker->status = $request->status ;
+        $worker->save();
+        return response()->json(['status'=>true]);
+
+    }
+    
     public function show_unavliable($id)
     {
      $user = BusyWorker::where('worker_id',$id)->get();

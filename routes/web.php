@@ -34,6 +34,7 @@ Route::get('booking_company/{id}','BookingController@get_booking_company')->name
 Route::get('booking_show/{id}','BookingController@show')->name('booking.show');
 Route::post('nationalities_store','NationalityController@store_ajax')->name('nationalities.store_ajax');
 Route::post('update_status_worker','WorkerController@update_status_worker')->name('update_status_worker');
+Route::post('update_status_booked','BookingController@update_status_booked')->name('update_status_booked');
 
 
 
