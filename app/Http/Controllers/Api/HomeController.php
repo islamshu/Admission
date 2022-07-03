@@ -37,7 +37,7 @@ class HomeController extends BaseController
 {
     public function natonality()
     {
-        $nats = Nationality::get();
+        $nats = Nationality::has('worker')->get();
         return NatonalityResource::collection($nats);
     }
     public function compnaines()
