@@ -65,7 +65,7 @@
         <ul class="menu-content" style="">
           <li class="is-shown"><a class="menu-item" href="{{ route('booking.get') }}" >@lang('Show All')</a>
           </li>
-          <li class="is-shown"><a class="menu-item" href="{{ route('booking.unavilable') }}" >@lang('Show All')</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('booking.unavilable') }}" >@lang('Unavailable Booking')</a>
           </li>
           
         </ul>

@@ -74,9 +74,11 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>@lang('Order ID')</th>
                                             <th>@lang('Customer name')</th>
                                             <th>@lang('Customer number id')</th>
                                             <th>@lang('worker name')</th>
+                                            <th>@lang('Created at')</th>
                                             <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
@@ -85,10 +87,11 @@
                                         @foreach ($booking as $key => $book)
                                         <tr>
                                         <td>{{ ++$key }}</td>
+                                        <td>{{ $book->order_id }}</td>
                                         <td>{{ $book->name }}</td>
                                         <td>{{ $book->id_number }}</td>
                                         <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>
-                                      
+                                        <td>{{ $book->created_at->format('Y M d') }}</td>
                                      
 
 

@@ -59,6 +59,8 @@ class HomeController extends BaseController
     public function worker($id)
     {
         $camp = Worker::find($id);
+        $camp->visitor += 1;
+        $camp->save();
         return new WorkerResource($camp);
     }
     public function workers_filter(Request $request)
@@ -152,7 +154,7 @@ class HomeController extends BaseController
 
             $booking = new Booking();
             $booking->order_id = Carbon::now()->timestamp;
-        
+
             $booking->worker_id = $worker->id;
             $booking->company_id = Company::find($worker->company_id)->id;
             $booking->id_number = $request->id_number;
