@@ -134,7 +134,8 @@ class HomeController extends BaseController
                         'YouTube'=>@Social::where('type','YouTube')->first()->value,
                         'website'=>@Social::where('type','Website')->first()->value,
                         'Telegram'=>@Social::where('type','Telegram')->first()->value,
-                    ]
+                    ],
+                    'natonality'=> NatonalityResource::collection(Nationality::get())
                     
                 ]
             ]
