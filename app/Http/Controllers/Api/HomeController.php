@@ -220,9 +220,10 @@ class HomeController extends BaseController
             $camp->when($request->key, function ($q) use ($request) {
                 return $q->where('name', '%'.$request->key.'%');
             });
-            $camp->has('company')->whereHas('company', function ($q) {
-             $q->where('status', 1)->where('deleted_at',null);
-         });
+        //     $camp->has('company')->whereHas('company', function ($q) {
+        //      $q->where('status', 1)->where('deleted_at',null);
+        //  });
+
          
         
      });
