@@ -157,7 +157,7 @@
               <div class="media d-flex">
                 <div class="media-body text-left">
                   <h3 class="success">{{ App\Booking::where('status',1)->count() }}</h3>
-                  <h6>{{ __('Done order') }}</h6>
+                  <h6>{{ __('Done') }} @lang('Order')</h6>
                 </div>
                 <div>
                   <i class="icon-user-following success font-large-2 float-right"></i>
@@ -178,7 +178,7 @@
               <div class="media d-flex">
                 <div class="media-body text-left">
                   <h3 class="danger">{{ App\Booking::where('status',0)->count() }}</h3>
-                  <h6>{{ __('Reject order') }}</h6>
+                  <h6>{{ __('Order') }} @lang('Order')</h6>
                 </div>
                 <div>
                   <i class="icon-user-following danger font-large-2 float-right"></i>
