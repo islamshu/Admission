@@ -144,7 +144,7 @@
 @section('script')
     <script>
         function myFunction(id){
-            alert($(this).value);
+            alert($('#worker_status_id option:selected').val());
             let status = $(this).value;
             
             let booked_id =id;
