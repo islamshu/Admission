@@ -51,7 +51,7 @@
                                             <th>#</th>
                                             <th>@lang('Company Name')</th>
                                             <th>@lang('Number Of order')</th>
-                                            <th>@lang('')</th>
+                                            <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
                                     <tbody>
