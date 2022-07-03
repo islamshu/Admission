@@ -164,7 +164,7 @@ class HomeController extends BaseController
             $booking->visa_image = $request->visa_image->store('booking');
             $booking->save();
             // $worker->status = 2;
-            $worker->save();
+            // $worker->save();
             $data = [
                 'id' => $worker->id,
                 'name' => $worker->name,
