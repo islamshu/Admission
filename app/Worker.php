@@ -26,7 +26,7 @@ class Worker extends Model
     {
         return $this->hasMany(BusyWorker::class);
     }
-    public function visitor()
+    public function visitor_count()
     {
         return $this->hasMany(Vistor::class);
     }

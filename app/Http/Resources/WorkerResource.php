@@ -36,7 +36,7 @@ class WorkerResource extends JsonResource
             'status'=>$this->get_status($this),
             
             'worker_status'=>$this->status,
-            'visitor'=>$this->visitor->count(),
+            'visitor'=>$this->visitor_count->count(),
             'compnay'=> new CopmainsResource(@$this->company)
 
         ];
