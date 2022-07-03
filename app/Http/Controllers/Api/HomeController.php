@@ -65,9 +65,10 @@ class HomeController extends BaseController
     }
     public function workers_filter(Request $request)
     {
-        $camp = Nationality::query()->has('company')->whereHas('company', function ($q) {
+        $camp = Nationality::query()->has('worker')->whereHas('worker', function ($camp) use ($request)  {
+           $camp->has('company')->whereHas('company', function ($q) {
             $q->where('status', 1)->where('deleted_at',null);
-        })->has('worker')->whereHas('company', function ($camp) use ($request)  {
+        });
         $camp->when($request->nationality_id, function ($q) use ($request) {
             return $q->where('nationality_id', $request->nationality_id);
         });
@@ -85,8 +86,7 @@ class HomeController extends BaseController
         });
     });
         $camp = $camp->get();
-        dd($camp);
-        return WorkerResource::collection($camp);
+        return Nationality::collection($camp);
     }
     public function contact()
     {
