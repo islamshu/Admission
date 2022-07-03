@@ -342,8 +342,14 @@
         <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
         <div class="heading-elements">
           <ul class="list-inline mb-0">
+            @if(auth()->user()->hasRole('Admin'))
+
             <li><a class="btn btn-sm btn-danger box-shadow-2 round btn-min-width pull-right"
-              href="invoice-summary.html" target="_blank">@lang('Show All')</a></li>
+              href="{{ route('booking.get_all') }}" target="_blank">@lang('Show All')</a></li>
+              @else
+              <li><a class="btn btn-sm btn-danger box-shadow-2 round btn-min-width pull-right"
+                href="{{ route('booking.get') }}" target="_blank">@lang('Show All')</a></li>
+                @endif
           </ul>
         </div>
       </div>
@@ -382,23 +388,9 @@
               <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>
               <td>{{ $book->created_at->format('Y M d') }}</td>
               <td>
-                  {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
+                  <label class="badge badge-{{ color($book->status) }}">{{ worker_status($book->status) }}</label>
                   {{-- <label for="" class="btn btn-success"> --}}
-                  <select class="target btn" book_id="{{ $book->id }}" class="worker_status" id="worker_status_{{ $book->id }}" onchange="myFunction('{{ $book->id }}')"
-                      style="background:{{ get_color_new($book->status) }} "
-                      data-id="{{ $book->id }}">
-                      <option value="1" class="btn  btn-success"
-                          @if ($book->status == 1) selected @endif>
-                          @lang('Done')</option>
-                      <option value="0" class="btn btn-danger"
-                          @if ($book->status == 0) selected @endif>@lang('Reject')
-                      </option>
-                      <option value="2" class="btn btn-warning "
-                          @if ($book->status == 2) selected @endif>@lang('in progress order')</option>
-                  </select>
-
-
-                  {{-- </label> --}}
+                 
               </td>
            
 
