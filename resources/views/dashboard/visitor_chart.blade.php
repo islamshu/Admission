@@ -71,7 +71,7 @@
                 elements: {
                     rectangle: {
                         borderWidth: 0.5,
-                        borderColor: 'rgb(0, 0, 255)',
+                        borderColor: '#000',
                         borderSkipped: 'bottom'
                     }
                 },
