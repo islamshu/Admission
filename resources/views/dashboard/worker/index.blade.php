@@ -189,7 +189,7 @@
 @section('script')
     <script>
             function myFunction(id){
-                alert($id)
+                alert(id);
                 let status = $('#worker_status_'+id).val();
             let worker_id = id;
             $.ajax({
