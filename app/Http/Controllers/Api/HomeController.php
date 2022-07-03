@@ -146,7 +146,7 @@ class HomeController extends BaseController
     public function request_worker(Request $request)
     {
         $worker = Worker::find($request->worker_id);
-        dd($worker);
+        return($worker);
         if ($worker->status == 1) {
 
             $booking = new Booking();
