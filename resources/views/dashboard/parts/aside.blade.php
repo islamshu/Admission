@@ -119,19 +119,7 @@
         <i class="fa fa-bookmark"></i>
         </a>
       </li> --}}
-      <li class="nav-item ">
-        <a class="menu-item" href="#" data-i18n="nav.menu_levels.second_level_child.main">
-            <i class="la la-thumb-tack"></i>
-            <span class="menu-title" data-i18n="nav.page_layouts.main">@lang('translation')</span>
-        </a>
-
-    <ul class="menu-content" style="">
-        <li class="is-shown"><a class="menu-item" href="{{ route('show_translate','ar') }}" data-i18n="nav.menu_levels.second_level_child.third_level">@lang('Arabic translation') </a>
-        </li>
-        <li class="is-shown"><a class="menu-item" href="{{ route('show_translate','en') }}" data-i18n="nav.menu_levels.second_level_child.third_level">@lang('English translation') </a>
-        </li>
-      </ul>
-    </li>
+   
     <li class="nav-item">
       <a class="menu-item" href="#" data-i18n="nav.menu_levels.second_level_child.main">
         <i class="la la-cog"></i>
