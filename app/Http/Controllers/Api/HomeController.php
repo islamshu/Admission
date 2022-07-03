@@ -149,7 +149,6 @@ class HomeController extends BaseController
     public function request_worker(Request $request)
     {
         $worker = Worker::find($request->worker_id);
-        try {
         if ($worker->status == 1) {
 
             $booking = new Booking();
@@ -202,10 +201,6 @@ class HomeController extends BaseController
             return $this->sendResponse(new WorkerResource($worker), trans('Booked not avaliable now'));
 
         }
-    } catch (\Exception $e) {
-        return 'o';
-        return $e->getMessage();
-    }
     }
     public function contact_form(Request $request){
         $con = new Contact();
