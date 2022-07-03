@@ -216,12 +216,17 @@ class HomeController extends BaseController
 
     }
     public function search(Request $request){
-        $camp = Worker::query()->where('name','like', '%'.$request->key.'%')->has('company')->whereHas('company', function ($q) {
-            $q->where('status', 1)->where('deleted_at',null);
-        })->get();
-       
-     
-        return WorkerResource::collection($camp);
+        $camp = Nationality::query()->has('worker')->whereHas('worker', function ($camp) use ($request)  {
+            $camp->has('company')->whereHas('company', function ($q) {
+             $q->where('status', 1)->where('deleted_at',null);
+         });
+         $camp->when($request->key, function ($q) use ($request) {
+             return $q->where('name', '%'.$request->key.'%');
+         });
+        
+     });
+         $camp = $camp->get();
+         return NatonalityResource::collection($camp);
     }
     public function count_vist(){
         $general = General::where('key','visitor')->first();
