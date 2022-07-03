@@ -365,7 +365,6 @@
                  <th class="border-top-0">@lang('worker name')</th>
                  <th class="border-top-0">@lang('Created at')</th>
                  <th class="border-top-0">@lang('Status')</th>
-                 <th class="border-top-0">@lang('Action')</th>
               </tr>
             </thead>
             <tbody>
@@ -388,16 +387,14 @@
               <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>
               <td>{{ $book->created_at->format('Y M d') }}</td>
               <td>
-                  <label class="badge badge-{{ color($book->status) }}">{{ worker_status($book->status) }}</label>
+                  <label class="badge badge-{{ color($book->status) }}">{{ booking_status($book->status) }}</label>
                   {{-- <label for="" class="btn btn-success"> --}}
                  
               </td>
            
 
 
-              <td>
-               <a href="{{ route('booking.show',$book->id) }}"><i class="fa fa-eye"></i></a>
-              </td>
+              
               </tr>
               @endforeach
           </tbody>

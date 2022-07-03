@@ -14,6 +14,15 @@ function get_general_value($key)
 
     return '';
 }
+function booking_status($status){
+    if ($status == 1) {
+        return trans('Done');
+    } elseif ($status == 0) {
+        return trans('Reject');
+    } elseif ($status == 2) {
+        return trans('in progress orde');
+    }
+}
 if ( ! function_exists('get_social'))
 {
     function get_social($key)
