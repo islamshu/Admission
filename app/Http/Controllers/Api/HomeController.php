@@ -86,6 +86,24 @@ class HomeController extends BaseController
         $camp->when($request->approve_chiled != null, function ($q) use ($request) {
             return $q->where('approve_chiled', $request->approve_chiled);
         });
+        $camp->when($request->name, function ($q) use ($request) {
+            return $q->where('name','like','%'.$request->name.'%');
+        });
+    });
+        $camp = $camp->get();
+        return NatonalityResource::collection($camp);
+    }
+    public function search(Request $request)
+    {
+        // return($request);
+        $camp = Nationality::query()->has('worker')->whereHas('worker', function ($camp) use ($request)  {
+           $camp->has('company')->whereHas('company', function ($q) {
+            $q->where('status', 1)->where('deleted_at',null);
+        });
+        $camp->when($request->key, function ($q) use ($request) {
+            return $q->where('name','like','%'.$request->key.'%');
+        });
+    
     });
         $camp = $camp->get();
         return NatonalityResource::collection($camp);
@@ -215,16 +233,7 @@ class HomeController extends BaseController
         return $this->sendResponse($con, trans('Message Send'));
 
     }
-    public function search(Request $request){
-        $camp = Nationality::query()->has('worker')->whereHas('worker', function ($camp) use ($request)  {
-            // $camp->has('company')->whereHas('company', function ($q) {
-            //     $q->where('status', 1);
-            // });
-            return $camp->where('name','like', '%'.$request->key.'%');
-     });
-         $camp = $camp->get();
-         return NatonalityResource::collection($camp);
-    }
+    
     public function count_vist(){
         $general = General::where('key','visitor')->first();
         $general->value +=1;
