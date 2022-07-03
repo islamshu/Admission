@@ -25,6 +25,7 @@ use Doctrine\Inflector\Rules\Word;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Controllers\NationalityController;
 use App\Http\Resources\AboutResoures;
 use App\Http\Resources\PrivacyResoures;
 use App\Http\Resources\SocialResource;
@@ -86,7 +87,7 @@ class HomeController extends BaseController
         });
     });
         $camp = $camp->get();
-        return Nationality::collection($camp);
+        return NatonalityResource::collection($camp);
     }
     public function contact()
     {
