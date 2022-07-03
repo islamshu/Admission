@@ -62,6 +62,7 @@ class HomeController extends BaseController
     {
         $camp = Worker::query()->has('company')->whereHas('company', function ($q) {
             $q->where('status', 1);
+            $q->where('deleted_at',null);
         });
         $camp->when($request->nationality_id, function ($q) use ($request) {
             return $q->where('nationality_id', $request->nationality_id);
