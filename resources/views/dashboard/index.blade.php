@@ -398,6 +398,7 @@
  
 </div>
 @endif
+@include('dashboard.chart')
 <div class="row">
   <div id="recent-transactions" class="col-12">
     <div class="card">
