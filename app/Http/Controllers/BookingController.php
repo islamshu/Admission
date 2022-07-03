@@ -23,6 +23,7 @@ class BookingController extends Controller
        return view('dashboard.booking.unaviable')->with('workers',$workers);
     }
     public function update_status_booked(Request $request){
+        dd($request);
         $worker = Booking::find($request->booked_id);
         $worker->status = $request->status ;
         $worker->save();
