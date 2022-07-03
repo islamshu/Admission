@@ -90,7 +90,7 @@
                                                         <td>
                                                             {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
                                                             {{-- <label for="" class="btn btn-success"> --}}
-                                                            <select class="target btn" id="worker_status"
+                                                            <select class="target btn" id="worker_status_{{ $worker->id }}"
                                                                 style="background:{{ get_color_new($worker->status) }} "
                                                                 onchange="myFunction('{{ $worker->id }}')">
                                                                 <option value="1" class="btn  btn-success"
@@ -189,8 +189,7 @@
 @section('script')
     <script>
             function myFunction(id){
-            let status =  document.getElementById("worker_status").value;;
-            let status = $("#worker_status option:selected").val();
+                let status = $('#worker_status_'+id).val();
             let worker_id = id;
             $.ajax({
                 type: 'post',
@@ -204,11 +203,11 @@
                 success: function(data) {
                     if (data['status'] == true) {
                         if (status == 1) {
-                            $('#worker_status').css("backgroundColor", "#5fc69e")
+                            $('#worker_status_'+id).css("backgroundColor", "#5fc69e")
                         } else if (status == 0) {
-                            $('#worker_status').css("backgroundColor", "#FF4961")
+                            $('#worker_status_'+id).css("backgroundColor", "#FF4961")
                         } else if (status == 2) {
-                            $('#worker_status').css("backgroundColor", "#FF9149")
+                            $('#worker_status_'+id).css("backgroundColor", "#FF9149")
                         }
                         toastr.options.closeButton = true;
                         toastr.options.closeMethod = 'fadeOut';
