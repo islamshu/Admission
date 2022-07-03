@@ -345,7 +345,7 @@
             @if(auth()->user()->hasRole('Admin'))
 
             <li><a class="btn btn-sm btn-danger box-shadow-2 round btn-min-width pull-right"
-              href="{{ route('booking.get_all') }}" target="_blank">@lang('Show All')</a></li>
+              href="{{ route('booking.get_all_booking') }}" target="_blank">@lang('Show All')</a></li>
               @else
               <li><a class="btn btn-sm btn-danger box-shadow-2 round btn-min-width pull-right"
                 href="{{ route('booking.get') }}" target="_blank">@lang('Show All')</a></li>
