@@ -146,7 +146,8 @@ class HomeController extends BaseController
     public function request_worker(Request $request)
     {
         $worker = Worker::find($request->worker_id);
-        // if ($worker->status == 1) {
+        dd($worker);
+        if ($worker->status == 1) {
 
             $booking = new Booking();
             $booking->worker_id = $worker->id;
@@ -175,28 +176,28 @@ class HomeController extends BaseController
 
             return $this->sendResponse(new WorkerResource($worker), trans('Booked successfully'));
 
-        // }else{
-        //     $bo = new BusyWorker();
-        //     $worker = Worker::find($request->worker_id);
+        }else{
+            $bo = new BusyWorker();
+            $worker = Worker::find($request->worker_id);
 
-        //     $bo->worker_id = $request->worker_id;
-        //     $bo->phone = $request->phone;
-        //     $bo->save();
-        //     $admin = User::role('Admin')->first();
-        //     $data = [
-        //         'id' => $worker->id,
-        //         'name' => $worker->name,
-        //         'url' => route('booking.unavilable.show', $bo->id),
-        //         'time'=>$bo->created_at
-        //     ];
-        //     $admin->notify(new NewBookingNotofication($data));
-        //     $user = User::wherehas('company',function($q) use($worker){
-        //         $q->where('id',$worker->company_id);
-        //     })->first();
-        //     $user->notify(new NewBookingNotofication($data));
-        //     return $this->sendResponse(new WorkerResource($worker), trans('Booked not avaliable now'));
+            $bo->worker_id = $request->worker_id;
+            $bo->phone = $request->phone;
+            $bo->save();
+            $admin = User::role('Admin')->first();
+            $data = [
+                'id' => $worker->id,
+                'name' => $worker->name,
+                'url' => route('booking.unavilable.show', $bo->id),
+                'time'=>$bo->created_at
+            ];
+            $admin->notify(new NewBookingNotofication($data));
+            $user = User::wherehas('company',function($q) use($worker){
+                $q->where('id',$worker->company_id);
+            })->first();
+            $user->notify(new NewBookingNotofication($data));
+            return $this->sendResponse(new WorkerResource($worker), trans('Booked not avaliable now'));
 
-        // }
+        }
     }
     public function contact_form(Request $request){
         $con = new Contact();
