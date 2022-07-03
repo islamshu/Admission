@@ -158,11 +158,11 @@
                 success: function(data) {
                     if (data['status'] == true) {
                         if (status == 1) {
-                            $('.worker_status').css("backgroundColor", "#5fc69e")
+                            $('#worker_status').css("backgroundColor", "#5fc69e")
                         } else if (status == 0) {
-                            $('.worker_status').css("backgroundColor", "#FF4961")
+                            $('#worker_status').css("backgroundColor", "#FF4961")
                         } else if (status == 2) {
-                            $('.worker_status').css("backgroundColor", "#FF9149")
+                            $('#worker_status').css("backgroundColor", "#FF9149")
                         }
                         toastr.options.closeButton = true;
                         toastr.options.closeMethod = 'fadeOut';
