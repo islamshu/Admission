@@ -144,7 +144,10 @@
     "Read all notifications": "Read all notifications",
     "Dashboard": "Dashboard",
     "Order ID": "Order ID",
-    "Created at": "Created at"
+    "Created at": "Created at",
+    "in progress order": "in progress order",
+    "Done": "Done",
+    "Reject": "Reject"
 
 
 
