@@ -39,7 +39,6 @@
 
                         }
                 @endphp 
-                {{ dd(json_encode($dates_array),$count_array) }}
                 <script>
                     $(window).on("load", function(){
 
@@ -94,10 +93,10 @@ var chartOptions = {
 // Chart Data
 
 var chartData = {
-    labels: ["January", "February", "March", "April", "May"],
+    labels: {{ json_encode($dates_array) }},
     datasets: [{
         label: "My First dataset",
-        data: [88, 59, 80, 81, 56],
+        data: {{ json_encode($count_array) }},
         backgroundColor: "#28D094",
         hoverBackgroundColor: "rgba(22,211,154,.9)",
         borderColor: "transparent"
