@@ -32,6 +32,6 @@ Route::get('about-us', 'Api\HomeController@abouts');
 Route::get('FAQs','Api\HomeController@faqs');
 Route::get('general','Api\HomeController@general');
 Route::post('request_worker','Api\HomeController@request_worker');
-Route::post('contact_form','Api\HomeController@contact_form');
+Route::get('contact_form','Api\HomeController@contact_form');
 });
 
