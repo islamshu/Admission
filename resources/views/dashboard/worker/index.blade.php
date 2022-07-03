@@ -83,7 +83,7 @@
                                                         <td><img src="{{ asset('uploads/' . $worker->image) }}"
                                                                 width="70" height="50" alt=""></td>
                                                         <td>{{ $worker->name }}</td>
-                                                        <td>{{ $worker->visitor }}</td>
+                                                        <td>{{ $worker->visitor_count->count() }}</td>
                                                         @if(auth()->user()->hasRole('Admin'))
                                                         <td><a href="{{ route('companies.edit',@$worker->company->id) }}">{{ @$worker->company->name }}</a></td>
                                                         @endif
