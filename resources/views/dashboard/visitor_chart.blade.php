@@ -72,6 +72,7 @@
                     rectangle: {
                         borderWidth: 0.5,
                         borderColor: '#000',
+                        color:'#000',
                         borderSkipped: 'bottom'
                     }
                 },
@@ -90,7 +91,7 @@
                     xAxes: [{
                         display: true,
                         gridLines: {
-                            color: "#000",
+                            color: "#f3f3f3",
                             drawTicks: false,
                         },
                         scaleLabel: {
@@ -100,7 +101,7 @@
                     yAxes: [{
                         display: true,
                         gridLines: {
-                            color: "#000",
+                            color: "#f3f3f3",
                             drawTicks: false,
                         },
                         scaleLabel: {
