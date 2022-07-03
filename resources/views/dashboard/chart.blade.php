@@ -8,7 +8,7 @@
         <div class="col-6">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">Column Chart</h4>
+              <h4 class="card-title">@lang('Bookings within the last 7 days')</h4>
               <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
               <div class="heading-elements">
                 <ul class="list-inline mb-0">
@@ -85,7 +85,7 @@ var chartOptions = {
         }]
     },
     title: {
-        display: true,
+        display: none,
         text: 'Chart.js Bar Chart'
     }
 };
@@ -95,7 +95,7 @@ var chartOptions = {
 var chartData = {
     labels: {!! json_encode($dates_array) !!},
     datasets: [{
-        label: "My First dataset",
+        label: "Booking",
         data: {{ json_encode($count_array) }},
         backgroundColor: "#28D094",
         hoverBackgroundColor: "rgba(22,211,154,.9)",
