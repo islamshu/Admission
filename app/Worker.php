@@ -26,5 +26,9 @@ class Worker extends Model
     {
         return $this->hasMany(BusyWorker::class);
     }
+    public function visitor()
+    {
+        return $this->hasMany(Vistor::class);
+    }
 
 }
