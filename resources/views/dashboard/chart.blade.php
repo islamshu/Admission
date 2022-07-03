@@ -34,6 +34,7 @@
     </section>
     <!-- // Bar charts section end -->
 </div>
+<script src="{{ asset('backend/vendors/js/charts/chart.min.js') }}" type="text/javascript"></script>
 
 <script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar-stacked.js') }}" type="text/javascript"></script>

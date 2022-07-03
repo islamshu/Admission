@@ -119,10 +119,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     {{-- <script src="{{ asset('backend/css/chat.js') }}"></script> --}}
     <script src="https://js.pusher.com/7.1/pusher.min.js"></script>
-    <script src="{{ asset('backend/vendors/js/vendors.min.js') }}" type="text/javascript"></script>
     <!-- BEGIN VENDOR JS-->
     <!-- BEGIN PAGE VENDOR JS-->
-    <script src="{{ asset('backend/vendors/js/charts/chart.min.js') }}" type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN MODERN JS-->
     
