@@ -207,6 +207,7 @@ class HomeController extends BaseController
         $camp = Worker::query()->has('company')->whereHas('company', function ($q) {
             $q->where('status', 1);
         });
+        dd($request);
         $camp->when($request->key, function ($q) use ($request) {
             return $q->where('name','like', '%'.$request->key.'%');
         });
