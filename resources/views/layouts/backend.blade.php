@@ -17,16 +17,18 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
         rel="stylesheet">
-        <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
-        rel="stylesheet">
+    <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/css-rtl/vendors.css') }}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/css-rtl/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/css-rtl/custom-rtl.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/css/tables/datatable/select.dataTables.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/css/tables/extensions/keyTable.dataTables.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('backend/vendors/css/tables/datatable/select.dataTables.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('backend/vendors/css/tables/extensions/keyTable.dataTables.min.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/css-rtl/core/menu/menu-types/vertical-menu.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('backend/css-rtl/core/menu/menu-types/vertical-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/css-rtl/core/colors/palette-gradient.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/css/cryptocoins/cryptocoins.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
@@ -36,35 +38,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
-	<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"type="text/javascript"></script>
-	<link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/css/tables/datatable/datatables.min.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css"
+        rel="stylesheet" />
+    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
+        type="text/javascript"></script>
+    <link
+        href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"rel="stylesheet"
+        type="text/css" />
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('backend/vendors/css/tables/datatable/datatables.min.css') }}">
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/chat.css') }}"> --}}
-    
 
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
     <style>
         .bootstrap-select.btn-group .dropdown-menu li {
-    position: relative !important;
-    width: 100% !important;
-    padding: 10px !important;
-    color: #000;
-}
-.bootstrap-select.btn-group .dropdown-menu li a span.text {
-    display: inline-block !important;
-    color: black !important;
-}
-.bootstrap-select.btn-group .dropdown-menu li.selected {
-    background: #cec3c3;
-    
-}
+            position: relative !important;
+            width: 100% !important;
+            padding: 10px !important;
+            color: #000;
+        }
 
+        .bootstrap-select.btn-group .dropdown-menu li a span.text {
+            display: inline-block !important;
+            color: black !important;
+        }
 
+        .bootstrap-select.btn-group .dropdown-menu li.selected {
+            background: #cec3c3;
+
+        }
     </style>
 
     @yield('css')
-   
+
 </head>
 
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click"
@@ -95,183 +103,210 @@
     <script src="{{ asset('backend/js/scripts/customizer.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/tables/datatables/datatable-basic.js') }}"></script>
     <script src="{{ asset('backend/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('backend/js/scripts/tables/datatables/datatable-advanced.js') }}" type="text/javascript"></script>
-    
+    <script src="{{ asset('backend/js/scripts/tables/datatables/datatable-advanced.js') }}" type="text/javascript">
+    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
 
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
     <script src="https://cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     {{-- <script src="{{ asset('backend/css/chat.js') }}"></script> --}}
     <script src="https://js.pusher.com/7.1/pusher.min.js"></script>
     <script src="{{ asset('backend/vendors/js/vendors.min.js') }}" type="text/javascript"></script>
-<!-- BEGIN VENDOR JS-->
-<!-- BEGIN PAGE VENDOR JS-->
-<script src="{{ asset('backend/vendors/js/charts/chart.min.js') }}" type="text/javascript"></script>
-<!-- END PAGE VENDOR JS-->
-<!-- BEGIN MODERN JS-->
-<script src="{{ asset('backend/js/core/app-menu.js') }}" type="text/javascript"></script>
-<script src="{{ asset('backend/js/core/app.js') }}" type="text/javascript"></script>
-<script src="{{ asset('backend/js/scripts/customizer.js') }}" type="text/javascript"></script>
-<script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar.js') }}" type="text/javascript"></script>
-<script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar-stacked.js') }}" type="text/javascript"></script>
-<script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar-multi-axis.js') }}" type="text/javascript"></script>
-<script>
-    $(window).on("load", function() {
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="{{ asset('backend/vendors/js/charts/chart.min.js') }}" type="text/javascript"></script>
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN MODERN JS-->
+    <script src="{{ asset('backend/js/core/app-menu.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backend/js/core/app.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backend/js/scripts/customizer.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar-stacked.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar-multi-axis.js') }}" type="text/javascript"></script>
+    @php
+        $one_week_ago = \Carbon\Carbon::now()
+            ->subDays(6)
+            ->format('Y-m-d');
+        if (
+            auth()
+                ->user()
+                ->hasRole('Admin')
+        ) {
+            $dates = App\Booking::where('created_at', '>=', $one_week_ago)
+                ->groupBy('date')
+                ->orderBy('date', 'ASC')
+                ->get([DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
+        } else {
+            $dates = App\Booking::where('company_id', auth()->user()->company->id)
+                ->where('created_at', '>=', $one_week_ago)
+                ->groupBy('date')
+                ->orderBy('date', 'ASC')
+                ->get([DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
+        }
+        
+        $dates_array = [];
+        $count_array = [];
+        foreach ($dates as $date) {
+            array_push($count_array, $date->count);
+            array_push($dates_array, $date->date);
+        }
+    @endphp
+    <script>
+        $(window).on("load", function() {
 
-        //Get the context of the Chart canvas element we want to select
-        var ctx = $("#column-chart");
-
-        // Chart Options
-        var chartOptions = {
-            // Elements options apply to all of the options unless overridden in a dataset
-            // In this case, we are setting the border of each bar to be 2px wide and green
-            elements: {
-                rectangle: {
-                    borderWidth: 0.5,
-                    borderColor: 'rgb(0, 255, 0)',
-                    borderSkipped: 'bottom'
-                }
-            },
-            layout: {
-                padding: {
-                    bottom: 50
-                }
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            responsiveAnimationDuration: 500,
-            legend: {
-                position: 'top',
-            },
-            scales: {
-                xAxes: [{
-                    display: true,
-                    gridLines: {
-                        color: "#f3f3f3",
-                        drawTicks: false,
-                    },
-                    scaleLabel: {
-                        display: true,
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    gridLines: {
-                        color: "#f3f3f3",
-                        drawTicks: false,
-                    },
-                    scaleLabel: {
-                        display: true,
-                    }
-                }]
-            },
-            title: {
-                display: false,
-                text: 'Chart.js Bar Chart'
-            }
-        };
-
-        // Chart Data
-
-        var chartData = {
-            labels: {!! json_encode($dates_array) !!},
-            datasets: [{
-                label: "@lang('Booking')",
-                data: {{ json_encode($count_array) }},
-
-                backgroundColor: "#28D094",
-                hoverBackgroundColor: "rgba(22,211,154,.9)",
-                borderColor: "transparent"
-            }]
-        };
-
-        var config = {
-            type: 'bar',
+            //Get the context of the Chart canvas element we want to select
+            var ctx = $("#column-chart");
 
             // Chart Options
-            options: chartOptions,
+            var chartOptions = {
+                // Elements options apply to all of the options unless overridden in a dataset
+                // In this case, we are setting the border of each bar to be 2px wide and green
+                elements: {
+                    rectangle: {
+                        borderWidth: 0.5,
+                        borderColor: 'rgb(0, 255, 0)',
+                        borderSkipped: 'bottom'
+                    }
+                },
+                layout: {
+                    padding: {
+                        bottom: 50
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                responsiveAnimationDuration: 500,
+                legend: {
+                    position: 'top',
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        gridLines: {
+                            color: "#f3f3f3",
+                            drawTicks: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        gridLines: {
+                            color: "#f3f3f3",
+                            drawTicks: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                        }
+                    }]
+                },
+                title: {
+                    display: false,
+                    text: 'Chart.js Bar Chart'
+                }
+            };
 
-            data: chartData
-        };
+            // Chart Data
 
-        // Create the chart
-        var lineChart = new Chart(ctx, config);
-    });
-</script>
+            var chartData = {
+                labels: {!! json_encode($dates_array) !!},
+                datasets: [{
+                    label: "@lang('Booking')",
+                    data: {{ json_encode($count_array) }},
+
+                    backgroundColor: "#28D094",
+                    hoverBackgroundColor: "rgba(22,211,154,.9)",
+                    borderColor: "transparent"
+                }]
+            };
+
+            var config = {
+                type: 'bar',
+
+                // Chart Options
+                options: chartOptions,
+
+                data: chartData
+            };
+
+            // Create the chart
+            var lineChart = new Chart(ctx, config);
+        });
+    </script>
     <script>
-    Pusher.logToConsole = true;
+        Pusher.logToConsole = true;
 
-    var pusher = new Pusher('f4eee6f566ec9d8b49e3', {
-      cluster: 'ap2'
-    });
+        var pusher = new Pusher('f4eee6f566ec9d8b49e3', {
+            cluster: 'ap2'
+        });
+    </script>
+    <script>
+        //   var notificationsWrapper = $('.dropdown-notifications');
+        // var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
+        // var notificationsCountElem = notificationsToggle.find('span[data-count]');
+        // var notificationsCount = parseInt(notificationsCountElem.data('count'));
+        // var notifications = notificationsWrapper.find('li.scrollable-container');
 
- 
-</script>
-<script>
-//   var notificationsWrapper = $('.dropdown-notifications');
-// var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
-// var notificationsCountElem = notificationsToggle.find('span[data-count]');
-// var notificationsCount = parseInt(notificationsCountElem.data('count'));
-// var notifications = notificationsWrapper.find('li.scrollable-container');
+        // Subscribe to the channel we specified in our Laravel Event
+        var channel = pusher.subscribe('new-user');
+        // Bind a function to a Event (the full Laravel class)
+        channel.bind('App\\Events\\NewBooking', function(data) {
+            // alert(data)
+            // var existingNotifications = notifications.html();
 
-// Subscribe to the channel we specified in our Laravel Event
-var channel = pusher.subscribe('new-user');
-// Bind a function to a Event (the full Laravel class)
-channel.bind('App\\Events\\NewBooking', function (data) {
-    // alert(data)
-    // var existingNotifications = notifications.html();
-   
-    // var newNotificationHtml = `<a href="`+data.url+`"><span class="table-img msg-user">
-    //                                         <img src="`+ `{{asset('uploads/user/deflut.png')  }}` + `" alt="">
-    //                                     </span><span class="menu-info"><span class="menu-title">` + data.name +`</span><span class="menu-desc">
-    //                                             <i class="material-icons"></i> 
-    //                                         </span>
-    //                                     </span>
-    //                                 </a>` ;
-    // notifications.html(newNotificationHtml + existingNotifications);
-    // notificationsCount += 1;
-    // notificationsCountElem.attr('data-count', notificationsCount);
-    // notificationsWrapper.find('.notif-count').text(notificationsCount);
-    // notificationsWrapper.show();
-    // $('.delll').empty();
+            // var newNotificationHtml = `<a href="`+data.url+`"><span class="table-img msg-user">
+        //                                         <img src="`+ `{{ asset('uploads/user/deflut.png') }}` + `" alt="">
+        //                                     </span><span class="menu-info"><span class="menu-title">` + data.name +`</span><span class="menu-desc">
+        //                                             <i class="material-icons"></i> 
+        //                                         </span>
+        //                                     </span>
+        //                                 </a>` ;
+            // notifications.html(newNotificationHtml + existingNotifications);
+            // notificationsCount += 1;
+            // notificationsCountElem.attr('data-count', notificationsCount);
+            // notificationsWrapper.find('.notif-count').text(notificationsCount);
+            // notificationsWrapper.show();
+            // $('.delll').empty();
 
-});
-</script>
+        });
+    </script>
 
-   
-<script>
- $('.delete-confirm').click(function(event) {
-      var form =  $(this).closest("form");
-      var name = $(this).data("name");
-      event.preventDefault();
-      swal({
-          title: `هل متأكد من حذف العنصر ؟`,
-        icon: "warning",
-          buttons: true,
-          dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          form.submit();
-        }
-      });
-  });
- 
-  </script>
+
+    <script>
+        $('.delete-confirm').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                    title: `هل متأكد من حذف العنصر ؟`,
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+    </script>
     <script>
         $(document).ready(function() {
 
-          $( ".ckeditor" ).each(function( index ) {
-        CKEDITOR.replace($( this ).attr("id"),{
-            //your configurations
-        });
-    });
+            $(".ckeditor").each(function(index) {
+                CKEDITOR.replace($(this).attr("id"), {
+                    //your configurations
+                });
+            });
         });
     </script>
     <script>
@@ -282,60 +317,58 @@ channel.bind('App\\Events\\NewBooking', function (data) {
                 size: 'small'
             });
         });
-          $(".image").change(function () {
-        
+        $(".image").change(function() {
+
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
-        
-                reader.onload = function (e) {
+
+                reader.onload = function(e) {
                     $('.image-preview').attr('src', e.target.result);
                 }
-        
+
                 reader.readAsDataURL(this.files[0]);
             }
-        
+
         });
-        $(".video").change(function () {
-        
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-    
-            reader.onload = function (e) {
-                $('.video-preview').attr('src', e.target.result);
+        $(".video").change(function() {
+
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('.video-preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(this.files[0]);
             }
-    
-            reader.readAsDataURL(this.files[0]);
-        }
-    
-    });
+
+        });
     </script>
-  
+
 
     @yield('script')
-    @if(get_lang() == 'ar')
-    <script>
-        
-        $('table').DataTable({
-            "language": 
-                        {
-                            "sProcessing": "جارٍ التحميل...",
-                            "sLengthMenu": "أظهر _MENU_ مدخلات",
-                            "sZeroRecords": "لم يعثر على أية سجلات",
-                            "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخلات",
-                            "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
-                            "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
-                            "sInfoPostFix": "",
-                            "sSearch": "ابحث:",
-                            "sUrl": "",
-                            "oPaginate": {
-                                "sFirst": "الأول",
-                                "sPrevious": "السابق",
-                                "sNext": "التالي",
-                                "sLast": "الأخير"
-                            }
-  }
-});
-    </script>
+    @if (get_lang() == 'ar')
+        <script>
+            $('table').DataTable({
+                "language": {
+                    "sProcessing": "جارٍ التحميل...",
+                    "sLengthMenu": "أظهر _MENU_ مدخلات",
+                    "sZeroRecords": "لم يعثر على أية سجلات",
+                    "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخلات",
+                    "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+                    "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+                    "sInfoPostFix": "",
+                    "sSearch": "ابحث:",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "الأول",
+                        "sPrevious": "السابق",
+                        "sNext": "التالي",
+                        "sLast": "الأخير"
+                    }
+                }
+            });
+        </script>
     @endif
 </body>
 

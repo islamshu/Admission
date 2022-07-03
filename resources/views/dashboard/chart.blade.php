@@ -21,34 +21,7 @@
                     </div>
                     <div class="card-content collapse show">
                         <div class="card-body">
-                            @php
-                                $one_week_ago = \Carbon\Carbon::now()
-                                    ->subDays(6)
-                                    ->format('Y-m-d');
-                                if (
-                                    auth()
-                                        ->user()
-                                        ->hasRole('Admin')
-                                ) {
-                                    $dates = App\Booking::where('created_at', '>=', $one_week_ago)
-                                        ->groupBy('date')
-                                        ->orderBy('date', 'ASC')
-                                        ->get([DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
-                                } else {
-                                    $dates = App\Booking::where('company_id', auth()->user()->company->id)
-                                        ->where('created_at', '>=', $one_week_ago)
-                                        ->groupBy('date')
-                                        ->orderBy('date', 'ASC')
-                                        ->get([DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
-                                }
-                                
-                                $dates_array = [];
-                                $count_array = [];
-                                foreach ($dates as $date) {
-                                    array_push($count_array, $date->count);
-                                    array_push($dates_array, $date->date);
-                                }
-                            @endphp
+                           
                           
                             <canvas id="column-chart" height="400"></canvas>
                         </div>
