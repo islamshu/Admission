@@ -66,7 +66,7 @@ var chartOptions = {
     // In this case, we are setting the border of each bar to be 2px wide and green
     elements: {
         rectangle: {
-            borderWidth: 1,
+            borderWidth: 0.5,
             borderColor: 'rgb(0, 255, 0)',
             borderSkipped: 'bottom'
         }
