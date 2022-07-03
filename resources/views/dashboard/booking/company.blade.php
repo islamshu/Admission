@@ -148,6 +148,7 @@
             alert($('#worker_status_'+id).val());
             
             let status = $(this).value;
+            alert(status);
             
             let booked_id =id;
             $.ajax({
