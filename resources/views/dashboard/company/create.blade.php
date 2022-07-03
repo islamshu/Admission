@@ -260,6 +260,19 @@
                     google.maps.event.addListener(marker, 'dragend', function(evt){
                         console.log(this.getPosition());
                         setLocationCoordinates(autocomplete.key, this.getPosition().lat(), this.getPosition().lng());
+                        var latlng = new google.maps.LatLng(this.getPosition().lat(), this.getPosition().lng());
+                    // This is making the Geocode request
+                    var geocoder = new google.maps.Geocoder();
+                    geocoder.geocode({ 'latLng': latlng },  (results, status) =>{
+                        if (status !== google.maps.GeocoderStatus.OK) {
+                            alert(status);
+                        }
+                        // This is checking to see if the Geoeode Status is OK before proceeding
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            console.log(results);
+                            var address = (results[0].formatted_address);
+                        }
+                    });
 
                         console.log(this.getPosition().lat());
                     });
