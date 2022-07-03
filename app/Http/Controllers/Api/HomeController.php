@@ -206,12 +206,9 @@ class HomeController extends BaseController
     public function search(Request $request){
         $camp = Worker::query()->has('company')->whereHas('company', function ($q) {
             $q->where('status', 1);
-        });
-        dd($request);
-        $camp->when($request->key, function ($q) use ($request) {
-            return $q->where('name','like', '%'.$request->key.'%');
-        });
-        $camp = $camp->get();
+        })->where('name','like', '%'.$request->key.'%')->get();
+       
+     
         return WorkerResource::collection($camp);
     }
 }
