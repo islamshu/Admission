@@ -39,7 +39,7 @@
 
                         }
                 @endphp 
-                {{ dd($dates_array,$count_array) }}
+                {{ dd(json_encode($dates_array),$count_array) }}
                 <script>
                     $(window).on("load", function(){
 
