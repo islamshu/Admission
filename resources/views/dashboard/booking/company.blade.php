@@ -93,7 +93,25 @@
                                         <td>{{ $book->id_number }}</td>
                                         <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>
                                         <td>{{ $book->created_at->format('Y M d') }}</td>
-                                        <td>{{ $book->status }}</td>
+                                        <td>
+                                            {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
+                                            {{-- <label for="" class="btn btn-success"> --}}
+                                            <select class="target btn" id="worker_status"
+                                                style="background:{{ get_color_new($book->status) }} "
+                                                data-id="{{ $book->id }}">
+                                                <option value="1" class="btn  btn-success"
+                                                    @if ($book->status == 1) selected @endif>
+                                                    @lang('Available')</option>
+                                                <option value="0" class="btn btn-danger"
+                                                    @if ($book->status == 0) selected @endif>@lang('Busy')
+                                                </option>
+                                                <option value="2" class="btn btn-warning "
+                                                    @if ($book->status == 2) selected @endif>@lang('In Progress')</option>
+                                            </select>
+
+
+                                            {{-- </label> --}}
+                                        </td>
                                      
 
 
