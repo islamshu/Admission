@@ -30,6 +30,7 @@ use App\Http\Resources\PrivacyResoures;
 use App\Http\Resources\SocialResource;
 use App\Notifications\NewBookingNotofication;
 use App\User;
+use Carbon\Carbon;
 
 class HomeController extends BaseController
 {
@@ -150,6 +151,8 @@ class HomeController extends BaseController
         if ($worker->status == 1) {
 
             $booking = new Booking();
+            $booking->order_id = Carbon::now()->timestamp;
+        
             $booking->worker_id = $worker->id;
             $booking->company_id = Company::find($worker->company_id)->id;
             $booking->id_number = $request->id_number;
