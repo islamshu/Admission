@@ -220,7 +220,7 @@
                     }
                 }
             });
-        });
+        }
 
         function make(id) {
             $("#myModal").show();
