@@ -109,6 +109,101 @@ integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="ano
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     {{-- <script src="{{ asset('backend/css/chat.js') }}"></script> --}}
     <script src="https://js.pusher.com/7.1/pusher.min.js"></script>
+    <script src="{{ asset('backend/vendors/js/vendors.min.js') }}" type="text/javascript"></script>
+<!-- BEGIN VENDOR JS-->
+<!-- BEGIN PAGE VENDOR JS-->
+<script src="{{ asset('backend/vendors/js/charts/chart.min.js') }}" type="text/javascript"></script>
+<!-- END PAGE VENDOR JS-->
+<!-- BEGIN MODERN JS-->
+<script src="{{ asset('backend/js/core/app-menu.js') }}" type="text/javascript"></script>
+<script src="{{ asset('backend/js/core/app.js') }}" type="text/javascript"></script>
+<script src="{{ asset('backend/js/scripts/customizer.js') }}" type="text/javascript"></script>
+<script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar.js') }}" type="text/javascript"></script>
+<script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar-stacked.js') }}" type="text/javascript"></script>
+<script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar-multi-axis.js') }}" type="text/javascript"></script>
+<script>
+    $(window).on("load", function() {
+
+        //Get the context of the Chart canvas element we want to select
+        var ctx = $("#column-chart");
+
+        // Chart Options
+        var chartOptions = {
+            // Elements options apply to all of the options unless overridden in a dataset
+            // In this case, we are setting the border of each bar to be 2px wide and green
+            elements: {
+                rectangle: {
+                    borderWidth: 0.5,
+                    borderColor: 'rgb(0, 255, 0)',
+                    borderSkipped: 'bottom'
+                }
+            },
+            layout: {
+                padding: {
+                    bottom: 50
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            responsiveAnimationDuration: 500,
+            legend: {
+                position: 'top',
+            },
+            scales: {
+                xAxes: [{
+                    display: true,
+                    gridLines: {
+                        color: "#f3f3f3",
+                        drawTicks: false,
+                    },
+                    scaleLabel: {
+                        display: true,
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    gridLines: {
+                        color: "#f3f3f3",
+                        drawTicks: false,
+                    },
+                    scaleLabel: {
+                        display: true,
+                    }
+                }]
+            },
+            title: {
+                display: false,
+                text: 'Chart.js Bar Chart'
+            }
+        };
+
+        // Chart Data
+
+        var chartData = {
+            labels: {!! json_encode($dates_array) !!},
+            datasets: [{
+                label: "@lang('Booking')",
+                data: {{ json_encode($count_array) }},
+
+                backgroundColor: "#28D094",
+                hoverBackgroundColor: "rgba(22,211,154,.9)",
+                borderColor: "transparent"
+            }]
+        };
+
+        var config = {
+            type: 'bar',
+
+            // Chart Options
+            options: chartOptions,
+
+            data: chartData
+        };
+
+        // Create the chart
+        var lineChart = new Chart(ctx, config);
+    });
+</script>
     <script>
     Pusher.logToConsole = true;
 
