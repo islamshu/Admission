@@ -260,14 +260,14 @@
                     google.maps.event.addListener(marker, 'dragend', function(evt){
                         console.log(this.getPosition());
                         setLocationCoordinates(autocomplete.key, this.getPosition().lat(), this.getPosition().lng());
-                        var lat = parseFloat(document.getElementById("txtLatitude").value);
-                        var lng = parseFloat(document.getElementById("txtLongitude").value);
+                        var lat = this.getPosition().lat();
+                        var lng =this.getPosition().lng();
                         var latlng = new google.maps.LatLng(lat, lng);
                         var geocoder = geocoder = new google.maps.Geocoder();
                         geocoder.geocode({ 'latLng': latlng }, function (results, status) {
                             if (status == google.maps.GeocoderStatus.OK) {
                                 if (results[1]) {
-                                    alert("Location: " + results[1].formatted_address);
+                                    document.getElementById('address-input').value = results[1].formatted_address;
                                 }
                             }
                         });
