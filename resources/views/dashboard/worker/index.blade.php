@@ -92,7 +92,7 @@
                                                             {{-- <label for="" class="btn btn-success"> --}}
                                                             <select class="target btn" id="worker_status"
                                                                 style="background:{{ get_color_new($worker->status) }} "
-                                                                data-id="{{ $worker->id }}">
+                                                                onchange="myFunction('{{ $worker->id }}')">
                                                                 <option value="1" class="btn  btn-success"
                                                                     @if ($worker->status == 1) selected @endif>
                                                                     @lang('Available')</option>
@@ -188,9 +188,10 @@
 
 @section('script')
     <script>
-        $("#worker_status").change(function() {
+            function myFunction(id){
+            let status =  document.getElementById("worker_status").value;;
             let status = $("#worker_status option:selected").val();
-            let worker_id = $(this).data('id');
+            let worker_id = id;
             $.ajax({
                 type: 'post',
                 url: "{{ route('update_status_worker') }}",
