@@ -96,7 +96,7 @@
                                         <td>
                                             {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
                                             {{-- <label for="" class="btn btn-success"> --}}
-                                            <select class="target btn" class="worker_status" onchange="myFunction()"
+                                            <select class="target btn" class="worker_status" id="worker_status" onchange="myFunction()"
                                                 style="background:{{ get_color_new($book->status) }} "
                                                 data-id="{{ $book->id }}">
                                                 <option value="1" class="btn  btn-success"
@@ -143,9 +143,9 @@
 @endsection
 @section('script')
     <script>
-        function myFunction(val,id){
-            let status = val;
-            let booked_id =id;
+        function myFunction(){
+            let status = document.getElementById("worker_status").value;;
+            let booked_id =$(this).data('id');
             $.ajax({
                 type: 'post',
                 url: "{{ route('update_status_booked') }}",
