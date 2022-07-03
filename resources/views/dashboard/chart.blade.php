@@ -5,7 +5,7 @@
    
       <!-- Column Chart -->
       <div class="row">
-        <div class="col-6">
+        <div class="col-7">
           <div class="card">
             <div class="card-header">
               <h4 class="card-title">@lang('Bookings within the last 7 days')</h4>
@@ -66,7 +66,7 @@ var chartOptions = {
     // In this case, we are setting the border of each bar to be 2px wide and green
     elements: {
         rectangle: {
-            borderWidth: 2,
+            borderWidth: 1,
             borderColor: 'rgb(0, 255, 0)',
             borderSkipped: 'bottom'
         }
