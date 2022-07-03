@@ -31,6 +31,7 @@ use App\Http\Resources\PrivacyResoures;
 use App\Http\Resources\SocialResource;
 use App\Notifications\NewBookingNotofication;
 use App\User;
+use App\Vistor;
 use Carbon\Carbon;
 
 class HomeController extends BaseController
@@ -60,8 +61,10 @@ class HomeController extends BaseController
     public function worker($id)
     {
         $camp = Worker::find($id);
-        $camp->visitor += 1;
-        $camp->save();
+        $vistor = new Vistor();
+        $vistor->worker_id = $camp->worker_id;
+        $vistor->company_id = $camp->company_id;
+        $vistor->save();
         return new WorkerResource($camp);
     }
     public function workers_filter(Request $request)

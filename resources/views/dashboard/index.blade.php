@@ -398,7 +398,8 @@
  
 </div>
 @endif
-@include('dashboard.chart')
+@include('dashboard.booking_chart')
+@include('dashboard.visitor_chart')
 <div class="row">
   <div id="recent-transactions" class="col-12">
     <div class="card">
