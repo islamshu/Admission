@@ -79,6 +79,7 @@
                                             <th>@lang('Customer number id')</th>
                                             <th>@lang('worker name')</th>
                                             <th>@lang('Created at')</th>
+                                            <th>@lang('Status')</th>
                                             <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
@@ -92,6 +93,7 @@
                                         <td>{{ $book->id_number }}</td>
                                         <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>
                                         <td>{{ $book->created_at->format('Y M d') }}</td>
+                                        <td>{{ $book->status }}</td>
                                      
 
 
