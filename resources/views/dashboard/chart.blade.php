@@ -85,7 +85,7 @@ var chartOptions = {
         }]
     },
     title: {
-        display: none,
+        display: false,
         text: 'Chart.js Bar Chart'
     }
 };
@@ -95,7 +95,7 @@ var chartOptions = {
 var chartData = {
     labels: {!! json_encode($dates_array) !!},
     datasets: [{
-        label: "Booking",
+        label: "@lang('Booking')",
         data: {{ json_encode($count_array) }},
         backgroundColor: "#28D094",
         hoverBackgroundColor: "rgba(22,211,154,.9)",
