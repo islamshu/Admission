@@ -30,8 +30,14 @@
                             DB::raw('Date(created_at) as date'),
                             DB::raw('COUNT(*) as "count"')
                         ));
+
+                        $dates_array = array();
+                        $count_array = array();
+                        foreach ($dates as $date) {
+                            array_push($count_array,$date->count)
+                        }
                 @endphp 
-                {{ dd($dates) }}
+                {{ dd($dates_array,$count_array) }}
                 <script>
                     $(window).on("load", function(){
 
