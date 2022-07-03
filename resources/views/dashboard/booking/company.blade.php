@@ -106,7 +106,7 @@
                                                     @if ($book->status == 0) selected @endif>@lang('Reject')
                                                 </option>
                                                 <option value="2" class="btn btn-warning "
-                                                    @if ($book->status == 2) selected @endif>@lang('In Progress')</option>
+                                                    @if ($book->status == 2) selected @endif>@lang('in progress')</option>
                                             </select>
 
 
