@@ -145,7 +145,7 @@
     <script>
         function myFunction(id){
             // alert('worker_status_'+id);
-            alert($('#worker_status_'id).val());
+            alert($('#worker_status_'+id).val());
             
             let status = $(this).value;
             
