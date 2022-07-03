@@ -96,7 +96,7 @@
                                         <td>
                                             {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
                                             {{-- <label for="" class="btn btn-success"> --}}
-                                            <select class="target btn" book_id="{{ $book->id }}" class="worker_status" id="worker_status_id" onchange="myFunction('{{ $book->id }}')"
+                                            <select class="target btn" book_id="{{ $book->id }}" class="worker_status" id="worker_status_{{ $book->id }}" onchange="myFunction('{{ $book->id }}')"
                                                 style="background:{{ get_color_new($book->status) }} "
                                                 data-id="{{ $book->id }}">
                                                 <option value="1" class="btn  btn-success"
@@ -144,7 +144,8 @@
 @section('script')
     <script>
         function myFunction(id){
-            alert($('#worker_status_id option:selected').val());
+            alert('worker_status_'+id);
+            alert($('#worker_status_ option:selected').val());
             let status = $(this).value;
             
             let booked_id =id;
