@@ -23,13 +23,29 @@
               <div class="card-body">
                 @php
                     $one_week_ago = \Carbon\Carbon::now()->subDays(6)->format('Y-m-d');
-                $dates = App\Booking::where('created_at', '>=', $one_week_ago)
+                    if(auth()->user()->hasRole('Admin')){
+
+                    
+                        $dates = App\Booking::where('created_at', '>=', $one_week_ago)
                         ->groupBy('date')
                         ->orderBy('date', 'ASC')
                         ->get(array(
                             DB::raw('Date(created_at) as date'),
                             DB::raw('COUNT(*) as "count"')
                         ));
+                    }else{
+                        $one_week_ago = \Carbon\Carbon::now()->subDays(6)->format('Y-m-d');
+                    if(auth()->user()->hasRole('Admin')){
+
+                    
+                        $dates = App\Booking::where('company_id',auth()->user()->company->id)->where('created_at', '>=', $one_week_ago)
+                        ->groupBy('date')
+                        ->orderBy('date', 'ASC')
+                        ->get(array(
+                            DB::raw('Date(created_at) as date'),
+                            DB::raw('COUNT(*) as "count"')
+                        )); 
+                    }
 
                         $dates_array = array();
                         $count_array = array();
