@@ -242,6 +242,8 @@
                     const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) || parseFloat(
                         document.getElementById(fieldKey + "-longitude").value)
 
+                        
+
                     const map = new google.maps.Map(document.getElementById(fieldKey + '-map'), {
                         center: {
                             lat: latitude,
