@@ -224,7 +224,9 @@ class HomeController extends BaseController
         return WorkerResource::collection($camp);
     }
     public function count_vist(){
-        $general = General::where('key','visitor')->first()->value;
-        dd($general);
+        $general = General::where('key','visitor')->first();
+        $general->value +=1;
+        $general->save();
+        return $general;
     }
 }
