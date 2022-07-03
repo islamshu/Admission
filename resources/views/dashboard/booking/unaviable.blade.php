@@ -60,7 +60,7 @@
                                         <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $worker->name }}</td>
-                                        <td>{{ $worker->count() }}</td>
+                                        <td>{{ $worker->busy->count() }}</td>
                                         <td>
                                             <a href="{{ route('booking.unavilable.show', $worker->id) }}"><i class="fa fa-eye"></i></a>
                                         </td>
