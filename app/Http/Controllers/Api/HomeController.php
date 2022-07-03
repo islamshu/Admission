@@ -163,7 +163,7 @@ class HomeController extends BaseController
             $booking->phone = $request->phone;
             $booking->visa_image = $request->visa_image->store('booking');
             $booking->save();
-            $worker->status = 2;
+            // $worker->status = 2;
             $worker->save();
             $data = [
                 'id' => $worker->id,
