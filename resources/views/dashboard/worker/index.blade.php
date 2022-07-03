@@ -3,15 +3,15 @@
 <div class="content-wrapper">
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Workers</h3>
+            <h3 class="content-header-title">@lang('Workers')</h3>
             <div class="row breadcrumbs-top">
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">@lang('Home')</a>
                         </li>
                         {{-- <li class="breadcrumb-item"><a href="{{ route('worker.create') }}">Workers</a>
                         </li> --}}
-                        <li class="breadcrumb-item active">Workers
+                        <li class="breadcrumb-item active">@lang('Workers')
                         </li>
                     </ol>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">العاملات</h4>
+                            <h4 class="card-title">@lang('Workers')</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -95,12 +95,12 @@
                                                                 onchange="myFunction('{{ $worker->id }}')">
                                                                 <option value="1" class="btn  btn-success"
                                                                     @if ($worker->status == 1) selected @endif>
-                                                                    @lang('Available')</option>
+                                                                    @lang('available')</option>
                                                                 <option value="0" class="btn btn-danger"
-                                                                    @if ($worker->status == 0) selected @endif>@lang('Busy')
+                                                                    @if ($worker->status == 0) selected @endif>@lang('busy')
                                                                 </option>
                                                                 <option value="2" class="btn btn-warning "
-                                                                    @if ($worker->status == 2) selected @endif>@lang('In Progress')</option>
+                                                                    @if ($worker->status == 2) selected @endif>@lang('in progress')</option>
                                                             </select>
 
 
