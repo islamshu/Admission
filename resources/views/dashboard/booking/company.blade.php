@@ -145,7 +145,7 @@
     <script>
         function myFunction(id){
             alert('worker_status_'+id);
-            alert($('#worker_status_ option:selected').val());
+            // alert($('#worker_status_ option:selected').val());
             let status = $(this).value;
             
             let booked_id =id;
