@@ -62,9 +62,10 @@ class HomeController extends BaseController
     {
         $camp = Worker::find($id);
         $vistor = new Vistor();
-        $vistor->worker_id = $camp->worker_id;
+        $vistor->worker_id = $id;
         $vistor->company_id = $camp->company_id;
         $vistor->save();
+    
         return new WorkerResource($camp);
     }
     public function workers_filter(Request $request)
