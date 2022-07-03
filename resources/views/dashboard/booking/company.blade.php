@@ -146,7 +146,6 @@
         function myFunction(id){
             let status = document.getElementById("worker_status").value;;
             let booked_id =id;
-            alert(booked_id);
             $.ajax({
                 type: 'post',
                 url: "{{ route('update_status_booked') }}",
