@@ -31,6 +31,7 @@
                             DB::raw('COUNT(*) as "count"')
                         ));
                 @endphp 
+                {{ dd($dates) }}
                 <script>
                     $(window).on("load", function(){
 
