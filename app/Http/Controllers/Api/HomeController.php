@@ -154,7 +154,6 @@ class HomeController extends BaseController
 
             $booking = new Booking();
             $booking->order_id = Carbon::now()->timestamp;
-
             $booking->worker_id = $worker->id;
             $booking->company_id = Company::find($worker->company_id)->id;
             $booking->id_number = $request->id_number;
@@ -163,8 +162,8 @@ class HomeController extends BaseController
             $booking->phone = $request->phone;
             $booking->visa_image = $request->visa_image->store('booking');
             $booking->save();
-            // $worker->status = 2;
-            // $worker->save();
+            $worker->status = 2;
+            $worker->save();
             $data = [
                 'id' => $worker->id,
                 'name' => $worker->name,
