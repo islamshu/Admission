@@ -125,9 +125,6 @@
     <script src="{{ asset('backend/vendors/js/charts/chart.min.js') }}" type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN MODERN JS-->
-    <script src="{{ asset('backend/js/core/app-menu.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('backend/js/core/app.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('backend/js/scripts/customizer.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar-stacked.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/charts/chartjs/bar/bar-multi-axis.js') }}" type="text/javascript"></script>
