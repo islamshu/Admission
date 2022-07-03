@@ -17,6 +17,11 @@ class BookingController extends Controller
             return view('dashboard.booking.company')->with('booking',Booking::withTrashed()->where('company_id',auth()->user()->company->id)->orderBy('id', 'DESC')->get());
         }
     }
+    public function index_all()
+    {
+        return view('dashboard.booking.company')->with('booking',Booking::withTrashed()->orderBy('id', 'DESC')->get());
+
+    }
     public function unavliable()
     {
        $workers = Worker::has('busy')->get();

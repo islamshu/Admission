@@ -63,7 +63,9 @@
         <i class="fa fa-bookmark"></i>
         <span class="menu-title" >@lang('Booking')</span></a>
         <ul class="menu-content" style="">
-          <li class="is-shown"><a class="menu-item" href="{{ route('booking.get') }}" >@lang('Show All')</a>
+          <li class="is-shown"><a class="menu-item" href="{{ route('booking.get_all_booking') }}" >@lang('Show All Booking')</a>
+          </li>
+          <li class="is-shown"><a class="menu-item" href="{{ route('booking.get') }}" >@lang('Company with Booking')</a>
           </li>
           <li class="is-shown"><a class="menu-item" href="{{ route('booking.unavilable') }}" >@lang('Unavailable Booking')</a>
           </li>

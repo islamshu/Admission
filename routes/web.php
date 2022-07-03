@@ -27,6 +27,8 @@ Route::get('edit-profile','UserController@edit_profile')->name('edit_profile');
 Route::post('edit-profile','UserController@update_profile')->name('update.profile');
 Route::resource('worker','WorkerController');
 Route::get('booking','BookingController@index')->name('booking.get');
+Route::get('booking_all','BookingController@index_all')->name('booking.get_all_booking');
+
 Route::get('booking-unavalible','BookingController@unavliable')->name('booking.unavilable');
 Route::get('booking-unavalible/{id}','BookingController@show_unavliable')->name('booking.unavilable.show');
 

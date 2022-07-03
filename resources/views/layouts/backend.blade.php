@@ -96,7 +96,8 @@
     <script src="{{ asset('backend/js/scripts/tables/datatables/datatable-basic.js') }}"></script>
     <script src="{{ asset('backend/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/tables/datatables/datatable-advanced.js') }}" type="text/javascript"></script>
-    
+    <script src="{{ asset('backend/js/scripts/cards/card-charts.js') }}"></script>
+<script src="{{ asset('backend/js/scripts/cards/card-charts.min.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>

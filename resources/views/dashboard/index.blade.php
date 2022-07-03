@@ -1,4 +1,5 @@
 @extends('layouts.backend')
+
 @section('content')
 <div class="row">
 
@@ -213,13 +214,9 @@
           </div>
         </div>
       </div>
-     
-   
-      
-
-      
-   
+    
   </div>
+  
   @elseif(auth()->user()->hasRole('Company'))
  
  
