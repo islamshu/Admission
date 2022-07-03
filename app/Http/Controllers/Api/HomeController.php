@@ -203,7 +203,7 @@ class HomeController extends BaseController
 
         }
     } catch (\Exception $e) {
-
+        return 'o';
         return $e->getMessage();
     }
     }
