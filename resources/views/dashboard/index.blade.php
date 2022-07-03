@@ -398,8 +398,17 @@
  
 </div>
 @endif
+<div class="content-body">
+  <!-- Bar charts section start -->
+  <section id="chartjs-bar-charts">
+      <!-- Bar Chart -->
+
+      <!-- Column Chart -->
+      <div class="row">
 @include('dashboard.booking_chart')
 @include('dashboard.visitor_chart')
+      </div>
+  </section>
 <div class="row">
   <div id="recent-transactions" class="col-12">
     <div class="card">

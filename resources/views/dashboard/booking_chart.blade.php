@@ -1,10 +1,4 @@
-<div class="content-body">
-    <!-- Bar charts section start -->
-    <section id="chartjs-bar-charts">
-        <!-- Bar Chart -->
 
-        <!-- Column Chart -->
-        <div class="row">
             <div class="col-6">
                 <div class="card">
                     <div class="card-header">
@@ -27,11 +21,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Bar Stacked Chart -->
-
-    </section>
+         
     <!-- // Bar charts section end -->
 </div>
 <script src="{{ asset('backend/vendors/js/charts/chart.min.js') }}" type="text/javascript"></script>
