@@ -78,7 +78,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2 mt-1 pt-1">
-                                        <input type="submit" value="@lang('send')" class="btn btn-info">
+                                        <input type="submit" value="@lang('filter')" class="btn btn-info">
                                         </div>
             
                                     </div>
