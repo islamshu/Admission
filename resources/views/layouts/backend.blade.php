@@ -184,7 +184,8 @@
                 },
                 beforeSend: function() {},
                 success: function(data) {
-                   
+                    $('#count span').html('0');
+                    $('#data_notify').empty();
 
 
                 }
