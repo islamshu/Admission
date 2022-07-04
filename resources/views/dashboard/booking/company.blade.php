@@ -113,6 +113,8 @@
                                             <th>@lang('Customer name')</th>
                                             <th>@lang('Customer number id')</th>
                                             <th>@lang('worker name')</th>
+                                            <th>@lang('Phone')</th>
+                                            <th>@lang('Date Of Birth')</th>
                                             <th>@lang('Created at')</th>
                                             <th>@lang('Status')</th>
                                             <th>@lang('Action')</th>
@@ -125,6 +127,8 @@
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $book->order_id }}</td>
                                         <td>{{ $book->name }}</td>
+                                        <td>{{ $book->phone }}</td>
+                                        <td>{{ $book->DOB }}</td>
                                         <td>{{ $book->id_number }}</td>
                                         <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>
                                         <td>{{ $book->created_at->format('Y m d') }}</td>
