@@ -78,7 +78,11 @@
                                                     <th>@lang('Action')</th>
 
                                                 </tr>
-                                                @foreach ($item->worker as $worker)
+                                                @if($request->status != null)
+
+                                                @foreach ($item->worker->where('status',$request->status) as $worker)
+                                                
+
                                                     <tr>
                                                         <td><img src="{{ asset('uploads/' . $worker->image) }}"
                                                                 width="70" height="50" alt=""></td>
@@ -124,6 +128,58 @@
 
                                                     </tr>
                                                 @endforeach
+                                                @else
+                                                @foreach ($item->worker as $worker)
+
+
+                                                    <tr>
+                                                        <td><img src="{{ asset('uploads/' . $worker->image) }}"
+                                                                width="70" height="50" alt=""></td>
+                                                        <td>{{ $worker->name }}</td>
+                                                        <td>{{ $worker->visitor_count->count() }}</td>
+                                                        @if(auth()->user()->hasRole('Admin'))
+                                                        <td><a href="{{ route('companies.edit',@$worker->company->id) }}">{{ @$worker->company->name }}</a></td>
+                                                        @endif
+                                                        <td>
+                                                            {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
+                                                            {{-- <label for="" class="btn btn-success"> --}}
+                                                            <select class="target btn" id="worker_status_{{ $worker->id }}"
+                                                                style="background:{{ get_color_new($worker->status) }} "
+                                                                onchange="myFunction('{{ $worker->id }}')">
+                                                                <option value="1" class="btn  btn-success"
+                                                                    @if ($worker->status == 1) selected @endif>
+                                                                    @lang('available')</option>
+                                                                <option value="0" class="btn btn-danger"
+                                                                    @if ($worker->status == 0) selected @endif>@lang('busy')
+                                                                </option>
+                                                                <option value="2" class="btn btn-warning "
+                                                                    @if ($worker->status == 2) selected @endif>@lang('in progress')</option>
+                                                            </select>
+
+
+                                                            {{-- </label> --}}
+                                                        </td>
+                                                        <td>
+                                                            <a href="{{ $worker->url_sand }}" target="_blank"
+                                                                class=""><i class="btn btn-info fa fa-eye"></i></a>
+                                                            <a href="{{ route('worker.edit', $worker->id) }}"
+                                                                class=""><i
+                                                                    class="btn btn-success fa fa-edit"></i></a>
+                                                            <form action="{{ route('worker.destroy', $worker->id) }}"
+                                                                method="post" style="display: inline">
+                                                                @csrf @method('delete')
+                                                                <button style="border: 0" type="submit" class=""><i
+                                                                        class="btn btn-danger  fa fa-trash"></i></button>
+
+                                                            </form>
+
+                                                        </td>
+
+                                                    </tr>
+                                                @endforeach
+                                                @endif
+
+                                                
                                             </tbody>
                                         @endforeach
                                     @else

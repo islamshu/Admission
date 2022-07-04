@@ -78,7 +78,7 @@
                         <div class="card-body">
                             <div class="media d-flex">
                                 
-                                <a href="" data-toggle="modal" data-target="#all_worker">
+                                <a href="" data-toggle="modal" data-target="#all_worker_avalable">
                                   <div class="media-body text-left">
                                     <h3 class="success">{{ App\Worker::where('status', 1)->count() }}</h3>
                                     <h6>{{ __('available Worker Count') }}</h6>
@@ -101,10 +101,13 @@
                     <div class="card-content">
                         <div class="card-body">
                             <div class="media d-flex">
-                                <div class="media-body text-left">
+                                
+                                <a href="" data-toggle="modal" data-target="#all_worker_busy">
+                                  <div class="media-body text-left">
                                     <h3 class="danger">{{ App\Worker::where('status', 0)->count() }}</h3>
                                     <h6>{{ __('Busy Worker Count') }}</h6>
                                 </div>
+                              </a>
                                 <div>
                                     <i class="icon-loop  danger font-large-2 float-right"></i>
                                 </div>
@@ -122,10 +125,13 @@
                     <div class="card-content">
                         <div class="card-body">
                             <div class="media d-flex">
-                                <div class="media-body text-left">
+                                
+                                <a href="" data-toggle="modal" data-target="#all_worker_progress">
+                                  <div class="media-body text-left">
                                     <h3 class="dark">{{ App\Worker::where('status', 2)->count() }}</h3>
                                     <h6>{{ __('In Progress Worker Count') }}</h6>
                                 </div>
+                              </a>
                                 <div>
                                     <i class="icon-loop  dark font-large-2 float-right"></i>
                                 </div>
@@ -143,10 +149,15 @@
                     <div class="card-content">
                         <div class="card-body">
                             <div class="media d-flex">
-                                <div class="media-body text-left">
+                                
+                                    
+                                <a href="" data-toggle="modal" data-target="#all_booking">
+                                  <div class="media-body text-left">
                                     <h3 class="warning">{{ App\Booking::count() }}</h3>
                                     <h6>{{ __('Number Of order') }}</h6>
                                 </div>
+                              </a>
+                                
                                 <div>
                                     <i class="icon-user-following warning font-large-2 float-right"></i>
                                 </div>
@@ -164,10 +175,13 @@
                     <div class="card-content">
                         <div class="card-body">
                             <div class="media d-flex">
-                                <div class="media-body text-left">
+                               
+                                <a href="" data-toggle="modal" data-target="#all_booking_avalable">
+                                  <div class="media-body text-left">
                                     <h3 class="success">{{ App\Booking::where('status', 1)->count() }}</h3>
                                     <h6>{{ __('Done Order') }} </h6>
                                 </div>
+                              </a>
                                 <div>
                                     <i class="icon-user-following success font-large-2 float-right"></i>
                                 </div>
@@ -185,10 +199,13 @@
                     <div class="card-content">
                         <div class="card-body">
                             <div class="media d-flex">
-                                <div class="media-body text-left">
+                               
+                                <a href="" data-toggle="modal" data-target="#all_booking_busy">
+                                  <div class="media-body text-left">
                                     <h3 class="danger">{{ App\Booking::where('status', 0)->count() }}</h3>
                                     <h6>{{ __('Reject Order') }} </h6>
                                 </div>
+                              </a>
                                 <div>
                                     <i class="icon-user-following danger font-large-2 float-right"></i>
                                 </div>
@@ -206,10 +223,14 @@
                     <div class="card-content">
                         <div class="card-body">
                             <div class="media d-flex">
-                                <div class="media-body text-left">
+                                
+                                <a href="" data-toggle="modal" data-target="#all_booking_progress">
+                                  <div class="media-body text-left">
                                     <h3 class="warning">{{ App\Booking::where('status', 2)->count() }}</h3>
                                     <h6>{{ __('in progress order Order') }} </h6>
                                 </div>
+                              </a>
+                                
                                 <div>
                                     <i class="icon-user-following warning font-large-2 float-right"></i>
                                 </div>
@@ -511,5 +532,15 @@
       
        @include('dashboard.models.company_model')
        @include('dashboard.models.worker')
+       @include('dashboard.models.worker_avalable')
+       @include('dashboard.models.worker_busy')
+       @include('dashboard.models.worker_progres')
+       @include('dashboard.models.book')
+       @include('dashboard.models.book_avalable')
+       @include('dashboard.models.book_busy')
+       @include('dashboard.models.book_progres')
+
+
+       
 
     @endsection

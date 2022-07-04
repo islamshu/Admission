@@ -17,14 +17,14 @@ class WorkerController extends Controller
     public function index(Request $request)
     {
         if(auth()->user()->hasRole('Admin')){
-            return view('dashboard.worker.index')->with('natonality',Nationality::has('worker')->whereHas('worker', function ($q) use($request) {
-                // if($request != null){
-                //     $q->where('status',$request->status);
+            return view('dashboard.worker.index')->with('request',$request)->with('natonality',Nationality::has('worker')->whereHas('worker', function ($q) use($request) {
+                if($request->status != null){
+                    $q->where('status',$request->status);
 
-                // }
+                }
             }) ->get());
         }else{
-            return view('dashboard.worker.index')->with('natonality',Nationality::has('worker')->whereHas('worker', function ($q) use($request) {
+            return view('dashboard.worker.index')->with('request',$request)->with('natonality',Nationality::has('worker')->whereHas('worker', function ($q) use($request) {
                 if($request != null){
                     $q->where('status',$request->status);
 

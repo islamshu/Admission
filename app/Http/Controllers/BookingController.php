@@ -17,9 +17,14 @@ class BookingController extends Controller
             return view('dashboard.booking.company')->with('booking',Booking::withTrashed()->where('company_id',auth()->user()->company->id)->orderBy('id', 'DESC')->get());
         }
     }
-    public function index_all()
+    public function index_all(Request $request)
     {
-        return view('dashboard.booking.company')->with('booking',Booking::withTrashed()->orderBy('id', 'DESC')->get());
+        if($request->status != null){
+            return view('dashboard.booking.company')->with('booking',Booking::where('status',$request->status)->withTrashed()->orderBy('id', 'DESC')->get());
+        }else{
+            return view('dashboard.booking.company')->with('booking',Booking::withTrashed()->orderBy('id', 'DESC')->get());
+
+        }
 
     }
     public function unavliable()
