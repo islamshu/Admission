@@ -180,7 +180,7 @@
                 type: 'get',
                 url: "{{ route('read_all_notofication') }}",
                 data: {
-                    'id': auth()->id
+                    'id': {{ auth()->id() }}
                 },
                 beforeSend: function() {},
                 success: function(data) {
