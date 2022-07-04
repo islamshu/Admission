@@ -11,7 +11,7 @@
             <div class="media d-flex">
               <div class="media-body text-left">
                 <h3 class="success">{{ App\Company::count() }}</h3>
-                <h6>{{ __('Company Count') }}</h6>
+                <h6 data-toggle="modal" data-target="#myModal">{{ __('Company Count') }}</h6>
               </div>
               <div>
                 <i class="icon-user-follow success font-large-2 float-right"></i>
@@ -479,5 +479,32 @@
       </div>
     </div>
   </div>
+</div>
+
+{{-- modals  --}}
+<div class="modal fase " id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <h5 class="modal-title" id="staticBackdropLabel">
+                {{ __('Edit Company') }}</h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div id="company_edit">
+            <div class="c-preloader text-center p-3">
+                <i class="las la-spinner la-spin la-3x"></i>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+            <button type="button" class="btn ok">Ok</button>
+        </div>
+    </div>
+</div>
 </div>
 @endsection
