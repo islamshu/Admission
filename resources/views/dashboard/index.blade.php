@@ -249,12 +249,10 @@
                         <div class="card-body">
                             <div class="media d-flex">
                                 
-                                <a href="" data-toggle="modal" data-target="#all_booking_progress">
                                   <div class="media-body text-left">
                                     <h3 class="dark">0</h3>
                                     <h6>{{ __('Registration number') }} </h6>
                                 </div>
-                              </a>
                                 
                                 <div>
                                     <i class="icon-user-following dark font-large-2 float-right"></i>
@@ -274,12 +272,10 @@
                         <div class="card-body">
                             <div class="media d-flex">
                                 
-                                <a href="" data-toggle="modal" data-target="#all_booking_progress">
                                   <div class="media-body text-left">
                                     <h3 class="success">{{ auth()->user()->Notifications->count() }}</h3>
                                     <h6>{{ __('Notofication Number') }} </h6>
                                 </div>
-                              </a>
                                 
                                 <div>
                                     <i class="icon-user-following success font-large-2 float-right"></i>
@@ -499,12 +495,10 @@
             <div class="card-body">
                 <div class="media d-flex">
                     
-                    <a href="" data-toggle="modal" data-target="#all_booking_progress">
                       <div class="media-body text-left">
                         <h3 class="success">{{ auth()->user()->Notifications->count() }}</h3>
                         <h6>{{ __('Notofication Number') }} </h6>
                     </div>
-                  </a>
                     
                     <div>
                         <i class="icon-user-following success font-large-2 float-right"></i>
