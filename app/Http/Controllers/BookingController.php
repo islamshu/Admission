@@ -19,18 +19,25 @@ class BookingController extends Controller
     }
     public function index_all(Request $request)
     {
+        $booking = Booking::query()->withTrashed();
+        $booking->when($request->status,function ($q) use($request){
+        $q->where('status',$request->status);
+        });
+        $booking->when($request->date,function ($q) use($request){
+            
+            $q->whereBetween('created_at', [$request->date .' 00:00:00', $request->date .' 23:59:59']);
+            });
         if(auth()->user()->HasRole('Admin')){
-        if($request->status != null){
-            return view('dashboard.booking.company')->with('booking',Booking::where('status',$request->status)->withTrashed()->orderBy('id', 'DESC')->get());
-        }else{
-            return view('dashboard.booking.company')->with('booking',Booking::withTrashed()->orderBy('id', 'DESC')->get());
-        }
+    
+            $booking =$booking->orderBy('id', 'DESC')->get();
+
+           return view('dashboard.booking.company')->with('booking',$booking)->with('request',$request);
+
     }else{
-        if($request->status != null){
-            return view('dashboard.booking.company')->with('booking',Booking::where('company_id',auth()->user()->company->id)->where('status',$request->status)->withTrashed()->orderBy('id', 'DESC')->get());
-        }else{
-            return view('dashboard.booking.company')->with('booking',Booking::where('company_id',auth()->user()->company->id)->withTrashed()->orderBy('id', 'DESC')->get());
-        }
+        $booking =$booking->where('company_id',auth()->user()->company->id)->orderBy('id', 'DESC')->get();
+
+           return view('dashboard.booking.company')->with('booking',$booking)->with('request',$request);
+
     }
 
     }

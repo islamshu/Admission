@@ -62,13 +62,48 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-content collapse show">
+                        <form action="" class="card-body">
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="userinput2">@lang('Created at')</label>
+                                    <input type="date" value="{{ $request->date }}" name="date" class="form-control">
+                                </div>
+                              
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="userinput2">@lang('Status')</label>
+                                    <select class="form-control" name="status" class="worker_status"  >
+                                        <option value="" class="btn  "   @if ($request->status == null) selected @endif
+                                           >
+                                            @lang('Choose')</option>
+                                        <option value="1" class="btn  btn-success"
+                                            @if ($request->status == 1) selected @endif>
+                                            @lang('Done')</option>
+                                        <option value="0" class="btn btn-danger"
+                                            @if ($request->status == 0 && $request->status != null) selected @endif>@lang('Reject')
+                                        </option>
+                                        <option value="2" class="btn btn-warning "
+                                            @if ($request->status == 2) selected @endif>@lang('in progress order')</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 mt-1 pt-1">
+                            <input type="submit" class="btn btn-info">
+                            </div>
 
+                        </div>
+                    </form>
+                        <div class="card-content collapse show">
+                          
                             <div class="card-body card-dashboard">
                               
                                 <br>
                                 @include('dashboard.parts._error')
                                 @include('dashboard.parts._success')
+                              
                                 
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
