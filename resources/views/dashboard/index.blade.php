@@ -330,7 +330,7 @@
                       <h3 class="dark">{{ App\Worker::where('company_id',auth()->user()->company->id)->where('status', 2)->count() }}</h3>
                       <h6>{{ __('In Progress Worker Count') }}</h6>
                   </div>
-                  
+
                 </a>
                   <div>
                       <i class="icon-loop  dark font-large-2 float-right"></i>
@@ -520,7 +520,7 @@
                                             <td> <a target="_blank"
                                                     href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a>
                                             </td>
-                                            <td>{{ $book->created_at->format('Y M d') }}</td>
+                                            <td>{{ $book->created_at->format('Y m d') }}</td>
                                             <td>
                                                 <label style="width: 68px"
                                                     class="badge badge-{{ color($book->status) }}">{{ booking_status($book->status) }}</label>

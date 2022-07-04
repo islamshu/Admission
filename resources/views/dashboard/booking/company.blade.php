@@ -92,7 +92,7 @@
                                         <td>{{ $book->name }}</td>
                                         <td>{{ $book->id_number }}</td>
                                         <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>
-                                        <td>{{ $book->created_at->format('Y M d') }}</td>
+                                        <td>{{ $book->created_at->format('Y m d') }}</td>
                                         <td>
                                             {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
                                             {{-- <label for="" class="btn btn-success"> --}}
