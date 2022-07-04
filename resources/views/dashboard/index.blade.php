@@ -254,7 +254,8 @@
                   
                   <a href="" data-toggle="modal" data-target="#all_worker">
                       <div class="media-body text-left">
-                          <h3 class="info">{{ App\Worker::where('copmany_id',auth()->user()->company->id)->count() }}</h3>
+                        
+                          <h3 class="info">{{ App\Worker::where('company_id',auth()->user()->company->id)->count() }}</h3>
                           <h6>{{ __('Worker Count') }}</h6>
                       </div>
                   </a>
@@ -278,7 +279,7 @@
                   
                   <a href="" data-toggle="modal" data-target="#all_worker_avalable">
                     <div class="media-body text-left">
-                      <h3 class="success">{{ App\Worker::where('copmany_id',auth()->user()->company->id)->where('status', 1)->count() }}</h3>
+                      <h3 class="success">{{ App\Worker::where('company_id',auth()->user()->company->id)->where('status', 1)->count() }}</h3>
                       <h6>{{ __('available Worker Count') }}</h6>
                   </div>
                 </a>
@@ -302,7 +303,7 @@
                   
                   <a href="" data-toggle="modal" data-target="#all_worker_busy">
                     <div class="media-body text-left">
-                      <h3 class="danger">{{ App\Worker::where('copmany_id',auth()->user()->company->id)->where('status', 0)->count() }}</h3>
+                      <h3 class="danger">{{ App\Worker::where('company_id',auth()->user()->company->id)->where('status', 0)->count() }}</h3>
                       <h6>{{ __('Busy Worker Count') }}</h6>
                   </div>
                 </a>
@@ -326,7 +327,7 @@
                   
                   <a href="" data-toggle="modal" data-target="#all_worker_progress">
                     <div class="media-body text-left">
-                      <h3 class="dark">{{ App\Worker::where('copmany_id',auth()->user()->company->id)->where('status', 2)->count() }}</h3>
+                      <h3 class="dark">{{ App\Worker::where('company_id',auth()->user()->company->id)->where('status', 2)->count() }}</h3>
                       <h6>{{ __('In Progress Worker Count') }}</h6>
                   </div>
                 </a>
@@ -351,7 +352,7 @@
                       
                   <a href="" data-toggle="modal" data-target="#all_booking">
                     <div class="media-body text-left">
-                      <h3 class="warning">{{ App\Booking::where('copmany_id',auth()->user()->company->id)->count() }}</h3>
+                      <h3 class="warning">{{ App\Booking::where('company_id',auth()->user()->company->id)->count() }}</h3>
                       <h6>{{ __('Number Of order') }}</h6>
                   </div>
                 </a>
@@ -376,7 +377,7 @@
                  
                   <a href="" data-toggle="modal" data-target="#all_booking_avalable">
                     <div class="media-body text-left">
-                      <h3 class="success">{{ App\Booking::where('copmany_id',auth()->user()->company->id)->where('status', 1)->count() }}</h3>
+                      <h3 class="success">{{ App\Booking::where('company_id',auth()->user()->company->id)->where('status', 1)->count() }}</h3>
                       <h6>{{ __('Done Order') }} </h6>
                   </div>
                 </a>
@@ -400,7 +401,7 @@
                  
                   <a href="" data-toggle="modal" data-target="#all_booking_busy">
                     <div class="media-body text-left">
-                      <h3 class="danger">{{ App\Booking::where('copmany_id',auth()->user()->company->id)->where('status', 0)->count() }}</h3>
+                      <h3 class="danger">{{ App\Booking::where('company_id',auth()->user()->company->id)->where('status', 0)->count() }}</h3>
                       <h6>{{ __('Reject Order') }} </h6>
                   </div>
                 </a>
@@ -424,7 +425,7 @@
                   
                   <a href="" data-toggle="modal" data-target="#all_booking_progress">
                     <div class="media-body text-left">
-                      <h3 class="warning">{{ App\Booking::where('copmany_id',auth()->user()->company->id)->where('status', 2)->count() }}</h3>
+                      <h3 class="warning">{{ App\Booking::where('company_id',auth()->user()->company->id)->where('status', 2)->count() }}</h3>
                       <h6>{{ __('in progress order Order') }} </h6>
                   </div>
                 </a>
