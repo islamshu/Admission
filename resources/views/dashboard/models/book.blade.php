@@ -39,7 +39,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         @endphp
                         @else
                         @php
-                            $companies = App\Booking::where('copmany_id',auth()->user()->company->id)->orderBy('id', 'DESC')->take(10)->get();
+                            $companies = App\Booking::where('company_id',auth()->user()->company->id)->orderBy('id', 'DESC')->take(10)->get();
                         @endphp
                         @endif
 
