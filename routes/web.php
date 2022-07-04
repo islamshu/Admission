@@ -39,6 +39,7 @@ Route::post('update_status_worker','WorkerController@update_status_worker')->nam
 Route::post('update_status_booked','BookingController@update_status_booked')->name('update_status_booked');
 Route::get('show_notification/{id}','HomeController@notification')->name('show.notification');
 Route::get('read_all_notofication','HomeController@read_all_notofication')->name('read_all_notofication');
+Route::get('change_chart','UserController@change_chart')->name('change_chart');
 
 
 

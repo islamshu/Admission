@@ -15,7 +15,7 @@
     "Booking": "الحجوزات",
     "Booking Info": "بيانات الحجز",
     "Booking for": "الحجوزات ل",
-    "Bookings within the last 7 days": "الحجوزات اخر 7 ايام",
+    "Bookings within the last ": "الحجوزات اخر  ",
     "Busy Worker Count": "عدد العاملات المحجوزين",
     "Choose": "اختيار",
     "Choose Compnay": "اختار مكتب استقدام",
@@ -130,6 +130,7 @@
     "city": "المدينة",
     "contact us": "وسائل التواصل",
     "content": "المحتوى",
+    "days": "أيام",
     "delete": "حذف",
     "drop": "سحب",
     "faqs": "الأسئلة الشائعة",
@@ -149,6 +150,7 @@
     "privacy": "سياسة الخوصية",
     "question": "السؤال",
     "save": "حفظ",
+    "send": "ارسال",
     "show Booking unavliable for ": "مشاهدة الحجوزات المعلقة ل",
     "system image": "صور النظام",
     "system name in arabic": "اسم النظام بالعربية",
@@ -158,7 +160,5 @@
     "translation": "الترجمة",
     "worker name": "اسم العاملة",
     "workers": "العاملات",
-    "yes": "نعم",
-    "send": "ارسال"
-
+    "yes": "نعم"
 }

@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Booking;
 use App\Company;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Vistor;
+use Carbon\Carbon;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
+use Illuminate\Support\Facades\DB as FacadesDB;
 
 class UserController extends Controller
 {
@@ -120,11 +124,115 @@ class UserController extends Controller
 
         return redirect()->back()->with(['success'=>trans('Updated successfully')]);
     }
-    public function dashboard()
+    public function dashboard(Request $request)
     {
-        return view('dashboard.index');
+        $day = $request->day  ? $request->day : 7 ;
+        $one_week_ago = Carbon::now()
+        ->subDays($day -1)
+        ->format('Y-m-d');
+    if (auth()->user()->hasRole('Admin')) {
+        $dates = Booking::where('created_at', '>=', $one_week_ago)
+            ->groupBy('date')
+            ->orderBy('date', 'ASC')
+            ->get([FacadesDB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
+            $visitor = Vistor::where('created_at', '>=', $one_week_ago)
+            ->groupBy('date')
+            ->orderBy('date', 'ASC')
+            ->get([DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
+    } else {
+        $dates = Booking::where('company_id', auth()->user()->company->id)
+            ->where('created_at', '>=', $one_week_ago)
+            ->groupBy('date')
+            ->orderBy('date', 'ASC')
+            ->get([DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
+            $visitor = Vistor::where('company_id', auth()->user()->company->id)->where('created_at', '>=', $one_week_ago)
+            ->groupBy('date')
+            ->orderBy('date', 'ASC')
+            ->get([DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
+    }
+   
+    
+    $dates_array = [];
+    $count_array = [];
+    $visitor_array = [];
+    foreach ($dates as $date) {
+        array_push($count_array, $date->count);
+        array_push($dates_array, $date->date);
+    }
+    foreach ($visitor as $date) {
+        array_push($visitor_array, $date->count);
+        array_push($dates_array, $date->date);
 
     }
+    $uniqueArry = array();
+ 
+foreach($dates_array as $val) { //Loop1 
+    
+    foreach($uniqueArry as $uniqueValue) { //Loop2 
+
+        if($val == $uniqueValue) {
+            continue 2; // Referring Outer loop (Loop 1)
+        }
+    }
+    $uniqueArry[] = $val;
+}
+   return view('dashboard.index')->with('day',$day)->with('visitor_array',$visitor_array)->with('count_array',$count_array)->with('dates_array',$uniqueArry);
+
+    }
+    public function change_chart(Request $request){
+        $day = $request->day  ;
+        $one_week_ago = Carbon::now()
+        ->subDays($day -1)
+        ->format('Y-m-d');
+    if (auth()->user()->hasRole('Admin')) {
+        $dates = Booking::where('created_at', '>=', $one_week_ago)
+            ->groupBy('date')
+            ->orderBy('date', 'ASC')
+            ->get([FacadesDB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
+            $visitor = Vistor::where('created_at', '>=', $one_week_ago)
+            ->groupBy('date')
+            ->orderBy('date', 'ASC')
+            ->get([DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
+    } else {
+        $dates = Booking::where('company_id', auth()->user()->company->id)
+            ->where('created_at', '>=', $one_week_ago)
+            ->groupBy('date')
+            ->orderBy('date', 'ASC')
+            ->get([DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
+            $visitor = Vistor::where('company_id', auth()->user()->company->id)->where('created_at', '>=', $one_week_ago)
+            ->groupBy('date')
+            ->orderBy('date', 'ASC')
+            ->get([DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "count"')]);
+    }
+   
+    
+    $dates_array = [];
+    $count_array = [];
+    $visitor_array = [];
+    foreach ($dates as $date) {
+        array_push($count_array, $date->count);
+        array_push($dates_array, $date->date);
+    }
+    foreach ($visitor as $date) {
+        array_push($visitor_array, $date->count);
+        array_push($dates_array, $date->date);
+
+    }
+    $uniqueArry = array();
+ 
+foreach($dates_array as $val) { //Loop1 
+    
+    foreach($uniqueArry as $uniqueValue) { //Loop2 
+
+        if($val == $uniqueValue) {
+            continue 2; // Referring Outer loop (Loop 1)
+        }
+    }
+    $uniqueArry[] = $val;
+}
+   return view('dashboard.booking_chart')->with('day',$day)->with('visitor_array',$visitor_array)->with('count_array',$count_array)->with('dates_array',$uniqueArry);
+    }
+    
     public function update(Request $request, $id)
     {
         $this->validate($request, [
