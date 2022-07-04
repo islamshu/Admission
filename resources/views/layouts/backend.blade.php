@@ -184,6 +184,8 @@
                 },
                 beforeSend: function() {},
                 success: function(data) {
+                    $('#count span').html('0');
+
 
 
                 }
