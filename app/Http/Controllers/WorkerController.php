@@ -134,6 +134,7 @@ class WorkerController extends Controller
         $worker->time = $request->time;
         $worker->url_sand = $request->url_sand;
         $worker->city = $request->city;
+        $worker->visa_number = $request->visa_number;
         $worker->description_ar = $request->description_ar; 
         $worker->description_en = $request->description_en;
         $worker->save();
@@ -205,6 +206,7 @@ class WorkerController extends Controller
         $worker->time = $request->time;
         $worker->url_sand = $request->url_sand;
         $worker->city = $request->city;
+        $worker->visa_number = $request->visa_number;
         $worker->description_ar = $request->description_ar; 
         $worker->description_en = $request->description_en;
         $worker->save();

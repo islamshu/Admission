@@ -69,6 +69,12 @@
                             </div>
                         </div>
                         <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="userinput1">@lang('Visa Number')</label>
+                              <input type="text" value="{{ $booking->visa_number}}" readonly id="userinput1" class="form-control border-primary" >
+                          </div>
+                      </div>
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="userinput1">@lang('Visa Image')</label>
 

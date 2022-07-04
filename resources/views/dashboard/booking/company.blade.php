@@ -182,6 +182,9 @@
 @endsection
 @section('script')
     <script>
+         $('table').DataTable({
+                scrollX: true,
+            });
         function myFunction(id){
             // alert('worker_status_'+id);
             // alert($('#worker_status_'+id).val());

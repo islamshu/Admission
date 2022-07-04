@@ -34,6 +34,7 @@ class WorkerResource extends JsonResource
             'time'=>$this->time,
             'url_sand'=>$this->url_sand,
             'status'=>$this->get_status($this),
+            'visa_number'=>$this->visa_number,
             
             'worker_status'=>$this->status,
             'visitor'=>$this->visitor_count->count(),

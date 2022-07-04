@@ -267,6 +267,11 @@
                                                 <input type="url" name="url_sand" value="{{ $worker->url_sand }}"
                                                     class="form-control" required placeholder="type Saned Url">
                                             </div>
+                                            <div class="col-md-6">
+                                                <label>@lang('Visa Number')</label>
+                                                <input type="test"  name="visa_number" value="{{ $worker->visa_number }}"
+                                                    class="form-control" required placeholder="@lang('Visa Number')">
+                                            </div>
 
 
                                         </div>

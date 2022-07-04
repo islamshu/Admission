@@ -78,7 +78,7 @@ if (!function_exists('generateBarcodeNumber')) {
         if ($status == 1) {
             return trans('available');
         } elseif ($status == 0) {
-            return trans('Busy');
+            return trans('busy');
         } elseif ($status == 2) {
             return trans('in progress');
         }

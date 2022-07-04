@@ -185,6 +185,7 @@ class HomeController extends BaseController
             $booking->DOB = $request->DOB;
             $booking->phone = $request->phone;
             $booking->visa_image = $request->visa_image->store('booking');
+            $booking->visa_number = $request->visa_number;
             $booking->save();
             // $worker->status = 2;
             // $worker->save();

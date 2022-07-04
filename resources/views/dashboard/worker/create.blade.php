@@ -265,6 +265,16 @@
 
 
 
+                                       
+
+                                            <div class="col-md-6">
+                                                <label>@lang('Visa Number')</label>
+                                                <input type="test" name="visa_number" value="{{ old('visa_number') }}"
+                                                    class="form-control" required placeholder="@lang('Visa Number')">
+                                            </div>
+
+
+
                                         </div>
                                         <br>
                                         <div class="row">
