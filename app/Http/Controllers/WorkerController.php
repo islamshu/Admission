@@ -18,10 +18,10 @@ class WorkerController extends Controller
     {
         if(auth()->user()->hasRole('Admin')){
             return view('dashboard.worker.index')->with('natonality',Nationality::has('worker')->whereHas('worker', function ($q) use($request) {
-                if($request != null){
-                    $q->where('status',$request->status);
+                // if($request != null){
+                //     $q->where('status',$request->status);
 
-                }
+                // }
             }) ->get());
         }else{
             return view('dashboard.worker.index')->with('natonality',Nationality::has('worker')->whereHas('worker', function ($q) use($request) {
