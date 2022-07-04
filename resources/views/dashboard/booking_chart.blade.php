@@ -2,11 +2,16 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">@lang('Bookings within the last 7 days')</h4>
-                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <h4 class="card-title" style="display: contents">@lang('Bookings within the last 7 days')</h4>
+                        <select name="" id=""  class="form-control " style="width: 10%;display: revert;">
+                            <option value="7">7</option>
+                            <option value="14">14</option>
+                            <option value="30">30</option>
+                        </select>
                    
                     </div>
                     <div class="card-content collapse show">
+                       
                         <div class="card-body">
                            
                           
