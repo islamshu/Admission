@@ -14,12 +14,21 @@ class WorkerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if(auth()->user()->hasRole('Admin')){
-        return view('dashboard.worker.index')->with('natonality',Nationality::has('worker')->get());
+            return view('dashboard.worker.index')->with('natonality',Nationality::has('worker')->whereHas('worker', function ($q) use($request) {
+                if($request != null){
+                    $q->where('status',$request->status);
+
+                }
+            }) ->get());
         }else{
-            return view('dashboard.worker.index')->with('natonality',Nationality::has('worker')->whereHas('worker', function ($q)  {
+            return view('dashboard.worker.index')->with('natonality',Nationality::has('worker')->whereHas('worker', function ($q) use($request) {
+                if($request != null){
+                    $q->where('status',$request->status);
+
+                }
                 $q->where('company_id',auth()->user()->company->id);
             }) ->get());
                
