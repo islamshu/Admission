@@ -53,10 +53,7 @@
                     <div class="card-content">
                         <div class="card-body">
                             <div class="media d-flex">
-                                <div class="media-body text-left">
-                                    <h3 class="info">{{ App\Worker::count() }}</h3>
-                                    <h6>{{ __('Worker Count') }}</h6>
-                                </div>
+                                
                                 <a href="" data-toggle="modal" data-target="#all_worker">
                                     <div class="media-body text-left">
                                         <h3 class="info">{{ App\Worker::count() }}</h3>
@@ -540,7 +537,7 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                        $companies = App\Company::take(10)->get();
+                                        $companies = App\Company::orderBy('id', 'DESC')->take(10)->get();
                                     @endphp
 
                                     @foreach ($companies as $key => $company)
@@ -614,12 +611,13 @@
                                   @if(auth()->user()->hasRole('Admin'))
 
                                     @php
-                                        $companies = App\Worker::take(10)->get();
+                                        $companies = App\Worker::orderBy('id', 'DESC')->take(10)->get();
                                     @endphp
                                     @else
                                     @php
-                                        $companies = App\Worker::where('copmany_id',auth()->user()->company->id)take(10)->get();
+                                        $companies = App\Worker::where('copmany_id',auth()->user()->company->id)->orderBy('id', 'DESC')->take(10)->get();
                                     @endphp
+                                    @endif
 
 
                                     @foreach ($companies as $key => $worker)
@@ -630,6 +628,11 @@
                                              <td>{{ $worker->name }}</td>
                                             <td>{{ $worker->visitor_count->count() }}</td>
                                             <td>{{ @$worker->company->name }}</td>
+                                            <td>
+                                              <label style="width: 68px"
+                                                  class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label>
+                                            </td>
+                                              {{-- <label for="" class="btn btn-success"> --}}
 
 
 
