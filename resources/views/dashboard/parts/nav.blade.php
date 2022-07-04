@@ -64,7 +64,7 @@
                   </h6>
                 </li>
                 
-                <li class="scrollable-container media-list w-100 ps-container ps-theme-dark" data-ps-id="0aa33947-2a90-7244-da0a-58037619abb6">
+                <li class="scrollable-container media-list w-100 ps-container ps-theme-dark" data-ps-id="0aa33947-2a90-7244-da0a-58037619abb6" id="data_notify">
                   @forelse  ($notifications as $item)
 
                   <a href="{{ route('show.notification',$item->id) }}">
