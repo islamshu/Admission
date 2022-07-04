@@ -19,12 +19,19 @@ class BookingController extends Controller
     }
     public function index_all(Request $request)
     {
+        if(auth()->user()->HasRole('Admin')){
         if($request->status != null){
             return view('dashboard.booking.company')->with('booking',Booking::where('status',$request->status)->withTrashed()->orderBy('id', 'DESC')->get());
         }else{
             return view('dashboard.booking.company')->with('booking',Booking::withTrashed()->orderBy('id', 'DESC')->get());
-
         }
+    }else{
+        if($request->status != null){
+            return view('dashboard.booking.company')->with('booking',Booking::where('company_id',auth()->user()->company->id)->where('status',$request->status)->withTrashed()->orderBy('id', 'DESC')->get());
+        }else{
+            return view('dashboard.booking.company')->with('booking',Booking::where('company_id',auth()->user()->company->id)->withTrashed()->orderBy('id', 'DESC')->get());
+        }
+    }
 
     }
     public function unavliable()
