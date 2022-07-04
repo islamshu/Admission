@@ -43,7 +43,46 @@
                             <div class="table-responsive">
                                 @include('dashboard.parts._error')
                                 @include('dashboard.parts._success')
+                                <form action="" class="card-body">
+                        
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="userinput2">@lang('Nationalities')</label>
+                                                <select name="nationality_id" id="" class="form-control">
 
+                                                    <option value="">@lang('Choose Natonality')</option>
+                                                    @foreach ($all_nat as $item)
+                                                    <option value="{{ $item->id }}" @if($request->nationality_id == $item->id  ) selected @endif>{{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="userinput2">@lang('Status')</label>
+                                                <select class="form-control" name="status" class="worker_status"  >
+                                                    <option value="" class="btn  "   @if ($request->status == null) selected @endif
+                                                       >
+                                                        @lang('Choose')</option>
+                                                        <option value="1" class="btn  btn-success"
+                                                        @if ($request->status == 1) selected @endif>
+                                                        @lang('available')</option>
+                                                    <option value="0" class="btn btn-danger"
+                                                        @if ($request->status == 0 &&  $request->status != null) selected @endif>@lang('busy')
+                                                    </option>
+                                                    <option value="2" class="btn btn-warning "
+                                                        @if ($request->status == 2) selected @endif>@lang('in progress')</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mt-1 pt-1">
+                                        <input type="submit" value="@lang('send')" class="btn btn-info">
+                                        </div>
+            
+                                    </div>
+                                </form>
                                 <table class="table">
                                     @if ($natonality->count() > 0)
                                         @foreach ($natonality as $item)

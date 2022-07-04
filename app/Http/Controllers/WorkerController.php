@@ -16,22 +16,71 @@ class WorkerController extends Controller
      */
     public function index(Request $request)
     {
+        $all_nat = Nationality::has('worker')->get();
+        $natonality = Nationality::query()->has('worker');
+        $natonality->when($request->status != null,function ($q) use($request)
+        {
+            $q->has('worker')->whereHas('worker', function ($q) use($request) {
+                
+                    $q->where('status',$request->status);
+    
+            });
+        });
+        $natonality->when($request->natonality_id != null,function ($q) use($request)
+        {
+            $q->has('worker')->whereHas('worker', function ($q) use($request) {
+                
+                    $q->where('natonality_id',$request->natonality_id);
+    
+            });
+        });
+
+      
         if(auth()->user()->hasRole('Admin')){
-            return view('dashboard.worker.index')->with('request',$request)->with('natonality',Nationality::has('worker')->whereHas('worker', function ($q) use($request) {
-                if($request->status != null){
-                    $q->where('status',$request->status);
-
-                }
-            }) ->get());
+            $natonality->when($request->status != null,function ($q) use($request)
+            {
+                $q->has('worker')->whereHas('worker', function ($q) use($request) {
+                    
+                        $q->where('status',$request->status);
+        
+                });
+            });
+            $natonality->when($request->nationality_id != null,function ($q) use($request)
+            {
+                $q->has('worker')->whereHas('worker', function ($q) use($request) {
+                    
+                        $q->where('nationality_id',$request->nationality_id);
+        
+                });
+            });
+          $natonality=  $natonality->get();
+            return view('dashboard.worker.index')->with('request',$request)->with('natonality',$natonality)->with('all_nat',$all_nat);
         }else{
-            return view('dashboard.worker.index')->with('request',$request)->with('natonality',Nationality::has('worker')->whereHas('worker', function ($q) use($request) {
-                if($request != null){
-                    $q->where('status',$request->status);
-
-                }
+            $natonality->has('worker')->whereHas('worker', function ($q) use($request) {
+                    
                 $q->where('company_id',auth()->user()->company->id);
-            }) ->get());
-               
+
+        });
+            $natonality->when($request->status != null,function ($q) use($request)
+            {
+                $q->has('worker')->whereHas('worker', function ($q) use($request) {
+                    
+                        $q->where('status',$request->status);
+        
+                });
+            });
+            $natonality->when($request->nationality_id != null,function ($q) use($request)
+            {
+                $q->has('worker')->whereHas('worker', function ($q) use($request) {
+                    
+                        $q->where('nationality_id',$request->nationality_id);
+        
+                });
+            });
+
+            return view('dashboard.worker.index')->with('request',$request)->with('natonality',$natonality)->with('all_nat',$all_nat);
+
+            
  
         }
     }
