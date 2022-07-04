@@ -109,7 +109,7 @@ var chartOptions = {
         }]
     },
     title: {
-        display: true,
+        display: false,
         text: 'Chart.js Bar Chart'
     }
 };
@@ -118,13 +118,13 @@ var chartOptions = {
 var chartData = {
     labels: {!! json_encode($dates_array) !!},
     datasets: [{
-        label: "My First dataset",
+        label: "@lang('Booking')",
         data: {!! json_encode($count_array) !!},
         backgroundColor: "#28D094",
         hoverBackgroundColor: "rgba(22,211,154,.9)",
         borderColor: "transparent"
     }, {
-        label: "My Second dataset",
+        label: "@lang('Visitor')",
         data: {!! json_encode($visitor_array) !!},
         backgroundColor: "#F98E76",
         hoverBackgroundColor: "rgba(249,142,118,.9)",
