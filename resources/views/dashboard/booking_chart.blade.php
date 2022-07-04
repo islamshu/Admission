@@ -1,5 +1,5 @@
 
-            <div class="col-8">
+            <div class="col-12">
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">@lang('Bookings within the last 7 days')</h4>
