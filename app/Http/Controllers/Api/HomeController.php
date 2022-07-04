@@ -70,7 +70,7 @@ class HomeController extends BaseController
     }
     public function workers_filter(Request $request)
     {
-        // return($request);
+        return($request);
         $camp = Nationality::query()->has('worker')->whereHas('worker', function ($camp) use ($request)  {
            $camp->has('company')->whereHas('company', function ($q) {
             $q->where('status', 1)->where('deleted_at',null);
