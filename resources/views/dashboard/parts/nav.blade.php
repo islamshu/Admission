@@ -54,7 +54,7 @@
 
         @endphp
             <li class="dropdown dropdown-notification nav-item">
-              <a class="nav-link nav-link-label" id="read_notofication" href="#" data-toggle="dropdown" aria-expanded="false"><i class="ficon ft-bell"></i>
+              <a class="nav-link nav-link-label" id="" href="#" data-toggle="dropdown" aria-expanded="false"><i class="ficon ft-bell"></i>
                 <span class="badge badge-pill badge-default badge-danger badge-default badge-up badge-glow " id="count">{{ $count }}</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
