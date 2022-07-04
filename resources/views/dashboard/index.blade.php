@@ -459,7 +459,7 @@
             <!-- Column Chart -->
             <div class="row">
                 @include('dashboard.booking_chart')
-                @include('dashboard.visitor_chart')
+                {{-- @include('dashboard.visitor_chart') --}}
             </div>
         </section>
         <div class="row">
