@@ -37,7 +37,8 @@ Route::get('booking_show/{id}','BookingController@show')->name('booking.show');
 Route::post('nationalities_store','NationalityController@store_ajax')->name('nationalities.store_ajax');
 Route::post('update_status_worker','WorkerController@update_status_worker')->name('update_status_worker');
 Route::post('update_status_booked','BookingController@update_status_booked')->name('update_status_booked');
-
+Route::get('show_notification/{id}','HomeController@notification')->name('show.notification');
+Route::get('read_all_notofication','HomeController@read_all_notofication')->name('read_all_notofication');
 
 
 
@@ -76,8 +77,7 @@ Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
     Route::post('/languages/key_value_store', 'HomeController@key_value_store')->name('languages.key_value_store');
     Route::get('general','HomeController@general')->name('generalinfo.index');
     Route::post('general','HomeController@store')->name('generalinfo.store');
-    Route::get('show_notification/{id}','HomeController@notification')->name('show.notification');
-    Route::get('read_all_notofication','HomeController@read_all_notofication')->name('read_all_notofication');
+   
 
     
     
