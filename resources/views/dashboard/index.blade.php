@@ -330,6 +330,7 @@
                       <h3 class="dark">{{ App\Worker::where('company_id',auth()->user()->company->id)->where('status', 2)->count() }}</h3>
                       <h6>{{ __('In Progress Worker Count') }}</h6>
                   </div>
+                  
                 </a>
                   <div>
                       <i class="icon-loop  dark font-large-2 float-right"></i>
