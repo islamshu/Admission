@@ -172,6 +172,8 @@ class HomeController extends BaseController
     }
     public function request_worker(Request $request)
     {
+        return($request);
+
         $worker = Worker::find($request->worker_id);
         if ($worker->status == 1) {
 
