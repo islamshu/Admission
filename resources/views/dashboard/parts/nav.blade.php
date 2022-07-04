@@ -54,7 +54,7 @@
 
         @endphp
             <li class="dropdown dropdown-notification nav-item">
-              <a class="nav-link nav-link-label" href="#" data-toggle="dropdown" aria-expanded="false"><i class="ficon ft-bell"></i>
+              <a class="nav-link nav-link-label" id="read_notofication" href="#" data-toggle="dropdown" aria-expanded="false"><i class="ficon ft-bell"></i>
                 <span class="badge badge-pill badge-default badge-danger badge-default badge-up badge-glow">{{ $count }}</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
@@ -83,7 +83,7 @@
                   @endforeach
                
                 <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: -8px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></li>
-                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">@lang('Read all notifications')</a></li>
+                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" id="read_notofication" href="javascript:void(0)">@lang('Read all notifications')</a></li>
               </ul>
             </li>
 

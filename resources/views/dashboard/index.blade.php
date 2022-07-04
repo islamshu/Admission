@@ -433,7 +433,7 @@
           <table id="recent-orders" class="table table-hover table-xl mb-0">
             <thead>
               <tr>
-              
+                 <th class="border-top-0">#</th>
                  <th class="border-top-0">@lang('Order ID')</th>
                  <th class="border-top-0">@lang('Customer name')</th>
                  <th class="border-top-0">@lang('Customer number id')</th>

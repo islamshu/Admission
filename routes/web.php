@@ -77,7 +77,9 @@ Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
     Route::get('general','HomeController@general')->name('generalinfo.index');
     Route::post('general','HomeController@store')->name('generalinfo.store');
     Route::get('show_notification/{id}','HomeController@notification')->name('show.notification');
+    Route::get('read_all_notofication','HomeController@read_all_notofication')->name('read_all_notofication');
 
+    
     
 });
 Route::get('login','UserController@show_login_form')->name('get_login');

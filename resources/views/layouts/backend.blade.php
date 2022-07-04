@@ -175,6 +175,20 @@
             }
 
         });
+        $('#read_notofication').click(function(){
+            $.ajax({
+                type: 'get',
+                url: "{{ route('read_all_notofication') }}",
+                data: {
+                    'id': auth()->id
+                },
+                beforeSend: function() {},
+                success: function(data) {
+
+
+                }
+            });
+        });
         $(".video").change(function() {
 
             if (this.files && this.files[0]) {

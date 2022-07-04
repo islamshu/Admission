@@ -68,6 +68,13 @@ class HomeController extends Controller
       return redirect(json_decode($not->data)->url);
         
     }
+    public function read_all_notofication(){
+        $notifications = auth()->user()->unreadNotifications;
+        foreach($notifications as $notification){
+            $notification->read_at = Carbon::now();
+            $notification->save();
+        }
+    }
     public function key_value_store(Request $request)
     {
         $data = openJSONFile($request->id);
