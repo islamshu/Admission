@@ -150,6 +150,7 @@ class HomeController extends BaseController
                     'title_en' => get_general_value('title_en'),
                     'logo' => asset('uploads/' . get_general_value('header_logo')),
                     'banner' => asset('uploads/' . get_general_value('icon')),
+                    'customer_support' =>'test',
                     'contacts'=>[
                         'whatsapp'=>@Social::where('type','whatsapp')->first()->value,
                         'phone'=>@Social::where('type','phone')->first()->value,
