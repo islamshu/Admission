@@ -62,7 +62,6 @@
                   <h6 class="dropdown-header m-0">
                     <span class="grey darken-2">@lang('Notifications')</span>
                   </h6>
-                  <span class="notification-tag badge badge-default badge-danger float-right m-0">{{ $count }} @lang('')</span>
                 </li>
                 
                 <li class="scrollable-container media-list w-100 ps-container ps-theme-dark" data-ps-id="0aa33947-2a90-7244-da0a-58037619abb6">
