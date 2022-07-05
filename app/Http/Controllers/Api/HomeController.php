@@ -96,8 +96,9 @@ class HomeController extends BaseController
             return $q->whereBetween('age', [$request->age_from, $request->age_to]);
         });
         $camp->when($request->experience_from != null  || $request->experience_to != null, function ($q) use ($request) {
-            return $q->whereBetween('experience', [$request->experience_from, $request->experience_to]);
+            return $q->whereBetween('experience', [$request->experience_from, $request->experience_to])->get();
         });
+      
         $camp->when($request->admission_period != 0 , function ($q) use ($request) {
             if($request->admission_period_from || $request->admission_period_to){
                 return $q->whereBetween('is_quick',[$request->admission_period,$request->admission_period_to]);
