@@ -104,9 +104,10 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-2 mt-1 pt-1">
+                                        <div class="col-md-4 mt-1 pt-1">
                                           <button type="submit" class="btn btn-info" ><i class="fa fa-filter" aria-hidden="true"></i></button>
-                                          <a class="btn btn-info" target="_blank" href="{{ route('export',['status'=>$request->status , 'nationality_id'=>$request->nationality_id]) }}">@lang('Export Excel')</a>
+                                         
+                                          <a style="margin-right: 50%;" class="btn btn-info" target="_blank" href="{{ route('export',['status'=>$request->status , 'nationality_id'=>$request->nationality_id]) }}"><i class="fa fa-print"></i></a>
                                         </div>
             
                                     </div>

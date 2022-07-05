@@ -39,22 +39,22 @@ class WorkerExport implements FromCollection, WithMapping, WithHeadings, ShouldA
    public function headings(): array
     {
         return [
-            'worker name',            
-            'company name',
-            'Natonality',
-            'status',
-            'age',
-            'experience years',
-            'is experience in SA',
-            'language',
-            'religion',
-            'approve chiled',
-            'is cook',
-            'city',
-            'msaned url',
+            'اسم العاملة',            
+            'اسم مكتب الاستقدام',
+            'الجنسية',
+            'الحالة',
+            'العمر',
+            'عدد سنوات الخبرة',
+            'هل الخبرات داخل السعودية ام لا?',
+            'اللغات',
+            'الديانة',
+            'هل تتقبل الاطفال?',
+            'هل تجيد الطهي ?',
+            'المدينة',
+            'رابط مساند',
 
-            'image worker',
-            'video worker',
+            'صورة العاملة',
+            'فيديو للعاملة',
         ];
     }
 
