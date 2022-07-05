@@ -66,7 +66,9 @@
                             </div>
                         </div>
                         <div class="card-content collapse show">
-
+                            <a href="{{ route('worker.create') }}" class="btn btn-info mb-2 ">
+                                @lang('Create Worker')
+                            </a>
                             <div class="">
                                 @include('dashboard.parts._error')
                                 @include('dashboard.parts._success')
