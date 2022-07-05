@@ -66,9 +66,19 @@ class BookingController extends Controller
        $book= Booking::find($id);
         return view('dashboard.booking.show')->with('booking',$book); 
     }
-    public function get_booking_company($id)
+    public function get_booking_company(Request $request,$id)
     {
         $company = Company::find($id);
-        return view('dashboard.booking.company')->with('company',$company)->with('booking',Booking::withTrashed()->where('company_id',$id)->orderBy('id', 'DESC')->get());
+        $booking = Booking::query()->withTrashed();
+        $booking->when($request->status,function ($q) use($request){
+        $q->where('status',$request->status);
+        });
+        $booking->when($request->date,function ($q) use($request){
+            
+            $q->whereBetween('created_at', [$request->date .' 00:00:00', $request->date .' 23:59:59']);
+            });
+            $booking =$booking->where('company_id',$id)->orderBy('id', 'DESC')->get();
+
+        return view('dashboard.booking.company')->with('company',$company)->with('booking',$booking)->with('request',$request);
     }
 }

@@ -1,4 +1,31 @@
 @extends('layouts.backend')
+@section('css')
+    <style>
+        #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+    </style>
+
+@endsection
 @section('content')
 <div class="content-wrapper">
     <div class="content-header row">
@@ -40,7 +67,7 @@
                         </div>
                         <div class="card-content collapse show">
 
-                            <div class="table-responsive">
+                            <div class="">
                                 @include('dashboard.parts._error')
                                 @include('dashboard.parts._success')
                                 <form action="" class="card-body">
@@ -78,7 +105,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2 mt-1 pt-1">
-                                        <input type="submit" value="@lang('filter')" class="btn btn-info">
+                                          <button type="submit" class="btn btn-info" ><i class="fa fa-filter" aria-hidden="true"></i></button>
                                         </div>
             
                                     </div>
@@ -105,7 +132,7 @@
 
                                             </thead>
 
-                                            <tbody>
+                                            <thead>
                                                 <tr>
                                                     <th>@lang('Image')</th>
                                                     <th>@lang('worker name')</th>
@@ -115,8 +142,10 @@
                                                     @endif
                                                     <th>@lang('Status')</th>
                                                     <th>@lang('Action')</th>
-
                                                 </tr>
+                                            </thead>
+                                                    <tbody>
+
                                                 @if($request->status != null)
 
                                                 @foreach ($item->worker->where('status',$request->status) as $worker)

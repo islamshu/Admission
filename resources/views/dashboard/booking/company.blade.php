@@ -1,4 +1,28 @@
 @extends('layouts.backend')
+@section('css')
+    <style>
+        .dtHorizontalExampleWrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+#dtHorizontalExample th, td {
+  white-space: nowrap;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+ bottom: .5em;
+}
+    </style>
+@endsection
 @section('content')
 @if((request()->is('dashbaord/booking_company*')))
 
@@ -91,7 +115,8 @@
                                 </div>
                             </div>
                             <div class="col-md-2 mt-1 pt-1">
-                            <input type="submit" value="@lang('filter')" class="btn btn-info">
+                                <button type="submit" class="btn btn-info" ><i class="fa fa-filter" aria-hidden="true"></i></button>
+                            
                             </div>
 
                         </div>
@@ -105,13 +130,13 @@
                                 @include('dashboard.parts._success')
                               
                                 
-                                <table class="table table-striped table-bordered zero-configuration">
+                                <table id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+                                width="100%">  
                                     <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>@lang('Order ID')</th>
                                             <th>@lang('Customer name')</th>
-                                            <th>@lang('Customer number id')</th>
                                             <th>@lang('worker name')</th>
                                             <th>@lang('Phone')</th>
                                             <th>@lang('Date Of Birth')</th>
@@ -126,13 +151,13 @@
                                         <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $book->order_id }}</td>
-                                        <td>{{ $book->name }}</td>
+                                        <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>                                        <td>{{ @$book->worker->name }}</td>
+
                                         <td>{{ $book->phone }}</td>
                                         <td>{{ $book->DOB }}</td>
-                                        <td>{{ $book->id_number }}</td>
-                                        <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>
-                                        <td>{{ $book->created_at->format('Y m d') }}</td>
-                                        <td>
+                                        <td>{{ $book->created_at->format('Y-m-d') }}</td>
+
+                                       <td>
                                             {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
                                             {{-- <label for="" class="btn btn-success"> --}}
                                             <select class="target btn" book_id="{{ $book->id }}" class="worker_status" id="worker_status_{{ $book->id }}" onchange="myFunction('{{ $book->id }}')"
@@ -182,9 +207,13 @@
 @endsection
 @section('script')
     <script>
-         $('table').DataTable({
-                scrollX: true,
-            });
+//          table.destroy();
+
+// $('#booking').DataTable({
+//     scrollX: true,
+// });
+
+
         function myFunction(id){
             // alert('worker_status_'+id);
             // alert($('#worker_status_'+id).val());

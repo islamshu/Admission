@@ -273,7 +273,7 @@
                             <div class="media d-flex">
                                 
                                   <div class="media-body text-left">
-                                    <h3 class="success">{{ auth()->user()->Notifications->count() }}</h3>
+                                    <h3 class="success">{{ auth()->user()->UnreadNotifications->count() }}</h3>
                                     <h6>{{ __('Notofication Number') }} </h6>
                                 </div>
                                 
@@ -589,7 +589,7 @@
                                             <td> <a target="_blank"
                                                     href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a>
                                             </td>
-                                            <td>{{ $book->created_at->format('Y m d') }}</td>
+                                            <td>{{ $book->created_at->format('Y-m-d') }}</td>
                                             <td>
                                                 <label style="width: 68px"
                                                     class="badge badge-{{ color($book->status) }}">{{ booking_status($book->status) }}</label>

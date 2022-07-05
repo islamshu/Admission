@@ -105,7 +105,7 @@
     <script src="{{ asset('backend/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/js/scripts/tables/datatables/datatable-advanced.js') }}" type="text/javascript">
     </script>
-    
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
@@ -124,7 +124,7 @@
     <!-- BEGIN PAGE VENDOR JS-->
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN MODERN JS-->
-    
+
 
 
     <script>
@@ -176,7 +176,7 @@
             }
 
         });
-        $('#read_notofication').click(function(){
+        $('#read_notofication').click(function() {
             $.ajax({
                 type: 'get',
                 url: "{{ route('read_all_notofication') }}",
@@ -232,6 +232,7 @@
                     }
                 }
             });
+            
         </script>
     @endif
 </body>
