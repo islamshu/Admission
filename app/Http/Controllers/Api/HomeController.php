@@ -110,9 +110,9 @@ class HomeController extends BaseController
         //     return $q->where('in_sa', $request->saudi_experience );
         // });
        
-        $camp->when($request->name != null, function ($q) use ($request) {
-            return $q->where('name','like','%'.$request->name.'%');
-        });
+        // $camp->when($request->name != null, function ($q) use ($request) {
+        //     return $q->where('name','like','%'.$request->name.'%');
+        // });
     });
         $camp = $camp->get();
         return NatonalityResource::collection($camp);
