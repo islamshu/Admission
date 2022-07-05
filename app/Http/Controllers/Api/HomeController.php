@@ -93,7 +93,7 @@ class HomeController extends BaseController
             return $q->where('city', $request->city);
         });
         $camp->when($request->age_from != null  || $request->age_to != null, function ($q) use ($request) {
-            return $q->whereBetween('age', [$request->age_to, $request->ageform]);
+            return $q->whereBetween('age', [$request->age_to, $request->age_form]);
         });
         $camp->when($request->experience_from != null  || $request->experience_to != null, function ($q) use ($request) {
             return $q->whereBetween('experience', [$request->experience_from, $request->experience_to]);
