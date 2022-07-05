@@ -22,6 +22,7 @@
     "Choose Language": "اختر اللغة",
     "Choose Natonality": "اختار جنسية",
     "Christian": "المسيحية",
+    "christian": "المسيحية",
     "Commical Register": "رقم السجيل التجاري",
     "Companies": "مكاتب الاستقدام",
     "Company Count": "عدد شركات الاستقدام",
@@ -71,6 +72,8 @@
     "Is the experience inside Saudi Arabia or not": "هل الخبرات داخل السعودية ام لا",
     "Is verify": "هل تم التحقق",
     "Islam": "الاسلام",
+    "islam": "الاسلام",
+
     "Language": "اللغات",
     "Latitude": "احداثيات خط العرض",
     "Logout": "تسجيل خروج",
