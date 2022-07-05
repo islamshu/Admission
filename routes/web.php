@@ -41,7 +41,7 @@ Route::get('show_notification/{id}','HomeController@notification')->name('show.n
 Route::get('read_all_notofication','HomeController@read_all_notofication')->name('read_all_notofication');
 Route::get('change_chart','UserController@change_chart')->name('change_chart');
 
-
+Route::get('wrokers/export/', 'WorkerController@export')->name('export');
 
 
 

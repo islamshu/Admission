@@ -70,7 +70,7 @@
                             <div class="">
                                 @include('dashboard.parts._error')
                                 @include('dashboard.parts._success')
-                                <form action="" class="card-body">
+                                <form style="display: inline" action="" class="card-body">
                         
                                     <div class="row">
                                         <div class="col-md-4">
@@ -106,10 +106,12 @@
                                         </div>
                                         <div class="col-md-2 mt-1 pt-1">
                                           <button type="submit" class="btn btn-info" ><i class="fa fa-filter" aria-hidden="true"></i></button>
+                                          <a class="btn btn-info" target="_blank" href="{{ route('export',['status'=>$request->status , 'nationality_id'=>$request->nationality_id]) }}">@lang('Export Excel')</a>
                                         </div>
             
                                     </div>
-                                </form>
+                                </form >
+                             
                                 <table class="table">
                                     @if ($natonality->count() > 0)
                                         @foreach ($natonality as $item)

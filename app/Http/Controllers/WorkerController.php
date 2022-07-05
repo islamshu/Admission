@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Exports\WorkerExport;
 use App\Nationality;
 use App\Worker;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class WorkerController extends Controller
 {
@@ -224,6 +226,9 @@ class WorkerController extends Controller
        $worker= Worker::find($id);
        $worker->delete();
        return redirect()->route('worker.index')->with(['success'=>trans('Deleted successfully')]);
-
+    }
+    public function export(Request $request) 
+    {
+        return Excel::download(new WorkerExport($request), 'workers.xlsx');
     }
 }
