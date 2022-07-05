@@ -128,7 +128,8 @@ table.dataTable thead .sorting_desc_disabled:before {
                                 <br>
                                 @include('dashboard.parts._error')
                                 @include('dashboard.parts._success')
-                              
+                                <div class="table-responsive">
+
                                 
                                 <table id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
                                 width="100%">  
@@ -197,6 +198,7 @@ table.dataTable thead .sorting_desc_disabled:before {
                                         </tr>
                                     </tfoot> --}}
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
