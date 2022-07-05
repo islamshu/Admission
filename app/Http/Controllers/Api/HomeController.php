@@ -80,9 +80,7 @@ class HomeController extends BaseController
         $camp->when($request->religion, function ($q) use ($request) {
             return $q->where('religion', $request->religion);
         });
-        $camp->when($request->company_id, function ($q) use ($request) {
-            return $q->where('company_id', $request->company_id);
-        });
+        
         $camp->when($request->is_coocked != null, function ($q) use ($request) {
             return $q->where('is_coocked', $request->is_coocked);
         });
