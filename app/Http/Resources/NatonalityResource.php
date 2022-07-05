@@ -15,14 +15,17 @@ class NatonalityResource extends JsonResource
      */
     public function toArray($request)
     {
-        dd($request);
+        
         return [
           'id'=>$this->id,
           'name'=>$this->name,
           'flag'=>asset('uploads/'.$this->flag),  
-          'workers'=>WorkerResource::collection($this->worker)
+          'workers'=>$this->get_worker($request)
           // 'wrokers'=> WorkerResource::collection(
             // Worker::has('company')->get()),
         ];
+    }
+    function get_worker($request){
+        dd('dd',$request);
     }
 }
