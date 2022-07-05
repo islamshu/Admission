@@ -66,6 +66,6 @@ class NatonalityResource extends JsonResource
         $camp->when($request->name != null, function ($q) use ($request) {
             return $q->where('name','like','%'.$request->name.'%');
         });
-        return WorkerResource::collection($camp);
+        return WorkerResource::collection($camp->get());
     }
 }
