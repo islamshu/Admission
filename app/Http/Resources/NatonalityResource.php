@@ -20,16 +20,16 @@ class NatonalityResource extends JsonResource
           'id'=>$this->id,
           'name'=>$this->name,
           'flag'=>asset('uploads/'.$this->flag),  
-          'workers'=>$this->get_worker($request)
+          'workers'=>$this->get_worker($this,$request)
           // 'wrokers'=> WorkerResource::collection(
             // Worker::has('company')->get()),
         ];
     }
-    function get_worker($request){
-        $camp = Worker::query();
-        $camp->when($request->nationality_id, function ($q) use ($request) {
-            return $q->where('nationality_id', $request->nationality_id);
-        });
+    function get_worker($data,$request){
+        $camp = Worker::query()->where('nationality_id',$data->id);
+        // $camp->when($request->nationality_id, function ($q) use ($request) {
+        //     return $q->where('nationality_id', $request->nationality_id);
+        // });
         $camp->when($request->religion, function ($q) use ($request) {
             return $q->where('religion', $request->religion);
         });
