@@ -15,6 +15,7 @@ class NatonalityResource extends JsonResource
      */
     public function toArray($request)
     {
+        dd($request);
         return [
           'id'=>$this->id,
           'name'=>$this->name,
