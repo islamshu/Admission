@@ -111,8 +111,18 @@ class HomeController extends BaseController
             return $q->where('name','like','%'.$request->name.'%');
         });
         $camp = $camp->get();
-        return $camp;
-        return NatonalityResource::collection($camp);
+        $ids = array();
+        foreach ($camp as $c){
+            array_push($ids,$c->id);
+        }
+        $dd = Nationality::query()->has('worker')->whereHas('worker', function ($d) use ($ids)  {
+            $d->has('company')->whereHas('company', function ($q) {
+             $q->where('status', 1)->where('deleted_at',null);
+         });
+         $d->whereIn('id',$ids);
+        });
+
+        return NatonalityResource::collection($dd->get());
     }
     public function search(Request $request)
     {
