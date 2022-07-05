@@ -35,7 +35,6 @@ class WorkerResource extends JsonResource
             'url_sand'=>$this->url_sand,
             'status'=>$this->get_status($this),
             'visa_number'=>$this->visa_number,
-            
             'worker_status'=>$this->status,
             'visitor'=>$this->visitor_count->count(),
             'compnay'=> new CopmainsResource(@$this->company)
