@@ -107,7 +107,7 @@ if (!function_exists('generateBarcodeNumber')) {
 {
     $languages_list = array(
         'en' => 'English',
-        'ar' => 'Arabic - العربية',
+        'ar' => 'Arabic',
     );
     return $languages_list;
 }
