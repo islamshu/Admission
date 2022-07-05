@@ -176,6 +176,10 @@
             }
 
         });
+        $('#reeed').click(function() {
+                    $('.usercount').empty();
+                    $('.usercount').html(0);
+        });
         $('#read_notofication').click(function() {
             $.ajax({
                 type: 'get',
@@ -187,13 +191,13 @@
                 success: function(data) {
                     $('.usercount').empty();
                     $('.usercount').html(0);
-                    alert('d');
                     $('#data_notify').empty();
 
 
                 }
             });
         });
+       
         $(".video").change(function() {
 
             if (this.files && this.files[0]) {
