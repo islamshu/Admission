@@ -24,7 +24,7 @@ class WorkerResource extends JsonResource
             'age'=>$this->age,
             'experience'=>$this->experience,
             'experience_in_Sa'=>$this->in_sa == 1 ? 'yes' : 'no',
-            'language'=>json_decode($this->language),
+            'language'=>$this->get_lang($this),
             'religion'=>trans($this->religion),
             'approve_chiled'=>$this->approve_chiled,
             'is_coocked'=>$this->is_coocked,
@@ -40,6 +40,15 @@ class WorkerResource extends JsonResource
             'compnay'=> new CopmainsResource(@$this->company)
 
         ];
+    }
+    function get_lang($data){
+      $langs=  json_decode($data->language);
+      $array = array();
+      foreach($langs as $a){
+        array_push($array,trans($a));
+      }
+      return $array;
+
     }
     function get_status($data){
         return [
