@@ -169,7 +169,7 @@ table.dataTable thead .sorting_desc_disabled:before {
                                                     @if ($book->status == 1) selected @endif>
                                                     @lang('Done')</option>
                                                 <option value="0" class="btn btn-danger"
-                                                    @if ($book->status == 0) selected @endif>@lang('Reject')
+                                                    @if ($book->status == 0 && $book->status != null) selected @endif>@lang('Reject')
                                                 </option>
                                                 <option value="2" class="btn btn-warning "
                                                     @if ($book->status == 2) selected @endif>@lang('in progress order')</option>
