@@ -185,7 +185,9 @@
                 },
                 beforeSend: function() {},
                 success: function(data) {
-                    $('#count span').text('0');
+                    $('.usercount').empty();
+                    $('.usercount').html(0);
+                    alert('d');
                     $('#data_notify').empty();
 
 
