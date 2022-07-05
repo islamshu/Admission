@@ -164,6 +164,9 @@ class HomeController extends BaseController
                         'website'=>@Social::where('type','Website')->first()->value,
                         'Telegram'=>@Social::where('type','Telegram')->first()->value,
                     ],
+                    'cities'=>get_city_ar(),
+                    'languages'=>get_language(),
+
                     'natonality'=> NatonalityResource::collection(Nationality::get())
                     
                 ]
@@ -242,10 +245,17 @@ class HomeController extends BaseController
     }
     
     public function count_vist(){
-        
         $general = General::where('key','visitor')->first();
         $general->value +=1;
         $general->save();
         return $this->sendResponse($general->value, trans('add visitor'));
+    }
+    public function city(){
+        $array = array();
+        foreach(get_city_ar() as $city){
+            array_push($array,$city);
+        }
+        return  ['data'=>get_city_ar()];
+    
     }
 }

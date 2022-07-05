@@ -34,5 +34,7 @@ Route::get('general','Api\HomeController@general');
 Route::get('count_vist','Api\HomeController@count_vist');
 Route::post('request_worker','Api\HomeController@request_worker');
 Route::post('contact_form','Api\HomeController@contact_form');
+Route::get('city','Api\HomeController@city');
+
 });
 

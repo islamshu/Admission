@@ -239,11 +239,8 @@
                                                     id="select2">
                                                     <option value=""> @lang('choose city') </option>
                                                     @php
-                                                        if (get_lang() == 'ar') {
-                                                            $city = get_city_ar();
-                                                        } else {
-                                                            $city = get_city_en();
-                                                        }
+                                                                             $city = get_city_ar();
+
                                                         
                                                     @endphp
                                                     @foreach ($city as $item)
