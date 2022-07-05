@@ -151,7 +151,9 @@ table.dataTable thead .sorting_desc_disabled:before {
                                         <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $book->order_id }}</td>
-                                        <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>                                        <td>{{ @$book->worker->name }}</td>
+                                        <td>{{ @$book->name }}</td>
+
+                                        <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>                  
 
                                         <td>{{ $book->phone }}</td>
                                         <td>{{ $book->DOB }}</td>

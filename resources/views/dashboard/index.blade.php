@@ -120,7 +120,20 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6 col-12">
+            
+
+
+
+            <div class="col-xl-8 col-lg-6 col-12">
+                <!-- Bar Chart -->
+    
+                <!-- Column Chart -->
+                <div class="row">
+                    @include('dashboard.booking_chart')
+                    {{-- @include('dashboard.visitor_chart') --}}
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-6 col-12">
                 <div class="card pull-up">
                     <div class="card-content">
                         <div class="card-body">
@@ -144,7 +157,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6 col-12">
+            <div class="col-xl-2 col-lg-6 col-12">
                 <div class="card pull-up">
                     <div class="card-content">
                         <div class="card-body">
@@ -243,7 +256,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6 col-12">
+            <div class="col-xl-2 col-lg-6 col-12">
                 <div class="card pull-up">
                     <div class="card-content">
                         <div class="card-body">
@@ -266,7 +279,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6 col-12">
+            <div class="col-xl-2 col-lg-6 col-12">
                 <div class="card pull-up">
                     <div class="card-content">
                         <div class="card-body">
@@ -289,6 +302,19 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+          
 
     </div>
 @elseif(auth()->user()->hasRole('Company'))
@@ -522,15 +548,7 @@
     @endif
     <div class="content-body">
         <!-- Bar charts section start -->
-        <section id="chartjs-bar-charts">
-            <!-- Bar Chart -->
-
-            <!-- Column Chart -->
-            <div class="row">
-                @include('dashboard.booking_chart')
-                {{-- @include('dashboard.visitor_chart') --}}
-            </div>
-        </section>
+        
         <div class="row">
             <div id="recent-transactions" class="col-12">
                 <div class="card">
