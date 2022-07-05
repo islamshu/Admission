@@ -242,6 +242,7 @@ class HomeController extends BaseController
     }
     
     public function count_vist(){
+        
         $general = General::where('key','visitor')->first();
         $general->value +=1;
         $general->save();
