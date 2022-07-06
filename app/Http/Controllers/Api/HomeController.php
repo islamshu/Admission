@@ -240,7 +240,7 @@ class HomeController extends BaseController
             $data = [
                 'id' => $worker->id,
                 'name' => $worker->name,
-                'url' => route('booking.unavilable.show', $bo->id),
+                'url' => route('booking.unavilable.show', $worker->id),
                 'time'=>$bo->created_at
             ];
             $admin->notify(new NewBookingNotofication($data));
