@@ -123,13 +123,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>@lang('Experince')</label>
-                                                <input type="number" name="experience" value="{{ old('experience') }}"
+                                                <input type="number" id="experience" name="experience" value="{{ old('experience') }}"
                                                     class="form-control" placeholder="@lang('Experince')">
 
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6" id="in_sa" >
                                                 <label>@lang('Is the experience inside Saudi Arabia or not')?</label>
-                                                <select name="in_sa" required class="form-control">
+                                                <select  name="in_sa"  class="form-control">
                                                     <option value="1"
                                                         @if (old('in_sa') == 1) selected @endif>
                                                         @lang('yes') </option>
@@ -436,6 +436,13 @@
                     $('#form-errors').html(errorsHtml);
                 },
             });
+        });
+        $('#experience').change(function() {
+            if($(this).val() == 0){
+                $('#in_sa').hide();
+            }else{
+                $('#in_sa').show();
+            }
         });
     </script>
 @endsection

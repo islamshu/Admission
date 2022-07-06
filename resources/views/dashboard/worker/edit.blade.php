@@ -119,11 +119,11 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>@lang('Experince')</label>
-                                                <input type="number" name="experience" value="{{ $worker->experience }}"
+                                                <input type="number" id="experience" name="experience" value="{{ $worker->experience }}"
                                                     class="form-control" placeholder="type experience">
 
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6" id="in_sa" @if( $worker->experience == 0) style="dispaly:none" @else style="dispaly:block"  @endif>
                                                 <label>@lang('Is the experience inside Saudi Arabia or not')?</label>
                                                 <select name="in_sa" required class="form-control">
                                                     <option value="1"
@@ -428,6 +428,13 @@
                     $('#form-errors').html(errorsHtml);
                 },
             });
+        });
+        $('#experience').change(function() {
+            if($(this).val() == 0){
+                $('#in_sa').hide();
+            }else{
+                $('#in_sa').show();
+            }
         });
     </script>
 @endsection
