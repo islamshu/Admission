@@ -19,7 +19,7 @@ class WorkerResource extends JsonResource
             'id'=>$this->id,
             'name'=>$this->name,
             'image'=>asset('uploads/'.$this->image),
-            'video'=>$this->video != null ? asset('uploads/'.$this->video) : null,
+            'video'=>$this->video != null ? $this->video : null,
             'natonality'=>new NatonalityResourceWithoutWorker(@$this->natonality),
             'age'=>$this->age,
             'experience'=>$this->experience,
