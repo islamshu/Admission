@@ -116,8 +116,16 @@ class WorkerController extends Controller
         $worker->name = $request->name;
         $worker->image = $request->image->store('worker');
         if($request->video != null){
-            $worker->video = $request->video->store('worker-video');
-        }
+          
+            $resizedVideo = cloudinary()->uploadVideo($request->file('video')->getRealPath(), [
+                'folder' => 'uploads',
+                'transformation' => [
+                          'width' => 375,
+                          'height' => 650 
+                 ]
+    ])->getSecurePath();
+    $worker->video = $resizedVideo;
+                }
         $worker->nationality_id = $request->nationality_id;
         if(auth()->user()->HasRole('Admin')){
             $worker->company_id = $request->company_id;
@@ -188,8 +196,17 @@ class WorkerController extends Controller
             $worker->image = $request->image->store('worker');
         }
         if($request->video != null){
-            $worker->video = $request->video->store('worker-video');
-        }
+          
+        $resizedVideo = cloudinary()->uploadVideo($request->file('video')->getRealPath(), [
+            'folder' => 'uploads',
+            'transformation' => [
+                      'width' => 375,
+                      'height' => 650 
+             ]
+])->getSecurePath();
+$worker->video = $resizedVideo;
+            }
+	
         $worker->nationality_id = $request->nationality_id;
         if(auth()->user()->HasRole('Admin')){
             $worker->company_id = $request->company_id;
