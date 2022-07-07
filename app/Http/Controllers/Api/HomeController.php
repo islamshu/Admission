@@ -29,6 +29,7 @@ use App\Http\Controllers\Api\BaseController;
 use App\Http\Controllers\NationalityController;
 use App\Http\Resources\AboutResoures;
 use App\Http\Resources\BookingResoure;
+use App\Http\Resources\BusyBookingResoure;
 use App\Http\Resources\PrivacyResoures;
 use App\Http\Resources\SocialResource;
 use App\Notifications\NewBookingNotofication;
@@ -352,8 +353,9 @@ class HomeController extends BaseController
     public  function my_order_not_avilable()
     {
         $booking = BusyWorker::where('user_id',auth('client_api')->id())->get();
+        return $res['data']= BusyBookingResoure::collection($booking);
 
-        return $booking;
+        
     }
 
 }
