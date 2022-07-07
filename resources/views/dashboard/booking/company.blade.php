@@ -136,7 +136,7 @@ table.dataTable thead .sorting_desc_disabled:before {
                                 width="100%">  
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            {{-- <th>#</th> --}}
                                             <th>@lang('Order ID')</th>
                                             <th>@lang('Customer name')</th>
                                             <th>@lang('worker name')</th>
@@ -151,7 +151,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 
                                         @foreach ($booking as $key => $book)
                                         <tr>
-                                        <td>{{ ++$key }}</td>
+                                        {{-- <td>{{ ++$key }}</td> --}}
                                         <td>{{ $book->order_id }}</td>
                                         <td>{{ @$book->name }}</td>
 
