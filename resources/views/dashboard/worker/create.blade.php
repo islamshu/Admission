@@ -254,12 +254,12 @@
                                         </div>
                                         <br>
                                         <div class="row">
-
+{{-- 
                                             <div class="col-md-6">
                                                 <label>@lang('Saned Url')</label>
                                                 <input type="url" name="url_sand" value="{{ old('url_sand') }}"
                                                     class="form-control" required placeholder="@lang('Saned Url')">
-                                            </div>
+                                            </div> --}}
 
 
 

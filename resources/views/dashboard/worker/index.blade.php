@@ -185,8 +185,7 @@
                                                             {{-- </label> --}}
                                                         </td>
                                                         <td>
-                                                            <a href="{{ $worker->url_sand }}" target="_blank"
-                                                                class=""><i class="btn btn-info fa fa-eye"></i></a>
+                                                            
                                                             <a href="{{ route('worker.edit', $worker->id) }}"
                                                                 class=""><i
                                                                     class="btn btn-success fa fa-edit"></i></a>
@@ -234,8 +233,7 @@
                                                             {{-- </label> --}}
                                                         </td>
                                                         <td>
-                                                            <a href="{{ $worker->url_sand }}" target="_blank"
-                                                                class=""><i class="btn btn-info fa fa-eye"></i></a>
+                                                     
                                                             <a href="{{ route('worker.edit', $worker->id) }}"
                                                                 class=""><i
                                                                     class="btn btn-success fa fa-edit"></i></a>

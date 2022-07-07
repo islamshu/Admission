@@ -42,6 +42,8 @@ Route::get('read_all_notofication','HomeController@read_all_notofication')->name
 Route::get('change_chart','UserController@change_chart')->name('change_chart');
 
 Route::get('wrokers/export/', 'WorkerController@export')->name('export');
+Route::get('booking/export/', 'BookingController@export')->name('booking.export');
+
 Route::get('wrokers/pdf/', 'WorkerController@downloadPDF')->name('pdf');
 
 

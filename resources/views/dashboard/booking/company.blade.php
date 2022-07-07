@@ -116,7 +116,8 @@ table.dataTable thead .sorting_desc_disabled:before {
                             </div>
                             <div class="col-md-2 mt-1 pt-1">
                                 <button type="submit" class="btn btn-info" ><i class="fa fa-filter" aria-hidden="true"></i></button>
-                            
+                                <a style="margin-right: 30%;" class="btn btn-info" target="_blank" href="{{ route('booking.export',['status'=>$request->status , 'nationality_id'=>$request->nationality_id]) }}"><i class="fa fa-print"></i></a>
+
                             </div>
 
                         </div>
@@ -154,7 +155,7 @@ table.dataTable thead .sorting_desc_disabled:before {
                                         <td>{{ $book->order_id }}</td>
                                         <td>{{ @$book->name }}</td>
 
-                                        <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>                  
+                                        <td> <a >{{ $book->worker->name }}</a></td>                  
 
                                         <td>{{ $book->phone }}</td>
                                         <td>{{ $book->DOB }}</td>

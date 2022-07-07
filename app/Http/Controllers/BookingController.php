@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Booking;
 use App\BusyWorker;
 use App\Company;
+use App\Exports\BookingExport;
 use App\Worker;
 use Illuminate\Http\Request;
 
@@ -81,4 +82,9 @@ class BookingController extends Controller
 
         return view('dashboard.booking.company')->with('company',$company)->with('booking',$booking)->with('request',$request);
     }
+    public function export(Request $request) 
+    {
+        return Excel::download(new BookingExport($request), 'booking.xlsx');
+    }
+}
 }

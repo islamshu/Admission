@@ -562,8 +562,7 @@
                                             <td>{{ $book->order_id }}</td>
                                             <td>{{ $book->name }}</td>
                                             <td>{{ $book->id_number }}</td>
-                                            <td> <a target="_blank"
-                                                    href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a>
+                                            <td> <a>{{ $book->worker->name }}</a>
                                             </td>
                                             <td>{{ $book->created_at->format('Y-m-d') }}</td>
                                             <td>

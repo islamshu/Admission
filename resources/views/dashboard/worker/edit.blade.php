@@ -262,11 +262,11 @@
                                         <br>
                                         <div class="row">
 
-                                            <div class="col-md-6">
+                                            {{-- <div class="col-md-6">
                                                 <label>@lang('Saned Url')</label>
                                                 <input type="url" name="url_sand" value="{{ $worker->url_sand }}"
                                                     class="form-control" required placeholder="type Saned Url">
-                                            </div>
+                                            </div> --}}
                                             <div class="col-md-6">
                                                 <label>@lang('Visa Number')</label>
                                                 <input type="test"  name="visa_number" value="{{ $worker->visa_number }}"

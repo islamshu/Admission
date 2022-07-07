@@ -49,7 +49,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <td>{{ $book->order_id }}</td>
                                 <td>{{ $book->name }}</td>
                                 {{-- <td>{{ $book->id_number }}</td> --}}
-                                <td> <a target="_blank" href="{{ $book->worker->url_sand }}">{{ $book->worker->name }}</a></td>
+                                <td> <a >{{ $book->worker->name }}</a></td>
                                 <td>{{ $book->created_at->format('Y-m-d') }}</td>
                                 <td>
                                   <label style="width: 68px"
