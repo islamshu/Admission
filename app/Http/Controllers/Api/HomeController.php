@@ -345,13 +345,13 @@ class HomeController extends BaseController
     }
     public function my_order(){
         $client = Client::find(auth('client_api')->id());
-        $booking = Booking::where('user_id',auth('client_api')->id());
+        $booking = Booking::where('user_id',auth('client_api')->id())->get();
 
         return $res['data']= BookingResoure::collection($booking);
     }
     public  function my_order_not_avilable()
     {
-        $booking = BusyWorker::where('user_id',auth('client_api')->id());
+        $booking = BusyWorker::where('user_id',auth('client_api')->id())->get();
 
         return $booking;
     }
