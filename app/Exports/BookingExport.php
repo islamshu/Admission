@@ -27,6 +27,10 @@ class BookingExport implements FromCollection, WithMapping, WithHeadings, Should
         $booking->when($this->request->status != null, function ($q) {
             $q->where('status', $this->request->status);
         });
+        $booking->when($this->request->date,function ($q) {
+            
+            $q->whereBetween('created_at', [$this->request->date .' 00:00:00', $this->request->date .' 23:59:59']);
+            });
 
         if (auth()->user()->HasRole('Admin')) {
             return $booking->get();
