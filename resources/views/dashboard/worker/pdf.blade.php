@@ -17,7 +17,7 @@
 <body>
     <h5>العاملات</h5>
 
-    <table class="container">
+    <table class="container" style="width: 100%;">
         <thead>
             <tr>
                 <th>

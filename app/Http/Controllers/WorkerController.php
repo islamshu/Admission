@@ -173,7 +173,7 @@ class WorkerController extends Controller
         }else{
             $workers= $worker->where('company_id',auth()->user()->company->id)->get();
         }
-        return view('dashboard.worker.pdf', compact('workers'));
+        // return view('dashboard.worker.pdf', compact('workers'));
         $pdf = PDF::loadView('dashboard.worker.pdf', compact('workers'));
         return $pdf->download('workers.pdf');
   
