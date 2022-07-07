@@ -35,6 +35,13 @@ Route::get('count_vist','Api\HomeController@count_vist');
 Route::post('request_worker','Api\HomeController@request_worker');
 Route::post('contact_form','Api\HomeController@contact_form');
 Route::get('city','Api\HomeController@city');
+Route::post('login','Api\HomeController@login');
+Route::post('register','Api\HomeController@register');
+Route::post('check_otp','Api\HomeController@check_otp');
+Route::post('resend_otp','Api\HomeController@resend_otp');
+Route::get('my_order','Api\HomeController@my_order');
+Route::get('my_order_not_avilable','Api\HomeController@my_order_not_avilable');
+
 
 });
 

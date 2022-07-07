@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\About;
 use App\Booking;
 use App\BusyWorker;
+use App\Client;
 use App\Company;
 use App\Contact;
 use App\Events\NewBooking;
@@ -33,6 +34,7 @@ use App\Notifications\NewBookingNotofication;
 use App\User;
 use App\Vistor;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends BaseController
 {
@@ -202,6 +204,7 @@ class HomeController extends BaseController
 
             $booking = new Booking();
             $booking->order_id = Carbon::now()->timestamp;
+            $booking->user_id = auth('client_api')->id();
             $booking->worker_id = $worker->id;
             $booking->company_id = Company::find($worker->company_id)->id;
             $booking->id_number = $request->id_number;
@@ -234,6 +237,8 @@ class HomeController extends BaseController
             $worker = Worker::find($request->worker_id);
 
             $bo->worker_id = $request->worker_id;
+            $bo->user_id = auth('client_api')->id();
+
             $bo->phone = $request->phone;
             $bo->save();
             $admin = User::role('Admin')->first();
@@ -278,4 +283,76 @@ class HomeController extends BaseController
         return  ['data'=>get_city_ar()];
     
     }
+    public function register(Request $request){
+        $client = Client::where('phone',$request->phone)->first();
+        if($client){
+            return $this->sendError('this phone alredy in this system');
+        }else{
+            $client = new Client();
+            $client->phone = $request->phone;
+            $client->otp = generateNumber();
+            $client->password = Hash::make($request->password) ;
+            $client->save();
+            return $this->sendResponse(   $client, trans('Register success'));
+        }
+    }
+    public function login(Request $request){
+        $client = Client::where('phone',$request->phone)->first();
+        if($client){
+            if($client->is_verify == 0){
+                return $this->sendError('you need to verfiy your account');
+
+            }
+            if(Hash::check($request->password, $client->password)) {
+
+                 $res['data']['phone']= $client->phone;
+                 $res['data']['token']=$client->createToken('Personal Access Token')->accessToken;
+                return $res;
+
+            } else {
+                return $this->sendError('Your password not matched in our records');
+            }
+        }else{
+            return $this->sendError('not found user');
+
+        }
+    }
+    public function check_otp(Request $request){
+        $client = Client::where('otp',$request->otp)->first();
+        if($client){
+            $client ->otp = null;
+            $client->is_verify = 1;
+            $client->save();
+            $res['data']['phone']= $client->phone;
+            $res['data']['token']=$client->createToken('Personal Access Token')->accessToken;
+            return $res;
+        }else{
+            return $this->sendError('Not found Otp');
+        }
+
+    }
+    public function resend_otp(Request $request){
+        $client = Client::where('phone',$request->phone)->first();
+        if($client){
+           $client->otp = generateNumber();
+           $client->save();
+           return $client;
+        }else{
+            return $this->sendError('Not found user');
+        }
+
+    }
+    public function my_order(){
+        $client = Client::find(auth('client_api')->id());
+        $booking = Booking::where('user_id',auth('client_api')->id());
+
+        return $res['data']= BookingResoure::collection($booking);
+    }
+    public  function my_order_not_avilable()
+    {
+        $booking = BusyWorker::where('user_id',auth('client_api')->id());
+
+        return $booking;
+    }
+
 }
