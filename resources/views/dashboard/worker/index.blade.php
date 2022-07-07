@@ -108,8 +108,9 @@
                                         </div>
                                         <div class="col-md-4 mt-1 pt-1">
                                           <button type="submit" class="btn btn-info" ><i class="fa fa-filter" aria-hidden="true"></i></button>
-                                         
                                           <a style="margin-right: 50%;" class="btn btn-info" target="_blank" href="{{ route('export',['status'=>$request->status , 'nationality_id'=>$request->nationality_id]) }}"><i class="fa fa-print"></i></a>
+
+                                          <a style="margin-right: 50%;" class="btn btn-info" target="_blank" href="{{ route('pdf',['status'=>$request->status , 'nationality_id'=>$request->nationality_id]) }}"><i class="fa fa-file-text"></i></a>
                                         </div>
             
                                     </div>
@@ -317,6 +318,7 @@
 
 @section('script')
     <script>
+        
             function myFunction(id){
                 let status = $('#worker_status_'+id).val();
             let worker_id = id;

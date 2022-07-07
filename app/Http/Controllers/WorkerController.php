@@ -8,6 +8,7 @@ use App\Nationality;
 use App\Worker;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class WorkerController extends Controller
 {
@@ -159,6 +160,24 @@ class WorkerController extends Controller
      * @param  \App\Worker  $worker
      * @return \Illuminate\Http\Response
      */
+    public function downloadPDF(Request $request){
+        $worker = Worker::query();
+        $worker->when($request->status != null,function($q) use($request){
+            $q->where('status',$request->status);
+        });
+        $worker->when($request->nationality_id != null,function($q)use($request){
+            $q->where('nationality_id',$request->nationality_id);
+        });
+        if(auth()->user()->HasRole('Admin')){
+            $workers =  $worker->get();
+        }else{
+            $workers= $worker->where('company_id',auth()->user()->company->id)->get();
+        }
+  
+        $pdf = PDF::loadView('dashboard.worker.pdf', compact('workers'));
+        return $pdf->download('workers.pdf');
+  
+      }
     public function show(Worker $worker)
     {
         //
