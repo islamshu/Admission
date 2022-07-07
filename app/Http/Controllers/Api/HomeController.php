@@ -28,6 +28,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Controllers\NationalityController;
 use App\Http\Resources\AboutResoures;
+use App\Http\Resources\BookingResoure;
 use App\Http\Resources\PrivacyResoures;
 use App\Http\Resources\SocialResource;
 use App\Notifications\NewBookingNotofication;
