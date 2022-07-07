@@ -8,6 +8,7 @@ use App\Company;
 use App\Exports\BookingExport;
 use App\Worker;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BookingController extends Controller
 {
@@ -85,6 +86,6 @@ class BookingController extends Controller
     public function export(Request $request) 
     {
         return Excel::download(new BookingExport($request), 'booking.xlsx');
+    
     }
-}
 }
