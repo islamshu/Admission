@@ -109,7 +109,6 @@
                                         <div class="col-md-4 mt-1 pt-1">
                                           <button type="submit" class="btn btn-info" ><i class="fa fa-filter" aria-hidden="true"></i></button>
                                           <a style="margin-right: 30%;" class="btn btn-info" target="_blank" href="{{ route('export',['status'=>$request->status , 'nationality_id'=>$request->nationality_id]) }}"><i class="fa fa-print"></i></a>
-
                                           <a style="margin-ri%;" class="btn btn-info" target="_blank" href="{{ route('pdf',['status'=>$request->status , 'nationality_id'=>$request->nationality_id]) }}"><i class="fa fa-file"></i></a>
                                         </div>
             

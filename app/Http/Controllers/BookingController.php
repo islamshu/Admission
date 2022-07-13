@@ -9,6 +9,7 @@ use App\Exports\BookingExport;
 use App\Worker;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class BookingController extends Controller
 {
@@ -87,5 +88,28 @@ class BookingController extends Controller
     {
         return Excel::download(new BookingExport($request), 'booking.xlsx');
     
+    }
+    public function downloadPDF(Request $request)
+    {
+        $booking = Booking::query();
+        $booking->when($request->status != null, function ($q) use ($request) {
+            $q->where('status', $request->status);
+        });
+        $booking->when($request->date != null, function ($q) use ($request) {
+            $q->whereBetween('created_at', [$this->request->date .' 00:00:00', $this->request->date .' 23:59:59']);
+        });
+        if (auth()->user()->HasRole('Admin')) {
+            $bookings =  $booking->get();
+        } else {
+            $bookings = $booking->where('company_id', auth()->user()->company->id)->get();
+        }
+        // return view('dashboard.worker.pdf', compact('workers'));
+        $pdf = PDF::loadView('dashboard.booking.pdf', compact('bookings'));
+        return $pdf->download('booking.pdf');
+    }
+    public function pdf_view($id){
+      $booking = Booking::find($id);  
+      $pdf = PDF::loadView('dashboard.booking.pdf_one', compact('booking'));
+      return $pdf->download('booking.pdf');
     }
 }

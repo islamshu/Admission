@@ -103,6 +103,20 @@
                         
 
                     </div>
+                    <h4 class="form-section"><i class="la la-add"></i>@lang('QR CODE') </h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                              <img src="{{ asset('uploads/'.$booking->qr_code) }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
+                            </div>
+                        </div>
+                        
+                     
+
+                        
+
+                    </div>
 
                    
 

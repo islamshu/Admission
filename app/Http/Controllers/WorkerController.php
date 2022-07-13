@@ -21,88 +21,71 @@ class WorkerController extends Controller
     {
         $all_nat = Nationality::has('worker')->get();
         $natonality = Nationality::query()->has('worker');
-        $natonality->when($request->status != null,function ($q) use($request)
-        {
-            $q->has('worker')->whereHas('worker', function ($q) use($request) {
-                
-                    $q->where('status',$request->status);
-    
+        $natonality->when($request->status != null, function ($q) use ($request) {
+            $q->has('worker')->whereHas('worker', function ($q) use ($request) {
+
+                $q->where('status', $request->status);
             });
         });
-        $natonality->when($request->natonality_id != null,function ($q) use($request)
-        {
-            $q->has('worker')->whereHas('worker', function ($q) use($request) {
-                
-                    $q->where('natonality_id',$request->natonality_id);
-    
+        $natonality->when($request->natonality_id != null, function ($q) use ($request) {
+            $q->has('worker')->whereHas('worker', function ($q) use ($request) {
+
+                $q->where('natonality_id', $request->natonality_id);
             });
         });
 
-      
-        if(auth()->user()->hasRole('Admin')){
-            $natonality->when($request->status != null,function ($q) use($request)
-            {
-                $q->has('worker')->whereHas('worker', function ($q) use($request) {
-                    
-                        $q->where('status',$request->status);
-        
-                });
-            });
-            $natonality->when($request->nationality_id != null,function ($q) use($request)
-            {
-                $q->has('worker')->whereHas('worker', function ($q) use($request) {
-                    
-                        $q->where('nationality_id',$request->nationality_id);
-        
-                });
-            });
-          $natonality=  $natonality->get();
-            return view('dashboard.worker.index')->with('request',$request)->with('natonality',$natonality)->with('all_nat',$all_nat);
-        }else{
-            $natonality->has('worker')->whereHas('worker', function ($q) use($request) {
-                    
-                $q->where('company_id',auth()->user()->company->id);
 
-        });
-            $natonality->when($request->status != null,function ($q) use($request)
-            {
-                $q->has('worker')->whereHas('worker', function ($q) use($request) {
-                    
-                        $q->where('status',$request->status);
-        
+        if (auth()->user()->hasRole('Admin')) {
+            $natonality->when($request->status != null, function ($q) use ($request) {
+                $q->has('worker')->whereHas('worker', function ($q) use ($request) {
+
+                    $q->where('status', $request->status);
                 });
             });
-            $natonality->when($request->nationality_id != null,function ($q) use($request)
-            {
-                $q->has('worker')->whereHas('worker', function ($q) use($request) {
-                    
-                        $q->where('nationality_id',$request->nationality_id);
-        
+            $natonality->when($request->nationality_id != null, function ($q) use ($request) {
+                $q->has('worker')->whereHas('worker', function ($q) use ($request) {
+
+                    $q->where('nationality_id', $request->nationality_id);
+                });
+            });
+            $natonality =  $natonality->get();
+            return view('dashboard.worker.index')->with('request', $request)->with('natonality', $natonality)->with('all_nat', $all_nat);
+        } else {
+            $natonality->has('worker')->whereHas('worker', function ($q) use ($request) {
+
+                $q->where('company_id', auth()->user()->company->id);
+            });
+            $natonality->when($request->status != null, function ($q) use ($request) {
+                $q->has('worker')->whereHas('worker', function ($q) use ($request) {
+
+                    $q->where('status', $request->status);
+                });
+            });
+            $natonality->when($request->nationality_id != null, function ($q) use ($request) {
+                $q->has('worker')->whereHas('worker', function ($q) use ($request) {
+
+                    $q->where('nationality_id', $request->nationality_id);
                 });
             });
 
-            return view('dashboard.worker.index')->with('request',$request)->with('natonality',$natonality)->with('all_nat',$all_nat);
-
-            
- 
+            return view('dashboard.worker.index')->with('request', $request)->with('natonality', $natonality)->with('all_nat', $all_nat);
         }
     }
-    public function update_status_worker(Request $request){
+    public function update_status_worker(Request $request)
+    {
         $worker = Worker::find($request->worker_id);
-        $worker->status = $request->status ;
+        $worker->status = $request->status;
         $worker->save();
-        return response()->json(['status'=>true]);
-
+        return response()->json(['status' => true]);
     }
- 
+
     public function create()
     {
-        if(auth()->user()->hasRole('Admin')){
-            return view('dashboard.worker.create')->with('natonality',Nationality::get())->with('comapnys',Company::where('status',1)->get());
-        }else{
-            return view('dashboard.worker.create')->with('natonality',Nationality::get());
+        if (auth()->user()->hasRole('Admin')) {
+            return view('dashboard.worker.create')->with('natonality', Nationality::get())->with('comapnys', Company::where('status', 1)->get());
+        } else {
+            return view('dashboard.worker.create')->with('natonality', Nationality::get());
         }
-        
     }
 
     /**
@@ -116,22 +99,22 @@ class WorkerController extends Controller
         $worker = new Worker();
         $worker->name = $request->name;
         $worker->image = $request->image->store('worker');
-        if($request->video != null){
-          
+        if ($request->video != null) {
+
             $resizedVideo = cloudinary()->uploadVideo($request->file('video')->getRealPath(), [
                 'folder' => 'uploads',
                 'transformation' => [
-                          'width' => 375,
-                          'height' => 650 
-                 ]
-    ])->getSecurePath();
-    $worker->video = $resizedVideo;
-                }
+                    'width' => 375,
+                    'height' => 650
+                ]
+            ])->getSecurePath();
+            $worker->video = $resizedVideo;
+        }
         $worker->nationality_id = $request->nationality_id;
-        if(auth()->user()->HasRole('Admin')){
+        if (auth()->user()->HasRole('Admin')) {
             $worker->company_id = $request->company_id;
-        }else{
-            $company = Company::where('user_id',auth()->user()->id)->first();
+        } else {
+            $company = Company::where('user_id', auth()->user()->id)->first();
             $worker->company_id =  $company->id;
         }
         $worker->age = $request->age;
@@ -146,12 +129,10 @@ class WorkerController extends Controller
         $worker->url_sand = $request->url_sand;
         $worker->city = $request->city;
         $worker->visa_number = $request->visa_number;
-        $worker->description_ar = $request->description_ar; 
+        $worker->description_ar = $request->description_ar;
         $worker->description_en = $request->description_en;
         $worker->save();
-        return redirect()->route('worker.index')->with(['success'=>trans('Addedd successfully ')]);
-
-
+        return redirect()->route('worker.index')->with(['success' => trans('Addedd successfully ')]);
     }
 
     /**
@@ -160,24 +141,24 @@ class WorkerController extends Controller
      * @param  \App\Worker  $worker
      * @return \Illuminate\Http\Response
      */
-    public function downloadPDF(Request $request){
+    public function downloadPDF(Request $request)
+    {
         $worker = Worker::query();
-        $worker->when($request->status != null,function($q) use($request){
-            $q->where('status',$request->status);
+        $worker->when($request->status != null, function ($q) use ($request) {
+            $q->where('status', $request->status);
         });
-        $worker->when($request->nationality_id != null,function($q)use($request){
-            $q->where('nationality_id',$request->nationality_id);
+        $worker->when($request->nationality_id != null, function ($q) use ($request) {
+            $q->where('nationality_id', $request->nationality_id);
         });
-        if(auth()->user()->HasRole('Admin')){
+        if (auth()->user()->HasRole('Admin')) {
             $workers =  $worker->get();
-        }else{
-            $workers= $worker->where('company_id',auth()->user()->company->id)->get();
+        } else {
+            $workers = $worker->where('company_id', auth()->user()->company->id)->get();
         }
         // return view('dashboard.worker.pdf', compact('workers'));
         $pdf = PDF::loadView('dashboard.worker.pdf', compact('workers'));
         return $pdf->download('workers.pdf');
-  
-      }
+    }
     public function show(Worker $worker)
     {
         //
@@ -193,10 +174,10 @@ class WorkerController extends Controller
     {
         $worker = Worker::find($id);
 
-        if(auth()->user()->hasRole('Admin')){
-            return view('dashboard.worker.edit')->with('worker',$worker)->with('natonality',Nationality::get())->with('comapnys',Company::where('status',1)->get());
-        }else{
-            return view('dashboard.worker.edit')->with('worker',$worker)->with('natonality',Nationality::get());
+        if (auth()->user()->hasRole('Admin')) {
+            return view('dashboard.worker.edit')->with('worker', $worker)->with('natonality', Nationality::get())->with('comapnys', Company::where('status', 1)->get());
+        } else {
+            return view('dashboard.worker.edit')->with('worker', $worker)->with('natonality', Nationality::get());
         }
     }
 
@@ -211,26 +192,26 @@ class WorkerController extends Controller
     {
         $worker = Worker::find($id);
         $worker->name = $request->name;
-        if($request->image != null){
+        if ($request->image != null) {
             $worker->image = $request->image->store('worker');
         }
-        if($request->video != null){
-          
-        $resizedVideo = cloudinary()->uploadVideo($request->file('video')->getRealPath(), [
-            'folder' => 'uploads',
-            'transformation' => [
-                      'width' => 375,
-                      'height' => 650 
-             ]
-])->getSecurePath();
-$worker->video = $resizedVideo;
-            }
-	
+        if ($request->video != null) {
+
+            $resizedVideo = cloudinary()->uploadVideo($request->file('video')->getRealPath(), [
+                'folder' => 'uploads',
+                'transformation' => [
+                    'width' => 375,
+                    'height' => 650
+                ]
+            ])->getSecurePath();
+            $worker->video = $resizedVideo;
+        }
+
         $worker->nationality_id = $request->nationality_id;
-        if(auth()->user()->HasRole('Admin')){
+        if (auth()->user()->HasRole('Admin')) {
             $worker->company_id = $request->company_id;
-        }else{
-            $company = Company::where('user_id',auth()->user()->id)->first();
+        } else {
+            $company = Company::where('user_id', auth()->user()->id)->first();
             $worker->company_id =  $company->id;
         }
         $worker->age = $request->age;
@@ -245,10 +226,10 @@ $worker->video = $resizedVideo;
         $worker->url_sand = $request->url_sand;
         $worker->city = $request->city;
         $worker->visa_number = $request->visa_number;
-        $worker->description_ar = $request->description_ar; 
+        $worker->description_ar = $request->description_ar;
         $worker->description_en = $request->description_en;
         $worker->save();
-        return redirect()->route('worker.index')->with(['success'=>trans('Updated successfully')]);
+        return redirect()->route('worker.index')->with(['success' => trans('Updated successfully')]);
     }
 
     /**
@@ -259,11 +240,11 @@ $worker->video = $resizedVideo;
      */
     public function destroy($id)
     {
-       $worker= Worker::find($id);
-       $worker->delete();
-       return redirect()->route('worker.index')->with(['success'=>trans('Deleted successfully')]);
+        $worker = Worker::find($id);
+        $worker->delete();
+        return redirect()->route('worker.index')->with(['success' => trans('Deleted successfully')]);
     }
-    public function export(Request $request) 
+    public function export(Request $request)
     {
         return Excel::download(new WorkerExport($request), 'workers.xlsx');
     }

@@ -114,9 +114,10 @@ table.dataTable thead .sorting_desc_disabled:before {
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-2 mt-1 pt-1">
+                            <div class="col-md-4 mt-1 pt-1">
                                 <button type="submit" class="btn btn-info" ><i class="fa fa-filter" aria-hidden="true"></i></button>
                                 <a style="margin-right: 30%;" class="btn btn-info" target="_blank" href="{{ route('booking.export',['status'=>$request->status , 'nationality_id'=>$request->nationality_id]) }}"><i class="fa fa-print"></i></a>
+                                <a style="margin-ri%;" class="btn btn-info" target="_blank" href="{{ route('pdf_booking',['status'=>$request->status , 'date'=>$request->date]) }}"><i class="fa fa-file"></i></a>
 
                             </div>
 
@@ -137,6 +138,7 @@ table.dataTable thead .sorting_desc_disabled:before {
                                     <thead>
                                         <tr>
                                             {{-- <th>#</th> --}}
+                                            <th> @lang('Visa Number new')</th>
                                             <th>@lang('Order ID')</th>
                                             <th>@lang('Customer name')</th>
                                             <th>@lang('worker name')</th>
@@ -151,7 +153,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 
                                         @foreach ($booking as $key => $book)
                                         <tr>
-                                        {{-- <td>{{ ++$key }}</td> --}}
+                                        <td>{{ $book->visa_number}}</td>
                                         <td>{{ $book->order_id }}</td>
                                         <td>{{ @$book->name }}</td>
 
@@ -184,7 +186,9 @@ table.dataTable thead .sorting_desc_disabled:before {
 
 
                                         <td>
-                                         <a href="{{ route('booking.show',$book->id) }}"><i class="fa fa-eye"></i></a>
+                                         <a href="{{ route('booking.show',$book->id) }}" target="_blank"><i class="fa fa-eye"></i></a>
+                                         <a href="{{ route('pdf_view',$book->id) }}" target="_blank"><i class="fa fa-file"></i></a>
+
                                         </td>
                                         </tr>
                                         @endforeach

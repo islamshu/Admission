@@ -19,6 +19,8 @@ use Spatie\Permission\Contracts\Role;
 // Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('booking_pdf/{id}/', 'BookingController@pdf_view')->name('pdf_view');
+
 Route::group(['middleware' =>['auth'],'prefix'=>'dashbaord'], function() {
 
 Route::get('/','UserController@dashboard')->name('dashboard');
@@ -45,6 +47,8 @@ Route::get('wrokers/export/', 'WorkerController@export')->name('export');
 Route::get('booking/export/', 'BookingController@export')->name('booking.export');
 
 Route::get('wrokers/pdf/', 'WorkerController@downloadPDF')->name('pdf');
+Route::get('pdf_booking/', 'BookingController@downloadPDF')->name('pdf_booking');
+
 
 
 

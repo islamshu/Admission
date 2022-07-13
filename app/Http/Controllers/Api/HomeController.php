@@ -37,7 +37,8 @@ use App\User;
 use App\Vistor;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class HomeController extends BaseController
 {
     public function natonality()
@@ -200,6 +201,7 @@ class HomeController extends BaseController
     public function request_worker(Request $request)
     {
         // return($request);
+        // dd(auth('client_api')->id());
 
         $worker = Worker::find($request->worker_id);
         if ($worker->status == 1) {
@@ -216,6 +218,15 @@ class HomeController extends BaseController
             $booking->visa_image = $request->visa_image->store('booking');
             $booking->visa_number = $request->visa_number;
             $booking->save();
+            $url = route('pdf_view',($booking->id));
+
+            $image = QrCode::format('png')
+            ->size(200)->errorCorrection('H')
+            ->generate($url);
+        $output_file =  time() . '.png';
+        $file =  Storage::disk('local')->put($output_file, $image);
+          $booking->qr_code = $output_file;
+          $booking->save();
             // $worker->status = 2;
             // $worker->save();
             $data = [
