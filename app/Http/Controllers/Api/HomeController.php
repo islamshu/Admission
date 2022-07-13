@@ -138,6 +138,7 @@ class HomeController extends BaseController
     }
     public function contact()
     {
+        dd(Social::first());
         $a= new SocialResource(Social::first());
         return $a;
     }
