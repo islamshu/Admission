@@ -204,6 +204,7 @@ class HomeController extends BaseController
         // dd(auth('client_api')->id());
 
         $worker = Worker::find($request->worker_id);
+        dd($worker);
         if ($worker->status == 1) {
 
             $booking = new Booking();
