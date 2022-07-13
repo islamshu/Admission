@@ -220,10 +220,10 @@ class HomeController extends BaseController
             $booking->save();
             $url = route('pdf_view',($booking->id));
 
-            $image = QrCode::format('png')
+            $image = QrCode::format('svg')
             ->size(200)->errorCorrection('H')
             ->generate($url);
-        $output_file =  time() . '.png';
+        $output_file =  time() . '.svg';
         $file =  Storage::disk('local')->put($output_file, $image);
           $booking->qr_code = $output_file;
           $booking->save();
