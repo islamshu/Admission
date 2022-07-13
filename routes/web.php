@@ -62,7 +62,7 @@ Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
     // Route::resource('roles','RoleController');
     // Route::resource('users','UserController');
     Route::resource('country','CountryController');
-    Route::get('clients','UserController@clients');
+    Route::get('clients','UserController@clients')->name('clients.index');
 
     Route::resource('nationalities','NationalityController');
     Route::post('get_natonlity_edit','NationalityController@get_natonlity_edit')->name('get_natonlity_edit');

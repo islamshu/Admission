@@ -25,7 +25,16 @@
           </li>
         </ul>
       </li> --}}
-    
+      <li class="nav-item has-sub "><a href="#">
+        <i class="fa fa-user"></i>
+        <span class="menu-title" >@lang('clients')</span></a>
+        <ul class="menu-content" style="">
+          <li class="is-shown"><a class="menu-item" href="{{ route('clients.index') }}" >@lang('Show All')</a>
+          </li>
+         
+          
+        </ul>
+      </li>
       <li class="nav-item has-sub "><a href="#">
         <i class="fa fa-building"></i>
         <span class="menu-title" >@lang('Companies')</span></a>
