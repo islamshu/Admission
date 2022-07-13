@@ -42,6 +42,7 @@ Route::post('update_status_booked','BookingController@update_status_booked')->na
 Route::get('show_notification/{id}','HomeController@notification')->name('show.notification');
 Route::get('read_all_notofication','HomeController@read_all_notofication')->name('read_all_notofication');
 Route::get('change_chart','UserController@change_chart')->name('change_chart');
+Route::get('booking_clinet/{id}','BookingController@booking_clinet')->name('booking_clinet');
 
 Route::get('wrokers/export/', 'WorkerController@export')->name('export');
 Route::get('booking/export/', 'BookingController@export')->name('booking.export');
@@ -61,6 +62,8 @@ Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
     // Route::resource('roles','RoleController');
     // Route::resource('users','UserController');
     Route::resource('country','CountryController');
+    Route::get('clients','UserController@clients');
+
     Route::resource('nationalities','NationalityController');
     Route::post('get_natonlity_edit','NationalityController@get_natonlity_edit')->name('get_natonlity_edit');
     Route::resource('companies','CompanyController');

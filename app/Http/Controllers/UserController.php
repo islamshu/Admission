@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\Client;
 use App\Company;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -318,5 +319,8 @@ foreach($dates_array as $val) { //Loop1
     public function sendFailedLoginResponse(string $key = null, string $message = null)
     {
         session()->flash( $key, $message );
+    }
+    public function clients(){
+        return view('dashboard.users.clients')->with('clients',Client::orderBy('id', 'DESC')->get());
     }
 }
