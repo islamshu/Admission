@@ -116,9 +116,11 @@ table.dataTable thead .sorting_desc_disabled:before {
                             </div>
                             <div class="col-md-4 mt-1 pt-1">
                                 <button type="submit" class="btn btn-info" ><i class="fa fa-filter" aria-hidden="true"></i></button>
+                                @if(!(request()->is('dashbaord/booking_clinet*')))
+
                                 <a style="margin-right: 30%;" class="btn btn-info" target="_blank" href="{{ route('booking.export',['status'=>$request->status , 'nationality_id'=>$request->nationality_id]) }}"><i class="fa fa-print"></i></a>
                                 <a style="margin-ri%;" class="btn btn-info" target="_blank" href="{{ route('pdf_booking',['status'=>$request->status , 'date'=>$request->date]) }}"><i class="fa fa-file"></i></a>
-
+                                @endif
                             </div>
 
                         </div>
