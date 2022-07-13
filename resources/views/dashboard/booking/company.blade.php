@@ -186,8 +186,8 @@ table.dataTable thead .sorting_desc_disabled:before {
 
 
                                         <td>
-                                         <a href="{{ route('booking.show',$book->id) }}" target="_blank"><i class="fa fa-eye"></i></a>
-                                         <a href="{{ route('pdf_view',$book->id) }}" target="_blank"><i class="fa fa-file"></i></a>
+                                         <a href="{{ route('booking.show',$book->id) }}" target="_blank" class="btn btn-info"><i class="fa fa-eye"></i></a>
+                                         <a href="{{ route('pdf_view',$book->id) }}" target="_blank" class="btn btn-info"><i class="fa fa-file"></i></a>
 
                                         </td>
                                         </tr>
