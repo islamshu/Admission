@@ -28,7 +28,6 @@
                                             <th>#</th>
                                             <th>@lang('Phone')</th>
                                             <th>@lang('Number Of order')</th>
-                                            <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -47,15 +46,7 @@
 
                                         @endif
 
-                                        <td>
-                                            <form action=""
-                                                method="post" style="display: inline">
-                                                @csrf @method('delete')
-                                                <button style="border: 0" type="submit" class=""><i
-                                                        class="btn btn-danger  fa fa-trash"></i></button>
-
-                                            </form>
-                                        </td>
+                                    
                                         </tr>
                                         @endforeach
                                         
