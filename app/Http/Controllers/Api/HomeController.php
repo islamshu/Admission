@@ -202,7 +202,6 @@ class HomeController extends BaseController
     {
         // return($request);
         // dd(auth('client_api')->id());
-        dd($request);
 
         $worker = Worker::find($request->worker_id);
         if ($worker->status == 1) {
