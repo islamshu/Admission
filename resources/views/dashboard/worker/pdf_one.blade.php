@@ -157,12 +157,11 @@
 				</tr>
                 @php
                     $langs=  json_decode($worker->language);
-      $array = array();
-      foreach($langs as $a){
-        array_push($array,trans($a));
-      }
-      return $array;
-                @endphp
+                $array = array();
+                foreach($langs as $a){
+                    array_push($array,trans($a));
+                }
+                            @endphp
                 <tr class="details">
                     
 					<td>{{ $array}}</td>
