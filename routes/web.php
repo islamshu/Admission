@@ -49,6 +49,8 @@ Route::get('booking/export/', 'BookingController@export')->name('booking.export'
 
 Route::get('wrokers/pdf/', 'WorkerController@downloadPDF')->name('pdf');
 Route::get('pdf_booking/', 'BookingController@downloadPDF')->name('pdf_booking');
+Route::get('pdf_worker/{id}/', 'WorkerController@get_one_pdf')->name('get_one_pdf');
+
 
 
 

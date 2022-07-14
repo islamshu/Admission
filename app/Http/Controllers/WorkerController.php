@@ -248,4 +248,10 @@ class WorkerController extends Controller
     {
         return Excel::download(new WorkerExport($request), 'workers.xlsx');
     }
+    public function get_one_pdf($id){
+        $worker = Worker::find($id);
+        $pdf = PDF::loadView('dashboard.worker.pdf_one', compact('worker'));
+        return $pdf->download('workers.pdf');
+
+    }
 }

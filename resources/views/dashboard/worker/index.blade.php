@@ -188,6 +188,7 @@
                                                             <a href="{{ route('worker.edit', $worker->id) }}"
                                                                 class=""><i
                                                                     class="btn btn-success fa fa-edit"></i></a>
+                                                           
                                                             <form action="{{ route('worker.destroy', $worker->id) }}"
                                                                 method="post" style="display: inline">
                                                                 @csrf @method('delete')
@@ -236,6 +237,8 @@
                                                             <a href="{{ route('worker.edit', $worker->id) }}"
                                                                 class=""><i
                                                                     class="btn btn-success fa fa-edit"></i></a>
+                                                                    <a href="{{ route('get_one_pdf', $worker->id) }}"
+                                                                        class=""><i class="btn btn-info fa fa-file"></i></a>
                                                             <form action="{{ route('worker.destroy', $worker->id) }}"
                                                                 method="post" style="display: inline">
                                                                 @csrf @method('delete')
