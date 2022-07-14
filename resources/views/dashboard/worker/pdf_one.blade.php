@@ -161,11 +161,10 @@
                 foreach($langs as $a){
                     array_push($array,trans($a));
                 }
-                dd($array)
                             @endphp
                 <tr class="details">
                     
-					<td></td>
+					<td>{!! @$array !!}</td>
 
 					<td>اللغات</td>
 				</tr>
