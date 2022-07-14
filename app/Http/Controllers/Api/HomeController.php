@@ -337,9 +337,11 @@ class HomeController extends BaseController
             $client ->otp = null;
             $client->is_verify = 1;
             $client->save();
+        
             $res['data']['phone']= $client->phone;
             $res['data']['token']=$client->createToken('Personal Access Token')->accessToken;
-            return $res;
+            return $this->sendResponse($client, trans('OTP successfully'));
+
         }else{
             return $this->sendError('Not found Otp');
         }
