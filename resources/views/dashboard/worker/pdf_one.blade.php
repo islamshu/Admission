@@ -171,12 +171,12 @@
 					<td>الديانة</td>
 				</tr>
                 <tr class="details">
-					<td>{{  $worker->approve_chiled == 1  ? @lang('yes') : @lang('no')}}</td>
+					<td>{{  $worker->approve_chiled == 1  ?  'نعم': 'لا'}}</td>
 
 					<td>هل تتقبل الأطفال</td>
 				</tr>
                 <tr class="details">
-					<td>{{  $worker->is_coocked == 1 ? @lang('yes') : @lang('no')}}</td>
+					<td>{{  $worker->is_coocked == 1 ?  'نعم': 'لا'}}</td>
 
 					<td>هل تجيد الطهي ?</td>
 				</tr>
