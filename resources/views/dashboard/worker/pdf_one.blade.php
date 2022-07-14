@@ -164,7 +164,7 @@
                             @endphp
                 <tr class="details">
                     
-					<td>{!! json_decode($array) !!}</td>
+					<td>{!! json_encode($array) !!}</td>
 
 					<td>اللغات</td>
 				</tr>
