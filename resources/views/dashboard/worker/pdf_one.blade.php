@@ -159,7 +159,7 @@
                 <tr class="details">
                     
 					<td>@foreach (json_decode($worker->language) as $lang )
-                        @lang($lang) , 
+                        @lang($lang) ,
                     @endforeach</td>
 
 					<td>اللغات</td>
