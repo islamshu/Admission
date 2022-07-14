@@ -155,16 +155,12 @@
 
 					<td>هل الخبرات داخل السعودية ام لا?    </td>
 				</tr>
-                @php
-                    $langs=  json_decode($worker->language);
-                $array = array();
-                foreach($langs as $a){
-                    array_push($array,trans($a));
-                }
-                            @endphp
+               
                 <tr class="details">
                     
-					<td>{!! @$array !!}</td>
+					<td>@foreach ($worker->language as $lang )
+                        @lang($lang) , 
+                    @endforeach</td>
 
 					<td>اللغات</td>
 				</tr>
