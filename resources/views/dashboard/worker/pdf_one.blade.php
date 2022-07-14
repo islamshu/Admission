@@ -109,6 +109,9 @@
 								<td class="title">
 									<img src="https://workers.foryougo.net/uploads/general/PwsoWpkahkzTTiLtkFQRKzwOLPCKs1Uo7BTwjtt3.jpg" width="150" height="100"  />
 								</td>
+                                <td class="title">
+									<img src="https://workers.foryougo.net/uploads/{{ $worker->image }}" width="150" height="100"  />
+								</td>
 
 								
 							</tr>
@@ -151,7 +154,7 @@
 					<td>عدد سنوات الخبرة  </td>
 				</tr>
                 <tr class="details">
-					<td>{{  $worker->in_sa == 1  ?'yes' : 'no'}}</td>
+					<td>{{  $worker->in_sa == 1   ?  'نعم': 'لا'}}</td>
 
 					<td>هل الخبرات داخل السعودية ام لا?    </td>
 				</tr>
