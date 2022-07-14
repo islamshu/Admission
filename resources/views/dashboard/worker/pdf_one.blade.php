@@ -161,10 +161,11 @@
                 foreach($langs as $a){
                     array_push($array,trans($a));
                 }
+                die($array);
                             @endphp
                 <tr class="details">
                     
-					<td>{!! json_encode($array) !!}</td>
+					<td>{!!  !!}</td>
 
 					<td>اللغات</td>
 				</tr>
