@@ -323,4 +323,21 @@ foreach($dates_array as $val) { //Loop1
     public function clients(){
         return view('dashboard.users.clients')->with('clients',Client::orderBy('id', 'DESC')->get());
     }
+    public function create_client(){
+        return view('dashboard.users.client_create');
+    }
+    public function store_client(Request $request){
+        $request->validate([
+            'phone'=>'required|unique:clients,phone',
+            'password'=>'required',
+            'confirm-password'=>'required|same:password',
+
+        ]);
+        $client = new Client();
+        $client->phone = $request->phone;
+        $client->password = Hash::make($request->password);
+        $client->is_verify = 1;
+        $client->save();
+        return redirect()->route('clients.index')->with(['success'=>trans('Addedd successfully ')]);
+    }
 }

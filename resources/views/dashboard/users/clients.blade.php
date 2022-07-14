@@ -18,11 +18,16 @@
                             </div>
                         </div>
                         <div class="card-content collapse show">
-
+                            @include('dashboard.parts._error')
+                            @include('dashboard.parts._success')
                             <div class="card-body card-dashboard">
                               
                                 <br>
                                 <table class="table table-striped table-bordered zero-configuration">
+                                    <a href="{{ route('client_create.create') }}" class="btn btn-info mb-2 ">
+                                        @lang('Create Client')
+                                    </a>
+                                    <br>
                                     <thead>
                                         <tr>
                                             <th>#</th>

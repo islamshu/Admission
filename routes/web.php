@@ -88,6 +88,10 @@ Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
     Route::post('/languages/key_value_store', 'HomeController@key_value_store')->name('languages.key_value_store');
     Route::get('general','HomeController@general')->name('generalinfo.index');
     Route::post('general','HomeController@store')->name('generalinfo.store');
+    Route::get('clients/create','UserController@create_client')->name('client_create.create');
+    Route::post('clients/store','UserController@store_client')->name('client_create.store_client');
+
+    
    
 
     
