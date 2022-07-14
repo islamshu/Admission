@@ -166,17 +166,17 @@
 				</tr>
 
                 <tr class="details">
-					<td>{{  $worker->religion}}</td>
+					<td>{{  __($worker->religion)}}</td>
 
 					<td>الديانة</td>
 				</tr>
                 <tr class="details">
-					<td>{{  $worker->approve_chiled == 1  ?'yes' : 'no'}}</td>
+					<td>{{  $worker->approve_chiled == 1  ? @lang('yes') : @lang('no')}}</td>
 
 					<td>هل تتقبل الأطفال</td>
 				</tr>
                 <tr class="details">
-					<td>{{  $worker->is_coocked == 1  ?'yes' : 'no'}}</td>
+					<td>{{  $worker->is_coocked == 1 ? @lang('yes') : @lang('no')}}</td>
 
 					<td>هل تجيد الطهي ?</td>
 				</tr>
