@@ -164,7 +164,7 @@
                             @endphp
                 <tr class="details">
                     
-					<td>{{ $array}}</td>
+					<td>{!! $array !!}</td>
 
 					<td>اللغات</td>
 				</tr>
