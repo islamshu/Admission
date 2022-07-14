@@ -165,7 +165,7 @@
                             @endphp
                 <tr class="details">
                     
-					<td>{!!  !!}</td>
+					<td></td>
 
 					<td>اللغات</td>
 				</tr>
