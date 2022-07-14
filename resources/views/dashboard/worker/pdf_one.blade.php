@@ -161,7 +161,7 @@
                 foreach($langs as $a){
                     array_push($array,trans($a));
                 }
-                die($array)
+                dd($array)
                             @endphp
                 <tr class="details">
                     
