@@ -362,6 +362,12 @@ class HomeController extends BaseController
 
     }
     public function my_order(){
+        $user = auth('client_api')->user();
+        if($user == null){
+            $res['data']['message'] = "you need to login";
+
+        return $res;
+        }
         $client = Client::find(auth('client_api')->id());
         $booking = Booking::where('user_id',auth('client_api')->id())->get();
 
@@ -369,6 +375,12 @@ class HomeController extends BaseController
     }
     public  function my_order_not_avilable()
     {
+        $user = auth('client_api')->user();
+        if($user == null){
+            $res['data']['message'] = "you need to login";
+
+        return $res;
+        }
         $booking = BusyWorker::where('user_id',auth('client_api')->id())->get();
         return $res['data']= BusyBookingResoure::collection($booking); 
     }
