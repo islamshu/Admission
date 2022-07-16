@@ -323,7 +323,7 @@ class HomeController extends BaseController
                  $res['phone']= $client->phone;
                  $res['name']= $client->name;
                  $res['token']=$client->createToken('Personal Access Token')->accessToken;
-                return $this->sendResponse(   $client, trans('Register success'));
+                return $this->sendResponse(   $res, trans('Register success'));
 
 
             } else {
