@@ -320,9 +320,9 @@ class HomeController extends BaseController
             }
             if(Hash::check($request->password, $client->password)) {
 
-                 $res['data']['phone']= $client->phone;
-                 $res['data']['name']= $client->name;
-                 $res['data']['token']=$client->createToken('Personal Access Token')->accessToken;
+                 $res['phone']= $client->phone;
+                 $res['name']= $client->name;
+                 $res['token']=$client->createToken('Personal Access Token')->accessToken;
                 return $this->sendResponse(   $client, trans('Register success'));
 
 
