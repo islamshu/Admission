@@ -29,6 +29,7 @@ class BookingResoure extends JsonResource
             'status'=>worker_status($this->status),
             'visa_number'=>$this->visa_number,
             'visa_image'=>asset('uploads/'.$this->visa_image),
+            'created_at'=>$this->created_at->format('Y-m-d')
 
         ];
     }

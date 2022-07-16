@@ -304,6 +304,7 @@ class HomeController extends BaseController
         }else{
             $client = new Client();
             $client->phone = $request->phone;
+            $client->name = $request->name;
             $client->otp = generateNumber();
             $client->password = Hash::make($request->password) ;
             $client->save();
@@ -320,6 +321,7 @@ class HomeController extends BaseController
             if(Hash::check($request->password, $client->password)) {
 
                  $res['data']['phone']= $client->phone;
+                 $res['data']['name']= $client->name;
                  $res['data']['token']=$client->createToken('Personal Access Token')->accessToken;
                 return $res;
 
@@ -339,6 +341,7 @@ class HomeController extends BaseController
             $client->save();
         
             $res['data']['phone']= $client->phone;
+            $res['data']['name']= $client->name;
             $res['data']['token']=$client->createToken('Personal Access Token')->accessToken;
             return $this->sendResponse($client, trans('OTP successfully'));
 
