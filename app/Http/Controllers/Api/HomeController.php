@@ -370,8 +370,8 @@ class HomeController extends BaseController
         }
         $client = Client::find(auth('client_api')->id());
         $booking = Booking::where('user_id',auth('client_api')->id())->get();
+        return $this->sendResponse(BookingResoure::collection($booking),'booking');
 
-        return $res['data']= BookingResoure::collection($booking);
     }
     public  function my_order_not_avilable()
     {
@@ -381,7 +381,9 @@ class HomeController extends BaseController
 
         }
         $booking = BusyWorker::where('user_id',auth('client_api')->id())->get();
-        return $res['data']= BusyBookingResoure::collection($booking); 
+        return $this->sendResponse(BusyBookingResoure::collection($booking),'booking busy');
+
+        
     }
     public  function logout()
     {
@@ -395,9 +397,9 @@ class HomeController extends BaseController
             $token->delete();
         });
         $user->save();
-        $res['data']['message'] = "Logout susscefuly";
+        return $this->sendResponse('logout','Logout susscefuly');
 
-        return $res;
+
     }
 
 }
