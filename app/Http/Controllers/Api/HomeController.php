@@ -370,9 +370,19 @@ class HomeController extends BaseController
     public  function my_order_not_avilable()
     {
         $booking = BusyWorker::where('user_id',auth('client_api')->id())->get();
-        return $res['data']= BusyBookingResoure::collection($booking);
+        return $res['data']= BusyBookingResoure::collection($booking); 
+    }
+    public  function logout()
+    {
+        $user = auth('client_api')->user();
+        $user->tokens->each(function ($token, $key) {
 
-        
+            $token->delete();
+        });
+        $user->save();
+        $res['data']['message'] = "Logout susscefuly";
+
+        return $res;
     }
 
 }

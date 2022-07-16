@@ -41,6 +41,7 @@ Route::post('check_otp','Api\HomeController@check_otp');
 Route::post('resend_otp','Api\HomeController@resend_otp');
 Route::get('my_order','Api\HomeController@my_order');
 Route::get('my_order_not_avilable','Api\HomeController@my_order_not_avilable');
+Route::get('logout','Api\HomeController@logout');
 
 
 });
