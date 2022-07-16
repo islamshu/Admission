@@ -375,6 +375,11 @@ class HomeController extends BaseController
     public  function logout()
     {
         $user = auth('client_api')->user();
+        if($user == null){
+            $res['data']['message'] = "you need to login";
+
+        return $res;
+        }
         $user->tokens->each(function ($token, $key) {
 
             $token->delete();
