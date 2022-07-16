@@ -323,7 +323,8 @@ class HomeController extends BaseController
                  $res['data']['phone']= $client->phone;
                  $res['data']['name']= $client->name;
                  $res['data']['token']=$client->createToken('Personal Access Token')->accessToken;
-                return $res;
+                return $this->sendResponse(   $client, trans('Register success'));
+
 
             } else {
                 return $this->sendError('Your password not matched in our records');
@@ -364,9 +365,8 @@ class HomeController extends BaseController
     public function my_order(){
         $user = auth('client_api')->user();
         if($user == null){
-            $res['data']['message'] = "you need to login";
+            return $this->sendError('you need to login');
 
-        return $res;
         }
         $client = Client::find(auth('client_api')->id());
         $booking = Booking::where('user_id',auth('client_api')->id())->get();
@@ -377,9 +377,8 @@ class HomeController extends BaseController
     {
         $user = auth('client_api')->user();
         if($user == null){
-            $res['data']['message'] = "you need to login";
+            return $this->sendError('you need to login');
 
-        return $res;
         }
         $booking = BusyWorker::where('user_id',auth('client_api')->id())->get();
         return $res['data']= BusyBookingResoure::collection($booking); 
@@ -388,9 +387,8 @@ class HomeController extends BaseController
     {
         $user = auth('client_api')->user();
         if($user == null){
-            $res['data']['message'] = "you need to login";
+            return $this->sendError('you need to login');
 
-        return $res;
         }
         $user->tokens->each(function ($token, $key) {
 
