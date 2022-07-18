@@ -46,7 +46,6 @@ class WorkerResource extends JsonResource
     }
      function check_booked($data)
     {
-        dd(auth('client_api')->id());
         if(auth('client_api')->id() != null){
 
         
