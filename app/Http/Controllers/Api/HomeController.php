@@ -305,7 +305,7 @@ class HomeController extends BaseController
             $client = new Client();
             $client->phone = $request->phone;
             $client->name = $request->name;
-            $client->otp = '1111';
+            $client->otp = generateNumber();
             $client->password = Hash::make($request->password) ;
             $client->save();
             return $this->sendResponse(   $client, trans('Register success'));
@@ -400,6 +400,32 @@ class HomeController extends BaseController
         return $this->sendResponse('logout','Logout susscefuly');
 
 
+    }
+    public function update_profile(Request $request)
+    {
+        $user = auth('client_api')->user();
+        if($user == null){
+            return $this->sendError('you need to login');
+        }
+        $userr = Client::where('phone',$request->phone)->where('id','!=',$user->id)->first();
+        if($userr){
+            return $this->sendError('Phone number already exists'); 
+        }
+        $user->name = $request->name;
+        if($request->password != null){
+            $user->password = Hash::make($request->password) ;
+        }
+        $user->save();
+        return $this->sendResponse($user,'update profile');
+    }
+    public function my_profile()
+    {
+        $user = auth('client_api')->user();
+        if($user == null){
+            return $this->sendError('you need to login');
+        }
+        
+        return $this->sendResponse($user,'update profile');
     }
 
 }

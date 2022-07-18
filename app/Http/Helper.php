@@ -1,5 +1,6 @@
 <?php
 
+use App\Client;
 use App\Company;
 use App\General;
 use App\Social;
@@ -36,7 +37,7 @@ if ( ! function_exists('get_social'))
     }
 
 }
-if (!function_exists('generateBarcodeNumber')) {
+if (!function_exists('generateNumber')) {
     function generateNumber()
     {
         $number = mt_rand(0000, 9999); // better than rand()
@@ -58,7 +59,7 @@ if (!function_exists('generateBarcodeNumber')) {
     {
         // query the database and return a boolean
         // for instance, it might look like this in Laravel
-        return User::whereOtp($number)->exists();
+        return Client::whereOtp($number)->exists();
     }
     function generate_password()
     {
