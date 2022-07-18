@@ -77,8 +77,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="userinput1">@lang('Visa Image')</label>
-
+                                @php
+                                $pdf = substr($booking->visa_image, -3);
+                              @endphp
+                              @if($pdf != 'pdf')
                                 <img src="{{ asset('uploads/'.$booking->visa_image) }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
+                                @else
+                              <a href="{{ asset('uploads/'.$booking->visa_image) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+                                @endif
                             </div>
                         </div>
                         
@@ -95,6 +101,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="bio">@lang('Company Name')</label>
+                               
                                 <input type="text" value="{{ $booking->comapny->name}}" readonly id="userinput1" class="form-control border-primary" >
                             </div>
                         </div>
