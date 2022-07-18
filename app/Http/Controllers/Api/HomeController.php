@@ -218,6 +218,8 @@ class HomeController extends BaseController
             $booking->phone =  auth('client_api')->user()->phone;
             $booking->visa_image = $request->visa_image->store('booking');
             $booking->visa_number = $request->visa_number;
+            $booking->status = 2;
+
             $booking->save();
             $url = route('pdf_view',($booking->id));
 
