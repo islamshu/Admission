@@ -342,4 +342,35 @@ foreach($dates_array as $val) { //Loop1
         $client->save();
         return redirect()->route('clients.index')->with(['success'=>trans('Addedd successfully ')]);
     }
+    public function edit_client($id){
+        $client = Client::find($id);
+        return view('dashboard.users.edit_client')->with('client',$client);
+    }
+    public function update_client(Request $request,$id){
+        $request->validate([
+            'phone'=>'required|unique:clients,phone,' . $id,
+            'name'=>'required',
+        ]);
+        if($request->password != null){
+            $request->validate([
+                'password'=>'required',
+                'confirm-password'=>'required|same:password',
+            ]); 
+        }
+        $client =Client::find($id);
+        $client->phone = $request->phone;
+        $client->name = $request->name;
+        if($request->password != null){
+            $client->password = Hash::make($request->password);
+        }
+        $client->save();
+        return redirect()->route('clients.index')->with(['success'=>trans('Updated successfully ')]);
+    }
+    public function delete_client($id){
+        $client =Client::find($id);
+        $client->delete();
+        return redirect()->route('clients.index')->with(['success'=>trans('Deleted successfully ')]);
+
+    }
+
 }

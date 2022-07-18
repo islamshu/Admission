@@ -92,7 +92,11 @@ Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
     Route::post('general','HomeController@store')->name('generalinfo.store');
     Route::get('clients/create','UserController@create_client')->name('client_create.create');
     Route::post('clients/store','UserController@store_client')->name('client_create.store_client');
+    Route::get('clients/edit/{id}','UserController@edit_client')->name('client_create.edit_client');
+    Route::post('clients/update/{id}','UserController@update_client')->name('client_create.update_client');
+    Route::delete('clients/delete/{id}','UserController@delete_client')->name('client_create.delete_client');
 
+    
     
    
 

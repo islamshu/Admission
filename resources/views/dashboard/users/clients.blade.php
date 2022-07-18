@@ -34,6 +34,7 @@
                                             <th>@lang('Phone')</th>
                                             <th>@lang('Name')</th>
                                             <th>@lang('Number Of order')</th>
+                                            <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -50,9 +51,19 @@
                                         <td>{{ $count }}</td>
                                         @else
                                         <td> <a href="{{ route('booking_clinet',$client->id) }}">{{ $count }}</a></td>
+                                       
 
                                         @endif
+                                        <td><a href="{{ route('client_create.edit_client', $client->id) }}"
+                                            class=""><i
+                                                class="btn btn-success fa fa-edit"></i></a>
+                                                <form action="{{ route('client_create.delete_client', $client->id) }}"
+                                                    method="post" style="display: inline">
+                                                    @csrf @method('delete')
+                                                    <button style="border: 0" type="submit" class=""><i
+                                                            class="btn btn-danger  fa fa-trash"></i></button></td>
 
+                                                </form>
                                     
                                         </tr>
                                         @endforeach
