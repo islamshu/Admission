@@ -156,7 +156,7 @@ table.dataTable thead .sorting_desc_disabled:before {
                                         @foreach ($booking as $key => $book)
                                         <tr>
                                             @php
-                                                $client = App\Clinet::find($book->user_id);
+                                                $client = App\Client::find($book->user_id);
                                             @endphp
                                         <td>{{ $book->visa_number}}</td>
                                         <td>{{ $book->order_id }}</td>
