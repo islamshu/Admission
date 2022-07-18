@@ -82,6 +82,7 @@
     "Logout": "تسجيل خروج",
     "Longitude": "احداثيات خط الطول",
     "Minimum 8 characters": "8 خانات",
+    "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters": "يجب أن يحتوي على رقم واحد على الأقل وحرف واحد كبير وصغير و 8 أحرف على الأقل أو أكثر",
     "Name": "الاسم",
     "Nationalities": "الجنسيات",
     "Nationalitiy": "الجنسية",

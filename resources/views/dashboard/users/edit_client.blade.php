@@ -109,11 +109,11 @@ input[type=submit] {
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>@lang('Password')</label>
-                                                <input type="password" id="psw" name="password" class="form-control" required value="">
+                                                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  id="psw" name="password" class="form-control" required value="">
                                             </div>
                                             <div class="col-md-6">
                                                 <label>@lang('Confirm Password')</label>
-                                                <input type="password" id="conf" name="confirm-password" class="form-control" required value="">
+                                                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  id="conf" name="confirm-password" class="form-control" required value="">
                                             </div>
                                           
                                         </div>
