@@ -58,8 +58,7 @@ class WorkerResource extends JsonResource
             return 0;
         }
      }else{
-        dd($worker,$last_booking);
-        if($worker->status == 1 && $last_booking->status == 0 ){
+        if($worker->status == 1 ){
             return 1;
         }else{
             return 0;
