@@ -73,6 +73,10 @@ class BookingController extends Controller
             $wor->status = 0;
             $wor->save();
         }
+        foreach(Booking::where('status',2)->where('worker_id',$worker->worker_id)->get() as $bo){
+            $bo->status = 0;
+            $bo->save();
+        }
 
         return response()->json(['status'=>true]);
 
