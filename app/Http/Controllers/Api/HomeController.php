@@ -305,7 +305,7 @@ class HomeController extends BaseController
             $client = new Client();
             $client->phone = $request->phone;
             $client->name = $request->name;
-            $client->otp = generateNumber();
+            $client->otp = '1111';
             $client->password = Hash::make($request->password) ;
             $client->save();
             return $this->sendResponse(   $client, trans('Register success'));
