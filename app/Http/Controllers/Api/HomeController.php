@@ -213,9 +213,9 @@ class HomeController extends BaseController
             $booking->worker_id = $worker->id;
             $booking->company_id = Company::find($worker->company_id)->id;
             $booking->id_number = $request->id_number;
-            $booking->name = $request->name;
+            $booking->name = auth('client_api')->user()->name;
             $booking->DOB = $request->DOB;
-            $booking->phone = $request->phone;
+            $booking->phone =  auth('client_api')->user()->phone;
             $booking->visa_image = $request->visa_image->store('booking');
             $booking->visa_number = $request->visa_number;
             $booking->save();

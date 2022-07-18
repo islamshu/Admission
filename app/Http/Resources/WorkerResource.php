@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Booking;
 use App\Nationality;
+use App\Worker;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class WorkerResource extends JsonResource
@@ -36,10 +38,36 @@ class WorkerResource extends JsonResource
             'status'=>$this->get_status($this),
             'visa_number'=>$this->visa_number,
             'worker_status'=>$this->status,
+            'is_able_to_booked'=>$this->check_booked($this),
             'visitor'=>$this->visitor_count->count(),
             'compnay'=> new CopmainsResource(@$this->company)
 
         ];
+    }
+     function check_booked($data)
+    {
+        if(auth('client_api')->id() != null){
+
+        
+        $last_booking = Booking::where('user_id',auth('client_api')->id())->where('worker_id',$data->worker_id)->first();
+        $worker = Worker::find($data->worker_id);
+        if($last_booking){
+        if($worker->status == 1 && $last_booking->status == 0 ){
+            return 1;
+        }else{
+            return 0;
+        }
+     }else{
+        if($worker->status == 1 && $last_booking->status == 0 ){
+            return 1;
+        }else{
+            return 0;
+        }
+     }
+    }else{
+        return 0;
+    }
+
     }
     function get_lang($data){
       $langs=  json_decode($data->language);
