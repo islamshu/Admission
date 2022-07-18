@@ -17,6 +17,33 @@
                                 </ul>
                             </div>
                         </div>
+                        <form action="" class="card-body">
+                        
+                            <div class="row">
+                               
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="userinput2">@lang('Filter by orders')</label>
+                                        <select class="form-control" name="order" class=""  >
+                                            <option value="" class="  "   @if ($request->order == null) selected @endif
+                                               >
+                                                @lang('Choose')</option>
+                                            <option value="yes" 
+                                                @if ($request->order == 'yes') selected @endif>
+                                                @lang('Has Order')</option>
+                                                <option value="no" 
+                                                @if ($request->order == 'no') selected @endif>
+                                                @lang('No Order')</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-1 pt-1">
+                                    <button type="submit" class="btn btn-info" ><i class="fa fa-filter" aria-hidden="true"></i></button>
+                               
+                                </div>
+    
+                            </div>
+                        </form>
                         <div class="card-content collapse show">
                             @include('dashboard.parts._error')
                             @include('dashboard.parts._success')

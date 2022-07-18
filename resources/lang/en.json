@@ -179,6 +179,9 @@
     "A number": "A number",
     "Minimum 8 characters": "Minimum 8 characters",
     "Password must match": "Password must match",
+    "Filter by orders": "Filter by orders",
+    "Has Order": "Has Order",
+    "No Order": "No Order",
     "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters": "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
 
 

@@ -28,7 +28,7 @@ class BookingController extends Controller
         $booking->when($request->date,function ($q) use($request){
             
             $q->whereBetween('created_at', [$request->date .' 00:00:00', $request->date .' 23:59:59']);
-            });
+        });
     
             $booking =$booking->orderBy('id', 'DESC')->get();
 

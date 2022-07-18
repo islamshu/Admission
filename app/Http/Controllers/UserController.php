@@ -319,8 +319,17 @@ foreach($dates_array as $val) { //Loop1
     {
         session()->flash( $key, $message );
     }
-    public function clients(){
-        return view('dashboard.users.clients')->with('clients',Client::orderBy('id', 'DESC')->get());
+    public function clients(Request $request){
+        if($request->order == 'yes'){
+            $clients = Client::has('orders')->orderBy('id', 'DESC')->get();
+        }elseif($request->order == 'no'){
+            $clients = Client::doesnthave('orders')->orderBy('id', 'DESC')->get();
+        }else{
+            $clients = Client::orderBy('id', 'DESC')->get();
+        }
+     
+
+        return view('dashboard.users.clients')->with('clients',$clients)->with('request',$request);
     }
     public function create_client(){
         return view('dashboard.users.client_create');
