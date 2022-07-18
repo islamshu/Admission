@@ -557,10 +557,13 @@
                                         @endphp
                                     @endif
                                     @foreach ($booking as $key => $book)
+                                    @php
+                                    $client = App\Client::find($book->user_id);
+                                @endphp
                                         <tr>
                                             <td>{{ ++$key }}</td>
                                             <td>{{ $book->order_id }}</td>
-                                            <td>{{ $book->name }}</td>
+                                            <td>{{ @$client->name }}</td>
                                             <td>{{ $book->id_number }}</td>
                                             <td> <a>{{ $book->worker->name }}</a>
                                             </td>
