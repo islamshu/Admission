@@ -155,13 +155,16 @@ table.dataTable thead .sorting_desc_disabled:before {
 
                                         @foreach ($booking as $key => $book)
                                         <tr>
+                                            @php
+                                                $client = App\Clinet::find($book->user_id);
+                                            @endphp
                                         <td>{{ $book->visa_number}}</td>
                                         <td>{{ $book->order_id }}</td>
-                                        <td>{{ @$book->user_id }}</td>
+                                        <td>{{ @$client->name }}</td>
 
                                         <td> <a >{{ $book->worker->name }}</a></td>                  
 
-                                        <td>{{ @$book->user_id }}</td>
+                                        <td>{{  @$client->phone }}</td>
                                         <td>{{ $book->DOB }}</td>
                                         <td>{{ $book->created_at->format('Y-m-d') }}</td>
 
