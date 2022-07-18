@@ -65,8 +65,14 @@ class BookingController extends Controller
     }
     public function update_status_booked(Request $request){
         $worker = Booking::find($request->booked_id);
+        
         $worker->status = $request->status ;
         $worker->save();
+        if($request->status == 1){
+            $wor = Worker::find($worker->worker_id);
+            $wor->status = 0;
+            $wor->save();
+        }
 
         return response()->json(['status'=>true]);
 
