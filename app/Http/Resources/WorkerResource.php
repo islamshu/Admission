@@ -51,6 +51,7 @@ class WorkerResource extends JsonResource
         
         $last_booking = Booking::where('user_id',auth('client_api')->id())->where('worker_id',$data->worker_id)->orderBy('id', 'DESC')->first();
         $worker = Worker::find($data->worker_id);
+        dd($data->worker_id);
         if($last_booking){
         if($worker->status == 1 && $last_booking->status == 0 ){
             return 1;
