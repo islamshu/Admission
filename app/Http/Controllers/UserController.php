@@ -329,12 +329,14 @@ foreach($dates_array as $val) { //Loop1
     public function store_client(Request $request){
         $request->validate([
             'phone'=>'required|unique:clients,phone',
+            'name'=>'required',
             'password'=>'required',
             'confirm-password'=>'required|same:password',
 
         ]);
         $client = new Client();
         $client->phone = $request->phone;
+        $client->name = $request->name;
         $client->password = Hash::make($request->password);
         $client->is_verify = 1;
         $client->save();

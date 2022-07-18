@@ -9,4 +9,5 @@ use Laravel\Passport\HasApiTokens;
 class Client extends Authenticatable
 {
     use HasApiTokens;
+    protected $guarded=[];
 }

@@ -31,6 +31,10 @@
                                                 <label>@lang('Phone')</label>
                                                 <input type="text" name="phone" class="form-control" required value="{{ old('phone') }}">
                                             </div>
+                                            <div class="col-md-6">
+                                                <label>@lang('Name')</label>
+                                                <input type="text" name="name" class="form-control" required value="{{ old('name') }}">
+                                            </div>
                                            
                                         </div>
                                         <br>

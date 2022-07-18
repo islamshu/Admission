@@ -32,6 +32,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>@lang('Phone')</th>
+                                            <th>@lang('Name')</th>
                                             <th>@lang('Number Of order')</th>
                                         </tr>
                                     </thead>
@@ -41,6 +42,7 @@
                                         <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $client->phone }}</td>
+                                        <td>{{ $client->name }}</td>
                                         @php
                                             $count = App\Booking::where('user_id',$client->id)->count() ;
                                         @endphp
