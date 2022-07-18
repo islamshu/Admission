@@ -83,7 +83,9 @@
                               @if($pdf != 'pdf')
                                 <img src="{{ asset('uploads/'.$booking->visa_image) }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
                                 @else
-                              <a href="{{ asset('uploads/'.$booking->visa_image) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+                                <br>
+
+                              <a target="_blank" href="{{ asset('uploads/'.$booking->visa_image) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
                                 @endif
                             </div>
                         </div>
