@@ -14,7 +14,6 @@ use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
 use Illuminate\Support\Facades\DB as FacadesDB;
-
 class UserController extends Controller
 {
     /**
@@ -353,7 +352,7 @@ foreach($dates_array as $val) { //Loop1
         ]);
         if($request->password != null){
             $request->validate([
-                'password'=>'required',
+                'password'=> 'required|min:8',
                 'confirm-password'=>'required|same:password',
             ]); 
         }

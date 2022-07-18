@@ -172,7 +172,14 @@
     "Arabic": "Arabic",
     "Visa Number new": "Visa Number",
     "clients": "Clients",
-    "Create Client": "Create Client"
+    "Create Client": "Create Client",
+    "Password must contain the following:": "Password must contain the following:",
+    "A lowercase letter": "A lowercase letter",
+    "A capital (uppercase) letter": "A capital (uppercase) letter",
+    "A number": "A number",
+    "Minimum 8 characters": "Minimum 8 characters",
+    "Password must match": "Password must match"
+
 
 
 
