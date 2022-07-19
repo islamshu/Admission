@@ -61,7 +61,7 @@ class WorkerResource extends JsonResource
             return 0;
         }
      }else{
-        if($status == 1 ){
+        if($status == 1  || $status==2){
             return 1;
         }else{
             return 0;
