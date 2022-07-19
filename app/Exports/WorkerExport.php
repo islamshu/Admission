@@ -84,7 +84,7 @@ class WorkerExport implements FromCollection, WithMapping, WithHeadings, ShouldA
             $worker->company_name_external,
             $worker->company_co_register_external,
             asset('uploads/'.$worker->image),
-            asset('uploads/'.$worker->video),
+            $worker->video != null ? ' ' : asset('uploads/'.$worker->video),
 
             
         ];
