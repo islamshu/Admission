@@ -133,6 +133,8 @@
                                                     <th></th>
                                                     @if(auth()->user()->hasRole('Admin'))
                                                     <th></th>
+                                                    <th></th>
+
                                                     @endif
                                                     <th></th>
                                                 </tr>
