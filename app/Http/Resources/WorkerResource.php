@@ -38,6 +38,8 @@ class WorkerResource extends JsonResource
             'status'=>$this->get_status($this),
             'visa_number'=>$this->visa_number,
             'worker_status'=>$this->status,
+            'external_comapny_name'=>$this->company_name_external,
+            'external_comapny_commical_register'=>$this->company_co_register_external,
             'is_able_to_booked'=>$this->check_booked($this),
             'visitor'=>$this->visitor_count->count(),
             'compnay'=> new CopmainsResource(@$this->company)

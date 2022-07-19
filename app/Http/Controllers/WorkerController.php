@@ -139,6 +139,8 @@ class WorkerController extends Controller
         $worker->visa_number = $request->visa_number;
         $worker->description_ar = $request->description_ar;
         $worker->description_en = $request->description_en;
+        $worker->company_name_external = $request->company_name_external;
+        $worker->company_co_register_external = $request->company_co_register_external;
         $worker->save();
         return redirect()->route('worker.index')->with(['success' => trans('Addedd successfully ')]);
     }
@@ -236,6 +238,8 @@ class WorkerController extends Controller
         $worker->visa_number = $request->visa_number;
         $worker->description_ar = $request->description_ar;
         $worker->description_en = $request->description_en;
+        $worker->company_name_external = $request->company_name_external;
+        $worker->company_co_register_external = $request->company_co_register_external;
         $worker->save();
         return redirect()->route('worker.index')->with(['success' => trans('Updated successfully')]);
     }

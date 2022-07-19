@@ -149,6 +149,8 @@
     "christian": "المسيحية",
     "city": "المدينة",
     "clients": "العملاء",
+    "company commercial register external": "رقم ترخيص مكتب الاستقدام الخارجي",
+    "company name external": "اسم مكتب الاستقدام الخارجي",
     "contact us": "وسائل التواصل",
     "content": "المحتوى",
     "days": "أيام",
@@ -162,6 +164,7 @@
     "in progress": "تفاوض",
     "in progress order": "معلق",
     "in progress order Order": "الطلبات قيد التنفيذ",
+    "is deleted": "تم حذف الطلب ام لا",
     "is show": "اخفاء او اظهار",
     "islam": "الاسلام",
     "logo": "اللوجو الخاص بالنظام",
@@ -185,6 +188,5 @@
     "translation": "الترجمة",
     "worker name": "اسم العاملة",
     "workers": "العاملات",
-    "yes": "نعم",
-    "is deleted": "تم حذف الطلب ام لا"
+    "yes": "نعم"
 }

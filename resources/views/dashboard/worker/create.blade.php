@@ -278,6 +278,21 @@
                                         <div class="row">
 
                                             <div class="col-md-6">
+                                                <label>@lang('company name external')</label>
+                                                <input type="text" name="company_name_external" class="form-control" value="{{ old('company_name_external') }}" id="">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>@lang('company commercial register external')</label>
+
+                                                <input type="text" name="company_co_register_external" class="form-control" value="{{ old('company_co_register_external') }}" id="">
+                                            </div>
+
+
+                                        </div>
+                                        <br>
+                                        <div class="row">
+
+                                            <div class="col-md-6">
                                                 <label>@lang('additional description in arabic')</label>
 
                                                 <textarea name="description_ar" class="form-control" id="" cols="30" rows="10"></textarea>
