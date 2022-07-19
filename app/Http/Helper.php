@@ -16,18 +16,7 @@ function get_general_value($key)
     return '';
 }
 function booking_status($status){
-    if ($status == 1) {
-        $statuss =  trans('Done');
-    } elseif ($status == 0) {
-        $statuss= trans('Reject');
-    } elseif ($status == 2) {
-        $statuss =trans('in progress order');
-    }
-    return '1';
-    return[
-        'id'=>$status,
-        'status'=>$statuss
-    ]
+    return $status;
 
 }
 if ( ! function_exists('get_social'))
