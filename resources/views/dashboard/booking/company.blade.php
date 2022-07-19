@@ -148,6 +148,7 @@ table.dataTable thead .sorting_desc_disabled:before {
                                             <th>@lang('Date Of Birth')</th>
                                             <th>@lang('Created at')</th>
                                             <th>@lang('Status')</th>
+                                            <th>@lang('is deleted')</th>
                                             <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
@@ -187,6 +188,8 @@ table.dataTable thead .sorting_desc_disabled:before {
 
                                             {{-- </label> --}}
                                         </td>
+                                        <td>@if($book->deleted_at == null)
+                                        @lang('no') @else @lang('no') @endif</td>
                                      
 
 

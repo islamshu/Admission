@@ -115,7 +115,7 @@ class BookingController extends Controller
     }
     public function downloadPDF(Request $request)
     {
-        $booking = Booking::query();
+        $booking = Booking::query()->withTrashed();
         $booking->when($request->status != null, function ($q) use ($request) {
             $q->where('status', $request->status);
         });
