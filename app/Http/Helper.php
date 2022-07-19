@@ -16,8 +16,13 @@ function get_general_value($key)
     return '';
 }
 function booking_status($status){
-    return $status;
-
+    if ($status == 1) {
+        return trans('Done');
+    } elseif ($status == 0) {
+        return trans('Reject');
+    } elseif ($status == 2) {
+        return trans('in progress order');
+    }
 }
 if ( ! function_exists('get_social'))
 {
@@ -92,7 +97,7 @@ if (!function_exists('generateNumber')) {
             if($worker->is_quick == 1){
                 return 1;
             }else{
-                return 2;
+                return trans('needs time') .' '. $worker->time . ' '.trans('months');
             }
 
         }
