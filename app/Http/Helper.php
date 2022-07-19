@@ -74,14 +74,18 @@ if (!function_exists('generateNumber')) {
         $string = str_shuffle($pin);
         return $string;
     }
-    function worker_status($status)
+    function worker_status($worker)
     {
-        if ($status == 1) {
-            return trans('available');
-        } elseif ($status == 0) {
+        
+        if ($worker->status == 0) {
             return trans('busy');
-        } elseif ($status == 2) {
-            return trans('in progress');
+        }else{
+            if($worker->is_quick == 1){
+                return trans('available');
+            }else{
+                return trans('needs time') .' '. $worker->time . ' '.trans('months');
+            }
+
         }
     }
     function color($status)

@@ -136,7 +136,7 @@
 				<tr class="details">
 					<td>{{ $booking->id_number }}</td>
 
-					<td>رقم المعرف للعميل </td>
+					<td>رقم الهوية للعميل </td>
 				</tr>
 				<tr class="details">
 					<td>{{ $booking->phone }}</td>

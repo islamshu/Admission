@@ -172,7 +172,7 @@
                                                             <input type="checkbox" data-id="{{ $worker->id }}" name="status" class="js-switch" {{ $worker->is_show == 1 ? 'checked' : '' }}>
                                                             </td>
                                                         <td>
-                                                            {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
+                                                            {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker) }}</label> --}}
                                                             {{-- <label for="" class="btn btn-success"> --}}
                                                             <select class="target btn" id="worker_status_{{ $worker->id }}"
                                                                 style="background:{{ get_color_new($worker->status) }} "
@@ -224,7 +224,7 @@
                                                             <input type="checkbox" data-id="{{ $worker->id }}" name="status" class="js-switch" {{ $worker->is_show == 1 ? 'checked' : '' }}>
                                                             </td>
                                                         <td>
-                                                            {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
+                                                            {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker) }}</label> --}}
                                                             {{-- <label for="" class="btn btn-success"> --}}
                                                             <select class="target btn" id="worker_status_{{ $worker->id }}"
                                                                 style="background:{{ get_color_new($worker->status) }} "

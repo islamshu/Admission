@@ -53,6 +53,7 @@
     "Done Order": "الطلبات الفعالة",
     "Duration": "المدة الزمنية (بالأشهر)",
     "Edit": "تعديل",
+    "Edit Client": "تعديل بيانات العميل",
     "Edit Nationalitiy": "تعديل جنسية",
     "Edit Profile": "تعديل الملف الشخصي",
     "Edit Worker": "تعديل بيانات العاملنة",
@@ -140,7 +141,7 @@
     "additional description in arabic": "وصف إضافي بالعربية",
     "additional description in english": "وصف إضافي الانجليزية",
     "admiSomething went wrongn": null,
-    "available": "متاح",
+    "available": "تسليم مباشر",
     "available Worker Count": "عدد العاملات المتاحين",
     "busy": "غير متاح",
     "choose Religion": "اختر الديانة",
@@ -161,9 +162,11 @@
     "in progress": "تفاوض",
     "in progress order": "معلق",
     "in progress order Order": "الطلبات قيد التنفيذ",
+    "is show": "اخفاء او اظهار",
     "islam": "الاسلام",
     "logo": "اللوجو الخاص بالنظام",
-    "needs time": "يحتاج الى وقت",
+    "months": "شهور",
+    "needs time": "مدة استقدام",
     "new": "جديد",
     "no": "لا",
     "no data here": "لا يوجد معلومات",
@@ -182,7 +185,5 @@
     "translation": "الترجمة",
     "worker name": "اسم العاملة",
     "workers": "العاملات",
-    "yes": "نعم",
-    "is show": "اخفاء او اظهار",
-    "Edit Client": "تعديل بيانات العميل "
+    "yes": "نعم"
 }

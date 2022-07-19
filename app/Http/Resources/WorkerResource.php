@@ -79,9 +79,15 @@ class WorkerResource extends JsonResource
 
     }
     function get_status($data){
+        $status = $data->status;
+        if($status ==0){
+            $status= 0 ;
+        }else{
+            $status= 1;
+        }
         return [
-            'id'=>$data->status,
-            'title'=>worker_status($this->status),
+            'id'=>$status ,
+            'title'=>worker_status($data),
         ];
     }
     function get_des($data){

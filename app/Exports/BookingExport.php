@@ -49,7 +49,7 @@ class BookingExport implements FromCollection, WithMapping, WithHeadings, Should
             trans('Created at'),
             'تاريخ الميلاد',
             'الحالة',
-            'رقم المعرف الخاص بالعميل',
+            'رقم الهوية الخاص بالعميل',
             'رقم الجواز او الاقامة',
             'صورة الفيزا',
 

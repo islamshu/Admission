@@ -58,7 +58,7 @@
                     <td>{{ $worker->name }}</td>
                     <td>{{ $worker->company->name }}</td>
                     <td>{{ $worker->natonality->name }}</td>
-                    <td> {{ worker_status($worker->status) }}</td>
+                    <td> {{ worker_status($worker) }}</td>
                     <td> {{ $worker->age }}</td>
                     <td>{{ $worker->experience }}</td>
                     <td> {{ $worker->language }}</td>

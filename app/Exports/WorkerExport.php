@@ -69,7 +69,7 @@ class WorkerExport implements FromCollection, WithMapping, WithHeadings, ShouldA
             $worker->name,
             $worker->company->name,
             $worker->natonality->name,
-            worker_status($worker->status),
+            worker_status($worker),
             $worker->age,
             $worker->experience,
             $worker->in_sa == 1  ?'yes' : 'no',

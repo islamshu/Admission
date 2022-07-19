@@ -53,7 +53,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <td>{{ @$worker->company->name }}</td>
                                 <td>
                                   <label style="width: 68px"
-                                      class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label>
+                                      class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker) }}</label>
                                 </td>
                                   {{-- <label for="" class="btn btn-success"> --}}
 

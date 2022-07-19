@@ -134,9 +134,9 @@
 					<td>اسم العاملة</td>
 				</tr>
 				<tr class="details">
-					<td>{{ @$worker->company->name }}</td>
+					<td>{{ @$worker->visa_number }}</td>
 
-					<td>اسم مكتب الاستقدام</td>
+					<td> رقم جواز السفر </td>
 				</tr>
 				<tr class="details">
 					<td>{{ $worker->natonality->title }}</td>
@@ -188,6 +188,8 @@
 
 					<td>المدينة</td>
 				</tr>
+				<img src="https://workers.foryougo.net/uploads/{{ $worker->image }}" width="150" height="100"  />
+
 		
 			</table>
 		</div>
