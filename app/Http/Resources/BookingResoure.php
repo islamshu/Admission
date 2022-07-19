@@ -36,7 +36,7 @@ class BookingResoure extends JsonResource
     function get_status($data){
         return[
             'id'=>$data->status,
-            'status'->booking_status($data->status),
+            'status'=>booking_status($data->status),
         ];
     }
   
