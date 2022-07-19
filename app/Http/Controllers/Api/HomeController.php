@@ -203,6 +203,11 @@ class HomeController extends BaseController
     }
     public function request_worker(Request $request)
     {
+        $user = auth('client_api')->user();
+        if($user == null){
+            return $this->sendError('you need to login');
+
+        }
         // return($request);
         // dd(auth('client_api')->id());
 
