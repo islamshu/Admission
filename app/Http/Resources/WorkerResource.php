@@ -83,7 +83,12 @@ class WorkerResource extends JsonResource
         if($status ==0){
             $status= 0 ;
         }else{
-            $status= 1;
+            
+            if($data->is_quick == 1){
+                $status= 1;
+            }else{
+                $status= 2;
+            }
         }
         return [
             'id'=>$status ,
