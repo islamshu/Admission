@@ -188,7 +188,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 
                                             {{-- </label> --}}
                                         </td>
-                                        <td>{{dd($book->deleted_at == null)}}</td>
+                                        <td>{{$book->deleted_at == null  ? 'لا' : 'نعم'}}</td>
                                      
 
 
