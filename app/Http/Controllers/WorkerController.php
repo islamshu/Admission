@@ -78,6 +78,14 @@ class WorkerController extends Controller
         $worker->save();
         return response()->json(['status' => true]);
     }
+    public function updateStatus(Request $request)
+{
+    $worker = Worker::findOrFail($request->worker_id);
+    $worker->is_show = $request->status;
+    $worker->save();
+
+    return response()->json(['message' => 'Worker status updated successfully.']);
+}
 
     public function create()
     {

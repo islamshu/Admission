@@ -1,5 +1,7 @@
 @extends('layouts.backend')
 @section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
     <style>
         #customers {
   font-family: Arial, Helvetica, sans-serif;
@@ -145,6 +147,7 @@
                                                     @if(auth()->user()->hasRole('Admin'))
                                                     <th>@lang('Company Name')</th>
                                                     @endif
+                                                    <th>@lang('is show')</th>
                                                     <th>@lang('Status')</th>
                                                     <th>@lang('Action')</th>
                                                 </tr>
@@ -164,6 +167,9 @@
                                                         @if(auth()->user()->hasRole('Admin'))
                                                         <td><a href="{{ route('companies.edit',@$worker->company->id) }}">{{ @$worker->company->name }}</a></td>
                                                         @endif
+                                                        <td>
+                                                            <input type="checkbox" data-id="{{ $worker->id }}" name="status" class="js-switch" {{ $worker->is_show == 1 ? 'checked' : '' }}>
+                                                            </td>
                                                         <td>
                                                             {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
                                                             {{-- <label for="" class="btn btn-success"> --}}
@@ -375,4 +381,31 @@
 
         }
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html,  { size: 'small' });
+        });
+        $(document).ready(function(){
+    $('.js-switch').change(function () {
+        let status = $(this).prop('checked') === true ? 1 : 0;
+        let workerid = $(this).data('id');
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '{{ route('worker.update.status') }}',
+            data: {'status': status, 'worker_id': workerid},
+            success: function (data) {
+                toastr.options.closeButton = true;
+                toastr.options.closeMethod = 'fadeOut';
+                toastr.options.closeDuration = 100;
+                toastr.success(data.message);
+            }
+        });
+    });
+});
+        </script>
+        
 @endsection
