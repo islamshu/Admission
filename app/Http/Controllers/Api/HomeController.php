@@ -389,6 +389,19 @@ class HomeController extends BaseController
 
         
     }
+    public function delete_my_order($id){
+        $booking = Booking::find($id);
+        if($booking->status == 1){
+            return $this->sendError('The request cannot be deleted because the request is accepted');
+        }
+        $booking->delete();
+        return $this->sendResponse('deleted','booking deleted');
+    }
+    public function delete_my_order_unavilable($id){
+        $booking = BusyWorker::find($id);
+        $booking->delete();
+        return $this->sendResponse('deleted','booking unavilable deleted');
+    }
     public  function logout()
     {
         $user = auth('client_api')->user();

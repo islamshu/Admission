@@ -41,6 +41,10 @@ Route::post('check_otp','Api\HomeController@check_otp');
 Route::post('resend_otp','Api\HomeController@resend_otp');
 Route::get('my_order','Api\HomeController@my_order');
 Route::get('my_order_not_avilable','Api\HomeController@my_order_not_avilable');
+Route::get('delete_my_order/{id}','Api\HomeController@delete_my_order');
+Route::get('delete_my_order_unavilable/{id}','Api\HomeController@delete_my_order_unavilable');
+
+
 
 Route::get('logout','Api\HomeController@logout');
 Route::post('update_profile','Api\HomeController@update_profile');
