@@ -163,15 +163,16 @@
                                                         <td><img src="{{ asset('uploads/' . $worker->image) }}"
                                                                 width="70" height="50" alt=""></td>
                                                         <td>{{ $worker->name }}</td>
+                                                        <td>
+                                                            <input type="checkbox" data-id="{{ $worker->id }}" name="status" class="js-switch" {{ $worker->is_show == 1 ? 'checked' : '' }}>
+                                                        </td>
                                                         <td>{{ $worker->visitor_count->count() }}</td>
                                                         @if(auth()->user()->hasRole('Admin'))
                                                         <td><a href="{{ route('companies.edit',@$worker->company->id) }}">{{ @$worker->company->name }}</a></td>
                                                         @endif
                                                      
                                                         
-                                                        <td>
-                                                            <input type="checkbox" data-id="{{ $worker->id }}" name="status" class="js-switch" {{ $worker->is_show == 1 ? 'checked' : '' }}>
-                                                        </td>
+                                                       
                                                         <td>
                                                             {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
                                                             {{-- <label for="" class="btn btn-success"> --}}
