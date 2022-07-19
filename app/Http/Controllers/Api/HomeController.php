@@ -207,7 +207,7 @@ class HomeController extends BaseController
         // dd(auth('client_api')->id());
 
         $worker = Worker::find($request->worker_id);
-        if ($worker->status == 1) {
+        if ($worker->status == 1 ||  $worker->status == 2) {
 
             $booking = new Booking();
             $booking->order_id = Carbon::now()->timestamp;
