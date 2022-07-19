@@ -21,7 +21,7 @@ class BusyBookingResoure extends JsonResource
             'id'=>$this->id,
             'worker'=> new WorkerResource(Worker::find($this->worker_id)),
             'phone'=>$this->phone,
-            'created_at'=>$this->created_at
+            'created_at'=>$this->created_at->format('Y-m-d')
            
 
         ];
