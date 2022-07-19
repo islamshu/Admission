@@ -47,6 +47,8 @@
         type="text/css" />
     <link rel="stylesheet" type="text/css"
         href="{{ asset('backend/vendors/css/tables/datatable/datatables.min.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
+
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/chat.css') }}"> --}}
 
 
@@ -212,7 +214,9 @@
 
         });
     </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     @yield('script')
     @if (get_lang() == 'ar')

@@ -1,7 +1,6 @@
 @extends('layouts.backend')
 @section('css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+
     <style>
         #customers {
   font-family: Arial, Helvetica, sans-serif;
@@ -386,16 +385,11 @@
 
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script>let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-
-        elems.forEach(function(html) {
-            let switchery = new Switchery(html,  { size: 'small' });
-        });
+ 
+    <script>
         $(document).ready(function(){
     $('.js-switch').change(function () {
-        let status = $(this).prop('checked') === true ? 1 : 0;
+                let status = $(this).prop('checked') === true ? 1 : 0;
         let workerid = $(this).data('id');
         $.ajax({
             type: "GET",
