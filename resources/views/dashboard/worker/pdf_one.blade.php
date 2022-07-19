@@ -188,7 +188,17 @@
 
 					<td>المدينة</td>
 				</tr>
-				<img src="https://workers.foryougo.net/uploads/{{ $worker->image }}" width="150" height="100"  />
+				<tr class="details">
+					<td>{{  ($worker->company_name_external)}}</td>
+
+					<td>@lang('company name external')</td>
+				</tr>
+				<tr class="details">
+					<td>{{  ($worker->company_co_register_external)}}</td>
+
+					<td>@lang('company commercial register external')</td>
+				</tr>
+
 
 		
 			</table>
