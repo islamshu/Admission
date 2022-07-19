@@ -17,12 +17,17 @@ function get_general_value($key)
 }
 function booking_status($status){
     if ($status == 1) {
-        return trans('Done');
+        $statuss =  trans('Done');
     } elseif ($status == 0) {
-        return trans('Reject');
+        $statuss= trans('Reject');
     } elseif ($status == 2) {
-        return trans('in progress order');
+        $statuss =trans('in progress order');
     }
+    return[
+        'id'=>$status,
+        'status'=>$statuss
+    ]
+
 }
 if ( ! function_exists('get_social'))
 {
