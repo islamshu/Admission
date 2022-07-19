@@ -23,6 +23,7 @@ function booking_status($status){
     } elseif ($status == 2) {
         $statuss =trans('in progress order');
     }
+    return '1';
     return[
         'id'=>$status,
         'status'=>$statuss
