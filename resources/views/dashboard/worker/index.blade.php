@@ -167,6 +167,10 @@
                                                         @if(auth()->user()->hasRole('Admin'))
                                                         <td><a href="{{ route('companies.edit',@$worker->company->id) }}">{{ @$worker->company->name }}</a></td>
                                                         @endif
+
+                                                        <td>
+                                                            {{ $worker->is_show }}
+                                                        </td>
                                                         
                                                         <td>
                                                             {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker->status) }}</label> --}}
