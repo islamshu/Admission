@@ -26,7 +26,7 @@ class NatonalityResource extends JsonResource
         ];
     }
     function get_worker($data,$request){
-        $camp = Worker::query()->where('nationality_id',$data->id);
+        $camp = Worker::query()->where('is_show',1)->where('nationality_id',$data->id);
         // $camp->when($request->nationality_id, function ($q) use ($request) {
         //     return $q->where('nationality_id', $request->nationality_id);
         // });
