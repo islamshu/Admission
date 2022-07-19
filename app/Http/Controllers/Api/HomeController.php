@@ -391,6 +391,9 @@ class HomeController extends BaseController
     }
     public function delete_my_order($id){
         $booking = Booking::find($id);
+        if(!$booking){
+            return $this->sendError('not found booking');
+        }
         if($booking->status == 1){
             return $this->sendError('The request cannot be deleted because the request is accepted');
         }
@@ -399,6 +402,9 @@ class HomeController extends BaseController
     }
     public function delete_my_order_unavilable($id){
         $booking = BusyWorker::find($id);
+        if(!$booking){
+            return $this->sendError('not found booking');
+        }
         $booking->delete();
         return $this->sendResponse('deleted','booking unavilable deleted');
     }
