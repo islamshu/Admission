@@ -231,8 +231,14 @@
 
                                             <div class="col-md-6" id="duration" style="display: none">
                                                 <label>@lang('Duration')</label>
-                                                <input type="number" name="time" value="{{ old('time') }}"
-                                                    class="form-control" placeholder="@lang('Duration')">
+                                                <select name="time" id="" class="form-control">
+                                                    <option value="">@lang('Choose')</option>
+                                                    <option value="1" @if(old('time') == 1 ) selected @endif>1 @lang('months')</option>
+                                                    <option value="2" @if(old('time') == 2 ) selected @endif>2 @lang('months')</option>
+                                                    <option value="3" @if(old('time') == 3 ) selected @endif>3 @lang('months')</option>
+
+                                                </select>
+                                               
                                             </div>
                                             <div class="col-md-6" id="cityd" style="display: block">
                                                 <label>@lang('city')</label>

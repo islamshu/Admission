@@ -234,8 +234,13 @@
                                             <div class="col-md-6"
                                                 id="duration"@if ($worker->is_quick == 1) style="display: none" @else  style="display: inline" @endif>
                                                 <label>@lang('Duration')</label>
-                                                <input type="number" name="time" value="{{ $worker->time }}"
-                                                    class="form-control" placeholder="type Duration">
+                                                <select name="time" id="" class="form-control">
+                                                    <option value="">@lang('Choose')</option>
+                                                    <option value="1" @if($worker->time == 1 ) selected @endif>1 @lang('months')</option>
+                                                    <option value="2" @if($worker->time == 2 ) selected @endif>2 @lang('months')</option>
+                                                    <option value="3" @if($worker->time == 3 ) selected @endif>3 @lang('months')</option>
+
+                                                </select>
                                             </div>
                                             <div class="col-md-6" id="cityd" @if ($worker->is_quick == 1) style="display: block" @else  style="display: none" @endif>
                                                 <label>@lang('city')</label>
