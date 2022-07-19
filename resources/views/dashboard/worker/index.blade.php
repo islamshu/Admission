@@ -169,7 +169,7 @@
                                                         @endif
 
                                                         <td>
-                                                            {{ $worker->is_show }}
+                                                            {{ dd($worker) }}
                                                         </td>
                                                         
                                                         <td>
