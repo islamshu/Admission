@@ -88,6 +88,7 @@ class WorkerResource extends JsonResource
         return [
             'id'=>$status ,
             'title'=>worker_status($data),
+            'slug'=>slug_worker($data),
         ];
     }
     function get_des($data){

@@ -88,6 +88,18 @@ if (!function_exists('generateNumber')) {
 
         }
     }
+    function slug_worker($worker){
+        if ($worker->status == 0) {
+            return 'busy';
+        }else{
+            if($worker->is_quick == 1){
+                return 'available';
+            }else{
+                return 'temporary-available';
+            }
+
+        }
+    }
     function color($status)
     {
         if ($status == 1) {
