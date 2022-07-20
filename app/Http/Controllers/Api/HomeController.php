@@ -217,6 +217,8 @@ class HomeController extends BaseController
     }
     public function check_otp_new(Request $request){
         $user = Client::where('phone',$request->phone)->where('otp',$request->otp)->first();
+        $user->otp = null;
+        $user->save();
         if($user){
             $user['token'] = $user->createToken('Personal Access Token')->accessToken;
             return $this->sendResponse($user, trans('user login'));
