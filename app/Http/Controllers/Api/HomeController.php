@@ -201,6 +201,31 @@ class HomeController extends BaseController
             ]
         ];
     }
+    public function new_login(Request $request){
+        $user = Client::where('phone',$request->phone)->first();
+        if($user){
+        $user->otp = generateNumber();
+        $user->save();
+            return $this->sendResponse( $user->otp, trans('user login'));
+        }else{
+            $user = new Client();
+            $user->phone = $request->phone;
+            $user->otp = generateNumber();
+            $user->save();
+            return $this->sendResponse( $user->otp, trans('user register'));
+        }
+    }
+    public function check_otp_new(Request $request){
+        $user = Client::where('phone',$request->phone)->where('otp',$request->otp)->first();
+        if($user){
+            $user['token'] = $user->createToken('Personal Access Token')->accessToken;
+            return $this->sendResponse($user, trans('user login'));
+        }else{
+            return $this->sendError('not found user');
+  
+        }
+
+    }
     public function request_worker(Request $request)
     {
         $user = auth('client_api')->user();
