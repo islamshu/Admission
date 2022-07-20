@@ -176,7 +176,7 @@
 				</tr>
 				<tr>
 					<td class="title">
-						<img src="https://workers.foryougo.net/uploads/{{ $worker->image }}" width="150" height="100"  />
+						<img src="https://workers.foryougo.net/uploads/{{ @$booking->worker->image }}" width="150" height="100"  />
 					</td>
 
 					
