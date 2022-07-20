@@ -175,6 +175,8 @@
 					<td>  الجنسية  </td>
 				</tr>
 				<tr>
+					<td>    </td>
+
 					<td class="title">
 						<img src="https://workers.foryougo.net/uploads/{{ @$booking->worker->image }}" width="150" height="100"  />
 					</td>
