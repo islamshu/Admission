@@ -337,15 +337,16 @@ foreach($dates_array as $val) { //Loop1
     public function store_client(Request $request){
         $request->validate([
             'phone'=>'required|unique:clients,phone',
-            'name'=>'required',
-            'password'=>'required',
-            'confirm-password'=>'required|same:password',
+            // 'name'=>'required',
+            // 'password'=>'required',
+            // 'confirm-password'=>'required|same:password',
 
         ]);
         $client = new Client();
         $client->phone = $request->phone;
+        $client->otp = generateNumber();
         $client->name = $request->name;
-        $client->password = Hash::make($request->password);
+        // $client->password = Hash::make($request->password);
         $client->is_verify = 1;
         $client->save();
         return redirect()->route('clients.index')->with(['success'=>trans('Addedd successfully ')]);
@@ -357,20 +358,20 @@ foreach($dates_array as $val) { //Loop1
     public function update_client(Request $request,$id){
         $request->validate([
             'phone'=>'required|unique:clients,phone,' . $id,
-            'name'=>'required',
+            // 'name'=>'required',
         ]);
-        if($request->password != null){
-            $request->validate([
-                'password'=> 'required|min:8',
-                'confirm-password'=>'required|same:password',
-            ]); 
-        }
+        // if($request->password != null){
+        //     $request->validate([
+        //         'password'=> 'required|min:8',
+        //         'confirm-password'=>'required|same:password',
+        //     ]); 
+        // }
         $client =Client::find($id);
         $client->phone = $request->phone;
         $client->name = $request->name;
-        if($request->password != null){
-            $client->password = Hash::make($request->password);
-        }
+        // if($request->password != null){
+        //     $client->password = Hash::make($request->password);
+        // }
         $client->save();
         return redirect()->route('clients.index')->with(['success'=>trans('Updated successfully ')]);
     }

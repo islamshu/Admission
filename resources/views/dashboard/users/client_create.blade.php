@@ -99,14 +99,14 @@ input[type=submit] {
                                             </div>
                                             <div class="col-md-6">
                                                 <label>@lang('Name')</label>
-                                                <input type="text" name="name" class="form-control" required value="{{ old('name') }}">
+                                                <input type="text" name="name" class="form-control"  value="{{ old('name') }}">
                                             </div>
                                            
                                         </div>
                                         <br>
                                      
                                       
-                                        <div class="row">
+                                        {{-- <div class="row">
                                             <div class="col-md-6">
                                                 <label>@lang('Password')</label>
                                                 <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  id="psw" name="password" class="form-control" required value="">
@@ -116,7 +116,7 @@ input[type=submit] {
                                                 <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  id="conf" name="confirm-password" class="form-control" required value="">
                                             </div>
                                           
-                                        </div>
+                                        </div> --}}
                                         <div id="message" style="width: 100%">
                                             <h3>@lang('Password must contain the following:')</h3>
                                             <p id="letter" class="invalid">@lang('A lowercase letter')</p>
