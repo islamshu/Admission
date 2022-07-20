@@ -165,14 +165,21 @@
 					<td>  اسم العاملة</td>
 				</tr>
 				<tr class="details">
-					<td>{{ @$booking->comapny->name}}</td>
+					<td>{{ @$booking->worker->visa_number}}</td>
 
-					<td>  اسم مكتب الاستقدام</td>
+					<td> رقم جواز السفر</td>
 				</tr>
 				<tr class="details">
 					<td>{{ @$booking->worker->natonality->name}}</td>
 
 					<td>  الجنسية  </td>
+				</tr>
+				<tr>
+					<td class="title">
+						<img src="https://workers.foryougo.net/uploads/{{ $worker->image }}" width="150" height="100"  />
+					</td>
+
+					
 				</tr>
 			</table>
 		</div>
