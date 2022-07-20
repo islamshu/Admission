@@ -148,8 +148,9 @@ table.dataTable thead .sorting_desc_disabled:before {
                                             <th>@lang('Date Of Birth')</th>
                                             <th>@lang('Created at')</th>
                                             <th>@lang('Status')</th>
-                                            <th>@lang('is deleted')</th>
                                             <th>@lang('Action')</th>
+
+                                            <th>@lang('is deleted')</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -188,7 +189,6 @@ table.dataTable thead .sorting_desc_disabled:before {
 
                                             {{-- </label> --}}
                                         </td>
-                                        <td>{{$book->deleted_at == null  ? 'لا' : 'نعم'}}</td>
                                      
 
 
@@ -197,6 +197,8 @@ table.dataTable thead .sorting_desc_disabled:before {
                                          <a href="{{ route('pdf_view',$book->id) }}" target="_blank" class="btn btn-info"><i class="fa fa-file"></i></a>
 
                                         </td>
+                                        <td>{{$book->deleted_at == null  ? 'لا' : 'نعم'}}</td>
+
                                         </tr>
                                         @endforeach
                                     </tbody>
