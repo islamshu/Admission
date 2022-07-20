@@ -51,7 +51,7 @@ class WorkerExport implements FromCollection, WithMapping, WithHeadings, ShouldA
             'هل تتقبل الاطفال?',
             'هل تجيد الطهي ?',
             'المدينة',
-            'رابط مساند',
+            // 'رابط مساند',
             trans('company name external'),
             trans('company commercial register external'),
 
@@ -80,7 +80,7 @@ class WorkerExport implements FromCollection, WithMapping, WithHeadings, ShouldA
             $worker->approve_chiled == 1  ?'yes' : 'no',
             $worker->is_coocked == 1  ?'yes' : 'no',
             $worker->city,
-            $worker->url_sand,
+            // $worker->url_sand,
             $worker->company_name_external,
             $worker->company_co_register_external,
             asset('uploads/'.$worker->image),
