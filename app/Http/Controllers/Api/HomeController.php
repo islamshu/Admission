@@ -466,9 +466,7 @@ class HomeController extends BaseController
             return $this->sendError('Phone number already exists'); 
         }
         $user->name = $request->name;
-        if($request->password != null){
-            $user->password = Hash::make($request->password) ;
-        }
+        
         $user->save();
         return $this->sendResponse($user,'update profile');
     }
