@@ -75,8 +75,24 @@ class WorkerController extends Controller
     {
         $worker = Worker::find($request->worker_id);
         $worker->status = $request->status;
+        if($request->status == 1){
+            $worker->is_quick = 1;
+            $worker->time =null;
+            $worker->save();
+        }elseif($request->status == 2){
+            $worker->is_quick = 0;
+            $worker->save();
+        }
         $worker->save();
         return response()->json(['status' => true]);
+    }
+    public function update_month_worker(Request $request)
+    {
+        $worker = Worker::findOrFail($request->worker_id);
+        $worker->time = $request->time;
+        $worker->save();
+    
+        return response()->json(['message' => 'Worker time updated successfully.']);
     }
     public function updateStatus(Request $request)
 {

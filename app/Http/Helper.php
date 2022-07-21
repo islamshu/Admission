@@ -40,7 +40,7 @@ if ( ! function_exists('get_social'))
 if (!function_exists('generateNumber')) {
     function generateNumber()
     {
-        $number = mt_rand(0000, 9999); // better than rand()
+        $number = mt_rand(1111, 9999); // better than rand()
 
         // call the same function if the barcode exists already
         if (CodeNumberExists($number)) {
@@ -66,7 +66,7 @@ if (!function_exists('generateNumber')) {
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
         // generate a pin based on 2 * 7 digits + a random character
-        $pin = mt_rand(1000000, 9999999)
+        $pin = mt_rand(1111111, 9999999)
 
             . $characters[rand(0, strlen($characters))] . mt_rand(00, 11);
 
@@ -102,6 +102,21 @@ if (!function_exists('generateNumber')) {
 
         }
     }
+    function worker_status_id_new($worker)
+    {
+        
+        if ($worker->status == 0) {
+            return 0;
+        }else{
+            if($worker->is_quick == 1){
+                return 1;
+            }else{
+                return 2;
+            }
+
+        }
+    }
+
     function slug_worker($worker){
         if ($worker->status == 0) {
             return 'busy';
