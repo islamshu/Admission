@@ -233,7 +233,7 @@ class HomeController extends BaseController
         $user->save();
             return $this->sendResponse( $user->otp, trans('company login'));
         }else{
-            return $this->sendError('not found Company');
+            return $this->sendErrornew('not found Company');
         }
     }
     public function check_otp_new_company(Request $request){
