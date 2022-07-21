@@ -51,6 +51,11 @@ return [
             'provider' => 'clients',
             'hash' => false,
         ],
+        'company' => [
+            'driver' => 'passport',
+            'provider' => 'users',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -80,6 +85,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Client::class,
         ],
+       
     ],
 
     /*

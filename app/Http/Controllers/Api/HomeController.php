@@ -217,16 +217,116 @@ class HomeController extends BaseController
     }
     public function check_otp_new(Request $request){
         $user = Client::where('phone',$request->phone)->where('otp',$request->otp)->first();
-        $user->otp = null;
-        $user->save();
         if($user){
+            $user->otp = null;
+            $user->save();
             $user['token'] = $user->createToken('Personal Access Token')->accessToken;
             return $this->sendResponse($user, trans('user login'));
         }else{
             return $this->sendError('not found user');
-  
         }
+    }
+    public function new_login_company(Request $request){
+        $user = User::where('phone',$request->phone)->first();
+        if($user){
+        $user->otp = generateNumber();
+        $user->save();
+            return $this->sendResponse( $user->otp, trans('company login'));
+        }else{
+            return $this->sendError('not found Company');
+        }
+    }
+    public function check_otp_new_company(Request $request){
+        if($request->otp == null){
+            return $this->sendError('you need to pass OTP');
+        }
+        $user = User::where('phone',$request->phone)->where('otp',$request->otp)->first();
+        if($user){
+            $user->otp = null;
+            $user->save();
+            $user['token'] = $user->createToken('Personal Access Token')->accessToken;
+            return $this->sendResponse($user, trans('company login'));
+        }else{
+            return $this->sendError('not found company');
+        }
+    }
+    public function get_all_worker(){
+        $comapny = User::find(auth('company')->id());
+        if($comapny->hasRole('Company')){
+            $camp = Worker::query()->where('is_show',1)->has('company')->whereHas('company', function ($q) use ($comapny) {
+                $q->where('id', $comapny->company->id);
+            })->get();
+            return WorkerResource::collection($camp);
+        }else{
+            return $this->sendError('you are not comapny');
 
+        }
+     
+    }
+    public function store_worker(Request $request){
+        if(auth('company')->user() == null){
+            return $this->sendError('you are not comapny');
+        }
+        $worker = new Worker();
+        $worker->name = $request->name;
+        $worker->image = $request->image->store('worker');
+        if ($request->video != null) {
+
+            $resizedVideo = cloudinary()->uploadVideo($request->file('video')->getRealPath(), [
+                'folder' => 'uploads',
+                'transformation' => [
+                    'width' => 375,
+                    'height' => 650
+                ]
+            ])->getSecurePath();
+            $worker->video = $resizedVideo;
+        }
+        $worker->nationality_id = $request->nationality_id;
+        
+        $worker->company_id =  auth('company')->user()->company->id;
+
+        $worker->age = $request->age;
+        $worker->experience = $request->experience;
+        $worker->in_sa = $request->is_experience_in_sa;
+        $worker->language = ($request->language);
+        $worker->religion = $request->religion;
+        $worker->approve_chiled = $request->approve_chiled;
+        $worker->is_coocked = $request->is_coocked;
+        $worker->is_quick = $request->is_quick_for_booking;
+        $worker->time = $request->time;
+        $worker->url_sand = $request->url_sand;
+        $worker->city = $request->city;
+        $worker->visa_number = $request->visa_number;
+        $worker->description_ar = $request->description_ar;
+        $worker->description_en = $request->description_en;
+        $worker->company_name_external = $request->company_name_external;
+        $worker->company_co_register_external = $request->company_co_register_external;
+        if(auth('company')->user()->company->status == 1){
+            $worker->status =1;
+        }else{
+            $worker->status =0;
+        }
+        $worker->save();
+        return $this->sendResponse(new WorkerResource($worker), trans('worker created'));
+    }
+    public  function check_booking($id)
+    {
+        $last_booking = Booking::where('user_id',auth('client_api')->id())->where('worker_id',$id)->orderBy('id', 'DESC')->first();
+        if($last_booking){
+            if($last_booking->status == 1){
+                $status['id'] = 1;
+                $status['status'] = trans('Done');
+            }elseif($last_booking->status == 2){
+                $status['id'] = 2;
+                $status['status'] = trans('in progress order');
+            }elseif($last_booking->status == 0){
+                $status['id'] = 0;
+                $status['status'] = trans('Reject');
+            }
+            return $this->sendResponse($status, trans('worker created'));
+        }else{
+            return $this->sendError('not found booking');
+        }
     }
     public function request_worker(Request $request)
     {
@@ -236,7 +336,6 @@ class HomeController extends BaseController
 
         }
         // return($request);
-        // dd(auth('client_api')->id());
 
         $worker = Worker::find($request->worker_id);
        $status= worker_status_id($worker);

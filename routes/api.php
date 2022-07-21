@@ -46,10 +46,16 @@ Route::get('delete_my_order_unavilable/{id}','Api\HomeController@delete_my_order
 
 Route::post('new_login_or_register','Api\HomeController@new_login');
 Route::post('check_otp_new','Api\HomeController@check_otp_new');
-
+Route::post('login_company','Api\HomeController@new_login_company');
+Route::post('check_otp_company','Api\HomeController@check_otp_new_company');
+Route::get('get_all_worker','Api\HomeController@get_all_worker');
 Route::get('logout','Api\HomeController@logout');
 Route::post('update_profile','Api\HomeController@update_profile');
 Route::get('my_profile','Api\HomeController@my_profile');
+Route::post('store_worker','Api\HomeController@store_worker');
+Route::get('check_booking/{id}','Api\HomeController@check_booking');
+
+
 
 
 });
