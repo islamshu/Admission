@@ -55,6 +55,7 @@ Route::get('my_profile','Api\HomeController@my_profile');
 Route::post('store_worker','Api\HomeController@store_worker');
 Route::get('check_booking/{id}','Api\HomeController@check_booking');
 
+Route::get('booking/{id}','Api\HomeController@booking_id');
 
 
 

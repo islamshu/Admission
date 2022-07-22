@@ -250,6 +250,7 @@ class HomeController extends BaseController
             return $this->sendError('not found company');
         }
     }
+    
     public function get_all_worker(){
         $comapny = User::find(auth('company')->id());
         if($comapny->hasRole('Company')){
@@ -308,6 +309,17 @@ class HomeController extends BaseController
         }
         $worker->save();
         return $this->sendResponse(new WorkerResource($worker), trans('worker created'));
+    }
+    public function booking_id($id)
+    {
+        $booking = Booking::find($id);
+        if($booking){
+            return $this->sendResponse(new BookingResoure($booking), trans('bookings detiles'));
+        }else{
+            return $this->sendErrornew('not found booking');
+    
+        }
+
     }
     public  function check_booking($id)
     {
