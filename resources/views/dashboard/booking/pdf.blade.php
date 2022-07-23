@@ -60,9 +60,9 @@
                
                 
                 
-                <th>
+                {{-- <th>
                     محذوف ؟  
-              </th>
+              </th> --}}
                 
 
                 <th>
@@ -102,7 +102,7 @@
             @foreach ($bookings as $booking)
                 <tr>
 
-                    <td>{{$booking->deleted_at == null  ? 'لا' : 'نعم'}}</td>
+                    {{-- <td>{{$booking->deleted_at == null  ? 'لا' : 'نعم'}}</td> --}}
 
                     <td> {{ $booking->visa_number }}</td>
                     <td>{{ $booking->id_number }}</td>
