@@ -108,8 +108,8 @@
                     <td> {{ $booking->DOB }}</td>
                     <td> {{ $booking->phone }}</td>
                     <td>{{ @$booking->worker->name }}</td>
-                    <td>{{ $booking->order_id }}</td>
                     <td>{{ $booking->name }}</td>
+                    <td>{{ $booking->order_id }}</td>
 
 
                 </tr>
