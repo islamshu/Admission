@@ -77,7 +77,7 @@ table#t01 th {
       <td style="text-align: right"> {{ (get_lang_worker( $worker->language))  }}</td>
       <td style="text-align: right">{{ $worker->experience }} </td>
       <td style="text-align: right"> {{ $worker->age }} </td>
-      <td style="text-align: center"> {{ worker_status($worker) }}</td>
+      <td style="text-align: right"> {{ worker_status($worker) }}</td>
       <td style="text-align: right">{{ $worker->natonality->name }}</td>
       <td style="text-align: right">{{ $worker->company->name }}</td>
       <td style="text-align: right">{{ $worker->name }}</td>
