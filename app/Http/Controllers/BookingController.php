@@ -132,8 +132,7 @@ class BookingController extends Controller
         return $pdf->download('booking.pdf');
     }
     public function pdf_view($id){
-      $booking = Booking::find($id);  
-      dd($booking);
+      $booking = Booking::withTrashed()->find($id);  
       $pdf = PDF::loadView('dashboard.booking.pdf_one', compact('booking'));
       return $pdf->download('booking.pdf');
     }
