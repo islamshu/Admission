@@ -60,14 +60,16 @@
                
                 
                 
-
-
+                <th>
+                    محذوف ؟  
+              </th>
+                
 
                 <th>
-                    رقم الجواز او الاقامة
+                      رقم الجواز 
                 </th>
                 <th>
-                    رقم الهوية الخاص بالعميل
+                    رقم هوية العميل  
                 </th>
                 <th>
                     الحالة
@@ -100,6 +102,7 @@
             @foreach ($bookings as $booking)
                 <tr>
 
+                    <td>{{$booking->deleted_at == null  ? 'لا' : 'نعم'}}</td>
 
                     <td> {{ $booking->visa_number }}</td>
                     <td>{{ $booking->id_number }}</td>
