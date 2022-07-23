@@ -41,11 +41,11 @@ table#t01 th {
     
    
 
-        <th style="width: 10%">
+        <th style="width: 12%">
             الديانة
     </th>
 
-    <th style="width: 17%">
+    <th style="width: 15%">
         اللغات
     </th>
     <th style="width: 9%">
@@ -60,7 +60,7 @@ table#t01 th {
     <th style="width: 11%">
         الجنسية
     </th>
-    <th style="width: 10%">
+    <th style="width: 12%">
         اسم المكتب
    </th>
    <th style="width: 10%">
