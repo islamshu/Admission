@@ -73,14 +73,14 @@ table#t01 th {
   @foreach ($workers as $worker)
   <tr>
       
-      <td>{{ __($worker->religion) }}</td>
+      <td style="text-align: right">{{ __($worker->religion) }}</td>
       <td style="text-align: right"> {{ (get_lang_worker( $worker->language))  }}</td>
-      <td>{{ $worker->experience }} </td>
-      <td> {{ $worker->age }} </td>
+      <td style="text-align: right">{{ $worker->experience }} </td>
+      <td style="text-align: right"> {{ $worker->age }} </td>
       <td style="text-align: center"> {{ worker_status($worker) }}</td>
-      <td>{{ $worker->natonality->name }}</td>
-      <td>{{ $worker->company->name }}</td>
-      <td>{{ $worker->name }}</td>
+      <td style="text-align: right">{{ $worker->natonality->name }}</td>
+      <td style="text-align: right">{{ $worker->company->name }}</td>
+      <td style="text-align: right">{{ $worker->name }}</td>
 
   </tr>
 @endforeach
