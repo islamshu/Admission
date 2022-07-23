@@ -119,11 +119,17 @@ if (!function_exists('generateNumber')) {
     function get_lang_worker($data){
         $langs=  json_decode($data);
         $array = array();
-        foreach($langs as $a){
-          array_push($array,trans($a));
+        foreach($langs as $key =>$a){
+            $lan[$key]=trans($a);
+        //   array_push($array,trans($a));
         }
-        return json_encode( $array, JSON_UNESCAPED_UNICODE );
+        $lann = json_encode( $lan, JSON_UNESCAPED_UNICODE );
+        $res = preg_replace('/[[0-9\@\.\;\" "[]+/', '', $lann);
+       $res= str_replace(']', '', $res);
+        return $res;
+        
 
+        // return json_encode($lan);
   
       }
 

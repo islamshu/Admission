@@ -39,33 +39,31 @@ table#t01 th {
     <tr>
         
     
-    <th>
-        المدينة
+   
+
+        <th style="width: 10%">
+            الديانة
     </th>
 
-    <th>
-        الديانة
-    </th>
-
-    <th>
+    <th style="width: 17%">
         اللغات
     </th>
-    <th>
-        الخبرة
+    <th style="width: 8%">
+        خبرة
     </th>
-    <th>
+    <th style="width: 8%">
         العمر
     </th>
-    <th>
+    <th style="width: 15%">
         الحالة
     </th>
-    <th>
+    <th style="width: 10%">
         الجنسية
     </th>
-    <th>
-        مكتب الاستقدام
+    <th style="width: 10%">
+        اسم المكتب
    </th>
-   <th>
+   <th style="width: 10%">
     اسم العاملة
 </th>
 
@@ -75,12 +73,11 @@ table#t01 th {
   @foreach ($workers as $worker)
   <tr>
       
-      <td> {{ $worker->city }}</td>
       <td>{{ __($worker->religion) }}</td>
-      <td> {{ (get_lang_worker( $worker->language))  }}</td>
-      <td>{{ $worker->experience }} {{ trans(' years') }}</td>
-      <td> {{ $worker->age }} {{ trans(' years') }}</td>
-      <td> {{ worker_status($worker) }}</td>
+      <td style="text-align: right"> {{ (get_lang_worker( $worker->language))  }}</td>
+      <td>{{ $worker->experience }} </td>
+      <td> {{ $worker->age }} </td>
+      <td style="text-align: center"> {{ worker_status($worker) }}</td>
       <td>{{ $worker->natonality->name }}</td>
       <td>{{ $worker->company->name }}</td>
       <td>{{ $worker->name }}</td>
