@@ -48,13 +48,13 @@ table#t01 th {
     <th style="width: 17%">
         اللغات
     </th>
-    <th style="width: 8%">
+    <th style="width: 9%">
         خبرة
     </th>
-    <th style="width: 8%">
+    <th style="width: 9%">
         العمر
     </th>
-    <th style="width: 14%">
+    <th style="width: 12%">
         الحالة
     </th>
     <th style="width: 11%">
