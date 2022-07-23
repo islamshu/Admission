@@ -133,6 +133,7 @@ class BookingController extends Controller
     }
     public function pdf_view($id){
       $booking = Booking::find($id);  
+      dd($booking);
       $pdf = PDF::loadView('dashboard.booking.pdf_one', compact('booking'));
       return $pdf->download('booking.pdf');
     }
