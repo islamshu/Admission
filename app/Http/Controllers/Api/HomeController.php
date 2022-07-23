@@ -312,9 +312,12 @@ class HomeController extends BaseController
     }
     public function booking_id($id)
     {
-        $booking = Booking::find($id);
+        $booking = Booking::where('user_id',auth('client_api')->id())->where('worker_id',$id)->orderBy('id', 'DESC')->first();
         if($booking){
-            return $this->sendResponse(new BookingResoure($booking), trans('bookings detiles'));
+            $result['worker']= new WorkerResource(Worker::find($id));
+            $result['order']= new BookingResoure($booking);
+            $response = ['success' => true , 'data' => $result, 'message' =>  trans('bookings detiles')];
+            return response()->json($response , 200);
         }else{
             return $this->sendErrornew('not found booking');
     
