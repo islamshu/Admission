@@ -54,10 +54,10 @@ table#t01 th {
     <th style="width: 8%">
         العمر
     </th>
-    <th style="width: 15%">
+    <th style="width: 14%">
         الحالة
     </th>
-    <th style="width: 10%">
+    <th style="width: 11%">
         الجنسية
     </th>
     <th style="width: 10%">
