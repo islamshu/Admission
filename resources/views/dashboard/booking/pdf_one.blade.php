@@ -111,7 +111,7 @@
 								</td>
 
 								<td>
-									{{ __('Order ID') }} : #{{ $booking->order_id }}<br /><br /><br />
+									{{ __('Order ID') }} : #{{ @$booking->order_id }}<br /><br /><br />
 									{{ __('Created at') }}: {{ $booking->created_at->format('Y-m-d') }}<br />
 								</td>
 							</tr>
