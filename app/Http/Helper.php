@@ -116,6 +116,16 @@ if (!function_exists('generateNumber')) {
 
         }
     }
+    function get_lang_worker($data){
+        $langs=  json_decode($data);
+        $array = array();
+        foreach($langs as $a){
+          array_push($array,trans($a));
+        }
+        return json_encode( $array, JSON_UNESCAPED_UNICODE );
+
+  
+      }
 
     function slug_worker($worker){
         if ($worker->status == 0) {

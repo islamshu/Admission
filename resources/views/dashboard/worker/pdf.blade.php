@@ -1,76 +1,98 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <style>
-        *{
-            text-align: center
-        }
-        table,
-        th,
-        td {
-            border: 1px solid;
-        }
-    </style>
+<style>
+    *{
+        direction: rtl
+    }
+table {
+  width:100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+table#t01 th {
+  background-color: black;
+  color: white;
+}
+.center{
+    text-align: center
+}
+</style>
 </head>
-
 <body>
-    <h5>العاملات</h5>
 
-    <table class="container" style="width: 100%;">
-        <thead>
-            <tr>
-                <th>
-                    <h5>اسم العاملة</h5>
-                </th>
-                <th>
-                    <h5> مكتب الاستقدام</h5>
-                </th>
-                <th>
-                    <h5>الجنسية</h5>
-                </th>
-                <th>
-                    <h5>الحالة</h5>
-                </th>
-                <th>
-                    <h5>العمر</h5>
-                </th>
-                <th>
-                    <h5>الخبرة</h5>
-                </th>
-                <th>
-                    <h5>اللغات</h5>
-                </th>
-                <th>
-                    <h5>الديانة</h5>
-                </th>
+<h2 class="center">	<img src="https://workers.foryougo.net/uploads/general/PwsoWpkahkzTTiLtkFQRKzwOLPCKs1Uo7BTwjtt3.jpg" width="150" height="100"  /></h2>
+<h2 class="center">العاملات</h2>
+<table id="t01">
+    <tr>
+        
+    
+    <th>
+        المدينة
+    </th>
 
-                <th>
-                    <h5>المدينة</h5>
-                </th>
+    <th>
+        الديانة
+    </th>
 
-            </tr>
-        </thead>
-        <tbody>
+    <th>
+        اللغات
+    </th>
+    <th>
+        الخبرة
+    </th>
+    <th>
+        العمر
+    </th>
+    <th>
+        الحالة
+    </th>
+    <th>
+        الجنسية
+    </th>
+    <th>
+        مكتب الاستقدام
+   </th>
+   <th>
+    اسم العاملة
+</th>
 
-            @foreach ($workers as $worker)
-                <tr>
-                    <td>{{ $worker->name }}</td>
-                    <td>{{ $worker->company->name }}</td>
-                    <td>{{ $worker->natonality->name }}</td>
-                    <td> {{ worker_status($worker) }}</td>
-                    <td> {{ $worker->age }}</td>
-                    <td>{{ $worker->experience }}</td>
-                    <td> {{ $worker->language }}</td>
-                    <td>{{ $worker->religion }}</td>
+    
 
-                    <td> {{ $worker->city }}</td>
+  </tr>
+  @foreach ($workers as $worker)
+  <tr>
+      
+      <td> {{ $worker->city }}</td>
+      <td>{{ __($worker->religion) }}</td>
+      <td> {{ (get_lang_worker( $worker->language))  }}</td>
+      <td>{{ $worker->experience }} {{ trans(' years') }}</td>
+      <td> {{ $worker->age }} {{ trans(' years') }}</td>
+      <td> {{ worker_status($worker) }}</td>
+      <td>{{ $worker->natonality->name }}</td>
+      <td>{{ $worker->company->name }}</td>
+      <td>{{ $worker->name }}</td>
 
-                </tr>
-            @endforeach
+  </tr>
+@endforeach
+ 
+ 
+</table>
+<br>
 
-        </tbody>
-    </table>
+
+
 </body>
-
 </html>
