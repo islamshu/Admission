@@ -109,6 +109,7 @@
 								<td class="title">
 									<img src="https://workers.foryougo.net/uploads/general/PwsoWpkahkzTTiLtkFQRKzwOLPCKs1Uo7BTwjtt3.jpg" width="150" height="100"  />
 								</td>
+								{{ dd($booking) }}
 
 								<td>
 									{{ __('Order ID') }} : #{{ @$booking->order_id }}<br /><br /><br />
