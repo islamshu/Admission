@@ -73,8 +73,6 @@ class WorkerResource extends JsonResource
     }
     function check_my_booked($data){
         if(auth('client_api')->id() != null){
-
-        
             $last_booking = Booking::where('user_id',auth('client_api')->id())->where('worker_id',$data->id)->orderBy('id', 'DESC')->first();
             $worker = Worker::find($data->id);
             $status=worker_status_id($worker);
@@ -93,6 +91,7 @@ class WorkerResource extends JsonResource
          }
         }else{
             return 1;
+        }
     
 
     }
