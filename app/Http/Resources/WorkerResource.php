@@ -85,6 +85,9 @@ class WorkerResource extends JsonResource
             }else{
                 return 0;
             }
+        }else{
+            return 0;
+ 
         }
         }else{
             return 1;
