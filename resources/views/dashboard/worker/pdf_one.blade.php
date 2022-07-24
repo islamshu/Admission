@@ -156,7 +156,7 @@
                 <tr class="details">
 					<td>{{  $worker->in_sa == 1   ?  'نعم': 'لا'}}</td>
 
-					<td>هل الخبرات داخل السعودية ام لا?    </td>
+					<td>هل الخبرات داخل السعودية ام لا ؟    </td>
 				</tr>
                
                 <tr class="details">
@@ -176,12 +176,12 @@
                 <tr class="details">
 					<td>{{  $worker->approve_chiled == 1  ?  'نعم': 'لا'}}</td>
 
-					<td>هل تتقبل الأطفال</td>
+					<td>هل تتقبل الأطفال ؟</td>
 				</tr>
                 <tr class="details">
 					<td>{{  $worker->is_coocked == 1 ?  'نعم': 'لا'}}</td>
 
-					<td>هل تجيد الطهي ?</td>
+					<td>هل تجيد الطهي ؟   </td>
 				</tr>
                 <tr class="details">
 					<td>{{   $worker->city}}</td>
