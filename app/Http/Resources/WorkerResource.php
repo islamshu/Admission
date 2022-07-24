@@ -93,7 +93,7 @@ class WorkerResource extends JsonResource
          }
         }else{
             return 1;
-    }
+    
 
     }
     function get_lang($data){
