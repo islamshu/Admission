@@ -187,14 +187,11 @@
     "months": "months",
     "is deleted": "is deleted",
     " years": "years ",
-
+    "user login": "User Login",
+    "company login": "Company Login",
+    "error OTP": "error OTP",
+    "not found Company": "not found Company",
     "company name external": "company name external",
     "company commercial register external": "company name external",
     "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters": "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-
-
-
-
-
-
 }

@@ -233,7 +233,8 @@ class HomeController extends BaseController
         $user->save();
             return $this->sendResponse( $user->otp, trans('company login'));
         }else{
-            return $this->sendErrornew('not found Company');
+           
+            return $this->sendErrornew( trans('not found Company'));
         }
     }
     public function check_otp_new_company(Request $request){
@@ -247,7 +248,7 @@ class HomeController extends BaseController
             $user['token'] = $user->createToken('Personal Access Token')->accessToken;
             return $this->sendResponse($user, trans('company login'));
         }else{
-            return $this->sendError('not found company');
+            return $this->sendError( trans('error OTP'));
         }
     }
     
