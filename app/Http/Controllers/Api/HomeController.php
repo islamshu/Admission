@@ -38,6 +38,7 @@ use App\Vistor;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Mpdf\Tag\Tr;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class HomeController extends BaseController
 {
@@ -320,7 +321,7 @@ class HomeController extends BaseController
             $response = ['success' => true , 'data' => $result, 'message' =>  trans('bookings detiles')];
             return response()->json($response , 200);
         }else{
-            return $this->sendErrornew('not found booking');
+            return $this->sendErrornew(trans('not found booking'));
     
         }
 
@@ -341,7 +342,7 @@ class HomeController extends BaseController
             }
             return $this->sendResponse($status, trans('worker created'));
         }else{
-            return $this->sendErrornew('not found booking');
+            return $this->sendErrornew(trans('not found booking'));
         }
     }
     public function request_worker(Request $request)
@@ -540,21 +541,21 @@ class HomeController extends BaseController
     public function delete_my_order($id){
         $booking = Booking::find($id);
         if(!$booking){
-            return $this->sendErrornew('not found booking');
+            return $this->sendErrornew(trans('not found booking'));
         }
         if($booking->status == 1){
             return $this->sendErrornew('The request cannot be deleted because the request is accepted');
         }
         $booking->delete();
-        return $this->sendResponse('deleted','booking deleted');
+        return $this->sendResponse('deleted',trans('booking deleted'));
     }
     public function delete_my_order_unavilable($id){
         $booking = BusyWorker::find($id);
         if(!$booking){
-            return $this->sendErrornew('not found booking');
+            return $this->sendErrornew(trans('not found booking'));
         }
         $booking->delete();
-        return $this->sendResponse('deleted','booking unavilable deleted');
+        return $this->sendResponse('deleted',trans('booking unavilable deleted'));
     }
     public  function logout()
     {
