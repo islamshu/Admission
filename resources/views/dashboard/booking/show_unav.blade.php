@@ -53,6 +53,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>@lang('Phone')</th>
+                                            <th>@lang('Created at')</th>
                                           
                                         </tr>
                                     </thead>
@@ -62,7 +63,8 @@
                                         <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $company->phone }}</td>
-                                       
+                                        <td>{{ $company->created_at->format('Y-m-d') }}</td>
+
                                         </tr>
                                         @endforeach
                                     </tbody>

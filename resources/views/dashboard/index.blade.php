@@ -565,7 +565,7 @@
                                             <td>{{ $book->order_id }}</td>
                                             <td>{{ @$client->name }}</td>
                                             <td>{{ $book->id_number }}</td>
-                                            <td> <a>{{ $book->worker->name }}</a>
+                                            <td> <a>{{ @$book->worker->name }}</a>
                                             </td>
                                             <td>{{ $book->created_at->format('Y-m-d') }}</td>
                                             <td>

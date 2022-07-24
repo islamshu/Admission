@@ -139,7 +139,7 @@
 					<td> رقم جواز السفر </td>
 				</tr>
 				<tr class="details">
-					<td>{{ $worker->natonality->title }}</td>
+					<td>{{ $worker->natonality->name }}</td>
 
 					<td>الجنسية  </td>
 				</tr>
@@ -188,16 +188,20 @@
 
 					<td>المدينة</td>
 				</tr>
+				@if($worker->company_name_external != null)
 				<tr class="details">
 					<td>{{  ($worker->company_name_external)}}</td>
 
 					<td>@lang('company name external')</td>
 				</tr>
+				@endif
+				@if($worker->company_co_register_external != null)
 				<tr class="details">
 					<td>{{  ($worker->company_co_register_external)}}</td>
 
 					<td>@lang('company commercial register external')</td>
 				</tr>
+				@endif
 
 
 		

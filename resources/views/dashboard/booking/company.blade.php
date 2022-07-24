@@ -164,7 +164,7 @@ table.dataTable thead .sorting_desc_disabled:before {
                                         <td>{{ $book->order_id }}</td>
                                         <td>{{ @$client->name }}</td>
 
-                                        <td> <a >{{ $book->worker->name }}</a></td>                  
+                                        <td> <a >{{ @$book->worker->name }}</a></td>                  
 
                                         <td>{{  @$client->phone }}</td>
                                         <td>{{ $book->DOB }}</td>
