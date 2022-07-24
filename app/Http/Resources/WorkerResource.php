@@ -41,6 +41,7 @@ class WorkerResource extends JsonResource
             'external_comapny_name'=>$this->company_name_external,
             'external_comapny_commical_register'=>$this->company_co_register_external,
             'is_able_to_booked'=>$this->check_booked($this),
+            'is_booked_from_me'=>$this->check_my_booked($this),
             'visitor'=>$this->visitor_count->count(),
             'compnay'=> new CopmainsResource(@$this->company)
 
@@ -69,6 +70,29 @@ class WorkerResource extends JsonResource
      }
     }else{
         return 0;
+    }
+    function check_my_booked($data){
+        if(auth('client_api')->id() != null){
+
+        
+            $last_booking = Booking::where('user_id',auth('client_api')->id())->where('worker_id',$data->id)->orderBy('id', 'DESC')->first();
+            $worker = Worker::find($data->id);
+            $status=worker_status_id($worker);
+            if($last_booking){
+            if(($status == 1 || $status==2) && $last_booking->status == 0 ){
+                return 0;
+            }else{
+                return 1;
+            }
+         }else{
+            if($status == 1  || $status==2){
+                return 1;
+            }else{
+                return 0;
+            }
+         }
+        }else{
+            return 1;
     }
 
     }
