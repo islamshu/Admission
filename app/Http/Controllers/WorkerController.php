@@ -81,6 +81,7 @@ class WorkerController extends Controller
             $worker->save();
         }elseif($request->status == 2){
             $worker->is_quick = 0;
+            $worker->time =1;
             $worker->save();
         }
         $worker->save();
