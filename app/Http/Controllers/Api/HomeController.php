@@ -223,7 +223,7 @@ class HomeController extends BaseController
             $user['token'] = $user->createToken('Personal Access Token')->accessToken;
             return $this->sendResponse($user, trans('user login'));
         }else{
-            return $this->sendError('not found user');
+            return $this->sendErrornew('not found user');
         }
     }
     public function new_login_company(Request $request){
@@ -239,7 +239,7 @@ class HomeController extends BaseController
     }
     public function check_otp_new_company(Request $request){
         if($request->otp == null){
-            return $this->sendError('you need to pass OTP');
+            return $this->sendErrornew('you need to pass OTP');
         }
         $user = User::where('phone',$request->phone)->where('otp',$request->otp)->first();
         if($user){
@@ -248,7 +248,7 @@ class HomeController extends BaseController
             $user['token'] = $user->createToken('Personal Access Token')->accessToken;
             return $this->sendResponse($user, trans('company login'));
         }else{
-            return $this->sendError( trans('error OTP'));
+            return $this->sendErrornew( trans('error OTP'));
         }
     }
     
@@ -260,14 +260,14 @@ class HomeController extends BaseController
             })->get();
             return WorkerResource::collection($camp);
         }else{
-            return $this->sendError('you are not comapny');
+            return $this->sendErrornew('you are not comapny');
 
         }
      
     }
     public function store_worker(Request $request){
         if(auth('company')->user() == null){
-            return $this->sendError('you are not comapny');
+            return $this->sendErrornew('you are not comapny');
         }
         $worker = new Worker();
         $worker->name = $request->name;
@@ -341,14 +341,14 @@ class HomeController extends BaseController
             }
             return $this->sendResponse($status, trans('worker created'));
         }else{
-            return $this->sendError('not found booking');
+            return $this->sendErrornew('not found booking');
         }
     }
     public function request_worker(Request $request)
     {
         $user = auth('client_api')->user();
         if($user == null){
-            return $this->sendError('you need to login');
+            return $this->sendErrornew('you need to login');
 
         }
         // return($request);
@@ -452,7 +452,7 @@ class HomeController extends BaseController
     public function register(Request $request){
         $client = Client::where('phone',$request->phone)->first();
         if($client){
-            return $this->sendError('this phone alredy in this system');
+            return $this->sendErrornew('this phone alredy in this system');
         }else{
             $client = new Client();
             $client->phone = $request->phone;
@@ -467,7 +467,7 @@ class HomeController extends BaseController
         $client = Client::where('phone',$request->phone)->first();
         if($client){
             if($client->is_verify == 0){
-                return $this->sendError('you need to verfiy your account');
+                return $this->sendErrornew('you need to verfiy your account');
 
             }
             if(Hash::check($request->password, $client->password)) {
@@ -479,10 +479,10 @@ class HomeController extends BaseController
 
 
             } else {
-                return $this->sendError('Your password not matched in our records');
+                return $this->sendErrornew('Your password not matched in our records');
             }
         }else{
-            return $this->sendError('not found user');
+            return $this->sendErrornew('not found user');
 
         }
     }
@@ -499,7 +499,7 @@ class HomeController extends BaseController
             return $this->sendResponse($client, trans('OTP successfully'));
 
         }else{
-            return $this->sendError('Not found Otp');
+            return $this->sendErrornew('Not found Otp');
         }
 
     }
@@ -510,14 +510,14 @@ class HomeController extends BaseController
            $client->save();
            return $client;
         }else{
-            return $this->sendError('Not found user');
+            return $this->sendErrornew('Not found user');
         }
 
     }
     public function my_order(){
         $user = auth('client_api')->user();
         if($user == null){
-            return $this->sendError('you need to login');
+            return $this->sendErrornew('you need to login');
 
         }
         $client = Client::find(auth('client_api')->id());
@@ -529,7 +529,7 @@ class HomeController extends BaseController
     {
         $user = auth('client_api')->user();
         if($user == null){
-            return $this->sendError('you need to login');
+            return $this->sendErrornew('you need to login');
 
         }
         $booking = BusyWorker::where('user_id',auth('client_api')->id())->get();
@@ -540,10 +540,10 @@ class HomeController extends BaseController
     public function delete_my_order($id){
         $booking = Booking::find($id);
         if(!$booking){
-            return $this->sendError('not found booking');
+            return $this->sendErrornew('not found booking');
         }
         if($booking->status == 1){
-            return $this->sendError('The request cannot be deleted because the request is accepted');
+            return $this->sendErrornew('The request cannot be deleted because the request is accepted');
         }
         $booking->delete();
         return $this->sendResponse('deleted','booking deleted');
@@ -551,7 +551,7 @@ class HomeController extends BaseController
     public function delete_my_order_unavilable($id){
         $booking = BusyWorker::find($id);
         if(!$booking){
-            return $this->sendError('not found booking');
+            return $this->sendErrornew('not found booking');
         }
         $booking->delete();
         return $this->sendResponse('deleted','booking unavilable deleted');
@@ -560,7 +560,7 @@ class HomeController extends BaseController
     {
         $user = auth('client_api')->user();
         if($user == null){
-            return $this->sendError('you need to login');
+            return $this->sendErrornew('you need to login');
 
         }
         $user->tokens->each(function ($token, $key) {
@@ -576,11 +576,11 @@ class HomeController extends BaseController
     {
         $user = auth('client_api')->user();
         if($user == null){
-            return $this->sendError('you need to login');
+            return $this->sendErrornew('you need to login');
         }
         $userr = Client::where('phone',$request->phone)->where('id','!=',$user->id)->first();
         if($userr){
-            return $this->sendError('Phone number already exists'); 
+            return $this->sendErrornew('Phone number already exists'); 
         }
         $user->name = $request->name;
         
@@ -591,7 +591,7 @@ class HomeController extends BaseController
     {
         $user = auth('client_api')->user();
         if($user == null){
-            return $this->sendError('you need to login');
+            return $this->sendErrornew('you need to login');
         }
         
         return $this->sendResponse($user,'update profile');
