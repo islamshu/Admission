@@ -41,7 +41,7 @@ class WorkerResource extends JsonResource
             'external_comapny_name'=>$this->company_name_external,
             'external_comapny_commical_register'=>$this->company_co_register_external,
             'is_able_to_booked'=>$this->check_booked($this),
-            'is_booked_from_me'=>$this->check_my_booked($this),
+            // 'is_booked_from_me'=>$this->check_my_booked($this),
             'visitor'=>$this->visitor_count->count(),
             'compnay'=> new CopmainsResource(@$this->company)
 
@@ -71,10 +71,7 @@ class WorkerResource extends JsonResource
     }else{
         return 0;
     }
-    function check_my_booked($data){
-      
     
-
     }
     function get_lang($data){
       $langs=  json_decode($data->language);
