@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Booking;
+use App\BusyWorker;
 use App\Nationality;
 use App\Worker;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -26,6 +27,7 @@ class WorkerResource extends JsonResource
             'age'=>$this->age,
             'is_able_to_booked'=>$this->check_booked($this),
             'is_booked_from_me'=>$this->check_my_booked($this),
+            'is_unaviable_booked_from_me'=>$this->check_my_booked_unavalibel($this),
             'experience'=>$this->experience,
             'experience_in_Sa'=>$this->in_sa == 1 ? 'yes' : 'no',
             'language'=>$this->get_lang($this),
@@ -47,6 +49,18 @@ class WorkerResource extends JsonResource
             'compnay'=> new CopmainsResource(@$this->company)
 
         ];
+    }
+    function check_my_booked_unavalibel($data){
+        if(auth('client_api')->id() != null){
+        $busy = BusyWorker::where('user_id',auth('client_api')->id())->where('worker_id',$data->id)->first();
+        if($busy){
+            return 1;
+        }else{
+            return 0;
+        }
+    }else{
+        return 0;
+    }
     }
      function check_booked($data)
     {

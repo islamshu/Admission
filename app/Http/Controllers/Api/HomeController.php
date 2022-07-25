@@ -106,7 +106,7 @@ class HomeController extends BaseController
       
         $camp->when($request->admission_period != 0 , function ($q) use ($request) {
             if($request->admission_period_from || $request->admission_period_to){
-                return $q->whereBetween('is_quick',[$request->admission_period,$request->admission_period_to]);
+                return $q->whereBetween('time',[$request->admission_period_from,$request->admission_period_to]);
             }else{
                 return $q->where('is_quick',1);
             }
