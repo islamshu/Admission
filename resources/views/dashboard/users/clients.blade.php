@@ -79,11 +79,12 @@
                                         @if($count == 0)
                                         <td>{{ $count }}</td>
                                         @else
-                                        <td>{{ App\BusyWorker::where('user_id',$client->id)->count() }}</td>
                                         <td> <a href="{{ route('booking_clinet',$client->id) }}">{{ $count }}</a></td>
                                        
 
                                         @endif
+                                        <td>{{ App\BusyWorker::where('user_id',$client->id)->count() }}</td>
+
                                         <td><a href="{{ route('client_create.edit_client', $client->id) }}"
                                             class=""><i
                                                 class="btn btn-success fa fa-edit"></i></a>
