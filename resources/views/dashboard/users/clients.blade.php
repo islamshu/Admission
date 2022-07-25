@@ -74,7 +74,7 @@
                                         <td>{{ $client->phone }}</td>
                                         <td>{{ $client->name }}</td>
                                         @php
-                                            $count = App\Booking::where('user_id',$client->id)->count() ;
+                                            $count = App\Booking::withTrashed()->where('user_id',$client->id)->count() ;
                                         @endphp
                                         @if($count == 0)
                                         <td>{{ $count }}</td>
