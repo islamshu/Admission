@@ -156,7 +156,7 @@ table.dataTable thead .sorting_desc_disabled:before {
                                     <tbody>
 
                                         @foreach ($booking as $key => $book)
-                                        <tr>
+                                        <tr @if($book->deleted_at != null) style="background: #f09d9d; color: white;"@endif>
                                             @php
                                                 $client = App\Client::find($book->user_id);
                                             @endphp
@@ -173,7 +173,8 @@ table.dataTable thead .sorting_desc_disabled:before {
                                        <td>
                                             {{-- <label class="badge badge-{{ color($worker->status) }}">{{ worker_status($worker) }}</label> --}}
                                             {{-- <label for="" class="btn btn-success"> --}}
-                                            <select class="target btn" book_id="{{ $book->id }}" class="worker_status" id="worker_status_{{ $book->id }}" onchange="myFunction('{{ $book->id }}')"
+                                                @if($book->deleted_at != null)  _ @else 
+                                                <select class="target btn" book_id="{{ $book->id }}" class="worker_status" id="worker_status_{{ $book->id }}" onchange="myFunction('{{ $book->id }}')"
                                                 style="background:{{ get_color_new($book->status) }} "
                                                 data-id="{{ $book->id }}">
                                                 <option value="1" class="btn  btn-success"
@@ -185,7 +186,7 @@ table.dataTable thead .sorting_desc_disabled:before {
                                                 <option value="2" class="btn btn-warning "
                                                     @if ($book->status == 2) selected @endif>@lang('in progress order')</option>
                                             </select>
-
+                                            @endif
 
                                             {{-- </label> --}}
                                         </td>
