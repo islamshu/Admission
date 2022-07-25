@@ -212,6 +212,7 @@ class HomeController extends BaseController
             $user = new Client();
             $user->phone = $request->phone;
             $user->otp = generateNumber();
+            $user->type = 'user';
             $user->save();
             return $this->sendResponse( $user->otp, trans('user register'));
         }
@@ -245,6 +246,7 @@ class HomeController extends BaseController
         $user = User::where('phone',$request->phone)->where('otp',$request->otp)->first();
         if($user){
             $user->otp = null;
+            $user->type = 'company';
             $user->save();
             $user['token'] = $user->createToken('Personal Access Token')->accessToken;
             return $this->sendResponse($user, trans('company login'));

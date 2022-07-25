@@ -80,6 +80,7 @@ class CompanyController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->name = $request->name;
+        $user->type = 'company';
         // $user->show_password = generate_password();
         // $user->password = encrypt(generate_password()) ;
         $user->show_password = '123456789';
@@ -124,6 +125,8 @@ class CompanyController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->name = $request->name;
+        $user->type = 'company';
+
         // $user->show_password = generate_password();
         // $user->password = encrypt(generate_password()) ;
         $user->show_password = '123456789';

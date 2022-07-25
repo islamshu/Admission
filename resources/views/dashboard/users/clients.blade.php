@@ -61,6 +61,8 @@
                                             <th>@lang('Phone')</th>
                                             <th>@lang('Name')</th>
                                             <th>@lang('Number Of order')</th>
+                                            <th>@lang('Number Of busy order')</th>
+
                                             <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
@@ -77,6 +79,7 @@
                                         @if($count == 0)
                                         <td>{{ $count }}</td>
                                         @else
+                                        <td>{{ App\BusyWorker::where('user_id',$client->id)->count() }}</td>
                                         <td> <a href="{{ route('booking_clinet',$client->id) }}">{{ $count }}</a></td>
                                        
 
