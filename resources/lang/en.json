@@ -196,6 +196,7 @@
     "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters": "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
     "booking deleted": "booking deleted",
     "not found booking": "not found booking",
+    "Number Of busy order": "Number Of busy order",
     "booking unavilable deleted": "booking unavilable deleted"
 
 }
