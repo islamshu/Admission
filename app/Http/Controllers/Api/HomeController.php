@@ -357,7 +357,7 @@ class HomeController extends BaseController
         // return($request);
 
         $worker = Worker::find($request->worker_id);
-       $status= worker_status_id($worker);
+       $status= worker_status_id_new($worker);
         if ($status == 1 ||  $status == 2) {
 
             $booking = new Booking();
