@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<title>العاملات</title>
 <head>
     <style>
         * {

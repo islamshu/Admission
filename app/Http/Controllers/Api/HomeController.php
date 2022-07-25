@@ -310,7 +310,7 @@ class HomeController extends BaseController
             $worker->status =0;
         }
         $worker->save();
-        return $this->sendResponse(new WorkerResource($worker), trans('worker created'));
+        return $this->sendResponse(new WorkerResource($worker), trans('Addedd successfully '));
     }
     public function booking_id($id)
     {
@@ -569,7 +569,7 @@ class HomeController extends BaseController
             $token->delete();
         });
         $user->save();
-        return $this->sendResponse('logout','Logout susscefuly');
+        return $this->sendResponse('logout',trans('Logout'));
 
 
     }
@@ -586,7 +586,7 @@ class HomeController extends BaseController
         $user->name = $request->name;
         
         $user->save();
-        return $this->sendResponse($user,'update profile');
+        return $this->sendResponse($user,trans('Updated successfully'));
     }
     public function my_profile()
     {
@@ -595,7 +595,7 @@ class HomeController extends BaseController
             return $this->sendErrornew('you need to login');
         }
         
-        return $this->sendResponse($user,'update profile');
+        return $this->sendResponse($user,trans('Profile'));
     }
 
 }
