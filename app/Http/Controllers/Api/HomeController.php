@@ -546,7 +546,7 @@ class HomeController extends BaseController
             return $this->sendErrornew(trans('not found booking'));
         }
         if($booking->status == 1){
-            return $this->sendErrornew('The request cannot be deleted because the request is accepted');
+            return $this->sendErrornew(trans('The request cannot be deleted because the request is accepted'));
         }
         $booking->delete();
         return $this->sendResponse('deleted',trans('booking deleted'));

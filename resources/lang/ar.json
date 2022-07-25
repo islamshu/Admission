@@ -197,6 +197,8 @@
     "worker name": "اسم العاملة",
     "workers": "العاملات",
     "yes": "نعم",
-    "Number Of busy order": "عدد الحجوزات المعلقة"
+    "Number Of busy order": "عدد الحجوزات المعلقة",
+    "The request cannot be deleted because the request is accepted": "لا يمكنك حذف الطلب بعد قبوله !"
+
 
 }

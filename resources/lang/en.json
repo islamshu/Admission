@@ -197,6 +197,7 @@
     "booking deleted": "booking deleted",
     "not found booking": "not found booking",
     "Number Of busy order": "Number Of busy order",
+    "The request cannot be deleted because the request is accepted": "The request cannot be deleted because the request is accepted",
     "booking unavilable deleted": "booking unavilable deleted"
 
 }
