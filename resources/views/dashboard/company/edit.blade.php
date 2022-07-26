@@ -38,7 +38,7 @@
             
         </div>
         <br>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-6">
                 <label data-error="wrong" data-success="right" for="form2">@lang('Password')</label>
                 <input type="password" id="form2" name="password"  value=""
@@ -50,7 +50,7 @@
                     class="form-control validate">
             </div>
             
-        </div>
+        </div> --}}
         <div class="row">
             
             
