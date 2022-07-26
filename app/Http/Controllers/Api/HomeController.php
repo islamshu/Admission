@@ -81,6 +81,11 @@ class HomeController extends BaseController
            $camp->has('company')->whereHas('company', function ($q) {
             $q->where('status', 1)->where('deleted_at',null);
         });
+        
+        $camp->when($request->admission_period ==1 , function ($q) use ($request) {
+            return $q->whereBetween('time',[$request->admission_period_from,$request->admission_period_to]);
+            dd($q->get());
+        });
         $camp->when($request->nationality_id, function ($q) use ($request) {
             return $q->where('nationality_id', $request->nationality_id);
         });
@@ -104,9 +109,6 @@ class HomeController extends BaseController
             return $q->whereBetween('experience', [$request->experience_from, $request->experience_to]);
         });
       
-        $camp->when($request->admission_period ==1 , function ($q) use ($request) {
-            return $q->whereBetween('time',[$request->admission_period_from,$request->admission_period_to]);
-        });
         $camp->when($request->saudi_experience  != null  || $request->experience_to != null, function ($q) use ($request) {
             return $q->where('in_sa', $request->saudi_experience );
         });
