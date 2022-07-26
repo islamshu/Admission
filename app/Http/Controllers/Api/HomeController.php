@@ -89,7 +89,7 @@ class HomeController extends BaseController
         $camp->when($request->religion, function ($q) use ($request) {
             return $q->where('religion', $request->religion);
         });
-        $camp->when($request->admission_period != 0, function ($q) use ($request) {
+        $camp->when($request->admission_period == 1, function ($q) use ($request) {
             return $q->where('time','!=',null )->where('is_quick',0)->where('status','!=',0);
         });
         $camp->when($request->is_coocked != null, function ($q) use ($request) {
