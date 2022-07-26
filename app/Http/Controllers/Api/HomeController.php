@@ -83,8 +83,8 @@ class HomeController extends BaseController
         });
         
         $camp->when($request->admission_period ==1 , function ($q) use ($request) {
-            return $q->whereBetween('time',[$request->admission_period_from,$request->admission_period_to]);
-            dd($q->get());
+             $q->whereBetween('time',[$request->admission_period_from,$request->admission_period_to]);
+             return $q->get();
         });
         $camp->when($request->nationality_id, function ($q) use ($request) {
             return $q->where('nationality_id', $request->nationality_id);
