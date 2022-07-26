@@ -52,9 +52,9 @@ class NatonalityResource extends JsonResource
             return $q->whereBetween('experience', [$request->experience_from, $request->experience_to]);
         });
       
-        $camp->when($request->admission_period != 0 , function ($q) use ($request) {
-            if($request->admission_period_from || $request->admission_period_to){
-                return $q->whereBetween('is_quick',[$request->admission_period,$request->admission_period_to]);
+        $camp->when($request->admission_period , function ($q) use ($request) {
+            if($request->admission_period ==1){
+                return $q->where('status','!=',0)->whereBetween('time',[$request->admission_period_from,$request->admission_period_to]);
             }else{
                 return $q->where('is_quick',1);
             }
