@@ -89,13 +89,9 @@ class HomeController extends BaseController
         $camp->when($request->religion, function ($q) use ($request) {
             return $q->where('religion', $request->religion);
         });
-        $camp->when($request->admission_period , function ($q) use ($request) {
-            if($request->admission_period  == 1){
-             return   $q->where('is_quick',0)->where('status','!=',0)->whereBetween('time',array((int)$request->admission_period_from,(int)$request->admission_period_to));
-            }else{
-                return   $q->where('is_quick',1);
-            }
-       });
+        $camp->when($request->admission_period != 0, function ($q) use ($request) {
+            return $q->where('time','!=',null )->where('is_quick',0);
+        });
         $camp->when($request->is_coocked != null, function ($q) use ($request) {
             return $q->where('is_coocked', $request->is_coocked);
         });
