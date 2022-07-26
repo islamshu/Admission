@@ -82,17 +82,16 @@ class HomeController extends BaseController
             $q->where('status', 1)->where('deleted_at',null);
         });
         
-        $camp->when($request->admission_period ==1 , function ($q) use ($request) {
-             $q->whereBetween('time',[$request->admission_period_from,$request->admission_period_to]);
-             return $q->get();
-        });
+        
         $camp->when($request->nationality_id, function ($q) use ($request) {
             return $q->where('nationality_id', $request->nationality_id);
         });
         $camp->when($request->religion, function ($q) use ($request) {
             return $q->where('religion', $request->religion);
         });
-        
+        $camp->when($request->admission_period ==1 , function ($q) use ($request) {
+            $q->whereBetween('time',[$request->admission_period_from,$request->admission_period_to]);
+       });
         $camp->when($request->is_coocked != null, function ($q) use ($request) {
             return $q->where('is_coocked', $request->is_coocked);
         });
