@@ -105,6 +105,7 @@ class HomeController extends BaseController
         });
       
         $camp->when($request->admission_period ==1 , function ($q) use ($request) {
+            dd($request->admission_period);
             return $q->where('is_quick',0)->whereBetween('time',[$request->admission_period_from,$request->admission_period_to]);
         });
         $camp->when($request->saudi_experience  != null  || $request->experience_to != null, function ($q) use ($request) {
