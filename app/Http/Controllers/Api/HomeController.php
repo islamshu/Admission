@@ -91,10 +91,9 @@ class HomeController extends BaseController
         });
         $camp->when($request->admission_period , function ($q) use ($request) {
             if($request->admission_period  == 1){
-                dd((int)$request->admission_period_from,(int)$request->admission_period_to);
-                $q->where('status','!=',2)->whereBetween('time',array($request->admission_period_from,$request->admission_period_to));
+             return   $q->where('status','!=',2)->whereBetween('time',array((int)$request->admission_period_from,(int)$request->admission_period_to));
             }else{
-                $q->where('is_quick',1);
+                return   $q->where('is_quick',1);
             }
        });
         $camp->when($request->is_coocked != null, function ($q) use ($request) {
