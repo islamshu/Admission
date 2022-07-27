@@ -106,13 +106,15 @@
 					<td colspan="2">
 						<table>
 							<tr>
-								<td class="title">
-									<img src="https://workers.foryougo.net/uploads/general/PwsoWpkahkzTTiLtkFQRKzwOLPCKs1Uo7BTwjtt3.jpg" width="150" height="100"  />
-								</td>
-
 								<td>
 									{{ __('Order ID') }} : #{{ @$booking->order_id }}<br /><br /><br />
 									{{ __('Created at') }}: {{ $booking->created_at->format('Y-m-d') }}<br />
+								</td>
+								<td class="title">
+									<img src="https://workers.foryougo.net/uploads/general/PwsoWpkahkzTTiLtkFQRKzwOLPCKs1Uo7BTwjtt3.jpg" width="150" height="100"  />
+								</td>
+								<td class="title">
+									<img src="https://workers.foryougo.net/uploads/{{ @$booking->worker->image }}" width="150" height="100"  />
 								</td>
 							</tr>
 						</table>
@@ -177,9 +179,7 @@
 				<tr>
 					<td>    </td>
 
-					<td class="title">
-						<img src="https://workers.foryougo.net/uploads/{{ @$booking->worker->image }}" width="150" height="100"  />
-					</td>
+					
 
 					
 				</tr>
