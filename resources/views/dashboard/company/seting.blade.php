@@ -48,7 +48,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="userinput1">@lang('same Visa')</label>
-                                                <select class="form-control border-primary" class="is_same" name="is_same">
+                                                <select class="form-control border-primary" id="is_same" name="is_same">
                                                     <option value="" disabled>@lang('Choose')</option>
                                                     <option value="1" @if(auth()->user()->company->is_same == 1) selected @endif>@lang('yes')</option>
                                                     <option value="0" @if(auth()->user()->company->is_same == 2) selected @endif>@lang('no')</option>
@@ -91,7 +91,7 @@
 @endsection
 @section('script')
 <script>
-$('is_same').change(function() {
+$('#is_same').change(function() {
     var option = $(this).find('option:selected');
 
     //Added with the EDIT
