@@ -96,7 +96,15 @@ $('#is_same').change(function() {
 
     //Added with the EDIT
     var value = option.val(); //returns the value of the selected option.
-    alert(value)
+    if(value == 1){
+    $("#in_all_comapny").css("display", "block");
+    }else{
+        $("#in_all_comapny").val('0');
+        $("#in_all_comapny").css("display", "none");
+
+    }
+
+    
 
 });
 </script>
