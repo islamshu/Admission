@@ -190,6 +190,8 @@
         <i class="fa fa-bookmark"></i>
         <span class="menu-title" >@lang('Booking')</span></a>
         <ul class="menu-content" style="">
+          <li class="is-shown"><a class="menu-item" href="{{ route('setting_booked_get') }}" >@lang('setting')</a>
+          </li>
           <li class="is-shown"><a class="menu-item" href="{{ route('booking.get') }}" >@lang('Show All')</a>
           </li>
           
