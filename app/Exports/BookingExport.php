@@ -52,6 +52,8 @@ class BookingExport implements FromCollection, WithMapping, WithHeadings, Should
             'رقم الهوية الخاص بالعميل',
             'رقم الجواز او الاقامة',
             'صورة الفيزا',
+            'حالة الطلب ',
+
 
 
         ];
@@ -68,7 +70,8 @@ class BookingExport implements FromCollection, WithMapping, WithHeadings, Should
             booking_status($booking->status),
             $booking->id_number,
             $booking->visa_number,
-            asset('uploads/'.$booking->visa_image)
+            asset('uploads/'.$booking->visa_image),
+            $booking->deleted_at == null  ? 'لا' : 'نعم'
             
 
 
