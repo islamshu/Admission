@@ -305,7 +305,7 @@
                     }
                 });
             });
-            $('.js-change2').change(function() {
+            $('.change2').change(function() {
                 let is_same = $(this).prop('checked') === true ? 1 : 0;
                 let CompanyId = $(this).data('id');
                 $.ajax({
