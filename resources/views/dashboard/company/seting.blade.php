@@ -57,7 +57,7 @@
                                              
                                             </div>
                                         </div>
-                                        <div class="col-md-6" id="in_all_comapny" @if(auth()->user()->company->is_same == 0) style="display:none" @else style="display:block" @endif >
+                                        <div class="col-md-6" id="in_all_comapny" @if(auth()->user()->company->is_same == 0) style="display:block" @else style="display:none" @endif >
                                             <div class="form-group">
                                                 <label for="userinput1">@lang('all company or just my company')</label>
                                                 <select class="form-control border-primary" name="in_all_comapny">
