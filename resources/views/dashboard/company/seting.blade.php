@@ -91,10 +91,13 @@
 @endsection
 @section('script')
 <script>
-    $(document).on('change','.is_same' ,function(){
-        alert('dd')
+$('is_same').change(function() {
+    var option = $(this).find('option:selected');
 
-  var val = $('.is_same option:selected').val();
-})
+    //Added with the EDIT
+    var value = option.val(); //returns the value of the selected option.
+    alert(value)
+
+});
 </script>
 @endsection
