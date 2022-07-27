@@ -201,5 +201,7 @@
     "The request cannot be deleted because the request is accepted": "لا يمكنك حذف الطلب بعد قبوله !",
     "same Visa": "استخدام نفس رقم الفيزا",
     "all company or just my company": "التحقق على جميع المكاتب ام فقط المكتب الخاص فينا؟",
-    "setting": "اعدادت الحجز"
+    "setting": "اعدادت الحجز",
+    "all company": "جميع المكاتب",
+    "my company just": "فقط المكتب الخاص بنا"
 }

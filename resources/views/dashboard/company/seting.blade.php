@@ -62,8 +62,8 @@
                                                 <label for="userinput1">@lang('all company or just my company')</label>
                                                 <select class="form-control border-primary" name="in_all_comapny">
                                                     <option value="" disabled>@lang('Choose')</option>
-                                                    <option value="1" @if(auth()->user()->company->in_all_comapny == 1) selected @endif>@lang('yes')</option>
-                                                    <option value="0" @if(auth()->user()->company->in_all_comapny == 0) selected @endif>@lang('no')</option>
+                                                    <option value="1" @if(auth()->user()->company->in_all_comapny == 1) selected @endif>@lang('all company')</option>
+                                                    <option value="0" @if(auth()->user()->company->in_all_comapny == 0) selected @endif>@lang('my company just')</option>
 
                                                 </select>
                                              

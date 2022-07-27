@@ -356,10 +356,20 @@ class HomeController extends BaseController
 
         }
         // return($request);
+        
 
         $worker = Worker::find($request->worker_id);
+        $comapny = Company::find($worker->company_id);
        $status= worker_status_id_new($worker);
         if ($status == 1 ||  $status == 2) {
+            if($comapny->is_same != 0){
+                if($comapny->in_all_comapny == 0){
+                    $boo = Booking::where('user_id',auth('client_api')->id())
+                    ->where('company_id',$comapny->id)
+                    ->where('visa_number',$request->visa_number)
+                    ->first();
+                }
+            }
 
             $booking = new Booking();
             $booking->order_id = Carbon::now()->timestamp;
