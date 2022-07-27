@@ -51,7 +51,7 @@
                                                 <select class="form-control border-primary" class="is_same" name="is_same">
                                                     <option value="" disabled>@lang('Choose')</option>
                                                     <option value="1" @if(auth()->user()->company->is_same == 1) selected @endif>@lang('yes')</option>
-                                                    <option value="0" @if(auth()->user()->company->is_same == 2) selected>@lang('no')</option>
+                                                    <option value="0" @if(auth()->user()->company->is_same == 2) selected @endif>@lang('no')</option>
 
                                                 </select>
                                              
