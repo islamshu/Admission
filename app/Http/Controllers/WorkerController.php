@@ -67,6 +67,7 @@ class WorkerController extends Controller
                     $q->where('nationality_id', $request->nationality_id);
                 });
             });
+            dd($natonality);
 
             return view('dashboard.worker.index')->with('request', $request)->with('natonality', $natonality)->with('all_nat', $all_nat);
         }
