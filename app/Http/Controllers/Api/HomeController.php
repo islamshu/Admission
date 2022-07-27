@@ -369,11 +369,19 @@ class HomeController extends BaseController
                     ->where('visa_number',$request->visa_number)
                     ->where('status','!=',0)
                     ->first();
+                    if($boo){
+                        return $this->sendErrornew(trans('you cant use the same visa number'));
+                    }
+                }else{
+                    $boo = Booking::where('user_id',auth('client_api')->id())
+                    ->where('visa_number',$request->visa_number)
+                    ->where('status','!=',0)
+                    ->first();
+                    if($boo){
+                        return $this->sendErrornew(trans('you cant use the same visa number'));
+                    }  
                 }
-                if($boo){
-                    return $this->sendErrornew(trans('you cant use the same visa number'));
-
-                }
+                
             }
 
             $booking = new Booking();
