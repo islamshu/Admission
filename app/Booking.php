@@ -16,7 +16,7 @@ class Booking extends Model
      */
     public function worker()
     {
-        return $this->belongsTo(Worker::class, 'worker_id');
+        return $this->belongsTo(Worker::class, 'worker_id')->withTrashed();
     }
     public function comapny()
     {
