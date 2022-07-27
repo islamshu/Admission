@@ -199,7 +199,9 @@
     "yes": "نعم",
     "Number Of busy order": "عدد الحجوزات المعلقة",
     "The request cannot be deleted because the request is accepted": "لا يمكنك حذف الطلب بعد قبوله !",
-    "same Visa": "استخدام نفس رقم الفيزا"
+    "same Visa": "استخدام نفس رقم الفيزا",
+    "all company or just my company": "التحقق على جميع المكاتب ام فقط المكتب الخاص فينا"
+
 
 
 }

@@ -118,6 +118,15 @@ class CompanyController extends Controller
     
         return response()->json(['message' => 'company  updated successfully.']);
     }
+    public function setting_booked(Request $request){
+        $company = auth()->user()->company;
+        $company->is_same = $request->is_same;
+        $company->in_all_comapny = $request->in_all_comapny;
+        $company->save();
+
+        return redirect()->back()->with(['success'=>trans('Updated successfully')]);
+
+    }
     public function store(Request $request)
     {   
         $request->validate([
