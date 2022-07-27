@@ -52,7 +52,7 @@ Route::get('booking/export/', 'BookingController@export')->name('booking.export'
 Route::get('wrokers/pdf/', 'WorkerController@downloadPDF')->name('pdf');
 Route::get('pdf_booking/', 'BookingController@downloadPDF')->name('pdf_booking');
 Route::get('pdf_worker/{id}/', 'WorkerController@get_one_pdf')->name('get_one_pdf');
-Route::get('setting_booked/', 'WorkerController@setting_booked_get')->name('setting_booked_get');
+Route::get('setting_booked/', 'CompanyController@setting_booked_get')->name('setting_booked_get');
 Route::post('setting_booked/', 'CompanyController@setting_booked')->name('company.setting');
 
 
