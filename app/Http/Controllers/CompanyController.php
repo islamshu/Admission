@@ -118,6 +118,9 @@ class CompanyController extends Controller
     
         return response()->json(['message' => 'company  updated successfully.']);
     }
+    public function setting_booked_get(){
+        return view('dashboard.company.seting');
+    }
     public function setting_booked(Request $request){
         $company = auth()->user()->company;
         $company->is_same = $request->is_same;
