@@ -89,3 +89,11 @@
     </section>
 
 @endsection
+@section('script')
+<script>
+    $(document).on('change','.is_same' ,function(){
+  var val = $('.is_same option:selected').val();
+ alert(val)
+})
+</script>
+@endsection
