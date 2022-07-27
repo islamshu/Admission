@@ -71,7 +71,7 @@ class BookingExport implements FromCollection, WithMapping, WithHeadings, Should
             $booking->id_number,
             $booking->visa_number,
             asset('uploads/'.$booking->visa_image),
-            $booking->deleted_at == null  ? 'لا' : 'نعم'
+            $booking->deleted_at
             
 
 
