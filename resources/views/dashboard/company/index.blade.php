@@ -81,7 +81,7 @@
                                                 </td>
                                                 <td>
                                                     <input type="checkbox" data-id="{{ $company->id }}" name="status"
-                                                        class="js-switch" {{ $company->status == 1 ? 'checked' : '' }}>
+                                                        class="js-switch change1" {{ $company->status == 1 ? 'checked' : '' }}>
                                                 </td>
                                                 <td>
                                                     <input type="checkbox" data-id="{{ $company->id }}" name="change2"
@@ -286,7 +286,7 @@
 @section('script')
     <script>
         $(document).ready(function() {
-            $('.js-switch').change(function() {
+            $('.change1').change(function() {
                 let status = $(this).prop('checked') === true ? 1 : 0;
                 let CompanyId = $(this).data('id');
                 $.ajax({
