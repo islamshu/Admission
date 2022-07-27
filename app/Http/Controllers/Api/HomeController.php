@@ -367,7 +367,12 @@ class HomeController extends BaseController
                     $boo = Booking::where('user_id',auth('client_api')->id())
                     ->where('company_id',$comapny->id)
                     ->where('visa_number',$request->visa_number)
+                    ->where('status','!=',0)
                     ->first();
+                }
+                if($boo){
+                    return $this->sendErrornew(trans('you cant use the same visa number'));
+
                 }
             }
 
