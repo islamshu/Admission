@@ -92,8 +92,9 @@
 @section('script')
 <script>
     $(document).on('change','.is_same' ,function(){
+        alert('dd')
+
   var val = $('.is_same option:selected').val();
- alert(val)
 })
 </script>
 @endsection
