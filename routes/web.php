@@ -53,13 +53,6 @@ Route::get('wrokers/pdf/', 'WorkerController@downloadPDF')->name('pdf');
 Route::get('pdf_booking/', 'BookingController@downloadPDF')->name('pdf_booking');
 Route::get('pdf_worker/{id}/', 'WorkerController@get_one_pdf')->name('get_one_pdf');
 Route::get('updateStatusWorker/', 'WorkerController@updateStatus')->name('worker.update.status');
-
-
-
-
-
-
-
 });
 
 Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
@@ -68,13 +61,15 @@ Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
     // Route::resource('users','UserController');
     Route::resource('country','CountryController');
     Route::get('clients','UserController@clients')->name('clients.index');
-
     Route::resource('nationalities','NationalityController');
     Route::post('get_natonlity_edit','NationalityController@get_natonlity_edit')->name('get_natonlity_edit');
     Route::resource('companies','CompanyController');
     Route::post('companies','CompanyController@store_admin')->name('companies.store_admin');
     Route::post('get_compnay_edit','CompanyController@get_compnay_edit')->name('get_compnay_edit');
     Route::get('comapny/status/update', 'CompanyController@updateStatus')->name('comapny.update.status');
+    Route::get('comapny/status/is_same', 'CompanyController@updatesame')->name('comapny.update.is_same');
+
+    
     Route::get('social_info','SocialController@index')->name('social_info'); 
     Route::post('social_info_post','SocialController@store')->name('social_info_post'); 
     Route::get('privacy','PrivacyController@index')->name('privacy.index');
@@ -97,14 +92,8 @@ Route::group(['middleware' =>['role:Admin'],'prefix'=>'dashbaord'], function() {
     Route::post('clients/store','UserController@store_client')->name('client_create.store_client');
     Route::get('clients/edit/{id}','UserController@edit_client')->name('client_create.edit_client');
     Route::post('clients/update/{id}','UserController@update_client')->name('client_create.update_client');
-    Route::delete('clients/delete/{id}','UserController@delete_client')->name('client_create.delete_client');
+    Route::delete('clients/delete/{id}','UserController@delete_client')->name('client_create.delete_client');   
 
-    
-    
-   
-
-    
-    
 });
 Route::get('login','UserController@show_login_form')->name('get_login');
 Route::post('regiser_company','CompanyController@store')->name('post_register');

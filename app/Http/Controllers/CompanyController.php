@@ -111,6 +111,13 @@ class CompanyController extends Controller
         return redirect()->back()->with(['error'=>trans('Something went wrong')]);
     }
     }
+    public function updatesame(Request $request){
+        $user = Company::findOrFail($request->company_id);
+        $user->is_same = $request->is_same;
+        $user->save();
+    
+        return response()->json(['message' => 'company  updated successfully.']);
+    }
     public function store(Request $request)
     {   
         $request->validate([

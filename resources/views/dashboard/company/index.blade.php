@@ -59,6 +59,7 @@
                                             <th>@lang('Phone')</th>
                                             <th>@lang('Is verify')</th>
                                             <th>@lang('Status')</th>
+                                            <th>@lang('same Visa')</th>
                                             <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
@@ -81,6 +82,10 @@
                                                 <td>
                                                     <input type="checkbox" data-id="{{ $company->id }}" name="status"
                                                         class="js-switch" {{ $company->status == 1 ? 'checked' : '' }}>
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" data-id="{{ $company->id }}" name="change2"
+                                                        class="js-switch change2" {{ $company->is_same == 1 ? 'checked' : '' }}>
                                                 </td>
 
 
@@ -300,6 +305,27 @@
                     }
                 });
             });
+            $('.js-change2').change(function() {
+                let is_same = $(this).prop('checked') === true ? 1 : 0;
+                let CompanyId = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: '{{ route('comapny.update.is_same') }}',
+                    data: {
+                        'is_same': is_same,
+                        'company_id': CompanyId
+                    },
+                    success: function(data) {
+                    toastr.options.closeButton = true;
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeDuration = 100;
+                    toastr.success('{{ __('Status updated Successfully') }}');
+                    }
+                });
+            });
+
+            
         });
     </script>
     <script>
